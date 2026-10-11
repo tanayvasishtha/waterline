@@ -15,6 +15,8 @@ import cv2
 import numpy as np
 
 from waterline import sites
+from waterline.agent.loop import run_frame
+from waterline.agent.tools import FrameNavigator
 from waterline.models import FrameRef, SiteConfig
 from waterline.pipeline import Perception, read_frame
 from waterline.plate import rectify
@@ -43,6 +45,9 @@ class FrameRow(TypedDict):
     plate_visibility: float
     is_night: bool
     gate_pass: bool
+    agent_stage_ft: float | None
+    agent_status: str | None
+    agent_steps: int | None
 
 
 def frame_list(
@@ -62,6 +67,7 @@ def run_window(
     ctx: Perception,
     frames: list[FrameRef],
     cache: Path,
+    nav: FrameNavigator | None = None,
 ) -> list[FrameRow]:
     """Read each frame, attach the nearest gage truth, return raw per-frame rows."""
     client = make_client()
@@ -75,7 +81,15 @@ def run_window(
         if image is None:
             continue
         gage_ft = gage.nearest(truth, ref.time, max_gap=timedelta(minutes=10))
-        result = read_frame(ctx, image, ref.time, seed=i)
+        if nav is not None:
+            agent_reading, trace = run_frame(ctx, image, ref, nav)
+            result = read_frame(ctx, image, ref.time, seed=i)
+            agent_status = agent_reading.status
+            agent_stage = agent_reading.stage_ft
+        else:
+            result = read_frame(ctx, image, ref.time, seed=i)
+            agent_status = None
+            agent_stage = None
         rows.append(
             {
                 "file": ref.filename,
@@ -95,6 +109,9 @@ def run_window(
                 "plate_visibility": round(result.quality.plate_visibility, 1),
                 "is_night": result.quality.is_night,
                 "gate_pass": quality_ok(result.quality, ctx.settings),
+                "agent_stage_ft": agent_stage,
+                "agent_status": agent_status,
+                "agent_steps": None if nav is None else len(trace.steps),
             }
         )
     return rows
@@ -112,6 +129,35 @@ def fit_offset(rows: list[FrameRow]) -> dict[str, object]:
 
 def _summarize_slice(rows: list[FrameRow]) -> dict[str, object]:
     """Single-pass baseline: rows failing the triage gate count as abstained."""
+    agent = _agent_summary(rows)
+    out = _slice(rows)
+    if agent:
+        out["agent"] = agent
+    return out
+
+
+def _agent_summary(rows: list[FrameRow]) -> dict[str, object] | None:
+    ar = [r for r in rows if r["agent_status"] is not None]
+    if not ar:
+        return None
+    read = [
+        (r["agent_stage_ft"], r["gage_ft"], r["sigma_ft"])
+        for r in ar
+        if r["agent_stage_ft"] is not None and r["gage_ft"] is not None
+    ]
+    errors = np.array([a - g for a, g, _ in read if a is not None and g is not None])
+    return {
+        "accepted": sum(1 for r in ar if r["agent_status"] == "accepted"),
+        "below_range": sum(1 for r in ar if r["agent_status"] == "below_range"),
+        "abstained": sum(1 for r in ar if r["agent_status"] == "abstained"),
+        "pending": sum(1 for r in ar if r["agent_status"] == "pending"),
+        "read": len(read),
+        "mae_ft": float(np.abs(errors).mean()) if read else None,
+        "avg_steps": float(np.mean([r["agent_steps"] or 0 for r in ar])),
+    }
+
+
+def _slice(rows: list[FrameRow]) -> dict[str, object]:
     gated = [r for r in rows if r["gate_pass"]]
     read = [
         (r["stage_ft"], r["gage_ft"], r["sigma_ft"])
@@ -165,14 +211,21 @@ def make_perception(site: SiteConfig, settings: Settings) -> Perception:
     return Perception(site, settings, bank, ref_strip)
 
 
-def _run(site_id: str, start: str, end: str, every_n: int, label: str) -> dict[str, object]:
+def _run(
+    site_id: str, start: str, end: str, every_n: int, *, label: str, agent: bool
+) -> dict[str, object]:
     settings = Settings()
     site = sites.load_site(site_id)
     ctx = make_perception(site, settings)
     start_dt = datetime.fromisoformat(start).replace(tzinfo=UTC)
     end_dt = datetime.fromisoformat(end).replace(tzinfo=UTC)
     frames = frame_list(site, start_dt, end_dt, every_n)
-    rows = run_window(ctx, frames, Path("data/cache"))
+    nav = None
+    if agent:
+        client = make_client()
+        camera = {c.cam_id: c for c in nims.list_cameras(client)}[site.cam_id]
+        nav = FrameNavigator(camera, Path("data/cache"))
+    rows = run_window(ctx, frames, Path("data/cache"), nav)
     write_rows(rows, Path("results") / f"{label}_{site_id}_{start_dt.date()}_{end_dt.date()}.csv")
     report: dict[str, object] = {
         "site": site_id,
@@ -186,8 +239,10 @@ def _run(site_id: str, start: str, end: str, every_n: int, label: str) -> dict[s
 
 
 def run_calibrate(site_id: str, start: str, end: str, every_n: int = 6) -> dict[str, object]:
-    return _run(site_id, start, end, every_n, "calib")
+    return _run(site_id, start, end, every_n, label="calib", agent=False)
 
 
-def run_eval(site_id: str, start: str, end: str, every_n: int = 1) -> dict[str, object]:
-    return _run(site_id, start, end, every_n, "eval")
+def run_eval(
+    site_id: str, start: str, end: str, every_n: int = 1, agent: bool = False
+) -> dict[str, object]:
+    return _run(site_id, start, end, every_n, label="eval", agent=agent)

@@ -25,6 +25,9 @@ def _row(stage: float | None, gage: float | None, **kw: object) -> FrameRow:
         "plate_visibility": 40.0,
         "is_night": bool(kw.get("is_night", False)),
         "gate_pass": bool(kw.get("gate_pass", True)),
+        "agent_stage_ft": None,
+        "agent_status": None,
+        "agent_steps": None,
     }
     return row
 
