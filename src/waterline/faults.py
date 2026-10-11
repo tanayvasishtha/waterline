@@ -20,6 +20,7 @@ from waterline.settings import Settings
 
 SEED = 20261026
 TRIALS_PER_TYPE = 20
+DETECTION_WINDOW_ROWS = 24
 
 FaultType = Literal["drift", "stuck", "step", "spike"]
 FAULT_TYPES: tuple[FaultType, ...] = ("drift", "stuck", "step", "spike")
@@ -126,29 +127,36 @@ def run_faults(
     settings = settings or Settings()
     n = len(rows)
     rng = np.random.default_rng(SEED)
+    flags = collect(site_id, rows, settings)
+    clean = {(i, f.event_type) for i, f in flags}
     faults: dict[str, object] = {}
     for kind in FAULT_TYPES:
         detected = 0
+        detected_any = 0
         matched = 0
         delays: list[float] = []
         pre_onset = 0
         for _ in range(TRIALS_PER_TYPE):
             i0 = int(rng.integers(n // 4, 3 * n // 4))
-            flags = collect(site_id, inject(rows, kind, i0), settings)
-            pre_onset += sum(1 for i, _ in flags if i < i0)
-            post = [(i, f) for i, f in flags if i >= i0]
+            trial = collect(site_id, inject(rows, kind, i0), settings)
+            trial = [(i, f) for i, f in trial if (i, f.event_type) not in clean]
+            pre_onset += sum(1 for i, _ in trial if i < i0)
+            post = [(i, f) for i, f in trial if i >= i0]
             if post:
-                i, flag = post[0]
+                detected_any += 1
+            windowed = [(i, f) for i, f in post if i <= i0 + DETECTION_WINDOW_ROWS]
+            if windowed:
+                i, flag = windowed[0]
                 detected += 1
                 matched += int(flag.event_type == kind)
                 delays.append((rows[i].time - rows[i0].time).total_seconds() / 3600)
         faults[kind] = {
             "recall": detected / TRIALS_PER_TYPE,
+            "recall_any": detected_any / TRIALS_PER_TYPE,
             "type_match": (matched / detected) if detected else None,
             "median_delay_h": float(np.median(delays)) if delays else None,
             "pre_onset_flags": pre_onset,
         }
-    flags = collect(site_id, rows, settings)
     by_type = {k: sum(1 for _, f in flags if f.event_type == k) for k in FAULT_TYPES}
     span_days = (rows[-1].time - rows[0].time).total_seconds() / 86400
     return {
@@ -156,6 +164,7 @@ def run_faults(
         "seed": SEED,
         "trials_per_type": TRIALS_PER_TYPE,
         "n_frames": n,
+        "detection_window_rows": DETECTION_WINDOW_ROWS,
         "clean": {
             "flags": len(flags),
             "by_type": by_type,

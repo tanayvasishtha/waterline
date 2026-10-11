@@ -11,7 +11,6 @@ a camera that is dark, blurred or below range cannot testify either way.
 import math
 from dataclasses import dataclass, field
 from datetime import datetime
-from statistics import median
 from typing import Literal
 
 from waterline.settings import Settings
@@ -110,12 +109,17 @@ class FaultTracker:
         cams = [o for o in h if o.camera_ft is not None and o.sigma_ft is not None]
         if len(cams) < 2:
             return None
-        cam_vals = [o.camera_ft for o in cams if o.camera_ft is not None]
-        spread = max(cam_vals) - min(cam_vals)
-        med = median([o.sigma_ft for o in cams if o.sigma_ft is not None])
-        last = h[-1]
-        if spread <= settings.stuck_camera_z * med:
+        first, last_cam = cams[0], cams[-1]
+        assert (
+            first.camera_ft is not None
+            and first.sigma_ft is not None
+            and last_cam.camera_ft is not None
+            and last_cam.sigma_ft is not None
+        )
+        s = math.sqrt(first.sigma_ft**2 + last_cam.sigma_ft**2)
+        if abs(last_cam.camera_ft - first.camera_ft) <= settings.stuck_camera_z * s:
             return None
+        last = h[-1]
         return FaultEvent(
             kind="stuck",
             time=last.time,

@@ -41,3 +41,15 @@ def test_step_injection_fires_at_onset() -> None:
 def test_clean_flat_series_flags_nothing() -> None:
     flags = collect("t", _rows(12), Settings())
     assert flags == []
+
+
+def test_clean_flags_do_not_count_as_detections() -> None:
+    # flat series whose last row jumps +0.9 ft: the clean run flags a step at
+    # index 15. The injected drift (0.005 ft per 15 min) is far too small to
+    # trigger anything else, so every detection would be that masked flag.
+    rows = _rows(16)
+    rows[15].gage_ft = 10.9
+    report = run_faults("t", rows)
+    drift = report["faults"]["drift"]
+    assert drift["recall"] == 0.0
+    assert drift["recall_any"] == 0.0

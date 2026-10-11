@@ -3,6 +3,7 @@
   "seed": 20261026,
   "trials_per_type": 20,
   "n_frames": 37,
+  "detection_window_rows": 24,
   "clean": {
     "flags": 1,
     "by_type": {
@@ -16,26 +17,30 @@
   "faults": {
     "drift": {
       "recall": 1.0,
+      "recall_any": 1.0,
       "type_match": 1.0,
-      "median_delay_h": 22.001805555555556,
+      "median_delay_h": 25.000833333333333,
       "pre_onset_flags": 0
     },
     "stuck": {
       "recall": 1.0,
-      "type_match": 0.1,
-      "median_delay_h": 12.998611111111112,
+      "recall_any": 1.0,
+      "type_match": 0.0,
+      "median_delay_h": 16.999444444444446,
       "pre_onset_flags": 0
     },
     "step": {
       "recall": 1.0,
+      "recall_any": 1.0,
       "type_match": 0.25,
       "median_delay_h": 14.9975,
       "pre_onset_flags": 0
     },
     "spike": {
-      "recall": 1.0,
-      "type_match": 0.65,
-      "median_delay_h": 0.9998611111111111,
+      "recall": 0.95,
+      "recall_any": 0.95,
+      "type_match": 0.6842105263157895,
+      "median_delay_h": 0.0,
       "pre_onset_flags": 0
     }
   }

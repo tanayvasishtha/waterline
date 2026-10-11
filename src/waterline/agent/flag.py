@@ -80,8 +80,8 @@ def _draft(ev: FaultEvent) -> str:
     if ev.kind == "stuck":
         return (
             f"The gage repeated the same value for {ev.persistence_frames} "
-            "consecutive frames while the camera's reads moved beyond their "
-            f"noise band. Gage: {g}. Camera: {c}. "
+            "consecutive frames while the camera's reads moved by more than "
+            f"3 combined sigmas. Gage: {g}. Camera: {c}. "
             "Suspect a frozen or disconnected sensor."
         )
     if ev.kind == "step":

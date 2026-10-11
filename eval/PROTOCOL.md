@@ -130,3 +130,14 @@ None of these values was tuned on a test window. Because the trigger for this ch
 on a test window, the clean-replay false-flag count on that window is reported, but it
 is not an independent estimate. Agent results are now written to their own files
 (eval_agent_*) because an earlier agent run had been overwritten by a baseline rerun.
+
+## Amendment 3b (2026-10-11): scoring and stuck-rule corrections
+
+Two defects were found in review before any fault result was reported. First, the
+fault harness counted a flag that also appears on the clean, uninjected series as a
+detection of the injected fault. Detections now exclude any flag whose frame index and
+type match a clean-run flag, and recall is reported within 24 frames of onset as well
+as at any later frame. Second, the stuck rule confirmed a frozen gage when the camera's
+spread over four frames exceeded 2 sigma, which ordinary noise does about half the
+time. It now requires the camera's first-to-last change over the window to exceed
+3 combined sigmas, the same test the step rule uses.

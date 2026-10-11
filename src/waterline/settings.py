@@ -51,7 +51,7 @@ class Settings(BaseModel):
     step_z: float = Field(3.0, description="3 combined sigmas")
     stuck_frames: int = Field(4, description="identical gage values needed before a stuck check")
     stuck_camera_z: float = Field(
-        2.0, description="camera spread in median sigmas needed to confirm a stuck gage"
+        3.0, description="camera trend over the stuck window exceeds 3 combined sigmas"
     )
     spike_min_ft: float = Field(
         0.93,

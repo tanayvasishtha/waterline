@@ -133,8 +133,21 @@ def test_stuck_needs_camera_confirmation() -> None:
 
 def test_stuck_fires_when_camera_moves() -> None:
     t = FaultTracker()
-    events = [t.feed(_obs(i, 10.0, 10.0 + 0.2 * i), S) for i in range(4)]
+    cams = [10.0, 10.3, 10.7, 11.0]  # trend 1.0 ft > 3 combined sigmas
+    events = [t.feed(_obs(i, 10.0, cams[i]), S) for i in range(4)]
     assert events[-1] is not None and events[-1].kind == "stuck"
+
+
+def test_stuck_ignores_camera_jitter() -> None:
+    rng = np.random.default_rng(11)
+    fires = 0
+    for _ in range(1000):
+        t = FaultTracker()
+        ev = None
+        for i, v in enumerate(rng.normal(0, 0.2, 4)):
+            ev = t.feed(_obs(i, 10.0, 10.0 + float(v), 0.2), S) or ev
+        fires += int(ev is not None)
+    assert fires / 1000 < 0.05
 
 
 def test_cusum_fires_on_one_sigma_shift_not_noise() -> None:
@@ -166,7 +179,7 @@ def test_spike_flags_the_reversed_frame() -> None:
 
 def test_suppression_and_rearm() -> None:
     t = FaultTracker()
-    cam = iter(10.0 + 0.2 * i for i in range(20))
+    cam = iter(10.0 + 0.4 * i for i in range(20))
     gage_seq = [10.0] * 6 + [10.6] + [11.0] * 6
     events = [t.feed(_obs(i, gage_seq[i], next(cam)), S) for i in range(13)]
     kinds = [i for i, e in enumerate(events) if e is not None and e.kind == "stuck"]
