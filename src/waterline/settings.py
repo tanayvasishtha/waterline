@@ -34,7 +34,7 @@ class Settings(BaseModel):
     # Waterline detection
     changepoint_min_segment_px: int = Field(40, description="a third of a foot at the target scale")
     detect_min_contrast: float = Field(0.8, description="below this, call it no boundary")
-    plate_visibility_min: float = Field(5.0, description="tick SNR below this is unreadable")
+    plate_visibility_min: float = Field(3.0, description="tick SNR below this is unreadable")
     sigma_floor_ft: float = Field(0.05, description="tick spacing limits precision to about this")
     accept_sigma_ft: float = Field(0.25, description="calibration: wider readings escalate")
 

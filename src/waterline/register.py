@@ -91,7 +91,11 @@ def _match(frame_desc: np.ndarray, ref_desc: np.ndarray, ratio: float) -> list[c
 
 
 def register(
-    frame: np.ndarray, site: SiteConfig, bank: RefBank, settings: Settings
+    frame: np.ndarray,
+    site: SiteConfig,
+    bank: RefBank,
+    settings: Settings,
+    exclude: frozenset[str] = frozenset(),
 ) -> Registration | None:
     """Homography from frame pixels into the best-matching reference, or None."""
     h, w = frame.shape[:2]
@@ -101,6 +105,8 @@ def register(
 
     best: Registration | None = None
     for ref_name, (ref_kps, ref_desc, ref_size) in bank.descriptors.items():
+        if ref_name in exclude:
+            continue
         matches = _match(frame_desc, ref_desc, settings.ratio_test)
         if len(matches) < settings.min_inliers:
             continue

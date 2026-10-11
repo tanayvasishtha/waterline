@@ -40,13 +40,15 @@ def read_frame(
     image: np.ndarray,
     frame_time: datetime,
     enhance_op: str | None = None,
+    *,
     seed: int = 0,
+    exclude_refs: frozenset[str] = frozenset(),
 ) -> FrameResult:
     site, settings, bank = ctx.site, ctx.settings, ctx.bank
     if enhance_op:
         image = enhance.apply_op(image, enhance_op)
 
-    registration = register(image, site, bank, settings)
+    registration = register(image, site, bank, settings, exclude_refs)
     if registration is None:
         return FrameResult(
             reading=Reading(

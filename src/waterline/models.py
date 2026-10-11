@@ -1,6 +1,7 @@
 """Typed records passed between modules, stored, and returned by the API."""
 
 from datetime import datetime
+from enum import StrEnum
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -61,7 +62,7 @@ class QualityReport(_Frozen):
     shift_px: float
 
 
-ReadingStatus = Literal["accepted", "abstained", "pending"]
+ReadingStatus = Literal["accepted", "abstained", "pending", "below_range"]
 
 
 class Reading(_Frozen):
@@ -93,12 +94,54 @@ FlagStatus = Literal["open", "approved", "dismissed"]
 
 
 class Flag(_Frozen):
+    """A verified camera-vs-sensor disagreement for human review. The auditable product."""
+
     id: str
     site_id: str
     opened_at: datetime
+    latest_seen: datetime | None = None
+    event_type: Literal["drift", "stuck", "step", "spike", "disagreement"] = "disagreement"
+    severity: Literal["watch", "alert"] = "watch"
     residual_ft: float
+    gage_ft: float | None = None
+    camera_stage_ft: float | None = None
+    camera_sigma_ft: float | None = None
+    persistence_frames: int = 0
     evidence_frames: list[str]
     draft_text: str
+    trace_id: str | None = None
     status: FlagStatus = "open"
     reviewer: str | None = None
     note: str | None = None
+
+
+class AgentAction(StrEnum):
+    """One step the agent may take. Terminal states are not actions."""
+
+    ENHANCE_CLAHE = "enhance_clahe"
+    ENHANCE_GAMMA = "enhance_gamma"
+    MASK_GLARE = "mask_glare"
+    ALT_REFERENCE = "alt_reference"
+    FETCH_PREV = "fetch_prev"
+    FETCH_NEXT = "fetch_next"
+    ACCEPT = "accept"
+    ABSTAIN = "abstain"
+    HUMAN_REVIEW = "human_review"
+
+
+class Trace(BaseModel):
+    """The full record of one frame's agentic run -- the audit artifact."""
+
+    trace_id: str
+    site_id: str
+    frame_time: datetime
+    frame_file: str
+    started_at: datetime
+    finished_at: datetime
+    steps: list[AgentStep]
+    final_status: str
+    final_stage_ft: float | None
+    final_sigma_ft: float | None
+    reason: str | None
+    policy: Literal["deterministic", "llm", "llm_fallback"]
+    llm_calls: int = 0

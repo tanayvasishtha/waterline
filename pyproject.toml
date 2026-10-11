@@ -51,6 +51,7 @@ addopts = "-q"
 
 [dependency-groups]
 dev = [
+    "boto3-stubs[bedrock-runtime]>=1.43.108",
     "mypy",
     "pytest",
     "ruff",
