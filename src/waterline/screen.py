@@ -68,7 +68,8 @@ def _interval_min(frames: list[FrameRef]) -> float:
 
 
 def score_one(client: httpx.Client, camera: nims.CameraInfo, now: datetime) -> SiteScore | None:
-    assert camera.nwis_id is not None
+    if camera.nwis_id is None:
+        return None
     recent = nims.list_frames(client, camera, limit=3, newest_first=True)
     interval = _interval_min(sorted(recent, key=lambda f: f.time))
     if interval > MAX_INTERVAL_MIN:
@@ -86,7 +87,7 @@ def score_one(client: httpx.Client, camera: nims.CameraInfo, now: datetime) -> S
     score = (
         0.55 * min(span / 6.0, 1.0)
         + 0.35 * min(events / 6.0, 1.0)
-        + 0.10 * (15 / interval if interval else 0)
+        + 0.10 * (min(15 / interval, 1.0) if interval else 0.0)
     )
     return SiteScore(camera.cam_id, camera.nwis_id, camera.name, span, events, interval, score)
 
