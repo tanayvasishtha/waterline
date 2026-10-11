@@ -17,7 +17,7 @@ TIMEOUT_S = 60.0
 RETRIES = 3
 RATE_LIMIT_RETRIES = 3
 MIN_REQUEST_GAP_S = 0.35
-_last_request = 0.0
+_last_request = [0.0]
 
 
 class UsgsError(RuntimeError):
@@ -43,11 +43,10 @@ def _describe(error: httpx.HTTPError) -> str:
 
 
 def _throttle() -> None:
-    global _last_request
-    gap = MIN_REQUEST_GAP_S - (time.monotonic() - _last_request)
+    gap = MIN_REQUEST_GAP_S - (time.monotonic() - _last_request[0])
     if gap > 0:
         time.sleep(gap)
-    _last_request = time.monotonic()
+    _last_request[0] = time.monotonic()
 
 
 def _get(client: httpx.Client, url: str, params: dict[str, str] | None) -> httpx.Response:
