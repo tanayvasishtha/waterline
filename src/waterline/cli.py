@@ -3,7 +3,7 @@
 import argparse
 from pathlib import Path
 
-from waterline import __version__, fixtures, screen
+from waterline import __version__, fixtures, screen, web
 from waterline import eval as ev
 from waterline.poller import poll_site
 
@@ -30,6 +30,11 @@ def _cmd_replay_record(args: argparse.Namespace) -> int:
 
 def _cmd_calibrate(args: argparse.Namespace) -> int:
     ev.run_calibrate(args.site, args.start, args.end, args.every)
+    return 0
+
+
+def _cmd_web(args: argparse.Namespace) -> int:
+    web.serve(args.port)
     return 0
 
 
@@ -77,6 +82,10 @@ def main(argv: list[str] | None = None) -> int:
     p_poll = sub.add_parser("poll", help="one monitoring tick per site")
     p_poll.add_argument("--sites", nargs="+", default=["hancock"])
     p_poll.set_defaults(func=_cmd_poll)
+
+    p_web = sub.add_parser("web", help="serve the dashboard")
+    p_web.add_argument("--port", type=int, default=8000)
+    p_web.set_defaults(func=_cmd_web)
 
     args = parser.parse_args(argv)
     return int(args.func(args))

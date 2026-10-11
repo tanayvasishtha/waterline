@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Waterline — camera gauge monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --enamel:#f6f4ee; --paper:#fdfcf8; --ink:#16181b; --ink2:#5c6167;
+  --gauge-red:#c8341e; --river:#0e7c86; --gage:#1d4ed8; --line:#d9d5c9;
+  --warn:#b45309;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--enamel);color:var(--ink);font:14px/1.45 "IBM Plex Sans",sans-serif;
+  display:grid;grid-template-columns:88px 1fr;min-height:100vh}
+.rail{background:var(--ink);position:relative;overflow:hidden;user-select:none}
+.rail .ticks{position:absolute;inset:0}
+.rail .ft{position:absolute;left:34px;color:var(--enamel);font:500 11px/1 "IBM Plex Mono",monospace}
+.rail .mark{position:absolute;left:0;width:30px;background:var(--enamel)}
+.rail .mark.maj{height:14px}
+.rail .mark.min{height:6px;width:20px}
+main{padding:28px 32px 48px;max-width:1280px}
+header{display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:14px}
+h1{font:700 26px/1 "IBM Plex Sans";letter-spacing:-0.5px}
+h1 .wl{color:var(--river)}
+.sub{color:var(--ink2);font-size:13px}
+.sites{margin-left:auto;display:flex;gap:6px}
+.sites button{font:500 12px "IBM Plex Mono",monospace;padding:6px 12px;border:1px solid var(--ink);
+  background:var(--paper);cursor:pointer}
+.sites button.on{background:var(--ink);color:var(--enamel)}
+.grid{display:grid;grid-template-columns:1.7fr 1fr;gap:22px;margin-top:22px}
+.panel{background:var(--paper);border:1px solid var(--line)}
+.panel h2{font:600 11px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--ink2);
+  padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.panel h2 .r{font-weight:400}
+canvas#chart{display:block;width:100%;height:340px}
+.legend{display:flex;gap:16px;padding:8px 14px;font:500 11px "IBM Plex Mono",monospace;color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:-1px}
+.latest img{display:block;width:100%}
+.latest .cap{font:500 11px "IBM Plex Mono",monospace;color:var(--ink2);padding:8px 12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:22px;border:1px solid var(--line)}
+.stat{background:var(--paper);padding:12px 14px}
+.stat .v{font:600 22px/1.1 "IBM Plex Mono",monospace}
+.stat .l{font:500 10px "IBM Plex Mono",monospace;color:var(--ink2);letter-spacing:.06em;margin-top:4px}
+.stat .v.red{color:var(--gauge-red)}
+.stat .v.river{color:var(--river)}
+ul.flags{list-style:none}
+ul.flags li{border-bottom:1px solid var(--line);padding:11px 14px}
+ul.flags .t{font:600 12px "IBM Plex Mono",monospace;color:var(--gauge-red)}
+ul.flags .d{font-size:12.5px;color:var(--ink);margin-top:3px}
+ul.flags .m{font:400 10.5px "IBM Plex Mono",monospace;color:var(--ink2);margin-top:4px}
+ul.flags li.none{color:var(--ink2);font-size:12.5px}
+ul.traces{list-style:none;max-height:280px;overflow:auto}
+ul.traces li{border-bottom:1px solid var(--line);padding:8px 14px;font:400 11.5px "IBM Plex Mono",monospace;cursor:pointer}
+ul.traces li:hover{background:#f0eee6}
+ul.traces .st{float:right;font-weight:600}
+ul.traces .st.accepted{color:var(--river)} ul.traces .st.abstained{color:var(--warn)}
+ul.traces .st.below_range{color:var(--ink2)} ul.traces .st.pending{color:var(--gauge-red)}
+#traceDetail{font:400 11.5px/1.6 "IBM Plex Mono",monospace;padding:10px 14px;white-space:pre-wrap}
+footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2);border-top:1px solid var(--line);padding-top:10px}
+@media(max-width:980px){body{grid-template-columns:56px 1fr}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="rail"><div class="ticks" id="ticks"></div></nav>
+<main>
+  <header>
+    <h1>WATER<span class="wl">LINE</span></h1>
+    <div class="sub">reads the staff gauge nobody watches · flags the sensor that lies</div>
+    <div class="sites" id="sites"></div>
+  </header>
+  <section class="stats" id="stats"></section>
+  <div class="grid">
+    <div class="panel">
+      <h2>CAMERA vs GAGE <span class="r" id="win"></span></h2>
+      <canvas id="chart"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--gage)"></i>usgs gage</span>
+        <span><i style="background:var(--river)"></i>camera read</span>
+        <span><i style="background:var(--ink2)"></i>below range</span>
+      </div>
+    </div>
+    <div>
+      <div class="panel latest">
+        <h2>LATEST FRAME</h2>
+        <img id="latestImg" alt="latest camera frame">
+        <div class="cap" id="latestCap"></div>
+      </div>
+      <div class="panel" style="margin-top:22px">
+        <h2>FLAGS <span class="r">human review queue</span></h2>
+        <ul class="flags" id="flags"><li class="none">none open — camera and sensor agree</li></ul>
+      </div>
+    </div>
+  </div>
+  <div class="grid" style="grid-template-columns:1.2fr 1fr">
+    <div class="panel"><h2>AGENT TRACES <span class="r">click to inspect</span></h2>
+      <ul class="traces" id="traces"></ul></div>
+    <div class="panel"><h2>TRACE DETAIL</h2><div id="traceDetail">select a trace</div></div>
+  </div>
+  <footer>waterline · opencv 5 + aws · usgs nims imagery + ogc telemetry · all readings machine-generated, flags need a human</footer>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+let SITE=null;
+(function(){
+  const t=document.getElementById('ticks');const H=Math.max(innerHeight,document.body.scrollHeight);
+  const px=64;let ft=0;
+  for(let y=20;y<H-10;y+=px){
+    const major=ft%2===0;
+    const m=document.createElement('div');m.className='mark '+(major?'maj':'min');
+    m.style.top=y+'px';t.appendChild(m);
+    if(major){const l=document.createElement('div');l.className='ft';l.style.top=(y+1)+'px';l.textContent=ft;t.appendChild(l);}
+    ft++;
+  }
+})();
+async function j(u){const r=await fetch(u);return r.json();}
+async function loadSites(){
+  const list=await j('/api/sites');
+  const box=$('#sites');box.innerHTML='';
+  for(const s of list){
+    const b=document.createElement('button');b.textContent=s;
+    b.onclick=()=>{SITE=s;loadAll();};
+    if(!SITE)SITE=s;
+    b.className=s===SITE?'on':'';
+    box.appendChild(b);
+  }
+  loadAll();
+}
+function drawChart(rows){
+  const c=$('#chart'),dpr=devicePixelRatio||1;
+  const W=c.clientWidth,H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;
+  const x=c.getContext('2d');x.scale(dpr,dpr);
+  const g=rows.filter(r=>r.gage_ft!=null);
+  if(!g.length){x.fillStyle='#5c6167';x.fillText('no data',20,30);return;}
+  const pad={l:44,r:12,t:14,b:26};
+  const vs=[...g.map(r=>r.gage_ft),...g.map(r=>r.stage_ft).filter(v=>v!=null)];
+  let lo=Math.min(...vs)-0.15,hi=Math.max(...vs)+0.15;
+  const t0=Math.min(...g.map(r=>Date.parse(r.time))),t1=Math.max(...g.map(r=>Date.parse(r.time)));
+  const X=t=>pad.l+(Date.parse(t)-t0)/(t1-t0||1)*(W-pad.l-pad.r);
+  const Y=v=>pad.t+(hi-v)/(hi-lo)*(H-pad.t-pad.b);
+  x.strokeStyle='#d9d5c9';x.fillStyle='#5c6167';x.font='10px IBM Plex Mono';
+  for(let v=Math.ceil(lo*4)/4;v<=hi;v+=Math.max(0.25,(hi-lo)/6)){
+    x.beginPath();x.moveTo(pad.l,Y(v));x.lineTo(W-pad.r,Y(v));x.stroke();
+    x.fillText(v.toFixed(2),6,Y(v)+3);
+  }
+  x.strokeStyle='#1d4ed8';x.lineWidth=1.6;x.beginPath();
+  g.forEach((r,i)=>i?x.lineTo(X(r.time),Y(r.gage_ft)):x.moveTo(X(r.time),Y(r.gage_ft)));
+  x.stroke();
+  for(const r of g){
+    if(r.stage_ft==null){
+      if(r.status==='below_range'||r.status==='below_plate'){
+        x.fillStyle='#5c6167';x.beginPath();x.arc(X(r.time),H-pad.b-2,2.5,0,7);x.fill();
+      }
+      continue;
+    }
+    const err=Math.abs(r.stage_ft-r.gage_ft);
+    x.fillStyle=err>0.5?'#c8341e':'#0e7c86';
+    x.beginPath();x.arc(X(r.time),Y(r.stage_ft),3.4,0,7);x.fill();
+  }
+  for(const r of g)if(r.is_night){x.fillStyle='rgba(22,24,27,.06)';x.fillRect(X(r.time)-3,pad.t,6,H-pad.t-pad.b);}
+}
+async function loadAll(){
+  const [rows,flags,traces]=await Promise.all([
+    j('/api/readings?site='+SITE),j('/api/flags?site='+SITE),j('/api/traces?site='+SITE)]);
+  drawChart(rows);
+  const read=rows.filter(r=>r.stage_ft!=null&&r.gage_ft!=null);
+  const errs=read.map(r=>Math.abs(r.stage_ft-r.gage_ft)).sort((a,b)=>a-b);
+  const mae=errs.length?(errs.reduce((a,b)=>a+b,0)/errs.length):null;
+  $('#win').textContent=rows.length?rows[0].time.slice(0,10)+' → '+rows.at(-1).time.slice(0,10):'';
+  $('#stats').innerHTML=[
+    ['mae',mae==null?'—':mae.toFixed(3)+' ft','red'],
+    ['frames',rows.length,''],
+    ['reads',read.length,'river'],
+    ['flags',flags.length,''],
+  ].map(([l,v,c])=>`<div class="stat"><div class="v ${c}">${v}</div><div class="l">${l}</div></div>`).join('');
+  const last=[...rows].reverse().find(r=>r.file);
+  if(last){$('#latestImg').src='/media/'+last.file.split(/[\\/]/).pop();
+    $('#latestCap').textContent=last.time.replace('T',' ').slice(0,19)+' · gage '+last.gage_ft+' ft · camera '+(last.stage_ft??last.status);}
+  const fl=$('#flags');
+  if(flags.length){fl.innerHTML=flags.map(f=>`<li><div class="t">${f.event_type} · ${f.severity}</div>
+    <div class="d">${f.draft_text}</div>
+    <div class="m">opened ${f.opened_at.slice(0,16).replace('T',' ')} · residual ${f.residual_ft.toFixed(2)} ft · ${f.evidence_frames.length} evidence frames</div></li>`).join('');}
+  $('#traces').innerHTML=traces.slice().reverse().map((t,i)=>`<li data-i="${traces.length-1-i}">
+    ${t.frame_time.slice(5,16).replace('T',' ')} · ${t.steps.length} steps
+    <span class="st ${t.final_status}">${t.final_status}</span></li>`).join('');
+  document.querySelectorAll('#traces li').forEach(li=>li.onclick=()=>{
+    const t=traces[+li.dataset.i];
+    $('#traceDetail').textContent=t.steps.map(s=>`step ${s.step}  ${s.tool.padEnd(14)} ${s.decision}`).join('\n')
+      +`\n\nfinal: ${t.final_status} ${t.final_stage_ft??''} ft  (${t.reason??'ok'})`;
+  });
+}
+loadSites();
+</script>
+</body>
+</html>
