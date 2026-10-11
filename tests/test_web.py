@@ -78,6 +78,20 @@ def test_readings_skip_calib_csvs(data_dir: Path) -> None:
     assert rows[0]["time"] == "2026-08-02T00:00:00+00:00"
 
 
+def test_readings_skip_agent_eval_csv(data_dir: Path) -> None:
+    write_csv(
+        data_dir / "results" / "eval_agent_hancock_2026-08-01_2026-08-05.csv",
+        [row("2026-08-03T00:00:00+00:00", stage_ft="9.9")],
+    )
+    write_csv(
+        data_dir / "results" / "eval_hancock_2026-08-01_2026-08-05.csv",
+        [row("2026-08-02T00:00:00+00:00", stage_ft="10.1")],
+    )
+    rows = web._readings("hancock")
+    assert len(rows) == 1
+    assert rows[0]["time"] == "2026-08-02T00:00:00+00:00"
+
+
 def test_readings_status_map(data_dir: Path) -> None:
     write_csv(
         data_dir / "results" / "eval_hancock_2026-08-01_2026-08-05.csv",

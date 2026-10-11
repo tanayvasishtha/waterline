@@ -46,6 +46,7 @@ class FrameRow(TypedDict):
     is_night: bool
     gate_pass: bool
     agent_stage_ft: float | None
+    agent_sigma_ft: float | None
     agent_status: str | None
     agent_steps: int | None
 
@@ -86,10 +87,12 @@ def run_window(
             result = read_frame(ctx, image, ref.time, seed=i)
             agent_status = agent_reading.status
             agent_stage = agent_reading.stage_ft
+            agent_sigma = agent_reading.sigma_ft
         else:
             result = read_frame(ctx, image, ref.time, seed=i)
             agent_status = None
             agent_stage = None
+            agent_sigma = None
         rows.append(
             {
                 "file": ref.filename,
@@ -110,6 +113,7 @@ def run_window(
                 "is_night": result.quality.is_night,
                 "gate_pass": quality_ok(result.quality, ctx.settings),
                 "agent_stage_ft": agent_stage,
+                "agent_sigma_ft": agent_sigma,
                 "agent_status": agent_status,
                 "agent_steps": None if nav is None else len(trace.steps),
             }
@@ -227,13 +231,18 @@ def _run(
         camera = {c.cam_id: c for c in nims.list_cameras(client)}[site.cam_id]
         nav = FrameNavigator(camera, Path("data/cache"))
     rows = run_window(ctx, frames, Path("data/cache"), nav)
-    write_rows(rows, Path("results") / f"{label}_{site_id}_{start_dt.date()}_{end_dt.date()}.csv")
+    out_label = f"{label}_agent" if agent else label
+    stamp = f"{out_label}_{site_id}_{start_dt.date()}_{end_dt.date()}"
+    write_rows(rows, Path("results") / f"{stamp}.csv")
+    summary = summarize(rows)
+    summary_path = Path("results") / f"summary_{stamp}.json"
+    summary_path.write_text(json.dumps(summary, indent=2))
     report: dict[str, object] = {
         "site": site_id,
         "window": [start, end],
         "rows": len(rows),
         "offset": fit_offset(rows),
-        "summary": summarize(rows),
+        "summary": summary,
     }
     print(json.dumps(report, indent=2))
     return report

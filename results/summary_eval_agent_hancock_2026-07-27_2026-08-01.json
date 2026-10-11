@@ -1,0 +1,53 @@
+{
+  "all": {
+    "frames": 38,
+    "gate_pass": 38,
+    "read": 21,
+    "below_plate": 16,
+    "coverage": 0.5526315789473685,
+    "mae_ft": 0.6267777777777782,
+    "med_ae_ft": 0.6376666666666679,
+    "p90_ae_ft": 1.009333333333334,
+    "within_2sigma": 0.6666666666666666,
+    "agent": {
+      "accepted": 13,
+      "below_range": 17,
+      "abstained": 8,
+      "pending": 0,
+      "read": 13,
+      "mae_ft": 0.47174358974359004,
+      "avg_steps": 1.1842105263157894
+    }
+  },
+  "day": {
+    "frames": 38,
+    "gate_pass": 38,
+    "read": 21,
+    "below_plate": 16,
+    "coverage": 0.5526315789473685,
+    "mae_ft": 0.6267777777777782,
+    "med_ae_ft": 0.6376666666666679,
+    "p90_ae_ft": 1.009333333333334,
+    "within_2sigma": 0.6666666666666666,
+    "agent": {
+      "accepted": 13,
+      "below_range": 17,
+      "abstained": 8,
+      "pending": 0,
+      "read": 13,
+      "mae_ft": 0.47174358974359004,
+      "avg_steps": 1.1842105263157894
+    }
+  },
+  "night": {
+    "frames": 0,
+    "gate_pass": 0,
+    "read": 0,
+    "below_plate": 0,
+    "coverage": 0.0,
+    "mae_ft": null,
+    "med_ae_ft": null,
+    "p90_ae_ft": null,
+    "within_2sigma": 0.0
+  }
+}
