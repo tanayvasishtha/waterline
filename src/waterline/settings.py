@@ -5,6 +5,7 @@ Values marked "calibration" are refit on each site's calibration window only
 """
 
 import os
+from pathlib import Path
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -18,6 +19,7 @@ class Settings(BaseModel):
     mode: Literal["live", "replay"] = Field(
         "replay", description="replay runs from committed fixtures with no network or AWS"
     )
+    data_dir: Path = Field(Path("data"), description="local output root")
 
     # Registration
     sift_features: int = Field(4000, description="enough keypoints on 1080p frames in the spike")
