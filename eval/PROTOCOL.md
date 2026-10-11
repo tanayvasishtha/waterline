@@ -96,7 +96,7 @@ do not rewrite it. All fits below used calibration windows only.
 ### Affine stage calibration
 
 - `stage_calib = [a, b]` replaces the flat `datum_offset_ft`: stage =
-  a + b * detected. Hancock's fit is [+0.396? check sign in config, 1.0]
+  a + b * detected. Hancock's fit is [-0.396, 1.0]
   (slope 1, the offset case). in_overland needed slope 1.414: its ruler is
   perspective-compressed and the config top/bottom marks were approximate,
   which produced a ~0.63x scale error growing with stage - the affine fit
