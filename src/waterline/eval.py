@@ -15,6 +15,7 @@ import numpy as np
 from waterline import sites
 from waterline.models import SiteConfig
 from waterline.pipeline import Perception, read_frame
+from waterline.quality import quality_ok
 from waterline.register import build_reference
 from waterline.settings import Settings
 from waterline.usgs import gage, nims
@@ -70,6 +71,8 @@ def run_window(
                 "inlier_ratio": round(result.quality.inlier_ratio, 3),
                 "shift_px": round(result.quality.shift_px, 1),
                 "plate_visibility": round(result.quality.plate_visibility, 1),
+                "is_night": result.quality.is_night,
+                "gate_pass": quality_ok(result.quality, ctx.settings),
             }
         )
     return rows
@@ -85,13 +88,15 @@ def fit_offset(rows: list[dict]) -> dict:
     return {"offset_ft": float(np.median(diffs)) if diffs else 0.0, "n": len(diffs)}
 
 
-def summarize(rows: list[dict]) -> dict:
+def _summarize_slice(rows: list[dict]) -> dict:
+    """Single-pass baseline: rows failing the triage gate count as abstained."""
+    gated = [r for r in rows if r.get("gate_pass", True)]
     read = [
         (r["stage_ft"], r["gage_ft"], r["sigma_ft"])
-        for r in rows
+        for r in gated
         if r["stage_ft"] is not None and r["gage_ft"] is not None
     ]
-    below = sum(1 for r in rows if r["reason"] == "below_plate")
+    below = sum(1 for r in gated if r["reason"] == "below_plate")
     errors = np.array([a - g for a, g, _ in read])
     within = (
         float(np.mean(np.abs(errors) <= 2 * np.array([s for _, _, s in read])))
@@ -100,6 +105,7 @@ def summarize(rows: list[dict]) -> dict:
     )
     return {
         "frames": len(rows),
+        "gate_pass": len(gated),
         "read": len(read),
         "below_plate": below,
         "coverage": len(read) / max(len(rows), 1),
@@ -107,6 +113,16 @@ def summarize(rows: list[dict]) -> dict:
         "med_ae_ft": float(np.median(np.abs(errors))) if read else None,
         "p90_ae_ft": float(np.percentile(np.abs(errors), 90)) if read else None,
         "within_2sigma": within,
+    }
+
+
+def summarize(rows: list[dict]) -> dict:
+    day = [r for r in rows if not r.get("is_night")]
+    night = [r for r in rows if r.get("is_night")]
+    return {
+        "all": _summarize_slice(rows),
+        "day": _summarize_slice(day),
+        "night": _summarize_slice(night),
     }
 
 
