@@ -20,6 +20,9 @@ DATA = Path("data")
 RESULTS = Path("results")
 STATIC = Path(__file__).parent / "static"
 
+# Sites shown in the dashboard. Other site configs stay on disk but are not demoed.
+DEMO_SITES = ("hancock", "in_overland", "oh_wetland")
+
 
 @cache
 def _media_index() -> dict[str, Path]:
@@ -139,7 +142,7 @@ def api(path: str, query: dict[str, list[str]]) -> tuple[int, str, bytes]:
     site = (query.get("site") or [""])[0] or None
     body: Any
     if path == "/api/sites":
-        body = site_lib.list_sites()
+        body = [s for s in DEMO_SITES if s in site_lib.list_sites()]
     elif path == "/api/flags":
         body = _flags(site)
     elif path == "/api/traces":

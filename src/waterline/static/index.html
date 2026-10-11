@@ -25,6 +25,8 @@ body{background:var(--enamel);color:var(--ink);font:14px/1.45 "IBM Plex Sans",sa
   background-size:30px 64px,20px 64px;
   background-repeat:repeat-y;
   background-position:left bottom}
+.rail .ticks::after{content:"";position:absolute;left:0;right:0;bottom:0;height:49px;
+  background:var(--ink)}
 .rail .ft{position:absolute;left:36px;color:var(--enamel);font:500 11px/1 "IBM Plex Mono",monospace}
 main{padding:28px 32px 48px;max-width:1280px;min-width:0}
 header{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:14px}
@@ -36,7 +38,8 @@ h1 .wl{color:var(--river)}
   background:var(--paper);cursor:pointer;min-height:32px}
 .sites button.on{background:var(--ink);color:var(--enamel)}
 button:focus-visible,a:focus-visible,li:focus-visible{outline:2px solid var(--gage);outline-offset:2px}
-.grid{display:grid;grid-template-columns:1.7fr 1fr;gap:22px;margin-top:22px}
+.grid{display:grid;grid-template-columns:1.7fr 1fr;gap:22px;margin-top:22px;align-items:start}
+.grid.lower{grid-template-columns:1.2fr 1fr}
 .grid>*{min-width:0}
 .panel{background:var(--paper);border:1px solid var(--line)}
 .panel h2{font:600 11px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--ink2);
@@ -45,7 +48,7 @@ button:focus-visible,a:focus-visible,li:focus-visible{outline:2px solid var(--ga
 canvas#chart{display:block;width:100%;height:340px}
 .legend{display:flex;gap:16px;flex-wrap:wrap;padding:8px 14px;font:500 11px "IBM Plex Mono",monospace;color:var(--ink2)}
 .legend i{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:-1px}
-.latest img{display:block;width:100%}
+.latest img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top}
 .latest .cap{font:500 11px "IBM Plex Mono",monospace;color:var(--ink2);padding:8px 12px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:22px;border:1px solid var(--line)}
 .stat{background:var(--paper);padding:12px 14px}
@@ -70,7 +73,7 @@ ul.traces .st.accepted{color:var(--river)} ul.traces .st.abstained{color:var(--w
 ul.traces .st.below_range{color:var(--ink2)} ul.traces .st.pending{color:var(--gauge-red)}
 #traceDetail{font:400 11.5px/1.6 "IBM Plex Mono",monospace;padding:10px 14px;white-space:pre-wrap;color:var(--ink)}
 footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2);border-top:1px solid var(--line);padding-top:10px}
-@media(max-width:980px){.grid{grid-template-columns:1fr}}
+@media(max-width:980px){.grid,.grid.lower{grid-template-columns:1fr}}
 @media(max-width:640px){
   body{grid-template-columns:1fr}
   .rail{position:sticky;top:0;height:24px;width:100%;z-index:5}
@@ -83,6 +86,7 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
     background-size:64px 14px,64px 8px;
     background-repeat:repeat-x;
     background-position:left bottom}
+  .rail .ticks::after{content:none}
   .rail .ft{display:none}
   main{padding:20px 16px 36px}
   header{gap:10px 14px}
@@ -112,7 +116,9 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
       <div class="legend">
         <span><i style="background:var(--gage)"></i>usgs gage</span>
         <span><i style="background:var(--river)"></i>camera read</span>
+        <span><i style="background:var(--gauge-red)"></i>camera read, off by over 0.5 ft</span>
         <span><i style="background:var(--ink2)"></i>below range</span>
+        <span><i style="background:rgba(22,24,27,.15)"></i>night</span>
       </div>
     </div>
     <div>
@@ -127,7 +133,7 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
       </div>
     </div>
   </div>
-  <div class="grid" style="grid-template-columns:1.2fr 1fr">
+  <div class="grid lower">
     <div class="panel"><h2>Agent traces <span class="r">click to inspect</span></h2>
       <ul class="traces" id="traces"></ul></div>
     <div class="panel"><h2>Trace detail</h2><div id="traceDetail">select a trace</div></div>
@@ -142,9 +148,11 @@ let SITE=null,ROWS=[];
 function railLabels(){
   const t=document.getElementById('ticks');
   t.querySelectorAll('.ft').forEach(n=>n.remove());
+  // Labels share the tick gradient's 64px period and bottom anchor, so each foot
+  // number lands on its major tick and 0 is the bottom-most one.
   const px=64,vh=t.clientHeight;
-  for(let ft=0,y=vh-px;y>=0;ft++,y-=px){
-    const l=el('div','ft',ft);l.style.top=(y+1)+'px';t.appendChild(l);
+  for(let ft=0;ft<Math.floor(vh/px);ft++){
+    const l=el('div','ft',ft);l.style.bottom=(51+ft*px)+'px';t.appendChild(l);
   }
 }
 railLabels();
@@ -175,23 +183,36 @@ function drawChart(rows){
   if(!g.length){x.fillStyle='#5c6167';x.fillText('no held-out readings',20,30);return;}
   const pad={l:44,r:12,t:14,b:26};
   const vs=[...g.map(r=>r.gage_ft),...g.map(r=>r.stage_ft).filter(v=>v!=null)];
-  let lo=Math.min(...vs)-0.15,hi=Math.max(...vs)+0.15;
+  const span=Math.max(...vs)-Math.min(...vs)||1;
+  const raw=span/5,mag=Math.pow(10,Math.floor(Math.log10(raw)));
+  const step=[0.1,0.2,0.25,0.5,1,2,5,10].find(m=>m*mag>=raw)||10*mag;
+  const dec=Math.max(0,-Math.floor(Math.log10(step)));
+  const lo=Math.floor((Math.min(...vs)-0.05)/step)*step;
+  const hi=Math.ceil((Math.max(...vs)+0.05)/step)*step;
   const t0=Math.min(...g.map(r=>Date.parse(r.time))),t1=Math.max(...g.map(r=>Date.parse(r.time)));
   const X=t=>pad.l+(Date.parse(t)-t0)/(t1-t0||1)*(W-pad.l-pad.r);
   const Y=v=>pad.t+(hi-v)/(hi-lo)*(H-pad.t-pad.b);
   x.strokeStyle='#d9d5c9';x.fillStyle='#5c6167';
-  for(let v=Math.ceil(lo*4)/4;v<=hi;v+=Math.max(0.25,(hi-lo)/6)){
-    x.beginPath();x.moveTo(pad.l,Y(v));x.lineTo(W-pad.r,Y(v));x.stroke();
-    x.fillText(v.toFixed(2),6,Y(v)+3);
+  for(let v=lo;v<=hi+step/2;v+=step){
+    const yy=Y(v);
+    x.beginPath();x.moveTo(pad.l,yy);x.lineTo(W-pad.r,yy);x.stroke();
+    x.fillText(v.toFixed(dec),6,yy+3);
   }
-  const nTicks=Math.max(2,Math.min(6,Math.floor((W-pad.l-pad.r)/80)));
-  for(let i=0;i<=nTicks;i++){
-    const t=t0+(t1-t0)*i/nTicks,d=new Date(t);
-    const lab=d.toISOString().slice(5,10);
-    const tx=X(d.toISOString());
+  const dayMs=864e5;
+  const xt=[];
+  if(t1-t0>=2*dayMs){
+    for(let t=Math.ceil(t0/dayMs)*dayMs;t<=t1;t+=dayMs)
+      xt.push({t,lab:new Date(t).toISOString().slice(5,10)});
+  }else{
+    const hrs=[1,2,3,6,12].find(h=>(t1-t0)/36e5/h<=6)||24;
+    for(let t=Math.ceil(t0/(hrs*36e5))*hrs*36e5;t<=t1;t+=hrs*36e5)
+      xt.push({t,lab:new Date(t).toISOString().slice(11,16)});
+  }
+  for(const k of xt){
+    const tx=X(new Date(k.t).toISOString());
     x.strokeStyle='#d9d5c9';x.beginPath();x.moveTo(tx,H-pad.b);x.lineTo(tx,H-pad.b+4);x.stroke();
     x.fillStyle='#5c6167';
-    x.fillText(lab,Math.min(Math.max(tx-14,pad.l-10),W-pad.r-30),H-8);
+    x.fillText(k.lab,Math.min(Math.max(tx-14,pad.l-10),W-pad.r-30),H-8);
   }
   for(const r of g)if(r.is_night){x.fillStyle='rgba(22,24,27,.06)';x.fillRect(X(r.time)-3,pad.t,6,H-pad.t-pad.b);}
   x.strokeStyle='#1d4ed8';x.lineWidth=1.6;x.beginPath();
