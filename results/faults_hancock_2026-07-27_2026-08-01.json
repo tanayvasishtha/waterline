@@ -1,0 +1,42 @@
+{
+  "injected": true,
+  "seed": 20261026,
+  "trials_per_type": 20,
+  "n_frames": 37,
+  "clean": {
+    "flags": 1,
+    "by_type": {
+      "drift": 1,
+      "stuck": 0,
+      "step": 0,
+      "spike": 0
+    },
+    "false_flags_per_site_week": 1.5555595564803408
+  },
+  "faults": {
+    "drift": {
+      "recall": 1.0,
+      "type_match": 1.0,
+      "median_delay_h": 22.001805555555556,
+      "pre_onset_flags": 0
+    },
+    "stuck": {
+      "recall": 1.0,
+      "type_match": 0.1,
+      "median_delay_h": 12.998611111111112,
+      "pre_onset_flags": 0
+    },
+    "step": {
+      "recall": 1.0,
+      "type_match": 0.25,
+      "median_delay_h": 14.9975,
+      "pre_onset_flags": 0
+    },
+    "spike": {
+      "recall": 1.0,
+      "type_match": 0.65,
+      "median_delay_h": 0.9998611111111111,
+      "pre_onset_flags": 0
+    }
+  }
+}

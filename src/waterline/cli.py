@@ -3,7 +3,7 @@
 import argparse
 from pathlib import Path
 
-from waterline import __version__, fixtures, screen, web
+from waterline import __version__, faults, fixtures, screen, web
 from waterline import eval as ev
 from waterline.poller import poll_site
 
@@ -49,6 +49,11 @@ def _cmd_eval(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_faults(args: argparse.Namespace) -> int:
+    faults.run_faults_file(args.site, args.start, args.end)
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="waterline", description=__doc__)
     parser.add_argument("--version", action="version", version=f"waterline {__version__}")
@@ -78,6 +83,12 @@ def main(argv: list[str] | None = None) -> int:
     p_eval.add_argument("--every", type=int, default=1)
     p_eval.add_argument("--agent", action="store_true", help="run the action loop")
     p_eval.set_defaults(func=_cmd_eval)
+
+    p_faults = sub.add_parser("faults", help="replay an agent eval CSV with injected faults")
+    p_faults.add_argument("--site", required=True)
+    p_faults.add_argument("--start", required=True)
+    p_faults.add_argument("--end", required=True)
+    p_faults.set_defaults(func=_cmd_faults)
 
     p_poll = sub.add_parser("poll", help="one monitoring tick per site")
     p_poll.add_argument("--sites", nargs="+", default=["hancock"])
