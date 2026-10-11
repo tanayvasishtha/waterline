@@ -23,10 +23,17 @@ MAX_PAGES = 200
 NO_DATA = -999999.0
 
 Json = dict[str, Any]
+Approval = Literal["Approved", "Provisional"]
 
 
 def _iso(t: datetime) -> str:
     return t.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def _time(raw: str) -> datetime:
+    # Some field records omit the offset; USGS publishes everything in UTC.
+    parsed = datetime.fromisoformat(raw)
+    return parsed.replace(tzinfo=UTC) if parsed.tzinfo is None else parsed
 
 
 def _qualifier(raw: object) -> str | None:
@@ -35,7 +42,7 @@ def _qualifier(raw: object) -> str | None:
     return str(raw) if raw else None
 
 
-def _approval(raw: object) -> Literal["Approved", "Provisional"]:
+def _approval(raw: object) -> Approval:
     return "Approved" if str(raw).lower().startswith("a") else "Provisional"
 
 
@@ -56,43 +63,45 @@ def _ogc_features(client: httpx.Client, collection: str, params: dict[str, str])
 
 
 def _from_ogc(features: list[Json]) -> list[GageReading]:
-    readings = []
-    for feature in features:
-        p = feature["properties"]
-        if p.get("value") in (None, ""):
-            continue
-        readings.append(
-            GageReading(
-                time=datetime.fromisoformat(p["time"]),
-                value_ft=float(p["value"]),
-                approval=_approval(p.get("approval_status")),
-                qualifier=_qualifier(p.get("qualifier")),
-            )
+    readings = [
+        GageReading(
+            time=_time(p["time"]),
+            value_ft=float(p["value"]),
+            approval=_approval(p.get("approval_status")),
+            qualifier=_qualifier(p.get("qualifier")),
         )
+        for p in (feature["properties"] for feature in features)
+        if p.get("value") not in (None, "")
+    ]
     return sorted(readings, key=lambda r: r.time)
 
 
 def _from_legacy(payload: object) -> list[GageReading]:
     try:
-        series: Json = payload["value"]["timeSeries"][0]  # type: ignore[index]  # untyped JSON
-        values: list[Json] = series["values"][0]["value"]
+        if not isinstance(payload, dict):
+            raise TypeError("payload is not an object")
+        values: list[Json] = payload["value"]["timeSeries"][0]["values"][0]["value"]
     except (KeyError, IndexError, TypeError) as error:
         raise UsgsError("NWIS IV response had no gage height series") from error
-    readings = []
-    for item in values:
-        value = float(item["value"])
-        if value <= NO_DATA:
-            continue
-        codes = item.get("qualifiers", [])
-        readings.append(
-            GageReading(
-                time=datetime.fromisoformat(item["dateTime"]),
-                value_ft=value,
-                approval="Approved" if "A" in codes else "Provisional",
-                qualifier=_qualifier([c for c in codes if c not in ("A", "P")]),
-            )
+    readings = [
+        GageReading(
+            time=datetime.fromisoformat(item["dateTime"]),
+            value_ft=float(item["value"]),
+            approval="Approved" if "A" in item.get("qualifiers", []) else "Provisional",
+            qualifier=_qualifier([c for c in item.get("qualifiers", []) if c not in ("A", "P")]),
         )
+        for item in values
+        if float(item["value"]) > NO_DATA
+    ]
     return sorted(readings, key=lambda r: r.time)
+
+
+def _location_window(nwis_id: str, start: datetime, end: datetime) -> dict[str, str]:
+    return {
+        "monitoring_location_id": f"USGS-{nwis_id}",
+        "parameter_code": GAGE_HEIGHT,
+        "datetime": f"{_iso(start)}/{_iso(end)}",
+    }
 
 
 def continuous(
@@ -100,45 +109,24 @@ def continuous(
 ) -> list[GageReading]:
     """Sensor gage height between start and end (inclusive), oldest first."""
     try:
-        features = _ogc_features(
-            client,
-            "continuous",
-            {
-                "monitoring_location_id": f"USGS-{nwis_id}",
-                "parameter_code": GAGE_HEIGHT,
-                "datetime": f"{_iso(start)}/{_iso(end)}",
-            },
-        )
-        return _from_ogc(features)
+        return _from_ogc(_ogc_features(client, "continuous", _location_window(nwis_id, start, end)))
     except UsgsError:
-        payload = get_json(
-            client,
-            LEGACY_IV,
-            {
-                "format": "json",
-                "sites": nwis_id,
-                "parameterCd": GAGE_HEIGHT,
-                "startDT": _iso(start),
-                "endDT": _iso(end),
-            },
-        )
-        return _from_legacy(payload)
+        legacy_params = {
+            "format": "json",
+            "sites": nwis_id,
+            "parameterCd": GAGE_HEIGHT,
+            "startDT": _iso(start),
+            "endDT": _iso(end),
+        }
+        return _from_legacy(get_json(client, LEGACY_IV, legacy_params))
 
 
 def field_measurements(
     client: httpx.Client, nwis_id: str, start: datetime, end: datetime
 ) -> list[GageReading]:
     """Gage height read by a USGS technician on site visits (independent of the sensor)."""
-    features = _ogc_features(
-        client,
-        "field-measurements",
-        {
-            "monitoring_location_id": f"USGS-{nwis_id}",
-            "parameter_code": GAGE_HEIGHT,
-            "datetime": f"{_iso(start)}/{_iso(end)}",
-        },
-    )
-    return _from_ogc(features)
+    window = _location_window(nwis_id, start, end)
+    return _from_ogc(_ogc_features(client, "field-measurements", window))
 
 
 def nearest(
