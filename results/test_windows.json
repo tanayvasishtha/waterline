@@ -1,0 +1,128 @@
+{
+  "hancock": [
+    {
+      "start": "2026-04-14T00:00Z",
+      "end": "2026-05-28T00:00Z",
+      "every": 5
+    },
+    {
+      "start": "2026-09-01T00:00Z",
+      "end": "2026-09-16T00:00Z",
+      "every": 2
+    }
+  ],
+  "in_overland": [
+    {
+      "start": "2023-02-09T05:00Z",
+      "end": "2023-02-10T08:45Z",
+      "every": 4
+    },
+    {
+      "start": "2023-02-22T13:15Z",
+      "end": "2023-02-23T21:00Z",
+      "every": 4
+    },
+    {
+      "start": "2023-02-27T10:45Z",
+      "end": "2023-02-28T14:00Z",
+      "every": 4
+    },
+    {
+      "start": "2023-03-03T15:15Z",
+      "end": "2023-03-04T20:00Z",
+      "every": 4
+    },
+    {
+      "start": "2023-03-23T03:45Z",
+      "end": "2023-03-24T08:00Z",
+      "every": 4
+    },
+    {
+      "start": "2023-03-25T07:15Z",
+      "end": "2023-03-26T02:00Z",
+      "every": 4
+    },
+    {
+      "start": "2024-01-24T11:15Z",
+      "end": "2024-01-25T20:00Z",
+      "every": 4
+    },
+    {
+      "start": "2024-01-26T00:15Z",
+      "end": "2024-01-26T22:30Z",
+      "every": 4
+    },
+    {
+      "start": "2024-03-14T12:00Z",
+      "end": "2024-03-15T09:00Z",
+      "every": 4
+    },
+    {
+      "start": "2024-04-01T02:15Z",
+      "end": "2024-04-03T12:30Z",
+      "every": 4
+    },
+    {
+      "start": "2024-04-11T04:30Z",
+      "end": "2024-04-12T16:45Z",
+      "every": 4
+    },
+    {
+      "start": "2024-04-28T01:00Z",
+      "end": "2024-04-29T01:00Z",
+      "every": 4
+    },
+    {
+      "start": "2024-12-31T11:00Z",
+      "end": "2025-01-01T10:15Z",
+      "every": 4
+    },
+    {
+      "start": "2025-04-02T07:30Z",
+      "end": "2025-04-03T23:15Z",
+      "every": 4
+    },
+    {
+      "start": "2025-04-05T01:45Z",
+      "end": "2025-04-06T01:15Z",
+      "every": 4
+    },
+    {
+      "start": "2025-06-18T17:00Z",
+      "end": "2025-06-20T00:30Z",
+      "every": 4
+    },
+    {
+      "start": "2025-07-30T16:30Z",
+      "end": "2025-07-31T23:45Z",
+      "every": 4
+    },
+    {
+      "start": "2026-03-31T18:15Z",
+      "end": "2026-04-02T09:15Z",
+      "every": 4
+    },
+    {
+      "start": "2026-04-04T14:15Z",
+      "end": "2026-04-05T10:00Z",
+      "every": 4
+    },
+    {
+      "start": "2026-04-15T13:30Z",
+      "end": "2026-04-16T11:30Z",
+      "every": 4
+    },
+    {
+      "start": "2026-04-18T05:45Z",
+      "end": "2026-04-19T02:00Z",
+      "every": 4
+    }
+  ],
+  "exclude_files": [
+    "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T18-00-12Z.jpg",
+    "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-28T15-00-09Z.jpg",
+    "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-10-06T15-00-39Z.jpg",
+    "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-09-20T15-00-05Z.jpg",
+    "OH_Inflow_to_wetland_near_Winn_Road_near_Defiance_STAFF___2026-10-07T17-00-33Z.jpg"
+  ]
+}
