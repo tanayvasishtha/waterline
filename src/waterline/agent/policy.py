@@ -24,7 +24,8 @@ class LoopState:
     tried: set[AgentAction] = field(default_factory=set)
     steps: int = 0
     alt_refs: int = 0
-    forced_uncertain: bool = False  # a repair was rejected or the read is implausible
+    self_inconsistent: bool = False  # a repair changed the reading's answer
+    implausible: bool = False  # the read cannot be reconciled with recent history
 
 
 @dataclass(frozen=True)
@@ -74,8 +75,9 @@ def _uncertain(r: FrameResult, s: Settings) -> bool:
 
 
 def _flagged(r: FrameResult, st: LoopState, s: Settings) -> bool:
-    """Sigma-uncertain, or flagged by the loop (rejected repair, implausible jump)."""
-    return st.forced_uncertain or _uncertain(r, s)
+    """Sigma-uncertain, a changed-answer repair, or a read that does not
+    reconcile with recent history."""
+    return st.self_inconsistent or st.implausible or _uncertain(r, s)
 
 
 def _ok(r: FrameResult, s: Settings) -> bool:

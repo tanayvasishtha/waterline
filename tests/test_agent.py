@@ -246,38 +246,34 @@ def test_loop_abstains_or_below_range_on_dry(ctx: object) -> None:
     assert reading.stage_ft is None or abs(reading.stage_ft - dry["gage_ft"]) < 1.0
 
 
-def test_run_frame_keeps_neighbour_time_and_file(ctx: object) -> None:
-    site, perception = ctx
-    manifest = json.loads(Path("tests/fixtures/manifest_hancock.json").read_text())
-    entry = manifest[0]
-    image = cv2.imread(str(Path("tests/fixtures") / entry["path"]))
-    ref = _fixture_ref(entry, site)
-    nb_ref = FrameRef(
-        cam_id=site.cam_id,
-        filename="neighbour.jpg",
-        time=ref.time + timedelta(hours=1),
-        url="",
-    )
+def test_run_frame_keeps_neighbour_time_and_file(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # a frame with no stage substitutes the neighbour outright: the reading
+    # keeps the neighbour's own time and file (the v2 fix)
+    t0 = datetime(2026, 8, 1, tzinfo=UTC)
+    ref = _fake_ref(t0)
+    nb_ref = FrameRef(cam_id="c", filename="neighbour.jpg", time=t0 + timedelta(hours=1), url="")
+    seq = iter([_result(r_stage_ft=None), _result(r_stage_ft=9.9, r_sigma_ft=0.2)])
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
 
     class FakeNav:
         def neighbor(self, when: datetime, direction: int, skip: int = 1) -> FrameRef:
             return nb_ref
 
         def image(self, r: FrameRef) -> np.ndarray:
-            return image
+            return np.zeros((8, 8, 3), np.uint8)
 
-    calls = iter(
-        [
-            Decision(AgentAction.FETCH_NEXT, "test"),
-            Decision(AgentAction.ACCEPT, "test"),
-        ]
-    )
+    calls = [
+        Decision(AgentAction.FETCH_NEXT, "test"),
+        Decision(AgentAction.ACCEPT, "test"),
+    ]
     reading, trace = run_frame(
-        perception,
-        np.asarray(image),
+        cast("Perception", _fake_ctx()),
+        np.zeros((8, 8, 3), np.uint8),
         ref,
-        FakeNav(),
-        chooser=lambda r, st, s: next(calls),  # type: ignore[arg-type]
+        FakeNav(),  # type: ignore[arg-type]
+        chooser=_scripted(calls),  # type: ignore[arg-type]
     )
     assert reading.time == nb_ref.time
     assert reading.frame_file == "neighbour.jpg"
@@ -379,7 +375,7 @@ def _scripted(calls: list[Decision], seen: list[bool] | None = None) -> object:
 
     def chooser(r: object, st: LoopState, s: Settings) -> Decision:
         if seen is not None:
-            seen.append(st.forced_uncertain)
+            seen.append(st.self_inconsistent or st.implausible)
         return next(seq)
 
     return chooser
@@ -448,9 +444,8 @@ def test_implausible_jump_forces_uncertain_then_review(
     # prev 10.0 ft; frame 1 h later reads 12.5; rate cap 0.5 ft/h gives
     # band 0.5 + 3*0.283 = 1.35, and the neighbours read the same 12.5,
     # so every fetched frame stays implausible and the loop escalates
-    monkeypatch.setattr(
-        loop_mod, "read_frame", lambda *a, **k: _result(r_stage_ft=12.5, r_sigma_ft=0.2)
-    )
+    seq = iter([_result(r_stage_ft=12.5, r_sigma_ft=0.2), _result(r_stage_ft=10.0, r_sigma_ft=0.2)])
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
     ref = _fake_ref(t0 + timedelta(hours=1))
 
     class FakeNav:
@@ -468,7 +463,7 @@ def test_implausible_jump_forces_uncertain_then_review(
     seen: list[bool] = []
 
     def spy(r: object, st: LoopState, s: Settings) -> Decision:
-        seen.append(st.forced_uncertain)
+        seen.append(st.self_inconsistent or st.implausible)
         return decide(cast("FrameResult", r), st, s)
 
     reading, trace = run_frame(
@@ -479,10 +474,14 @@ def test_implausible_jump_forces_uncertain_then_review(
         chooser=spy,  # type: ignore[arg-type]
         history=history,
     )
-    assert all(seen)  # every result in the chain stayed implausible
-    assert "jump=2.50" in trace.steps[0].result_summary
-    assert [s.tool for s in trace.steps] == ["fetch_prev", "fetch_next"]
+    # the implausible flag sent it to a neighbour; the neighbour reads the real
+    # 10.0 ft and disagrees with 12.5, so the frame escalates
+    assert seen == [True]
+    assert "bound=1.60 d=2.50" in trace.steps[0].result_summary
+    assert trace.steps[0].decision == "neighbour disagrees by 2.50 ft"
+    assert [s.tool for s in trace.steps] == ["fetch_prev"]
     assert reading.status == "pending"
+    assert reading.stage_ft == 12.5
 
 
 def test_plausible_flood_rise_is_accepted(monkeypatch: pytest.MonkeyPatch) -> None:
@@ -494,7 +493,7 @@ def test_plausible_flood_rise_is_accepted(monkeypatch: pytest.MonkeyPatch) -> No
     seen: list[bool] = []
 
     def spy(r: object, st: LoopState, s: Settings) -> Decision:
-        seen.append(st.forced_uncertain)
+        seen.append(st.self_inconsistent or st.implausible)
         return decide(cast("FrameResult", r), st, s)
 
     reading, _ = run_frame(
@@ -511,3 +510,133 @@ def test_plausible_flood_rise_is_accepted(monkeypatch: pytest.MonkeyPatch) -> No
 def test_camera_history_has_no_gage() -> None:
     assert set(inspect.signature(CameraHistory.update).parameters) == {"self", "reading"}
     assert set(CameraHistory.__dataclass_fields__) == {"stage_ft", "sigma_ft", "time"}
+
+
+def _nb_nav(t: datetime) -> object:
+    class FakeNav:
+        def neighbor(self, when: datetime, direction: int, skip: int = 1) -> FrameRef:
+            return FrameRef(cam_id="c", filename=f"nb{direction}.jpg", time=t, url="")
+
+        def image(self, r: FrameRef) -> np.ndarray:
+            return np.zeros((8, 8, 3), np.uint8)
+
+    return FakeNav()
+
+
+def test_lost_repair_keeps_original_and_accepts(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # a repair that loses the reading does not flag the frame: r_old is kept
+    # and accepted on its own merits, without a single neighbour fetch
+    seq = iter([_result(r_stage_ft=0.634, r_sigma_ft=0.054), _result(r_stage_ft=None)])
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    calls = [
+        Decision(AgentAction.MASK_GLARE, "try inpainting"),
+        Decision(AgentAction.ACCEPT, "within sigma"),
+    ]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx()),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(datetime(2026, 8, 1, tzinfo=UTC)),
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert [s.tool for s in trace.steps] == ["mask_glare"]
+    assert trace.steps[0].decision == "repair rejected: lost the reading"
+    assert reading.status == "accepted"
+    assert reading.stage_ft == 0.634
+
+
+def test_changed_answer_confirmed_by_neighbour(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # a repair that changed the answer flags the frame; a neighbour that
+    # agrees inside the travel-time bound confirms r_old at the ORIGINAL time
+    t0 = datetime(2026, 8, 1, 12, tzinfo=UTC)
+    nb = t0 + timedelta(hours=1)
+    seq = iter(
+        [
+            _result(r_stage_ft=10.0, r_sigma_ft=0.15),
+            _result(r_stage_ft=10.86, r_sigma_ft=0.22),
+            _result(r_stage_ft=9.9, r_sigma_ft=0.2),
+        ]
+    )
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    calls = [
+        Decision(AgentAction.ENHANCE_GAMMA, "try a contrast lift"),
+        Decision(AgentAction.FETCH_PREV, "compare previous"),
+    ]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx(rate_max=0.5)),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(t0),
+        _nb_nav(nb),  # type: ignore[arg-type]
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert trace.steps[0].decision == "repair rejected: changed the reading by 0.86 ft"
+    assert trace.steps[1].decision == "confirmed by neighbour at 13:00"
+    assert "dt_h=1.00" in trace.steps[1].result_summary
+    assert reading.status == "accepted"
+    assert reading.stage_ft == 10.0  # r_old, not the repair or the neighbour
+    assert reading.time == t0
+    assert reading.frame_file == "f.jpg"
+
+
+def test_neighbour_disagreement_goes_to_review(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    t0 = datetime(2026, 8, 1, 12, tzinfo=UTC)
+    nb = t0 + timedelta(hours=1)
+    seq = iter(
+        [
+            _result(r_stage_ft=10.0, r_sigma_ft=0.15),
+            _result(r_stage_ft=10.86, r_sigma_ft=0.22),
+            _result(r_stage_ft=13.0, r_sigma_ft=0.2),
+        ]
+    )
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    calls = [
+        Decision(AgentAction.ENHANCE_GAMMA, "try a contrast lift"),
+        Decision(AgentAction.FETCH_PREV, "compare previous"),
+    ]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx(rate_max=0.5)),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(t0),
+        _nb_nav(nb),  # type: ignore[arg-type]
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert trace.steps[1].decision == "neighbour disagrees by 3.00 ft"
+    assert reading.status == "pending"
+    assert reading.stage_ft == 10.0  # the pending reading keeps r_old
+
+
+def test_no_neighbour_could_confirm(monkeypatch: pytest.MonkeyPatch) -> None:
+    t0 = datetime(2026, 8, 1, 12, tzinfo=UTC)
+    seq = iter(
+        [
+            _result(r_stage_ft=10.0, r_sigma_ft=0.15),
+            _result(r_stage_ft=10.86, r_sigma_ft=0.22),
+            _result(r_stage_ft=None),
+            _result(r_stage_ft=None),
+        ]
+    )
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    calls = [
+        Decision(AgentAction.ENHANCE_GAMMA, "try a contrast lift"),
+        Decision(AgentAction.FETCH_PREV, "compare previous"),
+        Decision(AgentAction.FETCH_NEXT, "compare next"),
+    ]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx(rate_max=0.5)),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(t0),
+        _nb_nav(t0 + timedelta(hours=1)),  # type: ignore[arg-type]
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert [s.tool for s in trace.steps] == [
+        "enhance_gamma",
+        "fetch_prev",
+        "fetch_next",
+    ]
+    assert trace.steps[-1].decision == "no neighbour could confirm"
+    assert reading.status == "pending"

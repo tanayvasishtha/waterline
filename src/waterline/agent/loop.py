@@ -9,6 +9,7 @@ import time
 from collections.abc import Callable
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import cast
 
 import cv2
 import numpy as np
@@ -32,9 +33,11 @@ def _reconcile(
     """Repair self-consistency: adopt r_new or keep r_old.
 
     A repair that moves a read more than 3 combined sigmas changed the answer:
-    keep r_old and mark the frame uncertain. With no read on r_old, adopt r_new.
-    Otherwise adopt only a repair that does not widen the bootstrap sigma.
-    Returns (result, rejection reason, frame-uncertain flag, |stage delta|).
+    keep r_old and mark the frame self-inconsistent. Losing the read or
+    widening its sigma also keeps r_old but does not flag the frame: a repair
+    that failed to help is not evidence against the original. With no read on
+    r_old, adopt r_new. Returns (result, rejection, self-inconsistent flag,
+    |stage delta|).
     """
     if action not in REPAIR_ACTIONS:
         return new, None, False, None
@@ -42,7 +45,7 @@ def _reconcile(
     if o.stage_ft is None:
         return new, None, False, None
     if n.stage_ft is None:
-        return old, "repair rejected: lost the reading", True, None
+        return old, "repair rejected: lost the reading", False, None
     delta = abs(n.stage_ft - o.stage_ft)
     s = math.sqrt((o.sigma_ft or 0.0) ** 2 + (n.sigma_ft or 0.0) ** 2)
     if delta > 3.0 * s:
@@ -62,6 +65,69 @@ def _plausibility(
     if history is None or result.reading.stage_ft is None:
         return None
     return history.jump_beyond(result.reading.stage_ft, result.reading.sigma_ft, t, rate_max)
+
+
+def _confirm(
+    decision: Decision,
+    ctx: Perception,
+    current_ref: FrameRef,
+    result: FrameResult,
+    *,
+    nav: FrameNavigator,
+    state: LoopState,
+    step_no: int,
+) -> tuple[AgentStep, Decision | None]:
+    """Neighbour-as-confirmation when the current result carries a stage.
+
+    The neighbour is read once, with no repairs and no substitution. A
+    readable neighbour inside the travel-time bound accepts the current
+    reading; a readable one outside it, or two unreadable ones, escalates.
+    Returns the trace step and an optional terminal decision.
+    """
+    t0 = time.perf_counter()
+    direction = -1 if decision.action == AgentAction.FETCH_PREV else 1
+    nb_ref = nav.neighbor(current_ref.time, direction)
+    nb_res = read_frame(ctx, nav.image(nb_ref), nb_ref.time, seed=0) if nb_ref is not None else None
+    ms = int((time.perf_counter() - t0) * 1000)
+    cur = result.reading
+    nb_stage = nb_res.reading.stage_ft if nb_res is not None else None
+    summary = f"nb={nb_stage} cur={cur.stage_ft}"
+    if nb_stage is not None and nb_ref is not None and nb_res is not None:
+        dt_h = abs((nb_ref.time - current_ref.time).total_seconds()) / 3600
+        nb_sig = (
+            nb_res.detection.sigma_ft
+            if nb_res.detection is not None
+            else (nb_res.reading.sigma_ft or 0.0)
+        )
+        cur_sig = (
+            result.detection.sigma_ft if result.detection is not None else (cur.sigma_ft or 0.0)
+        )
+        bound = (ctx.site.rate_max_ft_per_h or 0.0) * dt_h + 3.0 * math.sqrt(cur_sig**2 + nb_sig**2)
+        d = abs(nb_stage - cast(float, cur.stage_ft))
+        summary += f" dt_h={dt_h:.2f} bound={bound:.2f} d={d:.2f}"
+        if d <= bound:
+            text = f"confirmed by neighbour at {nb_ref.time:%H:%M}"
+            out: Decision | None = Decision(AgentAction.ACCEPT, text)
+        else:
+            text = f"neighbour disagrees by {d:.2f} ft"
+            out = Decision(AgentAction.HUMAN_REVIEW, text)
+    elif (AgentAction.FETCH_NEXT if direction < 0 else AgentAction.FETCH_PREV) in state.tried:
+        text = "no neighbour could confirm"
+        out = Decision(AgentAction.HUMAN_REVIEW, text)
+    else:
+        text = "neighbour unreadable; try the other side"
+        out = None
+    return (
+        AgentStep(
+            step=step_no,
+            tool=decision.action.value,
+            args={},
+            result_summary=summary,
+            decision=text,
+            latency_ms=ms,
+        ),
+        out,
+    )
 
 
 def _apply(
@@ -120,9 +186,8 @@ def run_frame(
     started = datetime.now(UTC)
     steps: list[AgentStep] = []
     decision = Decision(AgentAction.ABSTAIN, "loop never ran")
-    repair_rejected = False
     jump = _plausibility(history, result, current_ref.time, ctx.site.rate_max_ft_per_h)
-    state.forced_uncertain = jump is not None
+    state.implausible = jump is not None
 
     while state.steps < settings.agent_step_budget:
         decision = chooser(result, state, settings)
@@ -134,6 +199,27 @@ def run_frame(
             AgentAction.FETCH_NEXT,
         ):
             state.steps += 1
+            continue
+        if (
+            result.reading.stage_ft is not None
+            and decision.action in (AgentAction.FETCH_PREV, AgentAction.FETCH_NEXT)
+            and nav is not None
+        ):
+            # uncertain-path fetch: the neighbour confirms, it does not replace
+            step, out = _confirm(
+                decision,
+                ctx,
+                current_ref,
+                result,
+                nav=nav,
+                state=state,
+                step_no=len(steps) + 1,
+            )
+            steps.append(step)
+            state.steps += 1
+            if out is not None:
+                decision = out
+                break
             continue
         t0 = time.perf_counter()
         image, current_ref, state_op, applied = _apply(
@@ -151,9 +237,9 @@ def run_frame(
                 exclude_refs=frozenset(excluded),
             )
             result, rejection, rejected, delta = _reconcile(result, new_result, decision.action)
-            repair_rejected = repair_rejected or rejected
+            state.self_inconsistent = state.self_inconsistent or rejected
             jump = _plausibility(history, result, current_ref.time, ctx.site.rate_max_ft_per_h)
-            state.forced_uncertain = repair_rejected or jump is not None
+            state.implausible = jump is not None
         ms = int((time.perf_counter() - t0) * 1000)
         r = result.reading
         summary = (
