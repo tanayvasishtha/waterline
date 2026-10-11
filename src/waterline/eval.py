@@ -42,7 +42,6 @@ def run_window(
     cache: Path,
 ) -> list[dict]:
     """Read each frame, attach the nearest gage truth, return raw per-frame rows."""
-    settings = ctx.settings
     client = make_client()
     site = ctx.site
     truth = gage.continuous(
@@ -50,7 +49,7 @@ def run_window(
     )
     rows = []
     for i, ref in enumerate(frames):
-        image = cv2.imread(str(nims.fetch_image(client, ref, cache)))
+        image = nims.fetch_image(client, ref, cache)
         if image is None:
             continue
         gage_ft = gage.nearest(truth, ref.time, max_gap_min=10)
@@ -113,6 +112,8 @@ def summarize(rows: list[dict]) -> dict:
 
 
 def write_rows(rows: list[dict], path: Path) -> None:
+    if not rows:
+        raise ValueError("no frame rows produced")
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
