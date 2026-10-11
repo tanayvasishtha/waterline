@@ -158,3 +158,22 @@ v2) is the primary agent result whichever way it comes out. The v1 results remai
 the history at commit 06aea81, and both are reported. Agent read counts and error
 metrics now include accepted readings only; v1 had also counted abstained readings
 that carried a stage value.
+
+## Amendment 5 (2026-10-11): fresh test windows; old test windows become calibration
+
+The July to August hancock windows and the September in_overland window have been
+examined repeatedly during development, so they can no longer serve as test data. From
+this amendment on they are calibration data. The new test windows are listed in
+results/test_windows.json. They were chosen from the gage record alone, before any frame
+in them was processed: for hancock, 2026-04-14 to 2026-05-28 and 2026-09-01 to
+2026-09-16; for in_overland, every on-plate episode since the camera came online that
+has at least 50 frames and does not overlap a calibration window, padded by 6 hours on
+each side. Reference frames are excluded from test windows. oh_wetland has no fresh
+on-plate episode with frames, so it gets no new test window. The evaluation command
+refuses these windows unless run with --final, and --final refuses to run if this
+file's SHA-256 differs from results/protocol_hash.txt. The final run happens once,
+after the agent and calibration are frozen. Its results are reported whatever they
+show, together with all earlier results. The hancock test windows stay between 10 and
+12 ft, so the fresh results say nothing about flood-stage accuracy. Flood-stage numbers
+come only from the July event, which is now calibration data, and are labelled
+in-sample.

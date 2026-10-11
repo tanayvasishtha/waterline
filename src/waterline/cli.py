@@ -45,6 +45,11 @@ def _cmd_poll(args: argparse.Namespace) -> int:
 
 
 def _cmd_eval(args: argparse.Namespace) -> int:
+    if args.final:
+        ev.run_final()
+        return 0
+    if not (args.site and args.start and args.end):
+        raise SystemExit("eval needs --site --start --end, or --final")
     ev.run_eval(args.site, args.start, args.end, args.every, agent=args.agent)
     return 0
 
@@ -77,11 +82,16 @@ def main(argv: list[str] | None = None) -> int:
     p_cal.set_defaults(func=_cmd_calibrate)
 
     p_eval = sub.add_parser("eval", help="evaluate on a held-out window")
-    p_eval.add_argument("--site", required=True)
-    p_eval.add_argument("--start", required=True)
-    p_eval.add_argument("--end", required=True)
+    p_eval.add_argument("--site")
+    p_eval.add_argument("--start")
+    p_eval.add_argument("--end")
     p_eval.add_argument("--every", type=int, default=1)
     p_eval.add_argument("--agent", action="store_true", help="run the action loop")
+    p_eval.add_argument(
+        "--final",
+        action="store_true",
+        help="the frozen test run: every window in results/test_windows.json",
+    )
     p_eval.set_defaults(func=_cmd_eval)
 
     p_faults = sub.add_parser("faults", help="replay an agent eval CSV with injected faults")

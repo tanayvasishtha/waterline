@@ -6,6 +6,7 @@ the held-out event metrics. Nothing here may tune on test windows.
 """
 
 import csv
+import hashlib
 import json
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -52,17 +53,69 @@ class FrameRow(TypedDict):
     agent_steps: int | None
 
 
+TEST_WINDOWS_PATH = Path("results/test_windows.json")
+PROTOCOL_PATH = Path("eval/PROTOCOL.md")
+PROTOCOL_HASH_PATH = Path("results/protocol_hash.txt")
+
+
+class TestWindowError(RuntimeError):
+    """A requested window touches a frozen test window, or --final integrity fails."""
+
+
+def _overlaps(a0: datetime, a1: datetime, b0: datetime, b1: datetime) -> bool:
+    """Half-open [start, end) interval overlap."""
+    return a0 < b1 and b0 < a1
+
+
+def _check_window(site_id: str, start_dt: datetime, end_dt: datetime, final: bool) -> None:
+    """Refuse frozen test windows unless final, and refuse final on a hash mismatch."""
+    if TEST_WINDOWS_PATH.exists():
+        data = json.loads(TEST_WINDOWS_PATH.read_text())
+        windows = data.get(site_id, [])
+        hit = any(
+            _overlaps(
+                start_dt,
+                end_dt,
+                datetime.fromisoformat(str(w["start"]).replace("Z", "+00:00")),
+                datetime.fromisoformat(str(w["end"]).replace("Z", "+00:00")),
+            )
+            for w in windows
+            if isinstance(w, dict)
+        )
+        if hit and not final:
+            raise TestWindowError(
+                f"{site_id} {start_dt.date()}..{end_dt.date()} overlaps a frozen test "
+                "window from results/test_windows.json; rerun with --final"
+            )
+    if final:
+        expected = (
+            PROTOCOL_HASH_PATH.read_text().strip() if PROTOCOL_HASH_PATH.exists() else "<missing>"
+        )
+        actual = hashlib.sha256(PROTOCOL_PATH.read_bytes()).hexdigest()
+        if actual != expected:
+            raise TestWindowError(
+                "eval/PROTOCOL.md changed since the protocol hash was frozen; "
+                "--final refuses to run until results/protocol_hash.txt is refreshed"
+            )
+
+
+def _select(frames: list[FrameRef], every_n: int, exclude: frozenset[str]) -> list[FrameRef]:
+    """Every nth frame, minus excluded filenames (reference frames, by rule)."""
+    return [f for i, f in enumerate(frames) if i % every_n == 0 and f.filename not in exclude]
+
+
 def frame_list(
     site: SiteConfig,
     start: datetime,
     end: datetime,
     every_n: int,
+    exclude: frozenset[str] = frozenset(),
 ) -> list[FrameRef]:
     """Every nth archived frame in the window."""
     client = make_client()
     camera = {c.cam_id: c for c in nims.list_cameras(client)}[site.cam_id]
     frames = nims.list_frames(client, camera, after=start, before=end, limit=10000)
-    return frames[::every_n]
+    return _select(frames, every_n, exclude)
 
 
 def run_window(
@@ -225,14 +278,24 @@ def make_perception(site: SiteConfig, settings: Settings) -> Perception:
 
 
 def _run(
-    site_id: str, start: str, end: str, every_n: int, *, label: str, agent: bool
+    site_id: str,
+    start: str,
+    end: str,
+    every_n: int,
+    *,
+    label: str,
+    agent: bool,
+    final: bool = False,
+    exclude: frozenset[str] = frozenset(),
+    out_prefix: str = "",
 ) -> dict[str, object]:
     settings = Settings()
     site = sites.load_site(site_id)
     ctx = make_perception(site, settings)
     start_dt = datetime.fromisoformat(start).replace(tzinfo=UTC)
     end_dt = datetime.fromisoformat(end).replace(tzinfo=UTC)
-    frames = frame_list(site, start_dt, end_dt, every_n)
+    _check_window(site_id, start_dt, end_dt, final)
+    frames = frame_list(site, start_dt, end_dt, every_n, exclude)
     nav = None
     if agent:
         client = make_client()
@@ -240,7 +303,7 @@ def _run(
         nav = FrameNavigator(camera, Path("data/cache"))
     rows = run_window(ctx, frames, Path("data/cache"), nav)
     out_label = f"{label}_agent" if agent else label
-    stamp = f"{out_label}_{site_id}_{start_dt.date()}_{end_dt.date()}"
+    stamp = f"{out_prefix}{out_label}_{site_id}_{start_dt.date()}_{end_dt.date()}"
     write_rows(rows, Path("results") / f"{stamp}.csv")
     summary = summarize(rows)
     summary_path = Path("results") / f"summary_{stamp}.json"
@@ -256,11 +319,54 @@ def _run(
     return report
 
 
-def run_calibrate(site_id: str, start: str, end: str, every_n: int = 6) -> dict[str, object]:
-    return _run(site_id, start, end, every_n, label="calib", agent=False)
+def run_calibrate(
+    site_id: str, start: str, end: str, every_n: int = 6, *, final: bool = False
+) -> dict[str, object]:
+    return _run(site_id, start, end, every_n, label="calib", agent=False, final=final)
 
 
 def run_eval(
-    site_id: str, start: str, end: str, every_n: int = 1, agent: bool = False
+    site_id: str,
+    start: str,
+    end: str,
+    every_n: int = 1,
+    *,
+    agent: bool = False,
+    final: bool = False,
+    out_prefix: str = "",
 ) -> dict[str, object]:
-    return _run(site_id, start, end, every_n, label="eval", agent=agent)
+    return _run(
+        site_id,
+        start,
+        end,
+        every_n,
+        label="eval",
+        agent=agent,
+        final=final,
+        out_prefix=out_prefix,
+    )
+
+
+def run_final() -> list[dict[str, object]]:
+    """The one-shot test run: every frozen window, baseline and agent."""
+    data = json.loads(TEST_WINDOWS_PATH.read_text())
+    exclude = frozenset(str(f) for f in data.get("exclude_files", []))
+    reports = []
+    for site_id, windows in data.items():
+        if not isinstance(windows, list):
+            continue
+        for w in windows:
+            for agent in (False, True):
+                reports.append(
+                    _run(
+                        site_id,
+                        str(w["start"]),
+                        str(w["end"]),
+                        int(w["every"]),
+                        label="eval",
+                        agent=agent,
+                        final=True,
+                        exclude=exclude,
+                    )
+                )
+    return reports
