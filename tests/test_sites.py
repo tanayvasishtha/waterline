@@ -36,7 +36,7 @@ def test_load_site(tmp_path: Path) -> None:
 
 def test_quad_scales_to_pixels() -> None:
     site = SiteConfig.model_validate(_config())
-    quad = sites.normalized_quad(site, 2000, 1000)
+    quad = sites.quad_pixels(site, 2000, 1000)
     assert quad[2] == (600.0, 900.0)
 
 

@@ -104,7 +104,7 @@ def contact_sheet(
             frame = nims.list_frames(client, camera, limit=1, newest_first=True)
             if not frame:
                 continue
-            tile = nims.fetch_image(client, frame[0], out_path.parent / "cache")
+            tile = nims.fetch_image(client, frame[0], Path("data/cache"))
         except UsgsError:
             continue
         tile = nims.fetch_image(client, frame[0], out_path.parent / "cache")

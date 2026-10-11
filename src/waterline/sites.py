@@ -29,7 +29,7 @@ def list_sites(sites_dir: Path = SITES_DIR) -> list[str]:
     return sorted(p.stem for p in sites_dir.glob("*.json"))
 
 
-def normalized_quad(site: SiteConfig, width: float, height: float) -> list[tuple[float, float]]:
+def quad_pixels(site: SiteConfig, width: float, height: float) -> list[tuple[float, float]]:
     """Plate corners stored as fractions of image size, scaled to real pixels."""
     return [(x * width, y * height) for x, y in site.plate_quad]
 
