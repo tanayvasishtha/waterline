@@ -121,9 +121,7 @@ def _summarize_slice(rows: list[FrameRow]) -> dict[str, object]:
     below = sum(1 for r in gated if r["reason"] == "below_plate")
     errors = np.array([a - g for a, g, _ in read if a is not None and g is not None])
     within = (
-        float(np.mean(np.abs(errors) <= 2 * np.array([s for _, _, s in read])))
-        if read
-        else 0.0
+        float(np.mean(np.abs(errors) <= 2 * np.array([s for _, _, s in read]))) if read else 0.0
     )
     return {
         "frames": len(rows),
@@ -167,9 +165,7 @@ def make_perception(site: SiteConfig, settings: Settings) -> Perception:
     return Perception(site, settings, bank, ref_strip)
 
 
-def _run(
-    site_id: str, start: str, end: str, every_n: int, out: Path, label: str
-) -> dict[str, object]:
+def _run(site_id: str, start: str, end: str, every_n: int, label: str) -> dict[str, object]:
     settings = Settings()
     site = sites.load_site(site_id)
     ctx = make_perception(site, settings)
@@ -177,7 +173,7 @@ def _run(
     end_dt = datetime.fromisoformat(end).replace(tzinfo=UTC)
     frames = frame_list(site, start_dt, end_dt, every_n)
     rows = run_window(ctx, frames, Path("data/cache"))
-    write_rows(rows, out / f"{label}_{site_id}_{start_dt.date()}_{end_dt.date()}.csv")
+    write_rows(rows, Path("results") / f"{label}_{site_id}_{start_dt.date()}_{end_dt.date()}.csv")
     report: dict[str, object] = {
         "site": site_id,
         "window": [start, end],
@@ -189,13 +185,9 @@ def _run(
     return report
 
 
-def run_calibrate(
-    site_id: str, start: str, end: str, every_n: int = 6, out: str = "results"
-) -> dict[str, object]:
-    return _run(site_id, start, end, every_n, Path(out), "calib")
+def run_calibrate(site_id: str, start: str, end: str, every_n: int = 6) -> dict[str, object]:
+    return _run(site_id, start, end, every_n, "calib")
 
 
-def run_eval(
-    site_id: str, start: str, end: str, every_n: int = 1, out: str = "results"
-) -> dict[str, object]:
-    return _run(site_id, start, end, every_n, Path(out), "eval")
+def run_eval(site_id: str, start: str, end: str, every_n: int = 1) -> dict[str, object]:
+    return _run(site_id, start, end, every_n, "eval")
