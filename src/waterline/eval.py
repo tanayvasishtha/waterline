@@ -14,7 +14,7 @@ import cv2
 import numpy as np
 
 from waterline import sites
-from waterline.models import SiteConfig
+from waterline.models import FrameRef, SiteConfig
 from waterline.pipeline import Perception, read_frame
 from waterline.plate import rectify
 from waterline.quality import quality_ok
@@ -30,7 +30,7 @@ def frame_list(
     end: datetime,
     every_n: int,
     settings: Settings,
-) -> list[nims.FrameRef]:
+) -> list[FrameRef]:
     """Every nth archived frame in the window."""
     client = make_client()
     camera = {c.cam_id: c for c in nims.list_cameras(client)}[site.cam_id]
@@ -40,9 +40,9 @@ def frame_list(
 
 def run_window(
     ctx: Perception,
-    frames: list[nims.FrameRef],
+    frames: list[FrameRef],
     cache: Path,
-) -> list[dict]:
+) -> list[dict[str, object]]:
     """Read each frame, attach the nearest gage truth, return raw per-frame rows."""
     client = make_client()
     site = ctx.site
@@ -80,7 +80,7 @@ def run_window(
     return rows
 
 
-def fit_offset(rows: list[dict]) -> dict:
+def fit_offset(rows: list[dict[str, object]]) -> dict:
     """Median camera-minus-gage bias over accepted, in-range readings."""
     diffs = [
         r["stage_ft"] - r["gage_ft"]
@@ -90,7 +90,7 @@ def fit_offset(rows: list[dict]) -> dict:
     return {"offset_ft": float(np.median(diffs)) if diffs else 0.0, "n": len(diffs)}
 
 
-def _summarize_slice(rows: list[dict]) -> dict:
+def _summarize_slice(rows: list[dict[str, object]]) -> dict:
     """Single-pass baseline: rows failing the triage gate count as abstained."""
     gated = [r for r in rows if r.get("gate_pass", True)]
     read = [
@@ -116,7 +116,7 @@ def _summarize_slice(rows: list[dict]) -> dict:
     }
 
 
-def summarize(rows: list[dict]) -> dict:
+def summarize(rows: list[dict[str, object]]) -> dict:
     day = [r for r in rows if not r.get("is_night")]
     night = [r for r in rows if r.get("is_night")]
     return {
@@ -126,7 +126,7 @@ def summarize(rows: list[dict]) -> dict:
     }
 
 
-def write_rows(rows: list[dict], path: Path) -> None:
+def write_rows(rows: list[dict[str, object]], path: Path) -> None:
     if not rows:
         raise ValueError("no frame rows produced")
     path.parent.mkdir(parents=True, exist_ok=True)

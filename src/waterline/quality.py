@@ -38,7 +38,7 @@ def assess(
     mean_s = float(hsv[:, :, 1].mean())
     is_night = mean_s < settings.night_mean_sat_max or mean_v < 40
 
-    if obs is None:
+    if strip is None:
         return QualityReport(
             mean_v=mean_v,
             mean_s=mean_s,
