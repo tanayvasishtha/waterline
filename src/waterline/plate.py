@@ -64,7 +64,7 @@ def tick_profile(strip: Strip, tick_color: str) -> np.ndarray:
     else:
         # dark tick marks and numerals on a light plate
         mask = np.asarray(cv2.inRange(hsv, np.array([0, 0, 0]), np.array([180, 130, 120])))
-    return mask.astype(np.float32).mean(axis=1)
+    return np.asarray(mask.astype(np.float32).mean(axis=1))
 
 
 def tick_scale(strip: Strip, site: SiteConfig, tick_color: str) -> TickFit:
