@@ -1,0 +1,16 @@
+Waterline
+Copyright 2026 Tanay Vasishtha
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Data
+----
+Camera imagery comes from the U.S. Geological Survey National Imagery Management
+System (NIMS), https://api.waterdata.usgs.gov/docs/nims/. Gage height and field
+measurements come from the USGS Water Data APIs, https://api.waterdata.usgs.gov/.
+USGS-authored or produced data and information are in the U.S. public domain.
+Waterline is not affiliated with or endorsed by the USGS.
+
+Software
+--------
+Waterline uses OpenCV (https://opencv.org), licensed under the Apache License 2.0.
