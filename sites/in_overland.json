@@ -5,7 +5,8 @@
  "name": "Overland Flow East of Bull Rapids Road near Harlan, IN",
  "tz": "America/New_York",
  "reference_frames": {
-  "day_clear": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-10-06T15-00-39Z.jpg"
+  "day_clear": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-10-06T15-00-39Z.jpg",
+  "wet_high": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-09-20T15-00-05Z.jpg"
  },
  "plate_quad": [
   [
