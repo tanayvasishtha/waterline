@@ -9,6 +9,7 @@ import csv
 import json
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from typing import TypedDict
 
 import cv2
 import numpy as np
@@ -24,12 +25,31 @@ from waterline.usgs import gage, nims
 from waterline.usgs.http import make_client
 
 
+class FrameRow(TypedDict):
+    file: str
+    time: str
+    gage_ft: float | None
+    stage_ft: float | None
+    sigma_ft: float | None
+    method_a_ft: float | None
+    method_b_ft: float | None
+    reason: str | None
+    blur_var: float
+    glare_frac: float
+    mean_v: float
+    inliers: int
+    inlier_ratio: float
+    shift_px: float
+    plate_visibility: float
+    is_night: bool
+    gate_pass: bool
+
+
 def frame_list(
     site: SiteConfig,
     start: datetime,
     end: datetime,
     every_n: int,
-    settings: Settings,
 ) -> list[FrameRef]:
     """Every nth archived frame in the window."""
     client = make_client()
@@ -42,14 +62,14 @@ def run_window(
     ctx: Perception,
     frames: list[FrameRef],
     cache: Path,
-) -> list[dict[str, object]]:
+) -> list[FrameRow]:
     """Read each frame, attach the nearest gage truth, return raw per-frame rows."""
     client = make_client()
     site = ctx.site
     truth = gage.continuous(
         client, site.nwis_id, min(f.time for f in frames), max(f.time for f in frames)
     )
-    rows = []
+    rows: list[FrameRow] = []
     for i, ref in enumerate(frames):
         image = nims.fetch_image(client, ref, cache)
         if image is None:
@@ -80,7 +100,7 @@ def run_window(
     return rows
 
 
-def fit_offset(rows: list[dict[str, object]]) -> dict:
+def fit_offset(rows: list[FrameRow]) -> dict[str, object]:
     """Median camera-minus-gage bias over accepted, in-range readings."""
     diffs = [
         r["stage_ft"] - r["gage_ft"]
@@ -90,18 +110,20 @@ def fit_offset(rows: list[dict[str, object]]) -> dict:
     return {"offset_ft": float(np.median(diffs)) if diffs else 0.0, "n": len(diffs)}
 
 
-def _summarize_slice(rows: list[dict[str, object]]) -> dict:
+def _summarize_slice(rows: list[FrameRow]) -> dict[str, object]:
     """Single-pass baseline: rows failing the triage gate count as abstained."""
-    gated = [r for r in rows if r.get("gate_pass", True)]
+    gated = [r for r in rows if r["gate_pass"]]
     read = [
         (r["stage_ft"], r["gage_ft"], r["sigma_ft"])
         for r in gated
         if r["stage_ft"] is not None and r["gage_ft"] is not None
     ]
     below = sum(1 for r in gated if r["reason"] == "below_plate")
-    errors = np.array([a - g for a, g, _ in read])
+    errors = np.array([a - g for a, g, _ in read if a is not None and g is not None])
     within = (
-        float(np.mean(np.abs(errors) <= 2 * np.array([s for _, _, s in read]))) if read else 0.0
+        float(np.mean(np.abs(errors) <= 2 * np.array([s for _, _, s in read])))
+        if read
+        else 0.0
     )
     return {
         "frames": len(rows),
@@ -116,9 +138,9 @@ def _summarize_slice(rows: list[dict[str, object]]) -> dict:
     }
 
 
-def summarize(rows: list[dict[str, object]]) -> dict:
-    day = [r for r in rows if not r.get("is_night")]
-    night = [r for r in rows if r.get("is_night")]
+def summarize(rows: list[FrameRow]) -> dict[str, object]:
+    day = [r for r in rows if not r["is_night"]]
+    night = [r for r in rows if r["is_night"]]
     return {
         "all": _summarize_slice(rows),
         "day": _summarize_slice(day),
@@ -126,7 +148,7 @@ def summarize(rows: list[dict[str, object]]) -> dict:
     }
 
 
-def write_rows(rows: list[dict[str, object]], path: Path) -> None:
+def write_rows(rows: list[FrameRow], path: Path) -> None:
     if not rows:
         raise ValueError("no frame rows produced")
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -145,18 +167,18 @@ def make_perception(site: SiteConfig, settings: Settings) -> Perception:
     return Perception(site, settings, bank, ref_strip)
 
 
-def run_calibrate(
-    site_id: str, start: str, end: str, every_n: int = 6, out: str = "results"
-) -> dict:
+def _run(
+    site_id: str, start: str, end: str, every_n: int, out: Path, label: str
+) -> dict[str, object]:
     settings = Settings()
     site = sites.load_site(site_id)
     ctx = make_perception(site, settings)
     start_dt = datetime.fromisoformat(start).replace(tzinfo=UTC)
     end_dt = datetime.fromisoformat(end).replace(tzinfo=UTC)
-    frames = frame_list(site, start_dt, end_dt, every_n, settings)
+    frames = frame_list(site, start_dt, end_dt, every_n)
     rows = run_window(ctx, frames, Path("data/cache"))
-    write_rows(rows, Path(out) / f"calib_{site_id}_{start_dt.date()}.csv")
-    report = {
+    write_rows(rows, out / f"{label}_{site_id}_{start_dt.date()}_{end_dt.date()}.csv")
+    report: dict[str, object] = {
         "site": site_id,
         "window": [start, end],
         "rows": len(rows),
@@ -167,15 +189,13 @@ def run_calibrate(
     return report
 
 
-def run_eval(site_id: str, start: str, end: str, every_n: int = 1, out: str = "results") -> dict:
-    settings = Settings()
-    site = sites.load_site(site_id)
-    ctx = make_perception(site, settings)
-    start_dt = datetime.fromisoformat(start).replace(tzinfo=UTC)
-    end_dt = datetime.fromisoformat(end).replace(tzinfo=UTC)
-    frames = frame_list(site, start_dt, end_dt, every_n, settings)
-    rows = run_window(ctx, frames, Path("data/cache"))
-    write_rows(rows, Path(out) / f"eval_{site_id}_{start_dt.date()}_{end_dt.date()}.csv")
-    report = {"site": site_id, "window": [start, end], "summary": summarize(rows)}
-    print(json.dumps(report, indent=2))
-    return report
+def run_calibrate(
+    site_id: str, start: str, end: str, every_n: int = 6, out: str = "results"
+) -> dict[str, object]:
+    return _run(site_id, start, end, every_n, Path(out), "calib")
+
+
+def run_eval(
+    site_id: str, start: str, end: str, every_n: int = 1, out: str = "results"
+) -> dict[str, object]:
+    return _run(site_id, start, end, every_n, Path(out), "eval")
