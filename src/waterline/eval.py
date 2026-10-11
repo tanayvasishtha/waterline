@@ -7,7 +7,7 @@ the held-out event metrics. Nothing here may tune on test windows.
 
 import csv
 import json
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import numpy as np
@@ -51,7 +51,7 @@ def run_window(
         image = nims.fetch_image(client, ref, cache)
         if image is None:
             continue
-        gage_ft = gage.nearest(truth, ref.time, max_gap_minutes=10)
+        gage_ft = gage.nearest(truth, ref.time, max_gap=timedelta(minutes=10))
         result = read_frame(ctx, image, ref.time, seed=i)
         rows.append(
             {
