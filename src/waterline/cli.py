@@ -5,6 +5,7 @@ from pathlib import Path
 
 from waterline import __version__, fixtures, screen
 from waterline import eval as ev
+from waterline.poller import poll_site
 
 FIXTURES_DIR = Path("tests/fixtures")
 
@@ -29,6 +30,12 @@ def _cmd_replay_record(args: argparse.Namespace) -> int:
 
 def _cmd_calibrate(args: argparse.Namespace) -> int:
     ev.run_calibrate(args.site, args.start, args.end, args.every)
+    return 0
+
+
+def _cmd_poll(args: argparse.Namespace) -> int:
+    for site_id in args.sites:
+        print(poll_site(site_id, Path("data")))
     return 0
 
 
@@ -66,6 +73,10 @@ def main(argv: list[str] | None = None) -> int:
     p_eval.add_argument("--every", type=int, default=1)
     p_eval.add_argument("--agent", action="store_true", help="run the action loop")
     p_eval.set_defaults(func=_cmd_eval)
+
+    p_poll = sub.add_parser("poll", help="one monitoring tick per site")
+    p_poll.add_argument("--sites", nargs="+", default=["hancock"])
+    p_poll.set_defaults(func=_cmd_poll)
 
     args = parser.parse_args(argv)
     return int(args.func(args))
