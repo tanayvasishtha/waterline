@@ -47,6 +47,20 @@ Secondary: USGS `field-measurements` (technician wire-weight readings) matched w
   stuck value, step (+0.8 ft), spike (+3 ft for 1 frame), all labeled "injected" in
   reports, with seed 20261026.
 
+## Calibration checkpoint notes (recorded 2026-10-11)
+
+- The camera-to-sensor bias is regime-dependent: fitted +0.40 ft on the August
+  low-flow window, but the held-out July flood frames read about 0.6 ft low after
+  that same offset. Water piles up against the plate differently at different
+  stages; this is physical, not a calibration bug. We therefore report a single
+  site offset and quote honest residual spread, and the agent flags frames whose
+  camera-sensor disagreement exceeds the residual band.
+- Night frames are cleanly separable by tick-pattern visibility (SNR ~0 vs ~45).
+  The gate abstains on all of them. Readings at night fall to the agent's
+  fetch-adjacent action or abstention, never a guess.
+- Glare is not a gate: the pale plate itself trips absolute-whiteness metrics,
+  so glare is an agent signal (choose mask_glare re-read), not a rejection.
+
 ## Metrics
 
 Per site and pooled: MAE, median AE, P90 AE (ft), coverage (read frames / all frames,
