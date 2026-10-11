@@ -21,7 +21,7 @@ def _config(**overrides: object) -> dict[str, object]:
         "plate_bottom_ft": 2.0,
         "tick_color": "auto",
         "static_mask": [[[0.0, 0.0], [0.4, 0.0], [0.4, 0.5], [0.0, 0.5]]],
-        "datum_offset_ft": -0.8,
+        "stage_calib": [-0.8, 1.0],
     }
     base.update(overrides)
     return base

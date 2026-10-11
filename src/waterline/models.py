@@ -48,7 +48,10 @@ class SiteConfig(_Frozen):
         default_factory=dict,
         description="per-reference plate quads when reference poses differ",
     )
-    datum_offset_ft: float = 0.0
+    stage_calib: list[float] = Field(
+        [0.0, 1.0],
+        description="affine correction: stage = a + b*detected, fit on calibration data",
+    )
     sigma_calib_ft: float = Field(0.15, description="residual std from calibration")
     nws_flood_stage_ft: float | None = None
 

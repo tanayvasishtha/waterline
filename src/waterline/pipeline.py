@@ -72,20 +72,24 @@ def read_frame(
     detection = detect(strip, site, settings, seed=seed)
     quality = assess(image, site, settings, Observed(strip, registration, ctx.ref_strip))
 
-    offset = site.datum_offset_ft
-    a_ft = detection.method_a_ft
-    b_ft = detection.method_b_ft
-    stage_ft = None if a_ft is None else a_ft + offset
+    det_a, det_b = site.stage_calib
+
+    def _calib(v: float | None) -> float | None:
+        return None if v is None else det_a + det_b * v
+
+    a_ft = _calib(detection.method_a_ft)
+    b_ft = _calib(detection.method_b_ft)
+    stage_ft = a_ft
     return FrameResult(
         reading=Reading(
             site_id=site.site_id,
             time=frame_time,
             stage_ft=stage_ft,
-            sigma_ft=float(np.hypot(detection.sigma_ft, site.sigma_calib_ft))
+            sigma_ft=float(abs(det_b) * np.hypot(detection.sigma_ft, site.sigma_calib_ft))
             if a_ft is not None
             else None,
-            method_a_ft=None if a_ft is None else a_ft + offset,
-            method_b_ft=None if b_ft is None else b_ft + offset,
+            method_a_ft=a_ft,
+            method_b_ft=b_ft,
             methods_disagree=detection.methods_disagree,
             status="pending",
             reason=detection.reason,
