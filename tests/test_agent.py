@@ -2,7 +2,7 @@
 
 import json
 import types
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 import cv2
@@ -10,7 +10,7 @@ import numpy as np
 import pytest
 
 from waterline import sites
-from waterline.agent.fault import FaultTracker, is_stuck
+from waterline.agent.fault import FaultTracker, Obs
 from waterline.agent.flag import FlagEngine
 from waterline.agent.loop import run_frame
 from waterline.agent.policy import LoopState, decide
@@ -108,24 +108,82 @@ def test_policy_never_repeats_an_action() -> None:
     assert d.action != AgentAction.FETCH_NEXT
 
 
-def test_fault_tracker_catches_drift() -> None:
+def _obs(i: int, gage: float | None, camera: float | None = None, sigma: float = 0.2) -> Obs:
+    return Obs(
+        time=datetime(2026, 8, 1, tzinfo=UTC) + timedelta(minutes=15 * i),
+        file=f"f{i}.jpg",
+        gage_ft=gage,
+        camera_ft=camera,
+        sigma_ft=sigma,
+    )
+
+
+def test_flood_rise_together_flags_nothing() -> None:
     t = FaultTracker()
-    flagged = None
-    for i in range(30):
-        flagged = t.feed(0.4 + 0.05 * i, 10.0 + 0.01 * i, S)
-    assert flagged == "drift"
+    events = [t.feed(_obs(i, 10.0 + i, 10.0 + i), S) for i in range(8)]
+    assert all(e is None for e in events)
 
 
-def test_fault_tracker_catches_stuck_sensor() -> None:
+def test_stuck_needs_camera_confirmation() -> None:
     t = FaultTracker()
-    flagged = [t.feed(None, 9.41, S) for _ in range(6)]
-    assert "stuck" in flagged
+    # gage flat, camera below range on every frame: the camera cannot testify.
+    events = [t.feed(_obs(i, 9.41, None), S) for i in range(8)]
+    assert all(e is None for e in events)
 
 
-def test_stuck_needs_four_identical() -> None:
-    assert is_stuck([1.0, 1.0, 1.0, 1.0])
-    assert not is_stuck([1.0, 1.0, 1.0])
-    assert not is_stuck([1.0, 1.1, 1.0, 1.0])
+def test_stuck_fires_when_camera_moves() -> None:
+    t = FaultTracker()
+    events = [t.feed(_obs(i, 10.0, 10.0 + 0.2 * i), S) for i in range(4)]
+    assert events[-1] is not None and events[-1].kind == "stuck"
+
+
+def test_cusum_fires_on_one_sigma_shift_not_noise() -> None:
+    rng = np.random.default_rng(1)
+    t = FaultTracker()
+    noise = []
+    for i, v in enumerate(rng.normal(0, 1, 200)):
+        gage = 10.0 + 0.01 * i  # slow real rise, so only CUSUM could fire
+        noise.append(t.feed(_obs(i, gage, gage + 0.1 * float(v), 0.1), S))
+    assert all(e is None for e in noise)
+    # a persistent +1-sigma bias must accumulate to the threshold quickly
+    shift = [t.feed(_obs(200 + i, 12.0, 12.1, 0.1), S) for i in range(15)]
+    assert any(e is not None and e.kind == "drift" for e in shift)
+
+
+def test_spike_flags_the_reversed_frame() -> None:
+    t = FaultTracker()
+    events = [
+        t.feed(_obs(i, g, 10.1), S) for i, g in enumerate([10.0, 10.0, 10.0, 13.0, 10.2, 10.1])
+    ]
+    # at f3 the +3 ft jump is only detectable as a step (disagreeing move);
+    # the next frame proves it a one-frame reversal, which is the spike flag
+    assert events[3] is not None and events[3].kind == "step"
+    spike = events[4]
+    assert spike is not None and spike.kind == "spike"
+    assert spike.file == "f3.jpg"
+    assert spike.time == datetime(2026, 8, 1, 0, 45, tzinfo=UTC)
+
+
+def test_suppression_and_rearm() -> None:
+    t = FaultTracker()
+    cam = iter(10.0 + 0.2 * i for i in range(20))
+    gage_seq = [10.0] * 6 + [10.6] + [11.0] * 6
+    events = [t.feed(_obs(i, gage_seq[i], next(cam)), S) for i in range(13)]
+    kinds = [i for i, e in enumerate(events) if e is not None and e.kind == "stuck"]
+    # fires once on the first flat stretch, stays latched while it holds,
+    # re-arms when the gage moves, fires again on the second flat stretch
+    assert kinds == [3, 10]
+
+
+def test_stuck_needs_four_identical_gage() -> None:
+    t = FaultTracker()
+    short = [t.feed(_obs(i, 10.0, 10.0 + 0.2 * i), S) for i in range(3)]
+    assert all(e is None for e in short)
+    t2 = FaultTracker()
+    wiggle = [
+        t2.feed(_obs(i, g, 10.0 + 0.2 * i), S) for i, g in enumerate([10.0, 10.1, 10.0, 10.0])
+    ]
+    assert all(e is None for e in wiggle)
 
 
 @pytest.fixture(scope="module")
@@ -165,34 +223,37 @@ def test_loop_abstains_or_below_range_on_dry(ctx: object) -> None:
     assert reading.stage_ft is None or abs(reading.stage_ft - dry["gage_ft"]) < 1.0
 
 
-def test_flag_engine_emits_after_persistence(tmp_path: Path) -> None:
+def test_flag_engine_emits_drift_flag(tmp_path: Path) -> None:
     engine = FlagEngine("hancock")
-    reading = Reading(
-        site_id="hancock",
-        time=datetime(2026, 8, 1, 12, tzinfo=UTC),
-        stage_ft=11.0,
-        sigma_ft=0.4,
-    )
-    trace = Trace(
-        trace_id="t1",
-        site_id="hancock",
-        frame_time=reading.time,
-        frame_file="f.jpg",
-        started_at=reading.time,
-        finished_at=reading.time,
-        steps=[],
-        final_status="accepted",
-        final_stage_ft=11.0,
-        final_sigma_ft=0.4,
-        reason=None,
-        policy="deterministic",
-    )
     flag = None
-    for i in range(10):
-        gage = 10.0 + 0.05 * i  # real drift; camera over-reads by a constant foot
+    for i in range(6):
+        t = datetime(2026, 8, 1, 12, tzinfo=UTC) + timedelta(minutes=15 * i)
+        reading = Reading(
+            site_id="hancock",
+            time=t,
+            stage_ft=11.0,
+            sigma_ft=0.4,
+            status="accepted",
+        )
+        trace = Trace(
+            trace_id=f"t{i}",
+            site_id="hancock",
+            frame_time=t,
+            frame_file=f"f{i}.jpg",
+            started_at=t,
+            finished_at=t,
+            steps=[],
+            final_status="accepted",
+            final_stage_ft=11.0,
+            final_sigma_ft=0.4,
+            reason=None,
+            policy="deterministic",
+        )
+        gage = 10.0 + 0.05 * i  # real drift; camera over-reads by about a foot
         flag = engine.feed(reading, gage, trace, S, tmp_path) or flag
     assert flag is not None
     assert flag.site_id == "hancock"
     assert flag.event_type == "drift"
-    assert flag.residual_ft == pytest.approx(11.0 - 10.45)
+    assert flag.residual_ft == pytest.approx(11.0 - 10.1)
+    assert flag.persistence_frames == 3
     assert (tmp_path / "hancock").exists()

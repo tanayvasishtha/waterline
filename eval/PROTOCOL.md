@@ -111,3 +111,22 @@ same stretch the affine was fit on; no disjoint wet period exists for that
 site. Its accuracy numbers are therefore partially in-sample for the affine
 parameters and are reported as supporting evidence, while hancock's
 calibration/test split remains fully disjoint and is the headline claim.
+
+## Amendment 3 (2026-10-11): fault detector redesign
+
+A replay of the held-out Hancock event with no injected fault produced three flags
+(one drift, two step) while the USGS gage was correct. Cause: the step rule compared
+consecutive gage values without checking the camera, and the drift CUSUM used
+unstandardised residuals. The detector was rewritten before any injected-fault run.
+The step rule now requires the gage change to disagree with the camera change by more
+than 3 combined sigmas. CUSUM runs on residuals divided by each reading's sigma, with
+textbook k = 0.5 and h = 5. The stuck rule requires the camera to move by more than
+2 sigma while the gage holds still. A spike rule was added, with its threshold set to
+twice the largest one-frame reversal in the calibration-window gage records of the
+two sites under fault evaluation (hancock and in_overland). oh_wetland was left out
+of that pool because its September record contains a single gage reading of 0.0 ft
+between 1.31 and 0.97 ft, a dropout of exactly the kind the rule exists to catch.
+None of these values was tuned on a test window. Because the trigger for this change was seen
+on a test window, the clean-replay false-flag count on that window is reported, but it
+is not an independent estimate. Agent results are now written to their own files
+(eval_agent_*) because an earlier agent run had been overwritten by a baseline rerun.

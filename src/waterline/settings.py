@@ -46,9 +46,21 @@ class Settings(BaseModel):
     blur_var_min: float = Field(40.0, description="calibration: Laplacian variance on the strip")
 
     # Sensor fault detection
-    cusum_k: float = Field(0.5, description="CUSUM slack in sigmas; targets 1-sigma shifts")
-    cusum_h: float = Field(5.0, description="CUSUM threshold; one-sided ARL0 near 900 frames")
-    flag_persistence_frames: int = Field(4, description="one hour at a 15-minute frame interval")
+    cusum_k: float = Field(0.5, description="slack in sigmas, targets 1-sigma shifts")
+    cusum_h: float = Field(5.0, description="two-sided ARL0 about 465 frames at k=0.5")
+    step_z: float = Field(3.0, description="3 combined sigmas")
+    stuck_frames: int = Field(4, description="identical gage values needed before a stuck check")
+    stuck_camera_z: float = Field(
+        2.0, description="camera spread in median sigmas needed to confirm a stuck gage"
+    )
+    spike_min_ft: float = Field(
+        0.93,
+        description=(
+            "2x the largest one-frame reversal (0.465 ft, "
+            "calib_hancock_2026-08-01_2026-08-31.csv) in the hancock and "
+            "in_overland calibration gage records"
+        ),
+    )
 
     # Agent
     agent_step_budget: int = Field(6, description="enough for enhance, alt reference, 2 neighbours")
