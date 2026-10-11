@@ -109,9 +109,7 @@ def continuous(
 ) -> list[GageReading]:
     """Sensor gage height between start and end (inclusive), oldest first."""
     try:
-        return _from_ogc(
-            _ogc_features(client, "continuous", _location_window(nwis_id, start, end))
-        )
+        return _from_ogc(_ogc_features(client, "continuous", _location_window(nwis_id, start, end)))
     except UsgsError:
         legacy_params = {
             "format": "json",
