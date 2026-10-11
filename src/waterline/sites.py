@@ -2,11 +2,14 @@
 
 import json
 import math
+import os
 from pathlib import Path
 
 from waterline.models import SiteConfig
 
-SITES_DIR = Path(__file__).resolve().parents[3] / "sites"
+SITES_DIR = Path(
+    os.environ.get("WATERLINE_SITES_DIR") or Path(__file__).resolve().parents[2] / "sites"
+)
 
 
 def site_dir(site_id: str) -> Path:
