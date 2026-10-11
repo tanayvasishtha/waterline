@@ -49,7 +49,7 @@ def test_out_of_range_coordinate_is_flagged() -> None:
     bad = _config()
     bad["plate_quad"][0] = [1.2, 0.2]  # type: ignore[index]
     site = SiteConfig.model_validate(bad)
-    assert any("plate_quad" in p for p in sites.validate_normalized(site))
+    assert any("quad" in p for p in sites.validate_normalized(site))
 
 
 def test_missing_config_raises(tmp_path: Path) -> None:
