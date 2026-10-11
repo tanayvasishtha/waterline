@@ -19,6 +19,7 @@ def assess(
     settings: Settings,
     strip: Strip | None = None,
     registration: Registration | None = None,
+    ref_strip: np.ndarray | None = None,
 ) -> QualityReport:
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     mean_v = float(hsv[:, :, 2].mean())
@@ -41,8 +42,14 @@ def assess(
 
     gray = cv2.cvtColor(strip.image, cv2.COLOR_BGR2GRAY)
     blur_var = float(cv2.Laplacian(gray, cv2.CV_64F).var())
-    strip_hsv = cv2.cvtColor(strip.image, cv2.COLOR_BGR2HSV)
-    glare = (strip_hsv[:, :, 2] > 240) & (strip_hsv[:, :, 1] < 40)
+    if ref_strip is not None:
+        v_now = cv2.cvtColor(strip.image, cv2.COLOR_BGR2HSV)[:, :, 2].astype(np.int16)
+        v_ref = cv2.cvtColor(ref_strip, cv2.COLOR_BGR2HSV)[:, :, 2].astype(np.int16)
+        # glare is *new* brightness: sun flare or blown-out water, not the pale plate
+        glare = (v_now - v_ref > 40) & (v_now > 200)
+    else:
+        v_now = cv2.cvtColor(strip.image, cv2.COLOR_BGR2HSV)[:, :, 2].astype(np.int16)
+        glare = v_now > 245
     contrast = float(gray.std() / (gray.mean() + 1e-6))
 
     # Tick periodicity in the upper half of the strip is the plate's own readability signal.

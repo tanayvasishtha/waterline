@@ -22,6 +22,7 @@ class Perception:
     site: SiteConfig
     settings: Settings
     bank: RefBank
+    ref_strip: np.ndarray | None = None
 
 
 @dataclass
@@ -67,7 +68,7 @@ def read_frame(
     warped = warp(image, registration, (ref_w, ref_h))
     strip = rectify(warped, site, settings)
     detection = detect(strip, site, settings, seed=seed)
-    quality = assess(image, site, settings, strip, registration)
+    quality = assess(image, site, settings, strip, registration, ctx.ref_strip)
 
     offset = site.datum_offset_ft
     a_ft = detection.method_a_ft

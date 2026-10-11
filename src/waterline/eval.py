@@ -14,7 +14,10 @@ import numpy as np
 
 from waterline import sites
 from waterline.models import SiteConfig
+import cv2
+
 from waterline.pipeline import Perception, read_frame
+from waterline.plate import rectify
 from waterline.quality import quality_ok
 from waterline.register import build_reference
 from waterline.settings import Settings
@@ -99,9 +102,7 @@ def _summarize_slice(rows: list[dict]) -> dict:
     below = sum(1 for r in gated if r["reason"] == "below_plate")
     errors = np.array([a - g for a, g, _ in read])
     within = (
-        float(np.mean(np.abs(errors) <= 2 * np.array([s for _, _, s in read])))
-        if read
-        else 0.0
+        float(np.mean(np.abs(errors) <= 2 * np.array([s for _, _, s in read]))) if read else 0.0
     )
     return {
         "frames": len(rows),
@@ -136,13 +137,21 @@ def write_rows(rows: list[dict], path: Path) -> None:
         writer.writerows(rows)
 
 
+def make_perception(site: SiteConfig, settings: Settings) -> Perception:
+    """Bank + rectified reference strip (the baseline for glare detection)."""
+    bank = build_reference(site, Path("sites"), settings)
+    first = next(iter(site.reference_frames.values()))
+    ref_image = cv2.imread(str(sites.site_dir(site.site_id) / first))
+    ref_strip = None if ref_image is None else rectify(ref_image, site, settings).image
+    return Perception(site, settings, bank, ref_strip)
+
+
 def run_calibrate(
     site_id: str, start: str, end: str, every_n: int = 6, out: str = "results"
 ) -> dict:
     settings = Settings()
     site = sites.load_site(site_id)
-    bank = build_reference(site, Path("sites"), settings)
-    ctx = Perception(site, settings, bank)
+    ctx = make_perception(site, settings)
     start_dt = datetime.fromisoformat(start).replace(tzinfo=UTC)
     end_dt = datetime.fromisoformat(end).replace(tzinfo=UTC)
     frames = frame_list(site, start_dt, end_dt, every_n, settings)
@@ -159,13 +168,10 @@ def run_calibrate(
     return report
 
 
-def run_eval(
-    site_id: str, start: str, end: str, every_n: int = 1, out: str = "results"
-) -> dict:
+def run_eval(site_id: str, start: str, end: str, every_n: int = 1, out: str = "results") -> dict:
     settings = Settings()
     site = sites.load_site(site_id)
-    bank = build_reference(site, Path("sites"), settings)
-    ctx = Perception(site, settings, bank)
+    ctx = make_perception(site, settings)
     start_dt = datetime.fromisoformat(start).replace(tzinfo=UTC)
     end_dt = datetime.fromisoformat(end).replace(tzinfo=UTC)
     frames = frame_list(site, start_dt, end_dt, every_n, settings)
