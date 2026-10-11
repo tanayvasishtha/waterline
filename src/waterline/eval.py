@@ -51,7 +51,7 @@ def run_window(
         image = nims.fetch_image(client, ref, cache)
         if image is None:
             continue
-        gage_ft = gage.nearest(truth, ref.time, max_gap_min=10)
+        gage_ft = gage.nearest(truth, ref.time, max_gap_minutes=10)
         result = read_frame(ctx, image, ref.time, seed=i)
         rows.append(
             {
