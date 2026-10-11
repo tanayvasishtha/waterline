@@ -10,8 +10,12 @@ audit trail; `results/protocol_hash.txt` records the sha256 of this file, and
 | site_id | camera | nwis id | role |
 |---|---|---|---|
 | hancock | NY_East_Branch_Delaware_River_at_Hancock_Staff | 01421500 | flagship |
-| site_b | TBD after daylight contact sheet review | | generalization |
-| site_c | TBD after daylight contact sheet review | | generalization |
+| oh_wetland | OH_Inflow_to_wetland_near_Winn_Road_near_Defiance_STAFF | 411607084241200 | generalization (flume) |
+| pa_youghiogheny | PA_Youghiogheny_River_at_Youghiogheny_River_Dam | 03077500 | generalization (mid-river board) |
+
+Site choice rationale (recorded 2026-10-11): results/site_screen.json ranked all
+staff cameras by range, event count and cadence; docs/media/site_screen_day.jpg is the
+daylight contact sheet used for the final readability check.
 
 ## Ground truth
 
