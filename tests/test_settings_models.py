@@ -29,7 +29,7 @@ def test_bad_mode_is_rejected() -> None:
 
 def test_gage_reading_rejects_unknown_approval() -> None:
     with pytest.raises(ValidationError):
-        GageReading(time=datetime.now(UTC), value_ft=1.0, approval="Maybe")  # type: ignore[arg-type]
+        GageReading(time=datetime.now(UTC), value_ft=1.0, approval="Maybe")
 
 
 def test_reading_defaults_to_pending() -> None:

@@ -1,0 +1,89 @@
+{
+ "site_id": "oh_wetland",
+ "cam_id": "OH_Inflow_to_wetland_near_Winn_Road_near_Defiance_STAFF",
+ "nwis_id": "411607084241200",
+ "name": "Inflow to wetland near Winn Road near Defiance, OH",
+ "tz": "America/New_York",
+ "reference_frames": {
+  "day_clear": "OH_Inflow_to_wetland_near_Winn_Road_near_Defiance_STAFF___2026-10-07T17-00-33Z.jpg"
+ },
+ "plate_quad": [
+  [
+   0.6146,
+   0.0787
+  ],
+  [
+   0.6422,
+   0.0815
+  ],
+  [
+   0.6469,
+   0.525
+  ],
+  [
+   0.6188,
+   0.5204
+  ]
+ ],
+ "plate_top_ft": 2.3,
+ "plate_bottom_ft": 0.0,
+ "tick_color": "black",
+ "static_mask": [
+  [
+   [
+    0.6146,
+    0.0787
+   ],
+   [
+    0.6422,
+    0.0815
+   ],
+   [
+    0.6469,
+    0.525
+   ],
+   [
+    0.6188,
+    0.5204
+   ]
+  ],
+  [
+   [
+    0.5469,
+    0.0556
+   ],
+   [
+    0.7292,
+    0.0556
+   ],
+   [
+    0.7292,
+    0.5556
+   ],
+   [
+    0.5469,
+    0.5556
+   ]
+  ],
+  [
+   [
+    0.1562,
+    0.0741
+   ],
+   [
+    0.3646,
+    0.0741
+   ],
+   [
+    0.3646,
+    0.6481
+   ],
+   [
+    0.1562,
+    0.6481
+   ]
+  ]
+ ],
+ "datum_offset_ft": 0.0,
+ "nws_flood_stage_ft": null
+}

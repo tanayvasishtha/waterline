@@ -16,3 +16,4 @@ results/tmp/
 !docs/media/*.mp4
 .DS_Store
 *.pem
+tests/fixtures/cache/

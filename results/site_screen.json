@@ -1,0 +1,362 @@
+[
+ {
+  "cam_id": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF",
+  "nwis_id": "411229084541101",
+  "name": "Overland Flow East of Bull Rapids Road near Harlan STAFF",
+  "range_ft": 1.6400000000000001,
+  "events": 7,
+  "interval_min": 1.8,
+  "score": 1.3336666666666668,
+  "note": ""
+ },
+ {
+  "cam_id": "OH_Inflow_to_wetland_near_Winn_Road_near_Defiance_STAFF",
+  "nwis_id": "411607084241200",
+  "name": "Inflow to wetland near Winn Road near Defiance STAFF",
+  "range_ft": 1.41,
+  "events": 14,
+  "interval_min": 2.1166666666666667,
+  "score": 1.1879114173228347,
+  "note": ""
+ },
+ {
+  "cam_id": "PA_PAWSC_BFO_test",
+  "nwis_id": "03077500",
+  "name": "Youghiogheny River at Youghiogheny River Dam",
+  "range_ft": 6.340000000000001,
+  "events": 13,
+  "interval_min": 14.933333333333334,
+  "score": 1.0004464285714285,
+  "note": ""
+ },
+ {
+  "cam_id": "KY_Rock_Lick_Cr_at_State_Hwy_158_nr_Sharkey_Sta_D",
+  "nwis_id": "03250322",
+  "name": "Rock Lick Cr at State Hwy 158 nr Sharkey Sta D",
+  "range_ft": 7.73,
+  "events": 21,
+  "interval_min": 15.0,
+  "score": 1.0,
+  "note": ""
+ },
+ {
+  "cam_id": "PA_Youghiogheny_River_at_Youghiogheny_River_Dam",
+  "nwis_id": "03077500",
+  "name": "Youghiogheny River at Youghiogheny River Dam",
+  "range_ft": 6.340000000000001,
+  "events": 13,
+  "interval_min": 15.0,
+  "score": 1.0,
+  "note": ""
+ },
+ {
+  "cam_id": "NY_East_Branch_Delaware_River_at_Hancock_Staff",
+  "nwis_id": "01421500",
+  "name": "East Branch Delaware River at Hancock Staff",
+  "range_ft": 8.969999999999999,
+  "events": 17,
+  "interval_min": 60.0,
+  "score": 0.925,
+  "note": ""
+ },
+ {
+  "cam_id": "IN_Black_Creek_at_Darling_Road_near_Harlan",
+  "nwis_id": "04183030",
+  "name": "Black Creek at Darling Road near Harlan Staff",
+  "range_ft": 5.99,
+  "events": 22,
+  "interval_min": 59.61666666666667,
+  "score": 0.9242440825645327,
+  "note": ""
+ },
+ {
+  "cam_id": "NY_Owasco_Outlet_at_Genesee_St_Auburn_Staff",
+  "nwis_id": "04235440",
+  "name": "Owasco Outlet at Genesee St Auburn Staff",
+  "range_ft": 4.66,
+  "events": 28,
+  "interval_min": 14.916666666666666,
+  "score": 0.8777253258845439,
+  "note": ""
+ },
+ {
+  "cam_id": "WI_GLRI_East_River_Waterway_SW3_STAFF",
+  "nwis_id": "441520088045001",
+  "name": "GLRI East River Waterway SW3 STAFF",
+  "range_ft": 2.13,
+  "events": 5,
+  "interval_min": 14.983333333333333,
+  "score": 0.5870279013718948,
+  "note": ""
+ },
+ {
+  "cam_id": "WI_MT3_STAFF",
+  "nwis_id": "445557090090601",
+  "name": "MT3 STAFF",
+  "range_ft": 1.4,
+  "events": 5,
+  "interval_min": 60.0,
+  "score": 0.44500000000000006,
+  "note": ""
+ },
+ {
+  "cam_id": "WI_GLRI_Waterway_Number_5_near_Wrightstown_STAFF",
+  "nwis_id": "442114088085701",
+  "name": "Glri Waterway Number 5 nr Wrightstown",
+  "range_ft": 1.35,
+  "events": 2,
+  "interval_min": 15.016666666666667,
+  "score": 0.3403056788753237,
+  "note": ""
+ },
+ {
+  "cam_id": "IN_Overland_Flow_North_of_Cr_1000_N_nr_Decatur_Staff",
+  "nwis_id": "405327084555402",
+  "name": "Overland Flow North of Cr 1000 N nr Decatur Staff",
+  "range_ft": 0.83,
+  "events": 4,
+  "interval_min": 4.65,
+  "score": 0,
+  "note": "flat"
+ },
+ {
+  "cam_id": "IN_Overland_Flow_West_of_Bull_Rapids_Road_near_Harlan_STAFF",
+  "nwis_id": "411228084541701",
+  "name": "Overland Flow West of Bull Rapids Road near Harlan STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 4.883333333333334,
+  "score": 0,
+  "note": "no data"
+ },
+ {
+  "cam_id": "MI_Tile_Drain_to_Mill_Creek_near_Waldron_FLUME_STAFF",
+  "nwis_id": "04184846",
+  "name": "Tile Drain to Mill Creek near Waldron FLUME STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 59.1,
+  "score": 0,
+  "note": "no data"
+ },
+ {
+  "cam_id": "NY_Canasawacta_Cr_at_Norwich_Staff",
+  "nwis_id": "01505503",
+  "name": "Canasawacta Cr at Norwich Staff",
+  "range_ft": 0.6800000000000002,
+  "events": 0,
+  "interval_min": 59.96666666666667,
+  "score": 0,
+  "note": "flat"
+ },
+ {
+  "cam_id": "NY_Chenango_River_at_Norwich_Staff",
+  "nwis_id": "01505031",
+  "name": "Chenango River at Norwich Staff",
+  "range_ft": 0.6200000000000001,
+  "events": 0,
+  "interval_min": 59.95,
+  "score": 0,
+  "note": "flat"
+ },
+ {
+  "cam_id": "NY_Genesee_River_at_Avon_Staff_Gage",
+  "nwis_id": "04228500",
+  "name": "Genesee River at Avon Staff Gage",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 59.95,
+  "score": 0,
+  "note": "no data"
+ },
+ {
+  "cam_id": "NY_Keshequa_Creek_at_Craig_Colony_at_Sonyea_STAFF",
+  "nwis_id": "04226000",
+  "name": "Keshequa Creek at Craig Colony at Sonyea STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "NWIS IV response had no gage height series"
+ },
+ {
+  "cam_id": "NY_Owasco_Inlet_below_Aurora_Street_at_Moravia_Staff",
+  "nwis_id": "04235299",
+  "name": "Owasco Inlet below Aurora Street at Moravia Staff",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 119.95,
+  "score": 0,
+  "note": "slow"
+ },
+ {
+  "cam_id": "NY_Owasco_Lake_near_Auburn_Staff",
+  "nwis_id": "04235396",
+  "name": "Owasco Lake near Auburn Staff",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "NWIS IV response had no gage height series"
+ },
+ {
+  "cam_id": "OK_Lake_Hefner_Canal_near_Oklahoma_City_Staff",
+  "nwis_id": "07240000",
+  "name": "Lake Hefner Canal near Oklahoma City Staff",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_AO1_STAFF",
+  "nwis_id": "451021089064901",
+  "name": "AO1 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "NWIS IV response had no gage height series"
+ },
+ {
+  "cam_id": "WI_AO2_STAFF",
+  "nwis_id": "451207089041801",
+  "name": "AO2 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_AO3_STAFF",
+  "nwis_id": "451337089035401",
+  "name": "AO3 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_GLRI_Waterway_Number_4_near_Wrightstown_STAFF",
+  "nwis_id": "442119088085501",
+  "name": "GLRI Waterway Number 4 near Wrightstown STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_Glri_Waterway_Number_6_nr_Morrison",
+  "nwis_id": "441453087575701",
+  "name": "Glri Waterway Number 6 nr Morrison Staff",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_KD1_STAFF",
+  "nwis_id": "442405087414401",
+  "name": "KD1 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_KD2_STAFF",
+  "nwis_id": "442155087330001",
+  "name": "KD2 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_MT1_STAFF",
+  "nwis_id": "450157090060701",
+  "name": "MT1 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_MT2_STAFF",
+  "nwis_id": "445537090022401",
+  "name": "MT2 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_RS1_STAFF",
+  "nwis_id": "433939090050501",
+  "name": "RS1 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_RS2_STAFF",
+  "nwis_id": "433821090063801",
+  "name": "RS2 STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_Spring_Harbor_Storm_Sewer_STAFF_at_Madison",
+  "nwis_id": "05427965",
+  "name": "Spring Harbor Storm Sewer STAFF at Madison",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_Treatment_Wetland_2_Outlet_near_Kaukauna_EXIT_FLUME_STAFF",
+  "nwis_id": "441605088115703",
+  "name": "Treatment Wetland 2 Outlet near Kaukauna EXIT FLUME STAFF",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_Treatment_Wetland_2_Surface_Inlet_near_Kaukauna_Staff",
+  "nwis_id": "441605088115701",
+  "name": "Treatment Wetland 2 Surface Inlet near Kaukauna Staff",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ },
+ {
+  "cam_id": "WI_Yahara_River_at_McFarland_STAFF_PLATE",
+  "nwis_id": "05429500",
+  "name": "Yahara River at McFarland STAFF PLATE",
+  "range_ft": 0,
+  "events": 0,
+  "interval_min": 0,
+  "score": 0,
+  "note": "USGS request failed: https://api.waterdata.usgs.gov/nims/v0/"
+ }
+]

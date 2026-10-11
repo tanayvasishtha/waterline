@@ -34,13 +34,13 @@ class SiteConfig(_Frozen):
     tz: str
     reference_frames: dict[str, str] = Field(min_length=1, description="lighting -> image file")
     plate_quad: tuple[Point, Point, Point, Point] = Field(
-        description="plate corners in reference px: top-left, top-right, bottom-right, bottom-left"
+        description="plate corners as fractions of image size, TL TR BR BL"
     )
     plate_top_ft: float = Field(description="stage value printed at the top edge of plate_quad")
     plate_bottom_ft: float = Field(description="stage value at the bottom edge of plate_quad")
     tick_color: Literal["red", "black", "auto"] = "auto"
     static_mask: list[list[Point]] = Field(
-        min_length=1, description="polygons of fixed structure used for registration"
+        min_length=1, description="fixed-structure polygons as image fractions"
     )
     datum_offset_ft: float = 0.0
     nws_flood_stage_ft: float | None = None

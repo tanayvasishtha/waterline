@@ -1,0 +1,89 @@
+{
+ "site_id": "in_overland",
+ "cam_id": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF",
+ "nwis_id": "411229084541101",
+ "name": "Overland Flow East of Bull Rapids Road near Harlan, IN",
+ "tz": "America/New_York",
+ "reference_frames": {
+  "day_clear": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-10-06T15-00-39Z.jpg"
+ },
+ "plate_quad": [
+  [
+   0.5785,
+   0.275
+  ],
+  [
+   0.6443,
+   0.2842
+  ],
+  [
+   0.6057,
+   0.7961
+  ],
+  [
+   0.5387,
+   0.7816
+  ]
+ ],
+ "plate_top_ft": 2.1,
+ "plate_bottom_ft": 0.0,
+ "tick_color": "black",
+ "static_mask": [
+  [
+   [
+    0.5785,
+    0.275
+   ],
+   [
+    0.6443,
+    0.2842
+   ],
+   [
+    0.6057,
+    0.7961
+   ],
+   [
+    0.5387,
+    0.7816
+   ]
+  ],
+  [
+   [
+    0.0,
+    0.0987
+   ],
+   [
+    1.0,
+    0.0987
+   ],
+   [
+    1.0,
+    0.25
+   ],
+   [
+    0.0,
+    0.25
+   ]
+  ],
+  [
+   [
+    0.8557,
+    0.2763
+   ],
+   [
+    1.0,
+    0.2763
+   ],
+   [
+    1.0,
+    0.9211
+   ],
+   [
+    0.8557,
+    0.9211
+   ]
+  ]
+ ],
+ "datum_offset_ft": 0.0,
+ "nws_flood_stage_ft": null
+}
