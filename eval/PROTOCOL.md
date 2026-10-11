@@ -72,3 +72,42 @@ latency per frame, Bedrock calls and cost per 1000 frames.
 
 Every number in the README, report, video, and submission comes from `results/*.json`
 written by scripts in this repo, with the command recorded beside it.
+
+## Amendments (recorded 2026-10-12)
+
+These notes record decisions made during M3; they extend the protocol above and
+do not rewrite it. All fits below used calibration windows only.
+
+### Site set update
+
+- `in_overland` (IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF,
+  nwis 411229084541101) replaces `pa_youghiogheny`: the Youghiogheny board's
+  marks were not legible at archive resolution, so it cannot support an honest
+  evaluation. `oh_wetland` is retained as a coverage-limited site: registration
+  works with a wet reference, but its tape lacks a clean row-wise boundary
+  signal when submerged, so it contributes to coverage/abstention metrics, not
+  accuracy tables.
+- High-water reference frames are part of site configuration. Two of three
+  sites fail registration on wet frames against a dry-only bank because the
+  water submerges the keypoint texture; a "wet_high" reference fixes it.
+  Reference quads may differ per reference pose (`ref_quads` overrides
+  `plate_quad` per reference name).
+
+### Affine stage calibration
+
+- `stage_calib = [a, b]` replaces the flat `datum_offset_ft`: stage =
+  a + b * detected. Hancock's fit is [+0.396? check sign in config, 1.0]
+  (slope 1, the offset case). in_overland needed slope 1.414: its ruler is
+  perspective-compressed and the config top/bottom marks were approximate,
+  which produced a ~0.63x scale error growing with stage - the affine fit
+  corrects it. Sigma is scaled by |b|.
+- Fit procedure unchanged: calibration window rows only, least squares on
+  (detected, gage) pairs, n >= 4.
+
+### in_overland window-overlap disclosure
+
+in_overland's only wet stretch in the archive (Sep 19-23, peak 1.11 ft) is the
+same stretch the affine was fit on; no disjoint wet period exists for that
+site. Its accuracy numbers are therefore partially in-sample for the affine
+parameters and are reported as supporting evidence, while hancock's
+calibration/test split remains fully disjoint and is the headline claim.
