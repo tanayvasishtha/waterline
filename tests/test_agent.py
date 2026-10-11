@@ -1,10 +1,9 @@
 """Agent policy, loop and fault-tracker tests. Fixtures keep them offline."""
 
 import json
+import types
 from datetime import UTC, datetime
 from pathlib import Path
-
-import types
 
 import cv2
 import numpy as np
@@ -12,6 +11,7 @@ import pytest
 
 from waterline import sites
 from waterline.agent.fault import FaultTracker, is_stuck
+from waterline.agent.flag import FlagEngine
 from waterline.agent.loop import run_frame
 from waterline.agent.policy import LoopState, decide
 from waterline.eval import make_perception
@@ -60,7 +60,11 @@ def _result(**kw: object) -> FrameResult:
         reading=reading,
         quality=_quality(**qkw),
         registration=types.SimpleNamespace(ref_name="ref1") if kw.get("registered", True) else None,  # type: ignore[arg-type]
-        detection=types.SimpleNamespace(sigma_ft=rkw.get("sigma_ft", 0.1)) if kw.get("detected", True) else None,  # type: ignore[arg-type]
+        detection=(
+            types.SimpleNamespace(sigma_ft=rkw.get("sigma_ft", 0.1))  # type: ignore[arg-type]
+            if kw.get("detected", True)
+            else None
+        ),
         strip=None,
         warped=None,
     )
@@ -144,9 +148,7 @@ def test_loop_accepts_a_flood_frame(ctx: object) -> None:
     manifest = json.loads(Path("tests/fixtures/manifest_hancock.json").read_text())
     flood = next(e for e in manifest if e["gage_ft"] > 17)
     image = cv2.imread(str(Path("tests/fixtures") / flood["path"]))
-    reading, trace = run_frame(
-        perception, np.asarray(image), _fixture_ref(flood, site)
-    )
+    reading, trace = run_frame(perception, np.asarray(image), _fixture_ref(flood, site))
     assert reading.status == "accepted"
     assert abs((reading.stage_ft or 0) - flood["gage_ft"]) < 1.0
     assert trace.final_status == "accepted"
@@ -164,8 +166,6 @@ def test_loop_abstains_or_below_range_on_dry(ctx: object) -> None:
 
 
 def test_flag_engine_emits_after_persistence(tmp_path: Path) -> None:
-    from waterline.agent.flag import FlagEngine
-
     engine = FlagEngine("hancock")
     reading = Reading(
         site_id="hancock",
