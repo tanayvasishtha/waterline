@@ -10,12 +10,11 @@ import json
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
+import cv2
 import numpy as np
 
 from waterline import sites
 from waterline.models import SiteConfig
-import cv2
-
 from waterline.pipeline import Perception, read_frame
 from waterline.plate import rectify
 from waterline.quality import quality_ok

@@ -4,6 +4,8 @@ Everything here feeds the agent's triage: a bad frame is not a bad reading,
 it is an abstention or a re-look.
 """
 
+from dataclasses import dataclass
+
 import cv2
 import numpy as np
 
@@ -13,20 +15,30 @@ from waterline.register import Registration
 from waterline.settings import Settings
 
 
+@dataclass(frozen=True)
+class Observed:
+    """What registration and rectification produced for one frame."""
+
+    strip: Strip
+    registration: Registration
+    ref_strip: np.ndarray | None
+
+
 def assess(
     frame: np.ndarray,
     site: SiteConfig,
     settings: Settings,
-    strip: Strip | None = None,
-    registration: Registration | None = None,
-    ref_strip: np.ndarray | None = None,
+    obs: Observed | None = None,
 ) -> QualityReport:
+    strip = obs.strip if obs else None
+    registration = obs.registration if obs else None
+    ref_strip = obs.ref_strip if obs else None
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     mean_v = float(hsv[:, :, 2].mean())
     mean_s = float(hsv[:, :, 1].mean())
     is_night = mean_s < settings.night_mean_sat_max or mean_v < 40
 
-    if strip is None:
+    if obs is None:
         return QualityReport(
             mean_v=mean_v,
             mean_s=mean_s,

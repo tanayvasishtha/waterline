@@ -3,7 +3,8 @@
 import argparse
 from pathlib import Path
 
-from waterline import __version__, eval as ev, fixtures, screen
+from waterline import __version__, fixtures, screen
+from waterline import eval as ev
 
 FIXTURES_DIR = Path("tests/fixtures")
 

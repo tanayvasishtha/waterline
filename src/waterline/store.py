@@ -1,6 +1,5 @@
 """Local JSON persistence. Same interface the DynamoDB backend will implement in M4."""
 
-import json
 import tempfile
 from datetime import UTC, datetime
 from pathlib import Path

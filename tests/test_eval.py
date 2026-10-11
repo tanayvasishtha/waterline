@@ -35,6 +35,6 @@ def test_summarize_counts_and_metrics() -> None:
 
 def test_cli_help_lists_commands() -> None:
     out = subprocess.run(
-        [sys.executable, "-m", "waterline", "--help"], capture_output=True, text=True
+        [sys.executable, "-m", "waterline", "--help"], capture_output=True, text=True, check=False
     )
     assert "calibrate" in out.stdout and "eval" in out.stdout

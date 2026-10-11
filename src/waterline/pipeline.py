@@ -10,7 +10,7 @@ from waterline import enhance
 from waterline.detect import Detection, detect
 from waterline.models import QualityReport, Reading, SiteConfig
 from waterline.plate import Strip, rectify
-from waterline.quality import assess
+from waterline.quality import Observed, assess
 from waterline.register import RefBank, Registration, register, warp
 from waterline.settings import Settings
 
@@ -68,7 +68,7 @@ def read_frame(
     warped = warp(image, registration, (ref_w, ref_h))
     strip = rectify(warped, site, settings)
     detection = detect(strip, site, settings, seed=seed)
-    quality = assess(image, site, settings, strip, registration, ctx.ref_strip)
+    quality = assess(image, site, settings, Observed(strip, registration, ctx.ref_strip))
 
     offset = site.datum_offset_ft
     a_ft = detection.method_a_ft
