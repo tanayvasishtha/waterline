@@ -3,7 +3,7 @@
 import argparse
 from pathlib import Path
 
-from waterline import __version__, fixtures, screen
+from waterline import __version__, eval as ev, fixtures, screen
 
 FIXTURES_DIR = Path("tests/fixtures")
 
@@ -26,6 +26,16 @@ def _cmd_replay_record(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_calibrate(args: argparse.Namespace) -> int:
+    ev.run_calibrate(args.site, args.start, args.end, args.every)
+    return 0
+
+
+def _cmd_eval(args: argparse.Namespace) -> int:
+    ev.run_eval(args.site, args.start, args.end, args.every)
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="waterline", description=__doc__)
     parser.add_argument("--version", action="version", version=f"waterline {__version__}")
@@ -40,6 +50,20 @@ def main(argv: list[str] | None = None) -> int:
     p_rec.add_argument("--cam", default="NY_East_Branch_Delaware_River_at_Hancock_Staff")
     p_rec.add_argument("--nwis", default="01421500")
     p_rec.set_defaults(func=_cmd_replay_record)
+
+    p_cal = sub.add_parser("calibrate", help="fit the datum offset on a calibration window")
+    p_cal.add_argument("--site", required=True)
+    p_cal.add_argument("--start", required=True)
+    p_cal.add_argument("--end", required=True)
+    p_cal.add_argument("--every", type=int, default=6)
+    p_cal.set_defaults(func=_cmd_calibrate)
+
+    p_eval = sub.add_parser("eval", help="evaluate on a held-out window")
+    p_eval.add_argument("--site", required=True)
+    p_eval.add_argument("--start", required=True)
+    p_eval.add_argument("--end", required=True)
+    p_eval.add_argument("--every", type=int, default=1)
+    p_eval.set_defaults(func=_cmd_eval)
 
     args = parser.parse_args(argv)
     return int(args.func(args))
