@@ -30,12 +30,6 @@ def _iso(t: datetime) -> str:
     return t.astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def _time(raw: str) -> datetime:
-    # Some field records omit the offset; USGS publishes everything in UTC.
-    parsed = datetime.fromisoformat(raw)
-    return parsed.replace(tzinfo=UTC) if parsed.tzinfo is None else parsed
-
-
 def _qualifier(raw: object) -> str | None:
     if isinstance(raw, list):
         return ",".join(str(q) for q in raw) or None
@@ -60,6 +54,12 @@ def _ogc_features(client: httpx.Client, collection: str, params: dict[str, str])
         url = next((link["href"] for link in page.get("links", []) if link["rel"] == "next"), None)
         query = None  # the next link already carries every parameter
     raise UsgsError(f"OGC {collection} paging exceeded {MAX_PAGES} pages")
+
+
+def _time(raw: str) -> datetime:
+    # Some field records omit the offset; USGS publishes everything in UTC.
+    parsed = datetime.fromisoformat(raw)
+    return parsed.replace(tzinfo=UTC) if parsed.tzinfo is None else parsed
 
 
 def _from_ogc(features: list[Json]) -> list[GageReading]:
@@ -109,7 +109,9 @@ def continuous(
 ) -> list[GageReading]:
     """Sensor gage height between start and end (inclusive), oldest first."""
     try:
-        return _from_ogc(_ogc_features(client, "continuous", _location_window(nwis_id, start, end)))
+        return _from_ogc(
+            _ogc_features(client, "continuous", _location_window(nwis_id, start, end))
+        )
     except UsgsError:
         legacy_params = {
             "format": "json",

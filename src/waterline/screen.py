@@ -43,17 +43,20 @@ def is_staff_camera(camera: nims.CameraInfo) -> bool:
 
 
 def _events(readings: list[GageReading], rise_ft: float = 0.5) -> int:
-    """Count distinct rises: 6-hour windows whose max-min exceeds rise_ft, non-overlapping."""
+    """Count rises where the stage climbs at least rise_ft within 6 hours, once per 24 hours."""
     count, last_peak = 0, None
-    for window_start in range(0, len(readings), 1):
-        t0 = readings[window_start].time
-        window = [r for r in readings[window_start:] if r.time <= t0 + timedelta(hours=6)]
-        if not window:
-            continue
-        spread = max(r.value_ft for r in window) - min(r.value_ft for r in window)
-        if spread >= rise_ft and (last_peak is None or t0 - last_peak > timedelta(hours=24)):
+    for i, start in enumerate(readings):
+        end = start.time + timedelta(hours=6)
+        window_max = start.value_ft
+        j = i
+        while j < len(readings) and readings[j].time <= end:
+            window_max = max(window_max, readings[j].value_ft)
+            j += 1
+        if window_max - start.value_ft >= rise_ft and (
+            last_peak is None or start.time - last_peak > timedelta(hours=24)
+        ):
             count += 1
-            last_peak = t0
+            last_peak = start.time
     return count
 
 
@@ -97,8 +100,12 @@ def contact_sheet(
     tiles = []
     for cam_id in cam_ids:
         camera = cameras[cam_id]
-        frame = nims.list_frames(client, camera, limit=1, newest_first=True)
-        if not frame:
+        try:
+            frame = nims.list_frames(client, camera, limit=1, newest_first=True)
+            if not frame:
+                continue
+            tile = nims.fetch_image(client, frame[0], out_path.parent / "cache")
+        except UsgsError:
             continue
         tile = nims.fetch_image(client, frame[0], out_path.parent / "cache")
         tile = cv2.resize(tile, (640, round(640 * tile.shape[0] / tile.shape[1])))
