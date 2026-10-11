@@ -27,6 +27,14 @@ class FrameRef(_Frozen):
     url: str
 
 
+class CalibWindow(_Frozen):
+    """One calibration window: half-open [start, end), every-nth frame."""
+
+    start: str
+    end: str
+    every: int = 1
+
+
 class SiteConfig(_Frozen):
     site_id: str
     cam_id: str
@@ -52,7 +60,18 @@ class SiteConfig(_Frozen):
         [0.0, 1.0],
         description="affine correction: stage = a + b*detected, fit on calibration data",
     )
+    datum_offset_ft: float = Field(
+        0.0, description="plate datum correction, absorbed by stage_calib"
+    )
     sigma_calib_ft: float = Field(0.15, description="residual std from calibration")
+    rate_max_ft_per_h: float | None = Field(
+        None,
+        description="plausible gage rise rate cap: 1.5x max |dg/dt| on calibration windows",
+    )
+    rate_max_source: str | None = Field(None, description="where rate_max was measured")
+    calibration_windows: list[CalibWindow] = Field(
+        default_factory=list, description="windows the affine fit and dev runs cover"
+    )
     nws_flood_stage_ft: float | None = None
 
 

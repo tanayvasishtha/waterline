@@ -85,5 +85,17 @@
   ]
  ],
  "nws_flood_stage_ft": null,
- "tick_spacing_ft": 0.1
+ "tick_spacing_ft": 0.1,
+ "calibration_windows": [
+  {
+   "start": "2026-08-10",
+   "end": "2026-08-18",
+   "every": 2
+  },
+  {
+   "start": "2026-09-01",
+   "end": "2026-10-01",
+   "every": 2
+  }
+ ]
 }

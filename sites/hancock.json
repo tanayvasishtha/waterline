@@ -91,5 +91,12 @@
  "stage_calib": [
   -0.396,
   1.0
+ ],
+ "calibration_windows": [
+  {
+   "start": "2026-07-27",
+   "end": "2026-09-01",
+   "every": 2
+  }
  ]
 }

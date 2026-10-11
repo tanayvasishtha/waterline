@@ -7,18 +7,20 @@ the held-out event metrics. Nothing here may tune on test windows.
 
 import csv
 import hashlib
+import itertools
 import json
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import TypedDict
+from typing import TypedDict, cast
 
 import cv2
 import numpy as np
 
 from waterline import sites
+from waterline.agent.history import CameraHistory
 from waterline.agent.loop import run_frame
 from waterline.agent.tools import FrameNavigator
-from waterline.models import FrameRef, SiteConfig
+from waterline.models import FrameRef, GageReading, SiteConfig
 from waterline.pipeline import Perception, read_frame
 from waterline.plate import rectify
 from waterline.quality import quality_ok
@@ -131,13 +133,15 @@ def run_window(
         client, site.nwis_id, min(f.time for f in frames), max(f.time for f in frames)
     )
     rows: list[FrameRow] = []
+    history = CameraHistory()
     for i, ref in enumerate(frames):
         image = nims.fetch_image(client, ref, cache)
         if image is None:
             continue
         gage_ft = gage.nearest(truth, ref.time, max_gap=timedelta(minutes=10))
         if nav is not None:
-            agent_reading, trace = run_frame(ctx, image, ref, nav)
+            agent_reading, trace = run_frame(ctx, image, ref, nav, history=history)
+            history.update(agent_reading)
             result = read_frame(ctx, image, ref.time, seed=i)
             agent_status = agent_reading.status
             agent_stage = agent_reading.stage_ft
@@ -370,3 +374,90 @@ def run_final() -> list[dict[str, object]]:
                     )
                 )
     return reports
+
+
+def _parse_time(value: str) -> datetime:
+    return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(UTC)
+
+
+def _fit_affine(rows: list[FrameRow]) -> dict[str, object]:
+    """Least squares gage = a + b*raw over gate-passed rows with both values."""
+    pts = [
+        (r["stage_ft"], r["gage_ft"])
+        for r in rows
+        if r["gate_pass"] and r["stage_ft"] is not None and r["gage_ft"] is not None
+    ]
+    if len(pts) < 2:
+        raise ValueError(f"need >=2 gate-passed rows to fit, got {len(pts)}")
+    raw = np.array([p[0] for p in pts], dtype=float)
+    g = np.array([p[1] for p in pts], dtype=float)
+    b, a = np.polyfit(raw, g, 1)
+    resid = g - (a + b * raw)
+    return {
+        "n": len(pts),
+        "a": float(a),
+        "b": float(b),
+        "resid_std": float(resid.std(ddof=1)),
+        "raw_min": float(raw.min()),
+        "raw_max": float(raw.max()),
+        "gage_min": float(g.min()),
+        "gage_max": float(g.max()),
+    }
+
+
+def _rate_max(series: list[GageReading]) -> float | None:
+    """1.5x the largest |dg/dt| between consecutive gage samples (ft/h)."""
+    best = 0.0
+    for prev, cur in itertools.pairwise(series):
+        dt = (cur.time - prev.time).total_seconds()
+        if dt > 0:
+            best = max(best, abs(cur.value_ft - prev.value_ft) / (dt / 3600))
+    return 1.5 * best if best > 0 else None
+
+
+def run_calibrate_fit(site_id: str) -> dict[str, object]:
+    """Reproducible affine fit over the site's calibration_windows.
+
+    Perception runs with stage_calib forced to identity and datum_offset 0.
+    The least-squares fit, residual sigma, and the gage-rate cap are written
+    back to the site config; the fit report lands in results/calibfit_*.json.
+    """
+    site = sites.load_site(site_id)
+    if not site.calibration_windows:
+        raise ValueError(f"{site_id} has no calibration_windows in its config")
+    settings = Settings()
+    raw_site = site.model_copy(update={"stage_calib": [0.0, 1.0], "datum_offset_ft": 0.0})
+    ctx = make_perception(raw_site, settings)
+    client = make_client()
+    rows: list[FrameRow] = []
+    rate_max = 0.0
+    window_desc = []
+    for w in site.calibration_windows:
+        start_dt, end_dt = _parse_time(w.start), _parse_time(w.end)
+        _check_window(site_id, start_dt, end_dt, final=False)
+        frames = frame_list(site, start_dt, end_dt, w.every)
+        rows += run_window(ctx, frames, Path("data/cache"))
+        series = gage.continuous(client, site.nwis_id, start_dt, end_dt)
+        got = _rate_max(series)
+        if got is not None:
+            rate_max = max(rate_max, got)
+        window_desc.append(f"{w.start}..{w.end} every {w.every}")
+    fit = _fit_affine(rows)
+    source = f"1.5x max |dg/dt| over calibration gage samples ({'; '.join(window_desc)})"
+    a_fit = cast(float, fit["a"])
+    b_fit = cast(float, fit["b"])
+    resid_std = cast(float, fit["resid_std"])
+    path = sites.SITES_DIR / f"{site_id}.json"
+    cfg = json.loads(path.read_text())
+    cfg["stage_calib"] = [round(a_fit, 4), round(b_fit, 4)]
+    cfg["datum_offset_ft"] = 0.0
+    cfg["sigma_calib_ft"] = round(resid_std, 4)
+    cfg["rate_max_ft_per_h"] = round(rate_max, 4) if rate_max else None
+    cfg["rate_max_source"] = source
+    path.write_text(json.dumps(cfg, indent=1) + "\n")
+    fit["rate_max_ft_per_h"] = round(rate_max, 4) if rate_max else None
+    fit["rate_max_source"] = source
+    Path("results").mkdir(exist_ok=True)
+    Path(f"results/calibfit_{site_id}.json").write_text(json.dumps(fit, indent=2) + "\n")
+    print(json.dumps(fit, indent=2))
+    return fit

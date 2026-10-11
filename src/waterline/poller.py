@@ -13,6 +13,7 @@ import numpy as np
 
 from waterline import sites
 from waterline.agent.flag import FlagEngine
+from waterline.agent.history import CameraHistory
 from waterline.agent.loop import run_frame
 from waterline.agent.tools import FrameNavigator
 from waterline.eval import make_perception
@@ -22,6 +23,10 @@ from waterline.settings import Settings
 from waterline.store import JsonlStore, write_json
 from waterline.usgs import gage, nims
 from waterline.usgs.http import make_client
+
+# Per-site camera history: the last accepted camera read, for temporal
+# plausibility. Lives for the process; a fresh process starts empty.
+_HISTORIES: dict[str, CameraHistory] = {}
 
 
 @dataclass
@@ -72,7 +77,9 @@ def poll_site(
     image = nims.fetch_image(client, ref, settings.data_dir / "cache")
     gage_ft = _gage_at(site, ref.time)
     nav = FrameNavigator(camera, settings.data_dir / "cache")
-    reading, trace = run_frame(ctx, np.asarray(image), ref, nav)
+    history = _HISTORIES.setdefault(site_id, CameraHistory())
+    reading, trace = run_frame(ctx, np.asarray(image), ref, nav, history=history)
+    history.update(reading)
     flag = engine.feed(reading, gage_ft, trace, settings, out / "events")
 
     readings = JsonlStore(out / "readings.jsonl")

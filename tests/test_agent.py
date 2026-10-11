@@ -1,5 +1,6 @@
 """Agent policy, loop and fault-tracker tests. Fixtures keep them offline."""
 
+import inspect
 import json
 import types
 from datetime import UTC, datetime, timedelta
@@ -11,8 +12,10 @@ import numpy as np
 import pytest
 
 from waterline import sites
+from waterline.agent import loop as loop_mod
 from waterline.agent.fault import FaultTracker, Obs
 from waterline.agent.flag import FlagEngine
+from waterline.agent.history import CameraHistory
 from waterline.agent.loop import run_frame
 from waterline.agent.policy import Decision, LoopState, decide
 from waterline.eval import FrameRow, _agent_summary, make_perception
@@ -23,7 +26,7 @@ from waterline.models import (
     Reading,
     Trace,
 )
-from waterline.pipeline import FrameResult
+from waterline.pipeline import FrameResult, Perception
 from waterline.settings import Settings
 
 
@@ -356,3 +359,155 @@ def test_agent_summary_scores_only_accepted_rows() -> None:
     assert agent is not None
     assert agent["read"] == 1
     assert agent["mae_ft"] == pytest.approx(0.5)
+
+
+def _fake_ctx(rate_max: float | None = None, alt_refs: int = 1) -> object:
+    site = types.SimpleNamespace(site_id="t", cam_id="c", rate_max_ft_per_h=rate_max)
+    return types.SimpleNamespace(
+        site=site,
+        settings=Settings(),
+        bank=types.SimpleNamespace(descriptors={f"r{i}": i for i in range(alt_refs)}),
+    )
+
+
+def _fake_ref(t: datetime) -> FrameRef:
+    return FrameRef(cam_id="c", filename="f.jpg", time=t, url="")
+
+
+def _scripted(calls: list[Decision], seen: list[bool] | None = None) -> object:
+    seq = iter(calls)
+
+    def chooser(r: object, st: LoopState, s: Settings) -> Decision:
+        if seen is not None:
+            seen.append(st.forced_uncertain)
+        return next(seq)
+
+    return chooser
+
+
+def test_repair_that_moves_the_reading_is_rejected(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # 0.86 ft move at sigma 0.15->0.22: 3 combined sigmas is 0.80, so the
+    # repair changed the answer and the frame counts as uncertain
+    seq = iter(
+        [
+            _result(r_stage_ft=10.0, r_sigma_ft=0.15),
+            _result(r_stage_ft=10.86, r_sigma_ft=0.22),
+        ]
+    )
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    seen: list[bool] = []
+    calls = [
+        Decision(AgentAction.ENHANCE_GAMMA, "try a contrast lift"),
+        Decision(AgentAction.HUMAN_REVIEW, "still unsure"),
+    ]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx()),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(datetime(2026, 8, 1, tzinfo=UTC)),
+        chooser=_scripted(calls, seen),  # type: ignore[arg-type]
+    )
+    assert trace.steps[0].decision == "repair rejected: changed the reading by 0.86 ft"
+    assert trace.steps[0].result_summary.endswith("dR=0.86")
+    assert reading.stage_ft == 10.0  # r_old kept
+    assert seen == [False, True]  # repair rejection forced the uncertain path
+    assert reading.status == "pending"
+
+
+def test_repair_that_only_lowers_sigma_is_adopted(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    seq = iter(
+        [
+            _result(r_stage_ft=10.0, r_sigma_ft=0.30),
+            _result(r_stage_ft=10.05, r_sigma_ft=0.10),
+        ]
+    )
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    calls = [
+        Decision(AgentAction.ENHANCE_GAMMA, "try a contrast lift"),
+        Decision(AgentAction.ACCEPT, "within sigma"),
+    ]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx()),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(datetime(2026, 8, 1, tzinfo=UTC)),
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert trace.steps[0].decision == "try a contrast lift"  # adopted, no rejection
+    assert reading.stage_ft == 10.05
+    assert reading.sigma_ft == 0.10
+
+
+def test_implausible_jump_forces_uncertain_then_review(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    t0 = datetime(2026, 8, 1, tzinfo=UTC)
+    history = CameraHistory(stage_ft=10.0, sigma_ft=0.2, time=t0)
+    # prev 10.0 ft; frame 1 h later reads 12.5; rate cap 0.5 ft/h gives
+    # band 0.5 + 3*0.283 = 1.35, and the neighbours read the same 12.5,
+    # so every fetched frame stays implausible and the loop escalates
+    monkeypatch.setattr(
+        loop_mod, "read_frame", lambda *a, **k: _result(r_stage_ft=12.5, r_sigma_ft=0.2)
+    )
+    ref = _fake_ref(t0 + timedelta(hours=1))
+
+    class FakeNav:
+        def neighbor(self, when: datetime, direction: int, skip: int = 1) -> FrameRef:
+            return FrameRef(
+                cam_id="c",
+                filename=f"n{direction}.jpg",
+                time=t0 + timedelta(hours=2.5),
+                url="",
+            )
+
+        def image(self, r: FrameRef) -> np.ndarray:
+            return np.zeros((8, 8, 3), np.uint8)
+
+    seen: list[bool] = []
+
+    def spy(r: object, st: LoopState, s: Settings) -> Decision:
+        seen.append(st.forced_uncertain)
+        return decide(cast("FrameResult", r), st, s)
+
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx(rate_max=0.5)),
+        np.zeros((8, 8, 3), np.uint8),
+        ref,
+        FakeNav(),  # type: ignore[arg-type]
+        chooser=spy,  # type: ignore[arg-type]
+        history=history,
+    )
+    assert all(seen)  # every result in the chain stayed implausible
+    assert "jump=2.50" in trace.steps[0].result_summary
+    assert [s.tool for s in trace.steps] == ["fetch_prev", "fetch_next"]
+    assert reading.status == "pending"
+
+
+def test_plausible_flood_rise_is_accepted(monkeypatch: pytest.MonkeyPatch) -> None:
+    t0 = datetime(2026, 8, 1, tzinfo=UTC)
+    history = CameraHistory(stage_ft=10.0, sigma_ft=0.2, time=t0)
+    monkeypatch.setattr(
+        loop_mod, "read_frame", lambda *a, **k: _result(r_stage_ft=10.5, r_sigma_ft=0.2)
+    )
+    seen: list[bool] = []
+
+    def spy(r: object, st: LoopState, s: Settings) -> Decision:
+        seen.append(st.forced_uncertain)
+        return decide(cast("FrameResult", r), st, s)
+
+    reading, _ = run_frame(
+        cast("Perception", _fake_ctx(rate_max=0.5)),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(t0 + timedelta(hours=1)),
+        chooser=spy,  # type: ignore[arg-type]
+        history=history,
+    )
+    assert seen == [False]  # 0.5 ft in an hour under a 0.5 ft/h cap: plausible
+    assert reading.status == "accepted"
+
+
+def test_camera_history_has_no_gage() -> None:
+    assert set(inspect.signature(CameraHistory.update).parameters) == {"self", "reading"}
+    assert set(CameraHistory.__dataclass_fields__) == {"stage_ft", "sigma_ft", "time"}

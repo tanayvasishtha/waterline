@@ -174,11 +174,17 @@ def run_faults(
     }
 
 
-def run_faults_file(site_id: str, start: str, end: str, results: Path = Path("results")) -> Path:
+def run_faults_file(
+    site_id: str,
+    start: str,
+    end: str,
+    results: Path = Path("results"),
+    prefix: str = "",
+) -> Path:
     """Run the harness on a committed agent eval CSV and write its JSON report."""
-    rows = load_rows(results / f"eval_agent_{site_id}_{start}_{end}.csv")
+    rows = load_rows(results / f"{prefix}eval_agent_{site_id}_{start}_{end}.csv")
     report = run_faults(site_id, rows)
-    out = results / f"faults_{site_id}_{start}_{end}.json"
+    out = results / f"{prefix}faults_{site_id}_{start}_{end}.json"
     out.write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
     return out

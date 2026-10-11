@@ -24,6 +24,7 @@ class LoopState:
     tried: set[AgentAction] = field(default_factory=set)
     steps: int = 0
     alt_refs: int = 0
+    forced_uncertain: bool = False  # a repair was rejected or the read is implausible
 
 
 @dataclass(frozen=True)
@@ -70,6 +71,11 @@ def _uncertain(r: FrameResult, s: Settings) -> bool:
     carried no information about method A's error. The calibration floor in
     sigma_ft is measurement honesty, not indecision, so it does not count."""
     return r.detection is not None and r.detection.sigma_ft > s.accept_sigma_ft
+
+
+def _flagged(r: FrameResult, st: LoopState, s: Settings) -> bool:
+    """Sigma-uncertain, or flagged by the loop (rejected repair, implausible jump)."""
+    return st.forced_uncertain or _uncertain(r, s)
 
 
 def _ok(r: FrameResult, s: Settings) -> bool:
@@ -130,23 +136,23 @@ RULES: tuple[tuple[Callable[[FrameResult, LoopState, Settings], bool], AgentActi
     ),
     # uncertainty: other reference, region re-check, temporal neighbors, human
     (
-        lambda r, st, s: _uncertain(r, s) and st.alt_refs > 1,
+        lambda r, st, s: _flagged(r, st, s) and st.alt_refs > 1,
         AgentAction.ALT_REFERENCE,
         "uncertain; re-register on the other reference",
     ),
     (
-        lambda r, st, s: _uncertain(r, s),
+        _flagged,
         AgentAction.FETCH_PREV,
         "uncertain; compare the previous frame",
     ),
     (
-        lambda r, st, s: _uncertain(r, s),
+        _flagged,
         AgentAction.FETCH_NEXT,
         "uncertain; compare the next frame",
     ),
     # done: quality passes AND the reading is not fighting itself
     (
-        lambda r, st, s: _ok(r, s) and not _uncertain(r, s),
+        lambda r, st, s: _ok(r, s) and not _flagged(r, st, s),
         AgentAction.ACCEPT,
         "within sigma",
     ),
@@ -157,6 +163,6 @@ def decide(result: FrameResult, state: LoopState, settings: Settings) -> Decisio
     for condition, action, reason in RULES:
         if action not in state.tried and condition(result, state, settings):
             return Decision(action, reason)
-    if _uncertain(result, settings):
+    if _flagged(result, state, settings):
         return Decision(AgentAction.HUMAN_REVIEW, "uncertainty persists after all re-reads")
     return Decision(AgentAction.ABSTAIN, "no repair left to try")

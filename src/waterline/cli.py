@@ -29,6 +29,11 @@ def _cmd_replay_record(args: argparse.Namespace) -> int:
 
 
 def _cmd_calibrate(args: argparse.Namespace) -> int:
+    if args.fit == "affine":
+        ev.run_calibrate_fit(args.site)
+        return 0
+    if not (args.start and args.end):
+        raise SystemExit("calibrate needs --start --end, or --fit affine")
     ev.run_calibrate(args.site, args.start, args.end, args.every)
     return 0
 
@@ -55,7 +60,7 @@ def _cmd_eval(args: argparse.Namespace) -> int:
 
 
 def _cmd_faults(args: argparse.Namespace) -> int:
-    faults.run_faults_file(args.site, args.start, args.end)
+    faults.run_faults_file(args.site, args.start, args.end, prefix=args.prefix)
     return 0
 
 
@@ -76,9 +81,12 @@ def main(argv: list[str] | None = None) -> int:
 
     p_cal = sub.add_parser("calibrate", help="fit the datum offset on a calibration window")
     p_cal.add_argument("--site", required=True)
-    p_cal.add_argument("--start", required=True)
-    p_cal.add_argument("--end", required=True)
+    p_cal.add_argument("--start")
+    p_cal.add_argument("--end")
     p_cal.add_argument("--every", type=int, default=6)
+    p_cal.add_argument(
+        "--fit", choices=["affine"], help="least-squares fit over calibration_windows"
+    )
     p_cal.set_defaults(func=_cmd_calibrate)
 
     p_eval = sub.add_parser("eval", help="evaluate on a held-out window")
@@ -98,6 +106,9 @@ def main(argv: list[str] | None = None) -> int:
     p_faults.add_argument("--site", required=True)
     p_faults.add_argument("--start", required=True)
     p_faults.add_argument("--end", required=True)
+    p_faults.add_argument(
+        "--prefix", default="", help="file prefix, e.g. dev_ for calibration runs"
+    )
     p_faults.set_defaults(func=_cmd_faults)
 
     p_poll = sub.add_parser("poll", help="one monitoring tick per site")
