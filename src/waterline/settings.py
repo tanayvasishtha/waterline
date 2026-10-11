@@ -39,7 +39,7 @@ class Settings(BaseModel):
     accept_sigma_ft: float = Field(0.25, description="calibration: wider readings escalate")
 
     # Frame quality
-    glare_frac_max: float = Field(0.08, description="calibration: saturated share of the strip")
+    glare_action_frac: float = Field(0.10, description="above this the agent tries glare repair")
     night_mean_sat_max: float = Field(12.0, description="IR night frames are near grayscale")
     blur_var_min: float = Field(40.0, description="calibration: Laplacian variance on the strip")
 

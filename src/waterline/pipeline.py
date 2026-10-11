@@ -79,7 +79,9 @@ def read_frame(
             site_id=site.site_id,
             time=frame_time,
             stage_ft=stage_ft,
-            sigma_ft=detection.sigma_ft if a_ft is not None else None,
+            sigma_ft=float(np.hypot(detection.sigma_ft, site.sigma_calib_ft))
+            if a_ft is not None
+            else None,
             method_a_ft=None if a_ft is None else a_ft + offset,
             method_b_ft=None if b_ft is None else b_ft + offset,
             methods_disagree=detection.methods_disagree,

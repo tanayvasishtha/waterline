@@ -85,7 +85,6 @@ def assess(
 def quality_ok(report: QualityReport, settings: Settings) -> bool:
     return (
         report.blur_var >= settings.blur_var_min
-        and report.glare_frac <= settings.glare_frac_max
         and report.plate_visibility >= settings.plate_visibility_min
         and not report.is_night
         and report.registration_inliers >= settings.min_inliers

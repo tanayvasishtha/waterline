@@ -44,6 +44,7 @@ class SiteConfig(_Frozen):
         min_length=1, description="fixed-structure polygons as image fractions"
     )
     datum_offset_ft: float = 0.0
+    sigma_calib_ft: float = Field(0.15, description="residual std from calibration")
     nws_flood_stage_ft: float | None = None
 
 
