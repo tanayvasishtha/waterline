@@ -1,0 +1,153 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "field_measurements_series_id": "2515232b-09a8-4822-bd0f-9e898bd2e8da",
+    "reading_type": "ReferencePrimary",
+    "field_visit_id": "e264a0e0-8bf9-4f55-b14d-1e387422d946",
+    "parameter_code": "00065",
+    "monitoring_location_id": "USGS-01421500",
+    "observing_procedure_code": "Z",
+    "observing_procedure": "Gage height, wire weight gage",
+    "value": "9.26",
+    "unit_of_measure": "ft",
+    "time": "2026-10-05T17:24:00+00:00",
+    "qualifier": null,
+    "vertical_datum": "None",
+    "approval_status": "Provisional",
+    "measuring_agency": "USGS",
+    "last_modified": "2026-10-06T18:46:49.255889+00:00",
+    "control_condition": "Clear",
+    "measurement_rated": null,
+    "year": 2026,
+    "month": 10,
+    "day": 5,
+    "time_of_day": "17:24:00+00:00"
+   },
+   "id": "fce3b0c8-22ec-406a-a650-b72b2c654086"
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "field_measurements_series_id": "e1bdecb4-342f-410e-9b06-2a0663f3d8f7",
+    "reading_type": "MeanGageHeight",
+    "field_visit_id": "e264a0e0-8bf9-4f55-b14d-1e387422d946",
+    "parameter_code": "00065",
+    "monitoring_location_id": "USGS-01421500",
+    "observing_procedure_code": "Z",
+    "observing_procedure": "None",
+    "value": "9.26",
+    "unit_of_measure": "ft",
+    "time": "2026-10-05T16:42:13+00:00",
+    "qualifier": null,
+    "vertical_datum": "None",
+    "approval_status": "Provisional",
+    "measuring_agency": "USGS",
+    "last_modified": "2026-10-06T18:46:49.255889+00:00",
+    "control_condition": "Clear",
+    "measurement_rated": "Fair",
+    "year": 2026,
+    "month": 10,
+    "day": 5,
+    "time_of_day": "16:42:13+00:00"
+   },
+   "id": "5a54eec8-38f5-4777-b555-17adc2f8a591"
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "field_measurements_series_id": "2515232b-09a8-4822-bd0f-9e898bd2e8da",
+    "reading_type": "ReferencePrimary",
+    "field_visit_id": "e264a0e0-8bf9-4f55-b14d-1e387422d946",
+    "parameter_code": "00065",
+    "monitoring_location_id": "USGS-01421500",
+    "observing_procedure_code": "Z",
+    "observing_procedure": "Gage height, wire weight gage",
+    "value": "9.25",
+    "unit_of_measure": "ft",
+    "time": "2026-10-05T15:46:00+00:00",
+    "qualifier": null,
+    "vertical_datum": "None",
+    "approval_status": "Provisional",
+    "measuring_agency": "USGS",
+    "last_modified": "2026-10-06T18:46:49.255889+00:00",
+    "control_condition": "Clear",
+    "measurement_rated": null,
+    "year": 2026,
+    "month": 10,
+    "day": 5,
+    "time_of_day": "15:46:00+00:00"
+   },
+   "id": "164cc929-762d-4f3d-9ca3-4773017ccb1f"
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "field_measurements_series_id": "2515232b-09a8-4822-bd0f-9e898bd2e8da",
+    "reading_type": "ReferencePrimary",
+    "field_visit_id": "8d633239-05d4-4817-a614-f14da2ba30bb",
+    "parameter_code": "00065",
+    "monitoring_location_id": "USGS-01421500",
+    "observing_procedure_code": "Z",
+    "observing_procedure": "Gage height, wire weight gage",
+    "value": "9.90",
+    "unit_of_measure": "ft",
+    "time": "2026-09-02T13:30:00+00:00",
+    "qualifier": null,
+    "vertical_datum": "None",
+    "approval_status": "Provisional",
+    "measuring_agency": "USGS",
+    "last_modified": "2026-10-06T18:46:49.255889+00:00",
+    "control_condition": "Vegetation - Light",
+    "measurement_rated": null,
+    "year": 2026,
+    "month": 9,
+    "day": 2,
+    "time_of_day": "13:30:00+00:00"
+   },
+   "id": "0910c42f-3dd8-417b-b04b-e26929b9322c"
+  }
+ ],
+ "numberReturned": 4,
+ "links": [
+  {
+   "type": "application/geo+json",
+   "rel": "self",
+   "title": "This document as GeoJSON",
+   "href": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements/items?f=json&monitoring_location_id=USGS-01421500&parameter_code=00065&limit=4&sortby=-time"
+  },
+  {
+   "rel": "alternate",
+   "type": "application/ld+json",
+   "title": "This document as RDF (JSON-LD)",
+   "href": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements/items?f=jsonld&monitoring_location_id=USGS-01421500&parameter_code=00065&limit=4&sortby=-time"
+  },
+  {
+   "type": "text/html",
+   "rel": "alternate",
+   "title": "This document as HTML",
+   "href": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements/items?f=html&monitoring_location_id=USGS-01421500&parameter_code=00065&limit=4&sortby=-time"
+  },
+  {
+   "type": "text/csv; charset=utf-8",
+   "rel": "alternate",
+   "title": "This document as CSV",
+   "href": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements/items?f=csv&monitoring_location_id=USGS-01421500&parameter_code=00065&limit=4&sortby=-time"
+  },
+  {
+   "type": "application/geo+json",
+   "rel": "next",
+   "title": "Items (next)",
+   "href": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements/items?f=json&offset=4&monitoring_location_id=USGS-01421500&parameter_code=00065&limit=4&sortby=-time"
+  },
+  {
+   "type": "application/json",
+   "title": "Field measurements",
+   "rel": "collection",
+   "href": "https://api.waterdata.usgs.gov/ogcapi/v0/collections/field-measurements"
+  }
+ ],
+ "timeStamp": "2026-10-11T06:50:25.323506Z"
+}
