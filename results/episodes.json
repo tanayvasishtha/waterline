@@ -1,0 +1,553 @@
+{
+  "hancock": {
+    "nwis_id": "01421500",
+    "cam_id": "NY_East_Branch_Delaware_River_at_Hancock_Staff",
+    "on_plate_ft": 10.0,
+    "earliest_frame": "2026-04-14T13:00:04+00:00",
+    "episodes": [
+      {
+        "start": "2026-04-14T08:15:00-05:00",
+        "end": "2026-04-14T12:15:00-05:00",
+        "duration_h": 4.0,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 10.02,
+        "nims_frames": 4,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-04-14T23:30:00-05:00",
+        "end": "2026-05-22T17:45:00-05:00",
+        "duration_h": 906.25,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 11.23,
+        "nims_frames": 534,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-05-23T16:15:00-05:00",
+        "end": "2026-05-27T04:30:00-05:00",
+        "duration_h": 84.25,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 10.4,
+        "nims_frames": 49,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-07-06T07:30:00-05:00",
+        "end": "2026-07-07T22:30:00-05:00",
+        "duration_h": 39.0,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 10.93,
+        "nims_frames": 29,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-07-22T05:15:00-05:00",
+        "end": "2026-07-22T15:30:00-05:00",
+        "duration_h": 10.25,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 10.19,
+        "nims_frames": 10,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-07-28T23:00:00-05:00",
+        "end": "2026-08-12T15:00:00-05:00",
+        "duration_h": 352.0,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 18.08,
+        "nims_frames": 262,
+        "overlaps_used": [
+          "eval 2026-07-27..08-01",
+          "calib August 2026"
+        ]
+      },
+      {
+        "start": "2026-08-12T22:15:00-05:00",
+        "end": "2026-08-14T17:45:00-05:00",
+        "duration_h": 43.5,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 10.32,
+        "nims_frames": 38,
+        "overlaps_used": [
+          "calib August 2026"
+        ]
+      },
+      {
+        "start": "2026-08-17T15:45:00-05:00",
+        "end": "2026-08-18T01:30:00-05:00",
+        "duration_h": 9.75,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 10.03,
+        "nims_frames": 8,
+        "overlaps_used": [
+          "calib August 2026"
+        ]
+      },
+      {
+        "start": "2026-08-28T02:00:00-05:00",
+        "end": "2026-08-29T01:30:00-05:00",
+        "duration_h": 23.5,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 10.31,
+        "nims_frames": 24,
+        "overlaps_used": [
+          "calib August 2026"
+        ]
+      },
+      {
+        "start": "2026-09-02T14:30:00-05:00",
+        "end": "2026-09-09T12:45:00-05:00",
+        "duration_h": 166.25,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 11.97,
+        "nims_frames": 156,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-09-13T08:15:00-05:00",
+        "end": "2026-09-14T20:45:00-05:00",
+        "duration_h": 36.5,
+        "min_gage_ft": 10.0,
+        "max_gage_ft": 10.13,
+        "nims_frames": 36,
+        "overlaps_used": []
+      }
+    ]
+  },
+  "in_overland": {
+    "nwis_id": "411229084541101",
+    "cam_id": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF",
+    "on_plate_ft": 0.4,
+    "earliest_frame": "2022-11-15T13:56:22+00:00",
+    "episodes": [
+      {
+        "start": "2023-01-19T14:45:00+00:00",
+        "end": "2023-01-19T15:00:00+00:00",
+        "duration_h": 0.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.4,
+        "nims_frames": 3,
+        "overlaps_used": []
+      },
+      {
+        "start": "2023-02-09T11:00:00+00:00",
+        "end": "2023-02-10T02:45:00+00:00",
+        "duration_h": 15.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.94,
+        "nims_frames": 183,
+        "overlaps_used": []
+      },
+      {
+        "start": "2023-02-22T19:15:00+00:00",
+        "end": "2023-02-23T15:00:00+00:00",
+        "duration_h": 19.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 1.46,
+        "nims_frames": 211,
+        "overlaps_used": []
+      },
+      {
+        "start": "2023-02-27T16:45:00+00:00",
+        "end": "2023-02-28T08:00:00+00:00",
+        "duration_h": 15.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.89,
+        "nims_frames": 178,
+        "overlaps_used": []
+      },
+      {
+        "start": "2023-03-03T21:15:00+00:00",
+        "end": "2023-03-04T14:00:00+00:00",
+        "duration_h": 16.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 1.27,
+        "nims_frames": 188,
+        "overlaps_used": []
+      },
+      {
+        "start": "2023-03-23T09:45:00+00:00",
+        "end": "2023-03-24T02:00:00+00:00",
+        "duration_h": 16.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.67,
+        "nims_frames": 191,
+        "overlaps_used": []
+      },
+      {
+        "start": "2023-03-25T13:15:00+00:00",
+        "end": "2023-03-25T20:00:00+00:00",
+        "duration_h": 6.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.48,
+        "nims_frames": 78,
+        "overlaps_used": []
+      },
+      {
+        "start": "2023-04-01T05:15:00+00:00",
+        "end": "2023-04-01T15:30:00+00:00",
+        "duration_h": 10.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.7,
+        "nims_frames": 29,
+        "overlaps_used": []
+      },
+      {
+        "start": "2024-01-24T17:15:00+00:00",
+        "end": "2024-01-25T14:00:00+00:00",
+        "duration_h": 20.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.87,
+        "nims_frames": 263,
+        "overlaps_used": []
+      },
+      {
+        "start": "2024-01-26T06:15:00+00:00",
+        "end": "2024-01-26T16:30:00+00:00",
+        "duration_h": 10.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.86,
+        "nims_frames": 115,
+        "overlaps_used": []
+      },
+      {
+        "start": "2024-03-14T18:00:00+00:00",
+        "end": "2024-03-15T03:00:00+00:00",
+        "duration_h": 9.0,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.76,
+        "nims_frames": 108,
+        "overlaps_used": []
+      },
+      {
+        "start": "2024-04-01T08:15:00+00:00",
+        "end": "2024-04-01T19:45:00+00:00",
+        "duration_h": 11.5,
+        "min_gage_ft": 0.41,
+        "max_gage_ft": 0.84,
+        "nims_frames": 140,
+        "overlaps_used": []
+      },
+      {
+        "start": "2024-04-02T05:30:00+00:00",
+        "end": "2024-04-03T06:30:00+00:00",
+        "duration_h": 25.0,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.92,
+        "nims_frames": 305,
+        "overlaps_used": []
+      },
+      {
+        "start": "2024-04-11T10:30:00+00:00",
+        "end": "2024-04-12T10:45:00+00:00",
+        "duration_h": 24.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 1.04,
+        "nims_frames": 299,
+        "overlaps_used": []
+      },
+      {
+        "start": "2024-04-28T07:00:00+00:00",
+        "end": "2024-04-28T19:00:00+00:00",
+        "duration_h": 12.0,
+        "min_gage_ft": 0.41,
+        "max_gage_ft": 1.04,
+        "nims_frames": 98,
+        "overlaps_used": []
+      },
+      {
+        "start": "2024-12-31T17:00:00+00:00",
+        "end": "2025-01-01T04:15:00+00:00",
+        "duration_h": 11.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.54,
+        "nims_frames": 126,
+        "overlaps_used": []
+      },
+      {
+        "start": "2025-02-24T20:15:00+00:00",
+        "end": "2025-02-25T07:00:00+00:00",
+        "duration_h": 10.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.55,
+        "nims_frames": 0,
+        "overlaps_used": []
+      },
+      {
+        "start": "2025-04-02T13:30:00+00:00",
+        "end": "2025-04-03T17:15:00+00:00",
+        "duration_h": 27.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 1.21,
+        "nims_frames": 249,
+        "overlaps_used": []
+      },
+      {
+        "start": "2025-04-05T07:45:00+00:00",
+        "end": "2025-04-05T19:15:00+00:00",
+        "duration_h": 11.5,
+        "min_gage_ft": 0.41,
+        "max_gage_ft": 0.62,
+        "nims_frames": 107,
+        "overlaps_used": []
+      },
+      {
+        "start": "2025-06-18T23:00:00+00:00",
+        "end": "2025-06-19T18:30:00+00:00",
+        "duration_h": 19.5,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.95,
+        "nims_frames": 139,
+        "overlaps_used": []
+      },
+      {
+        "start": "2025-07-30T22:30:00+00:00",
+        "end": "2025-07-31T17:45:00+00:00",
+        "duration_h": 19.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 1.82,
+        "nims_frames": 60,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-04-01T00:15:00+00:00",
+        "end": "2026-04-02T03:15:00+00:00",
+        "duration_h": 27.0,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 1.62,
+        "nims_frames": 222,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-04-02T11:30:00+00:00",
+        "end": "2026-04-02T15:15:00+00:00",
+        "duration_h": 3.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.42,
+        "nims_frames": 45,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-04-04T20:15:00+00:00",
+        "end": "2026-04-05T04:00:00+00:00",
+        "duration_h": 7.75,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.66,
+        "nims_frames": 65,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-04-15T19:30:00+00:00",
+        "end": "2026-04-16T05:30:00+00:00",
+        "duration_h": 10.0,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 1.2,
+        "nims_frames": 93,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-04-18T11:45:00+00:00",
+        "end": "2026-04-18T20:00:00+00:00",
+        "duration_h": 8.25,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.52,
+        "nims_frames": 92,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-08-06T21:00:00+00:00",
+        "end": "2026-08-07T02:15:00+00:00",
+        "duration_h": 5.25,
+        "min_gage_ft": 0.41,
+        "max_gage_ft": 0.55,
+        "nims_frames": 59,
+        "overlaps_used": [
+          "calib 2026-07-15..08-15"
+        ]
+      },
+      {
+        "start": "2026-09-17T15:30:00+00:00",
+        "end": "2026-09-17T23:00:00+00:00",
+        "duration_h": 7.5,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.64,
+        "nims_frames": 90,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      },
+      {
+        "start": "2026-09-19T18:15:00+00:00",
+        "end": "2026-09-19T19:45:00+00:00",
+        "duration_h": 1.5,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 0.4,
+        "nims_frames": 18,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      },
+      {
+        "start": "2026-09-20T11:45:00+00:00",
+        "end": "2026-09-21T05:45:00+00:00",
+        "duration_h": 18.0,
+        "min_gage_ft": 0.4,
+        "max_gage_ft": 1.11,
+        "nims_frames": 163,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      }
+    ]
+  },
+  "oh_wetland": {
+    "nwis_id": "411607084241200",
+    "cam_id": "OH_Inflow_to_wetland_near_Winn_Road_near_Defiance_STAFF",
+    "on_plate_ft": 0.3,
+    "earliest_frame": "2022-11-13T03:00:29+00:00",
+    "episodes": [
+      {
+        "start": "2026-06-22T16:51:00+00:00",
+        "end": "2026-06-23T10:03:00+00:00",
+        "duration_h": 17.2,
+        "min_gage_ft": 0.86,
+        "max_gage_ft": 1.35,
+        "nims_frames": 0,
+        "overlaps_used": []
+      },
+      {
+        "start": "2026-08-10T13:02:00+00:00",
+        "end": "2026-08-13T00:48:00+00:00",
+        "duration_h": 59.77,
+        "min_gage_ft": 0.73,
+        "max_gage_ft": 1.37,
+        "nims_frames": 59,
+        "overlaps_used": [
+          "calib 2026-08-10..08-18"
+        ]
+      },
+      {
+        "start": "2026-08-13T09:37:00+00:00",
+        "end": "2026-08-13T13:26:00+00:00",
+        "duration_h": 3.82,
+        "min_gage_ft": 0.77,
+        "max_gage_ft": 0.98,
+        "nims_frames": 4,
+        "overlaps_used": [
+          "calib 2026-08-10..08-18"
+        ]
+      },
+      {
+        "start": "2026-08-14T13:40:00+00:00",
+        "end": "2026-08-14T18:25:00+00:00",
+        "duration_h": 4.75,
+        "min_gage_ft": 0.96,
+        "max_gage_ft": 1.02,
+        "nims_frames": 5,
+        "overlaps_used": [
+          "calib 2026-08-10..08-18"
+        ]
+      },
+      {
+        "start": "2026-08-15T00:34:00+00:00",
+        "end": "2026-08-15T05:00:00+00:00",
+        "duration_h": 4.43,
+        "min_gage_ft": 0.95,
+        "max_gage_ft": 0.98,
+        "nims_frames": 4,
+        "overlaps_used": [
+          "calib 2026-08-10..08-18"
+        ]
+      },
+      {
+        "start": "2026-08-16T00:12:00+00:00",
+        "end": "2026-08-17T23:04:00+00:00",
+        "duration_h": 46.87,
+        "min_gage_ft": 0.84,
+        "max_gage_ft": 1.34,
+        "nims_frames": 47,
+        "overlaps_used": [
+          "calib 2026-08-10..08-18"
+        ]
+      },
+      {
+        "start": "2026-08-18T09:51:00+00:00",
+        "end": "2026-08-18T13:45:00+00:00",
+        "duration_h": 3.9,
+        "min_gage_ft": 0.54,
+        "max_gage_ft": 0.98,
+        "nims_frames": 4,
+        "overlaps_used": [
+          "calib 2026-08-10..08-18"
+        ]
+      },
+      {
+        "start": "2026-09-05T10:42:00+00:00",
+        "end": "2026-09-06T00:54:00+00:00",
+        "duration_h": 14.2,
+        "min_gage_ft": 0.94,
+        "max_gage_ft": 1.0,
+        "nims_frames": 15,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      },
+      {
+        "start": "2026-09-06T21:34:00+00:00",
+        "end": "2026-09-07T00:30:00+00:00",
+        "duration_h": 2.93,
+        "min_gage_ft": 0.52,
+        "max_gage_ft": 0.98,
+        "nims_frames": 3,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      },
+      {
+        "start": "2026-09-18T01:24:00+00:00",
+        "end": "2026-09-18T05:53:00+00:00",
+        "duration_h": 4.48,
+        "min_gage_ft": 0.95,
+        "max_gage_ft": 1.0,
+        "nims_frames": 8,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      },
+      {
+        "start": "2026-09-19T15:40:00+00:00",
+        "end": "2026-09-22T08:37:00+00:00",
+        "duration_h": 64.95,
+        "min_gage_ft": 0.68,
+        "max_gage_ft": 1.41,
+        "nims_frames": 130,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      },
+      {
+        "start": "2026-09-22T16:34:00+00:00",
+        "end": "2026-09-22T20:21:00+00:00",
+        "duration_h": 3.78,
+        "min_gage_ft": 0.94,
+        "max_gage_ft": 1.0,
+        "nims_frames": 8,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      },
+      {
+        "start": "2026-09-24T06:04:00+00:00",
+        "end": "2026-09-24T09:15:00+00:00",
+        "duration_h": 3.18,
+        "min_gage_ft": 0.93,
+        "max_gage_ft": 1.0,
+        "nims_frames": 6,
+        "overlaps_used": [
+          "eval+calib September 2026"
+        ]
+      }
+    ]
+  }
+}
