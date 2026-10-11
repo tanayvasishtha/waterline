@@ -1,0 +1,47 @@
+{
+  "injected": true,
+  "seed": 20261026,
+  "trials_per_type": 20,
+  "n_frames": 357,
+  "detection_window_rows": 24,
+  "clean": {
+    "flags": 9,
+    "by_type": {
+      "drift": 9,
+      "stuck": 0,
+      "step": 0,
+      "spike": 0
+    },
+    "false_flags_per_site_week": 1.7767280354640553
+  },
+  "faults": {
+    "drift": {
+      "recall": 0.75,
+      "recall_any": 1.0,
+      "type_match": 1.0,
+      "median_delay_h": 33.00138888888889,
+      "pre_onset_flags": 0
+    },
+    "stuck": {
+      "recall": 0.1,
+      "recall_any": 0.45,
+      "type_match": 0.0,
+      "median_delay_h": 15.000833333333333,
+      "pre_onset_flags": 0
+    },
+    "step": {
+      "recall": 1.0,
+      "recall_any": 1.0,
+      "type_match": 0.0,
+      "median_delay_h": 17.498194444444444,
+      "pre_onset_flags": 0
+    },
+    "spike": {
+      "recall": 1.0,
+      "recall_any": 1.0,
+      "type_match": 0.45,
+      "median_delay_h": 0.0,
+      "pre_onset_flags": 0
+    }
+  }
+}
