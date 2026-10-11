@@ -26,14 +26,14 @@
       "recall": 0.25,
       "recall_any": 0.35,
       "type_match": 0.0,
-      "median_delay_h": 5.396944444444444,
+      "median_delay_h": 5.067222222222222,
       "pre_onset_flags": 0
     },
     "step": {
       "recall": 0.45,
       "recall_any": 0.65,
       "type_match": 0.0,
-      "median_delay_h": 3.0008333333333335,
+      "median_delay_h": 2.671111111111111,
       "pre_onset_flags": 0
     },
     "spike": {
