@@ -39,6 +39,7 @@ class SiteConfig(_Frozen):
     plate_top_ft: float = Field(description="stage value printed at the top edge of plate_quad")
     plate_bottom_ft: float = Field(description="stage value at the bottom edge of plate_quad")
     tick_color: Literal["red", "black", "auto"] = "auto"
+    tick_spacing_ft: float = Field(0.5, description="stage between adjacent plate marks")
     static_mask: list[list[Point]] = Field(
         min_length=1, description="fixed-structure polygons as image fractions"
     )

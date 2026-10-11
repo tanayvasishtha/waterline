@@ -86,5 +86,6 @@
   ]
  ],
  "datum_offset_ft": 0.0,
- "nws_flood_stage_ft": null
+ "nws_flood_stage_ft": null,
+ "tick_spacing_ft": 0.5
 }
