@@ -20,6 +20,7 @@ from waterline.models import (
     FrameRef,
     QualityReport,
     Reading,
+    Trace,
 )
 from waterline.pipeline import FrameResult
 from waterline.settings import Settings
@@ -160,3 +161,38 @@ def test_loop_abstains_or_below_range_on_dry(ctx: object) -> None:
     reading, _ = run_frame(perception, np.asarray(image), _fixture_ref(dry, site))
     assert reading.status in {"below_range", "abstained"}
     assert reading.stage_ft is None or abs(reading.stage_ft - dry["gage_ft"]) < 1.0
+
+
+def test_flag_engine_emits_after_persistence(tmp_path: Path) -> None:
+    from waterline.agent.flag import FlagEngine
+
+    engine = FlagEngine("hancock")
+    reading = Reading(
+        site_id="hancock",
+        time=datetime(2026, 8, 1, 12, tzinfo=UTC),
+        stage_ft=11.0,
+        sigma_ft=0.4,
+    )
+    trace = Trace(
+        trace_id="t1",
+        site_id="hancock",
+        frame_time=reading.time,
+        frame_file="f.jpg",
+        started_at=reading.time,
+        finished_at=reading.time,
+        steps=[],
+        final_status="accepted",
+        final_stage_ft=11.0,
+        final_sigma_ft=0.4,
+        reason=None,
+        policy="deterministic",
+    )
+    flag = None
+    for i in range(10):
+        gage = 10.0 + 0.05 * i  # real drift; camera over-reads by a constant foot
+        flag = engine.feed(reading, gage, trace, S, tmp_path) or flag
+    assert flag is not None
+    assert flag.site_id == "hancock"
+    assert flag.event_type == "drift"
+    assert flag.residual_ft == pytest.approx(11.0 - 10.45)
+    assert (tmp_path / "hancock").exists()
