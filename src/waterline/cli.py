@@ -33,7 +33,7 @@ def _cmd_calibrate(args: argparse.Namespace) -> int:
 
 
 def _cmd_eval(args: argparse.Namespace) -> int:
-    ev.run_eval(args.site, args.start, args.end, args.every)
+    ev.run_eval(args.site, args.start, args.end, args.every, agent=args.agent)
     return 0
 
 
@@ -64,6 +64,7 @@ def main(argv: list[str] | None = None) -> int:
     p_eval.add_argument("--start", required=True)
     p_eval.add_argument("--end", required=True)
     p_eval.add_argument("--every", type=int, default=1)
+    p_eval.add_argument("--agent", action="store_true", help="run the action loop")
     p_eval.set_defaults(func=_cmd_eval)
 
     args = parser.parse_args(argv)
