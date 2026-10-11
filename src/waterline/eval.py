@@ -205,9 +205,10 @@ def write_rows(rows: list[FrameRow], path: Path) -> None:
 def make_perception(site: SiteConfig, settings: Settings) -> Perception:
     """Bank + rectified reference strip (the baseline for glare detection)."""
     bank = build_reference(site, Path("sites"), settings)
-    first = next(iter(site.reference_frames.values()))
+    first_name = next(iter(site.reference_frames))
+    first = site.reference_frames[first_name]
     ref_image = cv2.imread(str(sites.site_dir(site.site_id) / first))
-    ref_strip = None if ref_image is None else rectify(ref_image, site, settings).image
+    ref_strip = None if ref_image is None else rectify(ref_image, site, settings, first_name).image
     return Perception(site, settings, bank, ref_strip)
 
 

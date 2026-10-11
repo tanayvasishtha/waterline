@@ -68,7 +68,7 @@ def read_frame(
 
     ref_w, ref_h = bank.descriptors[registration.ref_name][2]
     warped = warp(image, registration, (ref_w, ref_h))
-    strip = rectify(warped, site, settings)
+    strip = rectify(warped, site, settings, registration.ref_name)
     detection = detect(strip, site, settings, seed=seed)
     quality = assess(image, site, settings, Observed(strip, registration, ctx.ref_strip))
 

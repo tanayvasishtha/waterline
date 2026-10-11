@@ -135,7 +135,7 @@ def _to_registration(fit: _Fit, site: SiteConfig) -> Registration:
     rmse = float(np.sqrt((errors**2).mean()))
     # A camera bump shows up when the reference plate quad, mapped into this frame,
     # lands away from where the site config expects it.
-    ref_quad = np.asarray(sites.quad_pixels(site, *fit.ref_size), np.float32)
+    ref_quad = np.asarray(sites.quad_pixels(site, *fit.ref_size, fit.ref_name), np.float32)
     mapped = cv2.perspectiveTransform(
         ref_quad.reshape(-1, 1, 2), np.linalg.inv(fit.homography)
     ).reshape(-1, 2)

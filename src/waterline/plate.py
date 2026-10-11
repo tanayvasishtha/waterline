@@ -31,10 +31,15 @@ class TickFit:
     ok: bool
 
 
-def rectify(frame_in_ref: np.ndarray, site: SiteConfig, settings: Settings) -> Strip:
+def rectify(
+    frame_in_ref: np.ndarray,
+    site: SiteConfig,
+    settings: Settings,
+    ref_name: str | None = None,
+) -> Strip:
     """Warp the reference-space frame so the plate quad fills a strip image."""
     ref_h, ref_w = frame_in_ref.shape[:2]
-    quad = np.asarray(sites.quad_pixels(site, ref_w, ref_h), np.float32)
+    quad = np.asarray(sites.quad_pixels(site, ref_w, ref_h, ref_name), np.float32)
     span_ft = site.plate_top_ft - site.plate_bottom_ft
     strip_h = round(settings.px_per_ft_target * span_ft)
     dst = np.asarray(

@@ -29,17 +29,21 @@ def list_sites(sites_dir: Path = SITES_DIR) -> list[str]:
     return sorted(p.stem for p in sites_dir.glob("*.json"))
 
 
-def quad_pixels(site: SiteConfig, width: float, height: float) -> list[tuple[float, float]]:
-    """Plate corners stored as fractions of image size, scaled to real pixels."""
-    return [(x * width, y * height) for x, y in site.plate_quad]
+def quad_pixels(
+    site: SiteConfig, width: float, height: float, ref_name: str | None = None
+) -> list[tuple[float, float]]:
+    """Plate corners for a reference (or the site default) in pixel coordinates."""
+    frac = site.ref_quads.get(ref_name or "", site.plate_quad)
+    return [(x * width, y * height) for x, y in frac]
 
 
 def validate_normalized(site: SiteConfig) -> list[str]:
     """Every normalized coordinate must sit inside the unit square."""
     problems = []
-    for i, (x, y) in enumerate(site.plate_quad):
-        if not (0 <= x <= 1 and 0 <= y <= 1):
-            problems.append(f"plate_quad[{i}]={x:.3f},{y:.3f} outside image")
+    for name, quad in {"main": site.plate_quad, **site.ref_quads}.items():
+        for i, (x, y) in enumerate(quad):
+            if not (0 <= x <= 1 and 0 <= y <= 1):
+                problems.append(f"{name} quad[{i}]={x:.3f},{y:.3f} outside image")
     for poly_i, poly in enumerate(site.static_mask):
         for j, (x, y) in enumerate(poly):
             if not (0 <= x <= 1 and 0 <= y <= 1):
