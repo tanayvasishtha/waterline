@@ -23,7 +23,7 @@ def main() -> None:
     exclude = frozenset(str(f) for f in data.get("exclude_files", []))
     done = set(json.loads(CKPT.read_text())) if CKPT.exists() else set()
     for site_id, windows in data.items():
-        if not isinstance(windows, list):
+        if not isinstance(windows, list) or not windows or not isinstance(windows[0], dict):
             continue
         site = sites.load_site(site_id)
         for w in windows:

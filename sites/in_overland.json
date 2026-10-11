@@ -88,8 +88,8 @@
  "nws_flood_stage_ft": null,
  "tick_spacing_ft": 0.1,
  "stage_calib": [
-  -0.139,
-  1.414
+  0.1812,
+  1.0252
  ],
  "calibration_windows": [
   {
@@ -102,5 +102,9 @@
    "end": "2026-10-01",
    "every": 4
   }
- ]
+ ],
+ "datum_offset_ft": 0.0,
+ "sigma_calib_ft": 0.017,
+ "rate_max_ft_per_h": 1.44,
+ "rate_max_source": "1.5x max |dg/dt| over calibration gage samples (2026-07-15..2026-08-16 every 4; 2026-09-01..2026-10-01 every 4)"
 }

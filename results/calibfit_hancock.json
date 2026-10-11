@@ -1,0 +1,18 @@
+{
+  "n": 193,
+  "a": -1.5713520983807527,
+  "b": 1.1187846982281457,
+  "resid_std": 0.35849540782790607,
+  "raw_min": 10.216666666666667,
+  "raw_max": 17.816666666666666,
+  "gage_min": 9.5,
+  "gage_max": 18.01,
+  "dropped_gage_below_plate": {
+    "count": 8,
+    "raw_min": 10.275,
+    "raw_median": 10.441666666666666,
+    "raw_max": 10.483333333333334
+  },
+  "rate_max_ft_per_h": 7.98,
+  "rate_max_source": "1.5x max |dg/dt| over calibration gage samples (2026-07-27..2026-09-01 every 2)"
+}

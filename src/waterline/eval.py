@@ -380,12 +380,23 @@ def _parse_time(value: str) -> datetime:
     return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(UTC)
 
 
-def _fit_affine(rows: list[FrameRow]) -> dict[str, object]:
-    """Least squares gage = a + b*raw over gate-passed rows with both values."""
+def _fit_affine(rows: list[FrameRow], plate_bottom_ft: float) -> dict[str, object]:
+    """Least squares gage = a + b*raw over gate-passed rows with both values.
+
+    Rows where the gage itself is below the plate bottom are dropped: a stage
+    reported there is a false-boundary read, not a calibration point. Their
+    count and raw range are kept as a failure-mode statistic.
+    """
+    usable = [
+        r for r in rows if r["gate_pass"] and r["stage_ft"] is not None and r["gage_ft"] is not None
+    ]
+    dropped = [
+        cast(float, r["stage_ft"]) for r in usable if cast(float, r["gage_ft"]) < plate_bottom_ft
+    ]
     pts = [
         (r["stage_ft"], r["gage_ft"])
-        for r in rows
-        if r["gate_pass"] and r["stage_ft"] is not None and r["gage_ft"] is not None
+        for r in usable
+        if cast(float, r["gage_ft"]) >= plate_bottom_ft
     ]
     if len(pts) < 2:
         raise ValueError(f"need >=2 gate-passed rows to fit, got {len(pts)}")
@@ -402,6 +413,12 @@ def _fit_affine(rows: list[FrameRow]) -> dict[str, object]:
         "raw_max": float(raw.max()),
         "gage_min": float(g.min()),
         "gage_max": float(g.max()),
+        "dropped_gage_below_plate": {
+            "count": len(dropped),
+            "raw_min": float(np.min(dropped)) if dropped else None,
+            "raw_median": float(np.median(dropped)) if dropped else None,
+            "raw_max": float(np.max(dropped)) if dropped else None,
+        },
     }
 
 
@@ -442,7 +459,7 @@ def run_calibrate_fit(site_id: str) -> dict[str, object]:
         if got is not None:
             rate_max = max(rate_max, got)
         window_desc.append(f"{w.start}..{w.end} every {w.every}")
-    fit = _fit_affine(rows)
+    fit = _fit_affine(rows, site.plate_bottom_ft)
     source = f"1.5x max |dg/dt| over calibration gage samples ({'; '.join(window_desc)})"
     a_fit = cast(float, fit["a"])
     b_fit = cast(float, fit["b"])
