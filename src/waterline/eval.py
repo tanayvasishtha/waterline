@@ -10,7 +10,6 @@ import json
 from datetime import UTC, datetime
 from pathlib import Path
 
-import cv2
 import numpy as np
 
 from waterline import sites
