@@ -1,7 +1,7 @@
 """Deterministic triage policy: the floor the LLM variant must beat.
 
-The policy only sees what the frame shows (quality metrics, sigma, method
-disagreement) plus what has already been tried. It never sees the gage.
+The policy only sees what the frame shows (quality metrics, sigma) plus what
+has already been tried. It never sees the gage.
 
 Rules are data: the first rule whose condition holds and whose action is
 untried wins. This is deliberately readable -- the video and the report show
@@ -65,10 +65,10 @@ def _blur(r: FrameResult, s: Settings) -> bool:
 
 
 def _uncertain(r: FrameResult, s: Settings) -> bool:
-    """Method disagreement or a wide bootstrap sigma. The calibration floor in
+    """A wide bootstrap sigma. Method disagreement is recorded on the reading
+    but does not gate acceptance: on the calibration windows, method B's value
+    carried no information about method A's error. The calibration floor in
     sigma_ft is measurement honesty, not indecision, so it does not count."""
-    if r.reading.methods_disagree:
-        return True
     return r.detection is not None and r.detection.sigma_ft > s.accept_sigma_ft
 
 
@@ -148,7 +148,7 @@ RULES: tuple[tuple[Callable[[FrameResult, LoopState, Settings], bool], AgentActi
     (
         lambda r, st, s: _ok(r, s) and not _uncertain(r, s),
         AgentAction.ACCEPT,
-        "within sigma and methods agree",
+        "within sigma",
     ),
 )
 

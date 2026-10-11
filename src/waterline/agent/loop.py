@@ -92,7 +92,10 @@ def run_frame(
                 step=len(steps) + 1,
                 tool=decision.action.value,
                 args={},
-                result_summary=f"stage={r.stage_ft} sigma={r.sigma_ft} reason={r.reason}",
+                result_summary=(
+                    f"stage={r.stage_ft} sigma={r.sigma_ft} "
+                    f"disagree={r.methods_disagree} reason={r.reason}"
+                ),
                 decision=decision.reason,
                 latency_ms=ms,
             )
@@ -112,11 +115,12 @@ def run_frame(
         methods_disagree=result.reading.methods_disagree,
         status=status,
         reason=reason,
+        frame_file=current_ref.filename,
     )
     trace = Trace(
-        trace_id=f"{ctx.site.site_id}-{ref.time.strftime('%Y%m%dT%H%MZ')}",
+        trace_id=f"{ctx.site.site_id}-{current_ref.time.strftime('%Y%m%dT%H%MZ')}",
         site_id=ctx.site.site_id,
-        frame_time=ref.time,
+        frame_time=current_ref.time,
         frame_file=current_ref.filename,
         started_at=started,
         finished_at=datetime.now(UTC),

@@ -82,6 +82,7 @@ class Reading(_Frozen):
     methods_disagree: bool = False
     status: ReadingStatus = "pending"
     reason: str | None = None
+    frame_file: str | None = None
 
 
 class AgentStep(_Frozen):

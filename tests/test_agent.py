@@ -4,6 +4,7 @@ import json
 import types
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from typing import cast
 
 import cv2
 import numpy as np
@@ -13,8 +14,8 @@ from waterline import sites
 from waterline.agent.fault import FaultTracker, Obs
 from waterline.agent.flag import FlagEngine
 from waterline.agent.loop import run_frame
-from waterline.agent.policy import LoopState, decide
-from waterline.eval import make_perception
+from waterline.agent.policy import Decision, LoopState, decide
+from waterline.eval import FrameRow, _agent_summary, make_perception
 from waterline.models import (
     AgentAction,
     FrameRef,
@@ -86,6 +87,12 @@ def test_policy_below_plate_is_accepted_not_guessed() -> None:
 def test_policy_night_fetches_a_day_frame() -> None:
     d = decide(_result(q_is_night=True, r_stage_ft=None), LoopState(), S)
     assert d.action == AgentAction.FETCH_NEXT
+
+
+def test_policy_method_disagreement_does_not_gate() -> None:
+    # method B disagreeing is logged, not gated on: a tight-sigma read accepts
+    d = decide(_result(r_methods_disagree=True, r_sigma_ft=0.1), LoopState(), S)
+    assert d.action == AgentAction.ACCEPT
 
 
 def test_policy_uncertain_escalates_after_tools() -> None:
@@ -236,6 +243,45 @@ def test_loop_abstains_or_below_range_on_dry(ctx: object) -> None:
     assert reading.stage_ft is None or abs(reading.stage_ft - dry["gage_ft"]) < 1.0
 
 
+def test_run_frame_keeps_neighbour_time_and_file(ctx: object) -> None:
+    site, perception = ctx
+    manifest = json.loads(Path("tests/fixtures/manifest_hancock.json").read_text())
+    entry = manifest[0]
+    image = cv2.imread(str(Path("tests/fixtures") / entry["path"]))
+    ref = _fixture_ref(entry, site)
+    nb_ref = FrameRef(
+        cam_id=site.cam_id,
+        filename="neighbour.jpg",
+        time=ref.time + timedelta(hours=1),
+        url="",
+    )
+
+    class FakeNav:
+        def neighbor(self, when: datetime, direction: int, skip: int = 1) -> FrameRef:
+            return nb_ref
+
+        def image(self, r: FrameRef) -> np.ndarray:
+            return image
+
+    calls = iter(
+        [
+            Decision(AgentAction.FETCH_NEXT, "test"),
+            Decision(AgentAction.ACCEPT, "test"),
+        ]
+    )
+    reading, trace = run_frame(
+        perception,
+        np.asarray(image),
+        ref,
+        FakeNav(),
+        chooser=lambda r, st, s: next(calls),  # type: ignore[arg-type]
+    )
+    assert reading.time == nb_ref.time
+    assert reading.frame_file == "neighbour.jpg"
+    assert trace.frame_time == nb_ref.time
+    assert trace.frame_file == "neighbour.jpg"
+
+
 def test_flag_engine_emits_drift_flag(tmp_path: Path) -> None:
     engine = FlagEngine("hancock")
     flag = None
@@ -270,3 +316,43 @@ def test_flag_engine_emits_drift_flag(tmp_path: Path) -> None:
     assert flag.residual_ft == pytest.approx(11.0 - 10.1)
     assert flag.persistence_frames == 3
     assert (tmp_path / "hancock").exists()
+
+
+def _agent_row(**kw: object) -> FrameRow:
+    base: dict[str, object] = {
+        "file": "f.jpg",
+        "time": "2026-08-01T00:00:00+00:00",
+        "gage_ft": 10.0,
+        "stage_ft": 10.0,
+        "sigma_ft": 0.2,
+        "method_a_ft": 10.0,
+        "method_b_ft": 10.0,
+        "reason": None,
+        "blur_var": 500.0,
+        "glare_frac": 0.0,
+        "mean_v": 150.0,
+        "inliers": 300,
+        "inlier_ratio": 0.7,
+        "shift_px": 1.0,
+        "plate_visibility": 45.0,
+        "is_night": False,
+        "gate_pass": True,
+        "agent_stage_ft": 10.5,
+        "agent_sigma_ft": 0.2,
+        "agent_gage_ft": 10.0,
+        "agent_status": "accepted",
+        "agent_steps": 1,
+    }
+    base.update(kw)
+    return cast(FrameRow, base)
+
+
+def test_agent_summary_scores_only_accepted_rows() -> None:
+    rows = [
+        _agent_row(agent_stage_ft=10.5, agent_gage_ft=10.0, gage_ft=8.0),
+        _agent_row(agent_status="abstained", agent_stage_ft=99.0),
+    ]
+    agent = _agent_summary(rows)
+    assert agent is not None
+    assert agent["read"] == 1
+    assert agent["mae_ft"] == pytest.approx(0.5)

@@ -47,6 +47,7 @@ class FrameRow(TypedDict):
     gate_pass: bool
     agent_stage_ft: float | None
     agent_sigma_ft: float | None
+    agent_gage_ft: float | None
     agent_status: str | None
     agent_steps: int | None
 
@@ -88,11 +89,13 @@ def run_window(
             agent_status = agent_reading.status
             agent_stage = agent_reading.stage_ft
             agent_sigma = agent_reading.sigma_ft
+            agent_gage = gage.nearest(truth, agent_reading.time, max_gap=timedelta(minutes=10))
         else:
             result = read_frame(ctx, image, ref.time, seed=i)
             agent_status = None
             agent_stage = None
             agent_sigma = None
+            agent_gage = None
         rows.append(
             {
                 "file": ref.filename,
@@ -114,6 +117,7 @@ def run_window(
                 "gate_pass": quality_ok(result.quality, ctx.settings),
                 "agent_stage_ft": agent_stage,
                 "agent_sigma_ft": agent_sigma,
+                "agent_gage_ft": None if agent_gage is None else agent_gage.value_ft,
                 "agent_status": agent_status,
                 "agent_steps": None if nav is None else len(trace.steps),
             }
@@ -145,9 +149,11 @@ def _agent_summary(rows: list[FrameRow]) -> dict[str, object] | None:
     if not ar:
         return None
     read = [
-        (r["agent_stage_ft"], r["gage_ft"], r["sigma_ft"])
+        (r["agent_stage_ft"], r["agent_gage_ft"], r["sigma_ft"])
         for r in ar
-        if r["agent_stage_ft"] is not None and r["gage_ft"] is not None
+        if r["agent_status"] == "accepted"
+        and r["agent_stage_ft"] is not None
+        and r["agent_gage_ft"] is not None
     ]
     errors = np.array([a - g for a, g, _ in read if a is not None and g is not None])
     return {
@@ -157,6 +163,8 @@ def _agent_summary(rows: list[FrameRow]) -> dict[str, object] | None:
         "pending": sum(1 for r in ar if r["agent_status"] == "pending"),
         "read": len(read),
         "mae_ft": float(np.abs(errors).mean()) if read else None,
+        "med_ae_ft": float(np.median(np.abs(errors))) if read else None,
+        "p90_ae_ft": float(np.percentile(np.abs(errors), 90)) if read else None,
         "avg_steps": float(np.mean([r["agent_steps"] or 0 for r in ar])),
     }
 
