@@ -141,3 +141,20 @@ as at any later frame. Second, the stuck rule confirmed a frozen gage when the c
 spread over four frames exceeded 2 sigma, which ordinary noise does about half the
 time. It now requires the camera's first-to-last change over the window to exceed
 3 combined sigmas, the same test the step rule uses.
+
+## Amendment 4 (2026-10-11): method B no longer gates acceptance
+
+Method B (lowest visible tick) was used as a cross-check: when it differed from method
+A by more than 2 sigma, the agent treated the reading as uncertain and abstained or
+asked for review. On the calibration windows it carries no information about method A's
+error. On the nine wet in_overland calibration frames, B minus A ranged from -0.69 to
++0.05 ft while A's error held between -0.22 and -0.14 ft, because clear shallow water
+leaves ticks visible below the surface. On the two near-dry frames A was wrong by about
++0.36 ft and B did disagree with it; those cases now rely on the below-plate test alone.
+At hancock, B sat 0.6 to 1.0 ft above A on every gated frame regardless of A's error.
+The cross-check was removed from the acceptance rule; method B is still computed and
+recorded. This amendment was committed before the agent was re-run. The re-run (agent
+v2) is the primary agent result whichever way it comes out. The v1 results remain in
+the history at commit 06aea81, and both are reported. Agent read counts and error
+metrics now include accepted readings only; v1 had also counted abstained readings
+that carried a stage value.
