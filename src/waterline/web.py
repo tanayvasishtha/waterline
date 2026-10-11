@@ -9,6 +9,7 @@ import csv
 import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from typing import Any
 from urllib.parse import parse_qs, urlparse
 
 from waterline import sites as site_lib
@@ -18,7 +19,7 @@ RESULTS = Path("results")
 STATIC = Path(__file__).parent / "static"
 
 
-def _readings(site: str) -> list[dict]:
+def _readings(site: str) -> list[dict[str, Any]]:
     """Series rows: eval CSV if present, else the poll log."""
     rows = []
     for csv_path in sorted(RESULTS.glob(f"*{site}*.csv")):
@@ -51,11 +52,11 @@ def _readings(site: str) -> list[dict]:
                             "is_night": False,
                         }
                     )
-    rows.sort(key=lambda r: r["time"])
+    rows.sort(key=lambda r: str(r["time"]))
     return rows
 
 
-def _flags(site: str | None) -> list[dict]:
+def _flags(site: str | None) -> list[dict[str, Any]]:
     out = []
     events = DATA / "events"
     if events.exists():
@@ -63,10 +64,10 @@ def _flags(site: str | None) -> list[dict]:
             d = json.loads(path.read_text())
             if site is None or d.get("site_id") == site:
                 out.append(d)
-    return sorted(out, key=lambda f: f["opened_at"], reverse=True)
+    return sorted(out, key=lambda f: str(f["opened_at"]), reverse=True)
 
 
-def _traces(site: str | None) -> list[dict]:
+def _traces(site: str | None) -> list[dict[str, Any]]:
     out = []
     tdir = DATA / "traces"
     if tdir.exists():
@@ -77,9 +78,9 @@ def _traces(site: str | None) -> list[dict]:
     return out
 
 
-def api(path: str, query: dict) -> tuple[int, str, bytes]:
+def api(path: str, query: dict[str, list[str]]) -> tuple[int, str, bytes]:
     """Route an API request to a JSON response."""
-    site = (query.get("site") or [None])[0]
+    site = (query.get("site") or [""])[0] or None
     if path == "/api/sites":
         return 200, "application/json", json.dumps(site_lib.list_sites()).encode()
     if path == "/api/readings":
