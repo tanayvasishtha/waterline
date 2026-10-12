@@ -357,8 +357,17 @@ def test_agent_summary_scores_only_accepted_rows() -> None:
     assert agent["mae_ft"] == pytest.approx(0.5)
 
 
-def _fake_ctx(rate_max: float | None = None, alt_refs: int = 1) -> object:
-    site = types.SimpleNamespace(site_id="t", cam_id="c", rate_max_ft_per_h=rate_max)
+def _fake_ctx(
+    rate_max: float | None = None,
+    rate_p99: float | None = None,
+    alt_refs: int = 1,
+) -> object:
+    site = types.SimpleNamespace(
+        site_id="t",
+        cam_id="c",
+        rate_max_ft_per_h=rate_max,
+        rate_p99_ft_per_h=rate_p99,
+    )
     return types.SimpleNamespace(
         site=site,
         settings=Settings(),
@@ -467,7 +476,7 @@ def test_implausible_jump_forces_uncertain_then_review(
         return decide(cast("FrameResult", r), st, s)
 
     reading, trace = run_frame(
-        cast("Perception", _fake_ctx(rate_max=0.5)),
+        cast("Perception", _fake_ctx(rate_max=0.5, rate_p99=0.5)),
         np.zeros((8, 8, 3), np.uint8),
         ref,
         FakeNav(),  # type: ignore[arg-type]
@@ -497,7 +506,7 @@ def test_plausible_flood_rise_is_accepted(monkeypatch: pytest.MonkeyPatch) -> No
         return decide(cast("FrameResult", r), st, s)
 
     reading, _ = run_frame(
-        cast("Perception", _fake_ctx(rate_max=0.5)),
+        cast("Perception", _fake_ctx(rate_max=0.5, rate_p99=0.5)),
         np.zeros((8, 8, 3), np.uint8),
         _fake_ref(t0 + timedelta(hours=1)),
         chooser=spy,  # type: ignore[arg-type]
@@ -566,7 +575,7 @@ def test_changed_answer_confirmed_by_neighbour(
         Decision(AgentAction.FETCH_PREV, "compare previous"),
     ]
     reading, trace = run_frame(
-        cast("Perception", _fake_ctx(rate_max=0.5)),
+        cast("Perception", _fake_ctx(rate_max=0.5, rate_p99=0.5)),
         np.zeros((8, 8, 3), np.uint8),
         _fake_ref(t0),
         _nb_nav(nb),  # type: ignore[arg-type]
@@ -599,7 +608,7 @@ def test_neighbour_disagreement_goes_to_review(
         Decision(AgentAction.FETCH_PREV, "compare previous"),
     ]
     reading, trace = run_frame(
-        cast("Perception", _fake_ctx(rate_max=0.5)),
+        cast("Perception", _fake_ctx(rate_max=0.5, rate_p99=0.5)),
         np.zeros((8, 8, 3), np.uint8),
         _fake_ref(t0),
         _nb_nav(nb),  # type: ignore[arg-type]
@@ -627,7 +636,7 @@ def test_no_neighbour_could_confirm(monkeypatch: pytest.MonkeyPatch) -> None:
         Decision(AgentAction.FETCH_NEXT, "compare next"),
     ]
     reading, trace = run_frame(
-        cast("Perception", _fake_ctx(rate_max=0.5)),
+        cast("Perception", _fake_ctx(rate_max=0.5, rate_p99=0.5)),
         np.zeros((8, 8, 3), np.uint8),
         _fake_ref(t0),
         _nb_nav(t0 + timedelta(hours=1)),  # type: ignore[arg-type]
@@ -639,4 +648,56 @@ def test_no_neighbour_could_confirm(monkeypatch: pytest.MonkeyPatch) -> None:
         "fetch_next",
     ]
     assert trace.steps[-1].decision == "no neighbour could confirm"
+    assert reading.status == "pending"
+
+
+def test_sigma_uncertain_frame_never_fetches(monkeypatch: pytest.MonkeyPatch) -> None:
+    # sigma-only uncertainty is a noisy frame, not an inconsistent one: the
+    # loop keeps the repair path but never asks a neighbour, then escalates
+    seq = iter(
+        [
+            _result(r_stage_ft=10.0, r_sigma_ft=0.5, q_glare_frac=0.5),
+            _result(r_stage_ft=10.0, r_sigma_ft=0.45),
+        ]
+    )
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx(rate_p99=0.5)),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(datetime(2026, 8, 1, 12, tzinfo=UTC)),
+        _nb_nav(datetime(2026, 8, 1, 13, tzinfo=UTC)),  # type: ignore[arg-type]
+    )
+    tools = [s.tool for s in trace.steps]
+    assert "fetch_prev" not in tools and "fetch_next" not in tools
+    assert reading.status == "pending"
+    assert trace.reason == "bootstrap sigma 0.45 above 0.25 after repairs"
+
+
+def test_neighbour_outside_p99_bound_goes_to_review(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # 1.0 ft in an hour: inside the old rate_max bound (7.85) but outside the
+    # p99 bound (0.85) - the tightened confirmation still escalates
+    t0 = datetime(2026, 8, 1, 12, tzinfo=UTC)
+    seq = iter(
+        [
+            _result(r_stage_ft=10.0, r_sigma_ft=0.15),
+            _result(r_stage_ft=10.86, r_sigma_ft=0.22),
+            _result(r_stage_ft=11.0, r_sigma_ft=0.2),
+        ]
+    )
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    calls = [
+        Decision(AgentAction.ENHANCE_GAMMA, "try a contrast lift"),
+        Decision(AgentAction.FETCH_PREV, "compare previous"),
+    ]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx(rate_max=7.0, rate_p99=0.1)),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(t0),
+        _nb_nav(t0 + timedelta(hours=1)),  # type: ignore[arg-type]
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert "bound=0.85 d=1.00" in trace.steps[1].result_summary
+    assert trace.steps[1].decision == "neighbour disagrees by 1.00 ft"
     assert reading.status == "pending"

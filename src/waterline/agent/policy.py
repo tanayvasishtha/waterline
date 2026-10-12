@@ -74,6 +74,13 @@ def _uncertain(r: FrameResult, s: Settings) -> bool:
     return r.detection is not None and r.detection.sigma_ft > s.accept_sigma_ft
 
 
+def _confirmable(st: LoopState) -> bool:
+    """Neighbour fetches only help an inconsistent or implausible read. A
+    sigma-uncertain frame's own measurement is noisy, and a neighbour
+    agreeing with noise confirms nothing."""
+    return st.self_inconsistent or st.implausible
+
+
 def _flagged(r: FrameResult, st: LoopState, s: Settings) -> bool:
     """Sigma-uncertain, a changed-answer repair, or a read that does not
     reconcile with recent history."""
@@ -143,12 +150,12 @@ RULES: tuple[tuple[Callable[[FrameResult, LoopState, Settings], bool], AgentActi
         "uncertain; re-register on the other reference",
     ),
     (
-        _flagged,
+        lambda r, st, s: _flagged(r, st, s) and _confirmable(st),
         AgentAction.FETCH_PREV,
         "uncertain; compare the previous frame",
     ),
     (
-        _flagged,
+        lambda r, st, s: _flagged(r, st, s) and _confirmable(st),
         AgentAction.FETCH_NEXT,
         "uncertain; compare the next frame",
     ),
@@ -166,5 +173,11 @@ def decide(result: FrameResult, state: LoopState, settings: Settings) -> Decisio
         if action not in state.tried and condition(result, state, settings):
             return Decision(action, reason)
     if _flagged(result, state, settings):
+        if _uncertain(result, settings) and not _confirmable(state):
+            sig = result.detection.sigma_ft if result.detection is not None else 0.0
+            return Decision(
+                AgentAction.HUMAN_REVIEW,
+                f"bootstrap sigma {sig:.2f} above {settings.accept_sigma_ft:.2f} after repairs",
+            )
         return Decision(AgentAction.HUMAN_REVIEW, "uncertainty persists after all re-reads")
     return Decision(AgentAction.ABSTAIN, "no repair left to try")

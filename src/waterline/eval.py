@@ -422,14 +422,20 @@ def _fit_affine(rows: list[FrameRow], plate_bottom_ft: float) -> dict[str, objec
     }
 
 
-def _rate_max(series: list[GageReading]) -> float | None:
-    """1.5x the largest |dg/dt| between consecutive gage samples (ft/h)."""
-    best = 0.0
+def _dg_dt_rates(series: list[GageReading]) -> list[float]:
+    """|dg/dt| between consecutive gage samples, ft/h."""
+    rates = []
     for prev, cur in itertools.pairwise(series):
         dt = (cur.time - prev.time).total_seconds()
         if dt > 0:
-            best = max(best, abs(cur.value_ft - prev.value_ft) / (dt / 3600))
-    return 1.5 * best if best > 0 else None
+            rates.append(abs(cur.value_ft - prev.value_ft) / (dt / 3600))
+    return rates
+
+
+def _rate_max(series: list[GageReading]) -> float | None:
+    """1.5x the largest |dg/dt| between consecutive gage samples (ft/h)."""
+    rates = _dg_dt_rates(series)
+    return 1.5 * max(rates) if rates else None
 
 
 def run_calibrate_fit(site_id: str) -> dict[str, object]:
@@ -448,6 +454,7 @@ def run_calibrate_fit(site_id: str) -> dict[str, object]:
     client = make_client()
     rows: list[FrameRow] = []
     rate_max = 0.0
+    all_rates: list[float] = []
     window_desc = []
     for w in site.calibration_windows:
         start_dt, end_dt = _parse_time(w.start), _parse_time(w.end)
@@ -455,12 +462,15 @@ def run_calibrate_fit(site_id: str) -> dict[str, object]:
         frames = frame_list(site, start_dt, end_dt, w.every)
         rows += run_window(ctx, frames, Path("data/cache"))
         series = gage.continuous(client, site.nwis_id, start_dt, end_dt)
-        got = _rate_max(series)
-        if got is not None:
-            rate_max = max(rate_max, got)
+        rates = _dg_dt_rates(series)
+        all_rates += rates
+        if rates:
+            rate_max = max(rate_max, 1.5 * max(rates))
         window_desc.append(f"{w.start}..{w.end} every {w.every}")
     fit = _fit_affine(rows, site.plate_bottom_ft)
+    rate_p99 = float(np.percentile(all_rates, 99)) if all_rates else None
     source = f"1.5x max |dg/dt| over calibration gage samples ({'; '.join(window_desc)})"
+    p99_source = f"p99 |dg/dt| over calibration gage samples ({'; '.join(window_desc)})"
     a_fit = cast(float, fit["a"])
     b_fit = cast(float, fit["b"])
     resid_std = cast(float, fit["resid_std"])
@@ -471,9 +481,13 @@ def run_calibrate_fit(site_id: str) -> dict[str, object]:
     cfg["sigma_calib_ft"] = round(resid_std, 4)
     cfg["rate_max_ft_per_h"] = round(rate_max, 4) if rate_max else None
     cfg["rate_max_source"] = source
+    cfg["rate_p99_ft_per_h"] = round(rate_p99, 4) if rate_p99 is not None else None
+    cfg["rate_p99_source"] = p99_source
     path.write_text(json.dumps(cfg, indent=1) + "\n")
     fit["rate_max_ft_per_h"] = round(rate_max, 4) if rate_max else None
     fit["rate_max_source"] = source
+    fit["rate_p99_ft_per_h"] = round(rate_p99, 4) if rate_p99 is not None else None
+    fit["rate_p99_source"] = p99_source
     Path("results").mkdir(exist_ok=True)
     Path(f"results/calibfit_{site_id}.json").write_text(json.dumps(fit, indent=2) + "\n")
     print(json.dumps(fit, indent=2))

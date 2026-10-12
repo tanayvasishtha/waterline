@@ -102,7 +102,7 @@ def _confirm(
         cur_sig = (
             result.detection.sigma_ft if result.detection is not None else (cur.sigma_ft or 0.0)
         )
-        bound = (ctx.site.rate_max_ft_per_h or 0.0) * dt_h + 3.0 * math.sqrt(cur_sig**2 + nb_sig**2)
+        bound = (ctx.site.rate_p99_ft_per_h or 0.0) * dt_h + 3.0 * math.sqrt(cur_sig**2 + nb_sig**2)
         d = abs(nb_stage - cast(float, cur.stage_ft))
         summary += f" dt_h={dt_h:.2f} bound={bound:.2f} d={d:.2f}"
         if d <= bound:
@@ -156,15 +156,15 @@ def _apply(
     return image, current_ref, None, False
 
 
-def _status_for(result: FrameResult, action: AgentAction) -> tuple[str, str | None]:
-    if action == AgentAction.ACCEPT:
+def _status_for(result: FrameResult, decision: Decision) -> tuple[str, str | None]:
+    if decision.action == AgentAction.ACCEPT:
         return (
             ("below_range", result.reading.reason)
             if result.reading.reason == "below_plate"
             else ("accepted", result.reading.reason)
         )
-    if action == AgentAction.HUMAN_REVIEW:
-        return "pending", "escalated for human review"
+    if decision.action == AgentAction.HUMAN_REVIEW:
+        return "pending", decision.reason or "escalated for human review"
     return "abstained", "no confident reading after the action budget"
 
 
@@ -263,7 +263,7 @@ def run_frame(
     else:
         decision = Decision(AgentAction.HUMAN_REVIEW, "action budget exhausted")
 
-    status, reason = _status_for(result, decision.action)
+    status, reason = _status_for(result, decision)
     reading = Reading(
         site_id=ctx.site.site_id,
         time=current_ref.time,

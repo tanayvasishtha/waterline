@@ -69,6 +69,11 @@ class SiteConfig(_Frozen):
         description="plausible gage rise rate cap: 1.5x max |dg/dt| on calibration windows",
     )
     rate_max_source: str | None = Field(None, description="where rate_max was measured")
+    rate_p99_ft_per_h: float | None = Field(
+        None,
+        description="neighbour-confirmation rate: p99 |dg/dt| on calibration windows",
+    )
+    rate_p99_source: str | None = Field(None, description="where rate_p99 was measured")
     calibration_windows: list[CalibWindow] = Field(
         default_factory=list, description="windows the affine fit and dev runs cover"
     )
