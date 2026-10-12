@@ -101,5 +101,7 @@
  ],
  "datum_offset_ft": 0.0,
  "rate_max_ft_per_h": 7.98,
- "rate_max_source": "1.5x max |dg/dt| over calibration gage samples (2026-07-27..2026-09-01 every 2)"
+ "rate_max_source": "1.5x max |dg/dt| over calibration gage samples (2026-07-27..2026-09-01 every 2)",
+ "rate_p99_ft_per_h": 0.578,
+ "rate_p99_source": "p99 |dg/dt| over calibration gage samples (2026-07-27..2026-09-01 every 2)"
 }

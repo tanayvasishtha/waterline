@@ -5,10 +5,10 @@
   "status": "pending",
   "stage_ft": 10.12006,
   "last_step": {
-   "tool": "fetch_next",
-   "decision": "no neighbour could confirm"
+   "tool": "alt_reference",
+   "decision": "repair rejected: lost the reading"
   },
-  "reason": "escalated for human review"
+  "reason": "bootstrap sigma 1.55 above 0.25 after repairs"
  },
  {
   "time": "2026-07-27T11:00:04+00:00",
@@ -157,13 +157,13 @@
  {
   "time": "2026-07-29T17:00:09+00:00",
   "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T17-00-09Z.jpg",
-  "status": "accepted",
+  "status": "pending",
   "stage_ft": 18.18474333333333,
   "last_step": {
-   "tool": "fetch_next",
-   "decision": "confirmed by neighbour at 18:00"
+   "tool": "alt_reference",
+   "decision": "repair rejected: no gain"
   },
-  "reason": null
+  "reason": "bootstrap sigma 0.86 above 0.25 after repairs"
  },
  {
   "time": "2026-07-29T19:00:08+00:00",
@@ -2667,13 +2667,13 @@
  {
   "time": "2026-08-25T23:00:22+00:00",
   "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T23-00-22Z.jpg",
-  "status": "accepted",
+  "status": "pending",
   "stage_ft": 12.236456666666667,
   "last_step": {
-   "tool": "fetch_next",
-   "decision": "confirmed by neighbour at 00:00"
+   "tool": "alt_reference",
+   "decision": "uncertain; re-register on the other reference"
   },
-  "reason": null
+  "reason": "bootstrap sigma 0.29 above 0.25 after repairs"
  },
  {
   "time": "2026-08-26T01:00:12+00:00",
@@ -2814,10 +2814,10 @@
   "status": "pending",
   "stage_ft": 12.58142,
   "last_step": {
-   "tool": "fetch_prev",
-   "decision": "no neighbour could confirm"
+   "tool": "alt_reference",
+   "decision": "repair rejected: no gain"
   },
-  "reason": "escalated for human review"
+  "reason": "bootstrap sigma 0.39 above 0.25 after repairs"
  },
  {
   "time": "2026-08-27T10:00:04+00:00",

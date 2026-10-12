@@ -8,5 +8,7 @@
   "gage_min": 0.48,
   "gage_max": 1.11,
   "rate_max_ft_per_h": 1.44,
-  "rate_max_source": "1.5x max |dg/dt| over calibration gage samples (2026-07-15..2026-08-16 every 4; 2026-09-01..2026-10-01 every 4)"
+  "rate_max_source": "1.5x max |dg/dt| over calibration gage samples (2026-07-15..2026-08-16 every 4; 2026-09-01..2026-10-01 every 4)",
+  "rate_p99_ft_per_h": 0.08,
+  "rate_p99_source": "p99 |dg/dt| over calibration gage samples (2026-07-15..2026-08-16 every 4; 2026-09-01..2026-10-01 every 4)"
 }
