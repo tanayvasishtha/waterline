@@ -11,8 +11,8 @@
     "within_2sigma": 0.9047619047619048,
     "agent": {
       "accepted": 22,
-      "below_range": 363,
-      "abstained": 157,
+      "below_range": 260,
+      "abstained": 260,
       "pending": 0,
       "read": 22,
       "mae_ft": 0.07191272727272731,
@@ -33,8 +33,8 @@
     "within_2sigma": 0.9047619047619048,
     "agent": {
       "accepted": 22,
-      "below_range": 269,
-      "abstained": 94,
+      "below_range": 259,
+      "abstained": 104,
       "pending": 0,
       "read": 22,
       "mae_ft": 0.07191272727272731,
@@ -55,8 +55,8 @@
     "within_2sigma": 0.0,
     "agent": {
       "accepted": 0,
-      "below_range": 94,
-      "abstained": 63,
+      "below_range": 1,
+      "abstained": 156,
       "pending": 0,
       "read": 0,
       "mae_ft": null,

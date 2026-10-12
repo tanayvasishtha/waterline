@@ -4,47 +4,57 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T00-00-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-15T00:00:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T00-00-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-15T02:00:10+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T02-00-10Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-15T02:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T02-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-15T04:00:39+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T04-00-39Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-15T05:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T05-00-12Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-15T07:00:20+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T07-00-20Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-15T08:00:40+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T08-00-40Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-15T10:05:01+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T10-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-15T10:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T10-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -53,6 +63,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T12-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-15T13:00:20+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T13-00-20Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -64,6 +76,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T14-05-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-15T14:05:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T14-05-09Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -72,6 +86,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T16-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-15T16:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T16-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -80,6 +96,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T18-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-15T18:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T18-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -88,6 +106,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T20-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-15T20:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T20-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -96,6 +116,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T22-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-15T22:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-15T22-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -104,25 +126,31 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T00-05-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-16T00:05:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T00-05-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-16T02:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T02-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-16T03:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T03-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-16T05:06:47+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T05-06-47Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-16T06:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T06-00-04Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -132,19 +160,23 @@
  {
   "time": "2026-07-16T08:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T08-05-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-16T09:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T09-00-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame cannot register; pull the next frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-16T10:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T10-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-16T11:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T11-00-08Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -156,6 +188,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T12-05-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-16T12:05:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T12-05-09Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -164,6 +198,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T14-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-16T14:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T14-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -172,6 +208,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T16-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-16T16:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T16-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -180,6 +218,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T18-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-16T18:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T18-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -188,6 +228,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T20-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-16T20:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T20-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -196,6 +238,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T22-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-16T22:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-16T22-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -204,58 +248,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T00-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-17T00:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T00-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-17T03:00:03+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T03-00-03Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-17T04:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T04-00-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-17T05:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T05-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-17T06:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T06-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-17T08:00:41+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T08-00-41Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-17T08:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T08-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-17T10:00:19+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T10-00-19Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-17T10:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T10-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-17T12:00:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T12-00-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-17T12:00:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T12-00-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -264,6 +320,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T14-00-41Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-17T14:00:41+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T14-00-41Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -272,6 +330,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T16-00-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-17T16:00:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T16-00-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -280,6 +340,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T18-00-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-17T18:00:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T18-00-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -288,6 +350,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T20-00-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-17T20:00:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T20-00-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -296,6 +360,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T22-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-17T22:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-17T22-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -304,58 +370,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T00-00-15Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-18T00:00:15+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T00-00-15Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-18T02:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T02-00-04Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-18T02:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T02-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-18T05:00:23+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T05-00-23Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-18T05:05:11+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T05-05-11Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-18T06:10:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T06-10-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-18T07:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T07-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-18T08:57:45+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T08-57-45Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-18T09:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T09-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame cannot register; pull the next frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-18T10:05:11+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T10-05-11Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-18T11:00:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T11-00-21Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -367,6 +445,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T12-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-18T12:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T12-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -375,6 +455,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T14-05-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-18T14:05:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T14-05-09Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -383,6 +465,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T16-05-11Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-18T16:05:11+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T16-05-11Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -391,6 +475,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T18-05-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-18T18:05:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T18-05-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -399,6 +485,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T20-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-18T20:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T20-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -407,6 +495,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T22-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-18T22:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-18T22-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -415,58 +505,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T00-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-19T00:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T00-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-19T02:05:01+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T02-05-01Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-19T03:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T03-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-19T04:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T04-05-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-19T05:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T05-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-19T06:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T06-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-19T07:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T07-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-19T08:10:01+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T08-10-01Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-19T09:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T09-00-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-19T10:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T10-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-19T10:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T10-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -475,6 +577,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T12-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-19T12:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T12-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -483,6 +587,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T14-05-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-19T14:05:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T14-05-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -491,6 +597,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T16-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-19T16:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T16-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -499,6 +607,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T18-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-19T18:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T18-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -507,6 +617,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T20-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-19T20:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T20-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -515,6 +627,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T22-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-19T22:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-19T22-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -523,58 +637,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T00-05-11Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-20T00:05:11+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T00-05-11Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-20T02:05:24+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T02-05-24Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-20T03:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T03-00-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-20T04:05:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T04-05-13Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-20T05:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T05-00-13Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-20T06:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T06-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-20T07:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T07-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-20T08:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T08-05-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-20T09:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T09-00-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-20T10:05:01+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T10-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-20T10:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T10-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -583,6 +709,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T12-05-01Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-20T13:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T13-00-04Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -594,6 +722,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T14-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-20T14:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T14-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -602,6 +732,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T16-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-20T16:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T16-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -610,6 +742,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T18-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-20T18:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T18-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -618,6 +752,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T20-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-20T20:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T20-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -626,6 +762,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T22-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-20T22:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-20T22-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -634,69 +772,83 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T00-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-21T00:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T00-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-21T02:05:03+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T02-05-03Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-21T03:00:05+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T03-00-05Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-21T04:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T04-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-21T05:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T05-00-06Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-21T06:05:01+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T06-05-01Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-21T07:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T07-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-21T08:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T08-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-21T09:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T09-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-21T10:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T10-00-04Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-21T10:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T10-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-21T12:00:15+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T12-00-15Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-21T12:00:15+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T12-00-15Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -705,6 +857,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T14-00-04Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-21T14:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T14-00-04Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -713,6 +867,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T16-00-06Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-21T16:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T16-00-06Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -721,6 +877,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T18-00-04Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-21T18:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T18-00-04Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -729,6 +887,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T20-00-16Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-21T20:00:16+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T20-00-16Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -737,6 +897,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T22-00-24Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-21T22:00:24+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-21T22-00-24Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -745,58 +907,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T00-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-22T00:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T00-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-22T02:00:08+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T02-00-08Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-22T02:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T02-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-22T04:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T04-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-22T04:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T04-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-22T06:00:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T06-00-13Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-22T06:05:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T06-05-08Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-22T08:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T08-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-22T08:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T08-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-22T10:00:18+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T10-00-18Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-22T10:05:15+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T10-05-15Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
@@ -808,6 +982,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T12-00-19Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-22T12:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T12-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -819,6 +995,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T14-00-37Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-22T14:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T14-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -830,6 +1008,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T16-00-28Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-22T16:00:28+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T16-00-28Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -838,6 +1018,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T18-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-22T18:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T18-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -846,6 +1028,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T20-00-11Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-22T20:00:11+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T20-00-11Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -854,6 +1038,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T22-00-32Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-22T22:00:32+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-22T22-00-32Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -862,69 +1048,83 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T00-00-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-23T00:00:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T00-00-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-23T02:00:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T02-00-13Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-23T02:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T02-05-23Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-23T04:00:10+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T04-00-10Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-23T04:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T04-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-23T06:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T06-00-04Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-23T06:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T06-05-21Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-23T08:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T08-00-04Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-23T08:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T08-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-23T09:10:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T09-10-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-23T10:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T10-00-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-23T11:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T11-05-21Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-23T12:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T12-00-04Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -936,6 +1136,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T13-05-01Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-23T14:00:05+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T14-00-05Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -947,6 +1149,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T15-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-23T16:00:41+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T16-00-41Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -958,6 +1162,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T17-05-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-23T17:05:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T17-05-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -966,6 +1172,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T19-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-23T19:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T19-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -974,6 +1182,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T21-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-23T21:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T21-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -982,6 +1192,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T23-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-23T23:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-23T23-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -990,58 +1202,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T01-05-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-24T01:05:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T01-05-03Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-24T03:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T03-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-24T04:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T04-00-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-24T05:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T05-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-24T06:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T06-00-12Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-24T07:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T07-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-24T08:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T08-00-12Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-24T09:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T09-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-24T09:10:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T09-10-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-24T11:00:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T11-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-24T11:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T11-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1050,6 +1274,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T13-00-11Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-24T13:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T13-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1061,6 +1287,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T15-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-24T15:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T15-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -1072,6 +1300,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T17-00-04Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-24T17:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T17-00-04Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1080,6 +1310,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T19-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-24T19:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T19-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1088,6 +1320,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T21-00-40Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-24T21:00:40+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T21-00-40Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1096,6 +1330,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T23-00-40Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-24T23:00:40+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-24T23-00-40Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1104,58 +1340,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T01-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-25T01:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T01-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-25T03:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T03-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-25T03:05:10+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T03-05-10Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-25T05:00:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T05-00-13Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-25T05:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T05-05-23Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-25T07:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T07-00-04Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-25T07:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T07-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-25T09:00:03+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T09-00-03Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-25T09:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T09-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-25T11:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T11-00-12Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-25T11:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T11-05-22Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1167,6 +1415,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T13-00-32Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-25T13:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T13-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -1178,6 +1428,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T15-00-25Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-25T15:00:25+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T15-00-25Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1186,6 +1438,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T17-00-19Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-25T17:00:19+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T17-00-19Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1194,6 +1448,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T19-00-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-25T19:00:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T19-00-09Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1202,6 +1458,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T21-00-40Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-25T21:00:40+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T21-00-40Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1210,6 +1468,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T23-00-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-25T23:00:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-25T23-00-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1218,36 +1478,44 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T01-00-31Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-26T01:00:31+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T01-00-31Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-26T03:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T03-00-06Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-26T03:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T03-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-26T05:00:14+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T05-00-14Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-26T05:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T05-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-26T07:00:11+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T07-00-11Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-26T07:06:51+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T07-06-51Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1257,30 +1525,36 @@
  {
   "time": "2026-07-26T08:00:03+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T08-00-03Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-26T08:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T08-05-23Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-26T10:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T10-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-26T10:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T10-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-26T12:00:16+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T12-00-16Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-26T12:00:16+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T12-00-16Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1289,6 +1563,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T14-00-30Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-26T14:00:30+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T14-00-30Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1297,6 +1573,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T16-00-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-26T16:00:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T16-00-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1305,6 +1583,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T18-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-26T18:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T18-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1313,6 +1593,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T20-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-26T20:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T20-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1321,6 +1603,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T22-00-04Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-26T22:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-26T22-00-04Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1329,69 +1613,83 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T00-00-19Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-27T00:00:19+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T00-00-19Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-27T02:00:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T02-00-13Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-27T02:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T02-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-27T04:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T04-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-27T04:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T04-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-27T06:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T06-00-04Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-27T06:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T06-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame cannot register; pull the next frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-27T08:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T08-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-27T08:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T08-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-27T10:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T10-00-06Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-27T10:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T10-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-27T12:00:30+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T12-00-30Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-27T12:00:30+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T12-00-30Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1400,6 +1698,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T14-00-10Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-27T14:00:10+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T14-00-10Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1408,6 +1708,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T16-00-04Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-27T16:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T16-00-04Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1416,6 +1718,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T18-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-27T18:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T18-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1424,6 +1728,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T20-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-27T20:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T20-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1432,6 +1738,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T22-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-27T22:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-27T22-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1440,36 +1748,44 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T00-00-27Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-28T00:00:27+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T00-00-27Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-28T02:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T02-00-06Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-28T02:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T02-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-28T04:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T04-00-06Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-28T04:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T04-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-28T06:00:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T06-00-13Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-28T06:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T06-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1479,30 +1795,36 @@
  {
   "time": "2026-07-28T08:00:03+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T08-00-03Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-28T08:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T08-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-28T10:00:08+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T10-00-08Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-28T10:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T10-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-28T12:00:35+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T12-00-35Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-28T12:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T12-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -1514,6 +1836,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T14-00-40Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-28T14:00:40+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T14-00-40Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1522,6 +1846,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T16-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-28T16:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T16-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1530,6 +1856,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T18-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-28T18:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T18-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1538,6 +1866,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T20-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-28T20:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T20-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1546,6 +1876,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T22-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-28T22:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-28T22-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1554,69 +1886,83 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T00-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-29T00:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T00-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-29T02:00:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T02-00-13Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-29T02:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T02-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-29T04:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T04-00-06Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-29T04:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T04-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-29T06:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T06-00-06Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-29T06:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T06-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-29T08:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T08-00-04Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-29T08:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T08-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-29T10:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T10-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-29T10:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T10-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-29T12:00:16+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T12-00-16Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-29T12:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T12-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1628,6 +1974,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T14-00-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-29T14:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T14-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1639,6 +1987,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T16-00-42Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-29T16:00:42+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T16-00-42Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1647,6 +1997,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T18-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-29T18:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T18-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1655,6 +2007,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T20-00-16Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-29T20:00:16+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T20-00-16Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1663,6 +2017,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T22-00-06Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-29T22:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-29T22-00-06Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1671,69 +2027,83 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T00-00-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-30T00:00:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T00-00-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-30T02:00:32+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T02-00-32Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-30T02:05:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T02-05-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-30T04:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T04-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-30T04:05:10+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T04-05-10Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-30T06:00:11+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T06-00-11Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-30T06:05:10+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T06-05-10Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-30T08:00:11+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T08-00-11Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-30T08:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T08-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-30T10:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T10-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-30T10:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T10-05-23Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-30T12:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T12-00-06Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-30T12:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T12-05-22Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1745,6 +2115,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T14-00-25Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-30T14:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T14-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1756,6 +2128,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T16-00-34Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-30T16:00:34+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T16-00-34Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1764,6 +2138,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T18-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-30T18:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T18-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1772,6 +2148,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T20-00-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-30T20:00:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T20-00-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1780,6 +2158,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T22-00-11Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-30T22:00:11+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-30T22-00-11Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1788,69 +2168,83 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T00-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-31T00:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T00-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-07-31T02:00:28+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T02-00-28Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-31T02:05:24+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T02-05-24Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-31T04:00:08+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T04-00-08Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-31T04:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T04-05-23Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-31T06:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T06-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-31T06:05:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T06-05-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-31T08:00:16+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T08-00-16Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-31T08:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T08-05-23Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-31T10:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T10-00-06Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-31T10:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T10-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-07-31T12:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T12-00-04Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-31T12:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T12-05-21Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1862,6 +2256,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T14-00-27Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-07-31T14:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T14-05-23Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -1873,6 +2269,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T16-00-35Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-31T16:00:35+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T16-00-35Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1881,6 +2279,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T18-00-15Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-31T18:00:15+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T18-00-15Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1889,6 +2289,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T20-00-40Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-31T20:00:40+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T20-00-40Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1897,6 +2299,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T22-00-28Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-07-31T22:00:28+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-07-31T22-00-28Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1905,69 +2309,83 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T00-00-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-01T00:00:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T00-00-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-01T02:00:16+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T02-00-16Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-01T02:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T02-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-01T04:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T04-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-01T04:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T04-05-23Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-01T06:00:11+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T06-00-11Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-01T06:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T06-05-21Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-01T08:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T08-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-01T08:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T08-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-01T10:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T10-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-01T10:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T10-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-01T12:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T12-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-01T12:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T12-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1976,6 +2394,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T14-00-20Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-01T14:00:20+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T14-00-20Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1984,6 +2404,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T16-00-20Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-01T16:00:20+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T16-00-20Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -1992,6 +2414,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T18-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-01T18:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T18-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2000,6 +2424,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T20-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-01T20:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T20-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2008,6 +2434,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T22-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-01T22:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-01T22-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2016,58 +2444,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T00-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-02T00:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T00-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-02T02:00:25+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T02-00-25Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-02T02:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T02-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-02T04:00:11+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T04-00-11Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-02T04:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T04-05-21Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-02T06:00:12+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T06-00-12Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-02T06:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T06-05-01Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-02T08:00:04+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T08-00-04Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-02T08:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T08-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-02T10:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T10-00-06Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-02T10:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T10-05-01Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2079,6 +2519,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T12-00-31Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-02T12:00:31+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T12-00-31Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2087,6 +2529,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T14-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-02T14:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T14-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2095,6 +2539,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T16-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-02T16:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T16-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2103,6 +2549,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T18-00-35Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-02T18:00:35+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T18-00-35Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2111,6 +2559,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T20-00-04Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-02T20:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T20-00-04Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2119,6 +2569,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T22-00-16Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-02T22:00:16+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-02T22-00-16Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2127,58 +2579,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T00-00-13Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-03T00:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T00-00-13Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-03T02:00:13+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T02-00-13Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-03T02:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T02-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-03T04:00:06+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T04-00-06Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-03T04:05:10+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T04-05-10Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-03T06:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T06-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-03T07:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T07-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-03T08:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T08-05-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-03T09:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T09-00-13Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-03T10:05:01+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T10-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-03T11:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T11-00-12Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
@@ -2190,6 +2654,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T12-05-21Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-03T13:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T13-00-13Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2201,6 +2667,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T14-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-03T15:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T15-00-06Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -2212,6 +2680,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T16-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-03T16:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T16-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2220,6 +2690,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T18-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-03T18:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T18-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2228,6 +2700,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T20-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-03T20:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T20-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2236,6 +2710,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T22-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-03T22:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-03T22-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2244,36 +2720,44 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T00-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-04T00:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T00-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-04T02:05:23+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T02-05-23Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-04T03:00:32+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T03-00-32Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-04T04:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T04-05-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-04T05:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T05-00-13Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-04T06:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T06-05-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-04T07:00:05+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T07-00-05Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2285,6 +2769,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T08-05-02Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-04T09:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T09-00-12Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2296,6 +2782,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T10-05-01Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-04T11:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T11-00-06Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2307,6 +2795,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T12-05-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-04T13:00:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T13-00-09Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2318,6 +2808,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T14-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-04T15:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T15-00-07Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -2329,6 +2821,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T16-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-04T16:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T16-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2337,6 +2831,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T18-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-04T18:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T18-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2345,6 +2841,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T20-05-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-04T20:05:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T20-05-03Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2353,6 +2851,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T22-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-04T22:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-04T22-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2361,36 +2861,44 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T00-05-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-05T00:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T00-05-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-05T02:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T02-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-05T03:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T03-00-06Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-05T04:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T04-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-05T05:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T05-00-07Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-05T06:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T06-05-02Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-05T07:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T07-00-06Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2400,19 +2908,23 @@
  {
   "time": "2026-08-05T08:05:23+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T08-05-23Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-05T09:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T09-00-04Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame cannot register; pull the next frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-05T10:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T10-05-21Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-05T11:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T11-00-06Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2424,6 +2936,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T12-05-02Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-05T13:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T13-00-08Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2435,6 +2949,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T14-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-05T15:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T15-00-08Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -2446,6 +2962,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T16-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-05T16:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T16-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2454,6 +2972,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T18-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-05T18:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T18-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2462,6 +2982,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T20-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-05T20:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T20-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2470,6 +2992,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T22-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-05T22:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-05T22-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2478,58 +3002,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T00-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T00:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T00-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-06T02:05:23+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T02-05-23Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-06T03:00:18+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T03-00-18Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-06T04:05:07+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T04-05-07Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-06T05:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T05-00-08Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-06T06:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T06-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-06T07:00:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T07-00-03Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-06T08:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T08-05-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-06T09:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T09-00-12Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-06T10:05:03+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T10-05-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T11:01:48+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T11-01-48Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
@@ -2541,6 +3077,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T12-05-01Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-06T13:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T13-00-08Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2552,6 +3090,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T14-05-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T15:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T15-00-13Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -2563,6 +3103,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T16-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T16:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T16-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2571,6 +3113,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T18-05-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T18:05:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T18-05-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2579,6 +3123,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T20-05-04Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T20:30:14+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T20-30-14Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -2590,6 +3136,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T20-45-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T20:45:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T20-45-09Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2598,6 +3146,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T21-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T21:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T21-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2606,6 +3156,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T21-25-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T21:25:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T21-25-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2614,6 +3166,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T21-45-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T21:45:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T21-45-03Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2622,6 +3176,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T22-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T22:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T22-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2630,6 +3186,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T22-25-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T22:25:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T22-25-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2638,6 +3196,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T22-45-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T22:45:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T22-45-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2646,6 +3206,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T23-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T23:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T23-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2654,6 +3216,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T23-25-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T23:25:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T23-25-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2662,6 +3226,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T23-45-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-06T23:45:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-06T23-45-03Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2670,6 +3236,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T00-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T00:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T00-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2678,6 +3246,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T00-25-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T00:25:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T00-25-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2686,25 +3256,31 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T00-45-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T00:45:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T00-45-03Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-07T01:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T01-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-07T01:10:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T01-10-02Z.jpg",
   "last_step": {
    "tool": "enhance_gamma",
    "decision": "registration failed; try one contrast lift"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-07T01:25:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T01-25-02Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-07T01:30:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T01-30-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2716,6 +3292,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T02-00-03Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-07T02:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T02-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2727,6 +3305,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T03-05-02Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-07T03:25:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T03-25-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2738,6 +3318,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T09-00-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-07T09:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T09-05-22Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2749,6 +3331,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T11-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T11:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T11-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2757,6 +3341,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T13-00-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T13:00:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T13-00-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2765,6 +3351,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T15-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T15:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T15-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2773,6 +3361,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T17-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T17:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T17-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2781,6 +3371,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T19-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T19:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T19-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2789,6 +3381,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T21-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T21:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T21-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2797,6 +3391,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T23-00-05Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-07T23:00:05+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-07T23-00-05Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2805,58 +3401,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T01-00-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-08T01:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T01-00-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-08T03:00:08+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T03-00-08Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-08T03:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T03-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-08T05:00:08+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T05-00-08Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-08T05:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T05-05-23Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-08T07:00:07+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T07-00-07Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-08T07:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T07-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-08T09:00:08+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T09-00-08Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-08T09:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T09-05-02Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-08T11:00:07+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T11-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-08T11:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T11-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2865,6 +3473,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T13-00-06Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-08T13:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T13-00-06Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2873,6 +3483,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T15-00-12Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-08T15:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T15-00-12Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2881,6 +3493,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T17-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-08T17:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T17-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2889,6 +3503,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T19-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-08T19:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T19-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2897,6 +3513,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T21-00-06Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-08T21:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T21-00-06Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2905,6 +3523,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T23-00-06Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-08T23:00:06+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-08T23-00-06Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -2913,36 +3533,44 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T01-00-07Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-09T01:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T01-00-07Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-09T03:00:08+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T03-00-08Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-09T03:05:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T03-05-08Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-09T05:00:03+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T05-00-03Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-09T05:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T05-05-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-09T07:00:08+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T07-00-08Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-09T07:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T07-05-23Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2954,6 +3582,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T09-00-03Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-09T09:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T09-05-02Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2965,6 +3595,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T10-05-21Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-09T11:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T11-00-08Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2976,6 +3608,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T12-05-02Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-09T13:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T13-00-07Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -2987,6 +3621,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T14-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-09T15:00:14+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T15-00-14Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -2998,6 +3634,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T16-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-09T16:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T16-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3006,6 +3644,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T18-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-09T18:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T18-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3014,6 +3654,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T20-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-09T20:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T20-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3022,6 +3664,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T22-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-09T22:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-09T22-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3030,58 +3674,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T00-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-10T00:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T00-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-10T02:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T02-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-10T03:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T03-00-07Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-10T04:05:10+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T04-05-10Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-10T05:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T05-00-07Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-10T06:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T06-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-10T07:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T07-00-07Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-10T08:05:03+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T08-05-03Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-10T09:00:26+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T09-00-26Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-10T10:05:09+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T10-05-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-10T11:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T11-00-07Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
@@ -3093,6 +3749,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T12-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-10T12:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T12-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3101,6 +3759,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T14-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-10T14:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T14-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3109,6 +3769,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T16-05-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-10T16:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T16-05-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3117,6 +3779,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T18-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-10T18:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T18-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3125,6 +3789,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T20-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-10T20:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T20-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3133,6 +3799,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T22-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-10T22:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-10T22-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3141,58 +3809,70 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T00-05-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-11T00:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T00-05-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-11T02:05:23+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T02-05-23Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-11T03:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T03-00-07Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-11T04:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T04-05-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-11T05:00:10+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T05-00-10Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-11T06:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T06-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-11T07:00:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T07-00-09Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-11T08:05:24+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T08-05-24Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-11T09:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T09-00-12Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-11T10:05:09+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T10-05-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-11T11:00:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T11-00-22Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
@@ -3204,6 +3884,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T12-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-11T13:00:20+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T13-00-20Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -3215,6 +3897,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T14-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-11T14:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T14-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3223,6 +3907,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T16-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-11T16:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T16-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3231,6 +3917,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T18-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-11T19:00:39+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T19-00-39Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -3242,6 +3930,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T20-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-11T20:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T20-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3250,6 +3940,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T22-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-11T22:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-11T22-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3258,6 +3950,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T00-05-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-12T00:05:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T00-05-09Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3266,6 +3960,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T02-05-01Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-12T03:00:32+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T03-00-32Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3277,6 +3973,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T04-05-04Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-12T05:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T05-00-08Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3286,30 +3984,36 @@
  {
   "time": "2026-08-12T06:05:22+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T06-05-22Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-12T07:00:27+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T07-00-27Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-12T08:05:21+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T08-05-21Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-12T09:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T09-00-13Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-12T10:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T10-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-12T11:00:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T11-00-09Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
@@ -3321,6 +4025,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T12-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-12T12:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T12-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3329,6 +4035,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T14-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-12T14:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T14-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3337,6 +4045,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T16-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-12T16:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T16-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3345,6 +4055,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T18-05-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-12T19:00:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T19-00-09Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3356,6 +4068,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T20-05-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-12T20:05:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T20-05-09Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3364,6 +4078,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T22-05-09Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-12T22:05:09+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-12T22-05-09Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3372,36 +4088,44 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T00-05-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-13T00:05:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T00-05-03Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
  {
   "time": "2026-08-13T02:05:23+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T02-05-23Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-13T03:00:07+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T03-00-07Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame cannot register; pull the next frame"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-13T04:05:09+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T04-05-09Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-13T05:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T05-00-12Z.jpg",
   "last_step": {
    "tool": "enhance_gamma",
    "decision": "registration failed; try one contrast lift"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-13T06:05:24+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T06-05-24Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-13T07:00:19+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T07-00-19Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3413,6 +4137,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T08-05-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-13T09:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T09-00-04Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3424,6 +4150,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T10-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-13T11:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T11-00-08Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame has no readable ticks; fetch a day frame"
@@ -3435,6 +4163,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T12-05-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-13T12:05:03+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T12-05-03Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3443,6 +4173,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T14-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-13T14:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T14-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3451,6 +4183,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T16-05-10Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-13T16:05:10+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T16-05-10Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3459,6 +4193,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T18-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-13T18:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T18-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3467,6 +4203,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T20-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-13T20:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T20-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3475,6 +4213,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T22-05-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-13T22:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-13T22-05-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3483,6 +4223,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T00-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-14T00:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T00-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3491,6 +4233,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T02-05-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-14T03:00:13+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T03-00-13Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3502,6 +4246,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T04-05-08Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-14T05:00:10+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T05-00-10Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3513,6 +4259,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T06-05-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-14T07:00:12+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T07-00-12Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3524,6 +4272,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T08-05-23Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-14T09:00:32+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T09-00-32Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3535,6 +4285,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T10-05-03Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-14T11:00:19+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T11-00-19Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3546,6 +4298,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T12-05-11Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-14T12:05:11+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T12-05-11Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3554,6 +4308,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T14-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-14T14:05:22+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T14-05-22Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3562,6 +4318,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T16-05-22Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-14T17:00:17+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T17-00-17Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "still cannot register; pull the next frame"
@@ -3573,6 +4331,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T18-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-14T18:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T18-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3581,6 +4341,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T20-05-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-14T20:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T20-05-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3589,6 +4351,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T22-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-14T22:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-14T22-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3597,6 +4361,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T00-05-01Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-15T00:05:01+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T00-05-01Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3605,6 +4371,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T02-05-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-15T03:00:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T03-00-08Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3616,6 +4384,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T04-05-22Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-15T05:00:31+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T05-00-31Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3625,19 +4395,23 @@
  {
   "time": "2026-08-15T06:05:02+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T06-05-02Z.jpg",
-  "status": "below_range",
+  "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-15T07:00:05+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T07-00-05Z.jpg",
   "last_step": {
    "tool": "enhance_gamma",
    "decision": "registration failed; try one contrast lift"
   },
-  "reason": "below_plate"
+  "reason": "below-plate read on an unregistered or night frame"
  },
  {
   "time": "2026-08-15T08:05:09+00:00",
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T08-05-09Z.jpg",
   "status": "abstained",
   "stage_ft": null,
+  "reading_time": "2026-08-15T09:00:04+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T09-00-04Z.jpg",
   "last_step": {
    "tool": "enhance_clahe",
    "decision": "no boundary found; try local contrast"
@@ -3649,6 +4423,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T10-05-03Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-15T11:00:26+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T11-00-26Z.jpg",
   "last_step": {
    "tool": "fetch_next",
    "decision": "night frame cannot register; pull the next frame"
@@ -3660,6 +4436,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T12-05-18Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-15T12:05:18+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T12-05-18Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3668,6 +4446,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T14-05-23Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-15T14:05:23+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T14-05-23Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3676,6 +4456,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T16-05-08Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-15T16:05:08+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T16-05-08Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3684,6 +4466,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T18-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-15T18:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T18-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3692,6 +4476,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T20-05-02Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-15T20:05:02+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T20-05-02Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  },
@@ -3700,6 +4486,8 @@
   "file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T22-05-21Z.jpg",
   "status": "below_range",
   "stage_ft": null,
+  "reading_time": "2026-08-15T22:05:21+00:00",
+  "reading_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-08-15T22-05-21Z.jpg",
   "last_step": null,
   "reason": "below_plate"
  }

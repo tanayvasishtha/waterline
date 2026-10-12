@@ -5,41 +5,41 @@
   "n_frames": 357,
   "detection_window_rows": 24,
   "clean": {
-    "flags": 29,
+    "flags": 11,
     "by_type": {
-      "drift": 23,
+      "drift": 11,
       "stuck": 0,
-      "step": 6,
+      "step": 0,
       "spike": 0
     },
-    "false_flags_per_site_week": 5.725012558717512
+    "false_flags_per_site_week": 2.171556487789401
   },
   "faults": {
     "drift": {
-      "recall": 0.85,
+      "recall": 0.8,
       "recall_any": 1.0,
       "type_match": 1.0,
-      "median_delay_h": 27.0,
+      "median_delay_h": 30.999583333333334,
       "pre_onset_flags": 0
     },
     "stuck": {
-      "recall": 0.2,
-      "recall_any": 1.0,
+      "recall": 0.15,
+      "recall_any": 0.45,
       "type_match": 0.0,
-      "median_delay_h": 18.50111111111111,
+      "median_delay_h": 47.0,
       "pre_onset_flags": 0
     },
     "step": {
-      "recall": 0.85,
+      "recall": 1.0,
       "recall_any": 1.0,
       "type_match": 0.0,
-      "median_delay_h": 9.000277777777777,
+      "median_delay_h": 15.999444444444446,
       "pre_onset_flags": 0
     },
     "spike": {
       "recall": 1.0,
       "recall_any": 1.0,
-      "type_match": 0.25,
+      "type_match": 0.35,
       "median_delay_h": 0.0,
       "pre_onset_flags": 0
     }

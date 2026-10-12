@@ -11,8 +11,8 @@
     "within_2sigma": 0.0,
     "agent": {
       "accepted": 0,
-      "below_range": 346,
-      "abstained": 48,
+      "below_range": 233,
+      "abstained": 161,
       "pending": 0,
       "read": 0,
       "mae_ft": null,
@@ -33,8 +33,8 @@
     "within_2sigma": 0.0,
     "agent": {
       "accepted": 0,
-      "below_range": 227,
-      "abstained": 22,
+      "below_range": 225,
+      "abstained": 24,
       "pending": 0,
       "read": 0,
       "mae_ft": null,
@@ -55,8 +55,8 @@
     "within_2sigma": 0.0,
     "agent": {
       "accepted": 0,
-      "below_range": 119,
-      "abstained": 26,
+      "below_range": 8,
+      "abstained": 137,
       "pending": 0,
       "read": 0,
       "mae_ft": null,
