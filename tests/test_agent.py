@@ -701,3 +701,93 @@ def test_neighbour_outside_p99_bound_goes_to_review(
     assert "bound=0.85 d=1.00" in trace.steps[1].result_summary
     assert trace.steps[1].decision == "neighbour disagrees by 1.00 ft"
     assert reading.status == "pending"
+
+
+def test_night_frame_confirmed_by_night_neighbour_is_not_accepted(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # a night frame with a stage takes the substitution path, not
+    # confirmation; a night neighbour substitutes and fails the gate itself
+    t0 = datetime(2026, 8, 1, 3, tzinfo=UTC)
+    nb = t0 + timedelta(hours=1)
+    seq = iter(
+        [
+            _result(r_stage_ft=10.0, q_is_night=True),
+            _result(r_stage_ft=10.05, q_is_night=True),
+        ]
+    )
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    calls = [
+        Decision(AgentAction.FETCH_NEXT, "night frame; fetch a day frame"),
+        Decision(AgentAction.ACCEPT, "within sigma"),
+    ]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx()),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(t0),
+        _nb_nav(nb),  # type: ignore[arg-type]
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert reading.status == "abstained"
+    assert trace.reason == "quality gate failed on the accepted frame (night)"
+    # substitution still happened: the abstained read carries the neighbour's slot
+    assert reading.time == nb
+
+
+def test_night_frame_day_neighbour_substitutes_and_accepts(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    t0 = datetime(2026, 8, 1, 3, tzinfo=UTC)
+    nb = t0 + timedelta(hours=5)
+    seq = iter([_result(r_stage_ft=10.0, q_is_night=True), _result(r_stage_ft=9.8)])
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: next(seq))
+    calls = [
+        Decision(AgentAction.FETCH_NEXT, "night frame; fetch a day frame"),
+        Decision(AgentAction.ACCEPT, "within sigma"),
+    ]
+    reading, _ = run_frame(
+        cast("Perception", _fake_ctx()),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(t0),
+        _nb_nav(nb),  # type: ignore[arg-type]
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert reading.status == "accepted"
+    assert reading.stage_ft == 9.8
+    assert reading.time == nb
+    assert reading.frame_file == "nb1.jpg"
+
+
+def test_accept_on_gate_failing_frame_becomes_abstain(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    # the terminal invariant: even a forced ACCEPT cannot read through the gate
+    monkeypatch.setattr(loop_mod, "read_frame", lambda *a, **k: _result(r_stage_ft=10.0))
+    calls = [Decision(AgentAction.ACCEPT, "forced accept")]
+    reading, _ = run_frame(
+        cast("Perception", _fake_ctx()),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(datetime(2026, 8, 1, 12, tzinfo=UTC)),
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    # default fake frame is clean, so the accept stands
+    assert reading.status == "accepted"
+
+
+def test_accept_on_gate_failing_night_frame_becomes_abstain(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(
+        loop_mod,
+        "read_frame",
+        lambda *a, **k: _result(r_stage_ft=10.0, q_is_night=True),
+    )
+    calls = [Decision(AgentAction.ACCEPT, "forced accept")]
+    reading, trace = run_frame(
+        cast("Perception", _fake_ctx()),
+        np.zeros((8, 8, 3), np.uint8),
+        _fake_ref(datetime(2026, 8, 1, 12, tzinfo=UTC)),
+        chooser=_scripted(calls),  # type: ignore[arg-type]
+    )
+    assert reading.status == "abstained"
+    assert trace.reason == "quality gate failed on the accepted frame (night)"

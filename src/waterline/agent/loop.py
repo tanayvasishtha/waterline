@@ -16,6 +16,7 @@ import numpy as np
 
 from waterline.models import AgentAction, AgentStep, FrameRef, Reading, Trace
 from waterline.pipeline import FrameResult, Perception, read_frame
+from waterline.quality import quality_ok
 from waterline.settings import Settings
 
 from .history import CameraHistory
@@ -90,7 +91,11 @@ def _confirm(
     nb_res = read_frame(ctx, nav.image(nb_ref), nb_ref.time, seed=0) if nb_ref is not None else None
     ms = int((time.perf_counter() - t0) * 1000)
     cur = result.reading
-    nb_stage = nb_res.reading.stage_ft if nb_res is not None else None
+    nb_stage = (
+        nb_res.reading.stage_ft
+        if nb_res is not None and quality_ok(nb_res.quality, ctx.settings)
+        else None
+    )
     summary = f"nb={nb_stage} cur={cur.stage_ft}"
     if nb_stage is not None and nb_ref is not None and nb_res is not None:
         dt_h = abs((nb_ref.time - current_ref.time).total_seconds()) / 3600
@@ -156,13 +161,35 @@ def _apply(
     return image, current_ref, None, False
 
 
-def _status_for(result: FrameResult, decision: Decision) -> tuple[str, str | None]:
+def _failed_checks(result: FrameResult, s: Settings) -> str:
+    q = result.quality
+    bad = []
+    if q.blur_var < s.blur_var_min:
+        bad.append("blur")
+    if q.plate_visibility < s.plate_visibility_min:
+        bad.append("visibility")
+    if q.is_night:
+        bad.append("night")
+    if q.registration_inliers < s.min_inliers:
+        bad.append("inliers")
+    return ", ".join(bad)
+
+
+def _status_for(
+    result: FrameResult, decision: Decision, settings: Settings
+) -> tuple[str, str | None]:
+    """Terminal status. Invariant: a numeric accept requires the quality gate
+    on the frame the reading came from; a below_plate accept needs the same
+    treatment the baseline gives it - a registered, daytime frame."""
     if decision.action == AgentAction.ACCEPT:
-        return (
-            ("below_range", result.reading.reason)
-            if result.reading.reason == "below_plate"
-            else ("accepted", result.reading.reason)
-        )
+        if result.reading.reason == "below_plate":
+            if result.registration is None or result.quality.is_night:
+                return "abstained", "below-plate read on an unregistered or night frame"
+            return "below_range", result.reading.reason
+        if not quality_ok(result.quality, settings):
+            checks = _failed_checks(result, settings)
+            return "abstained", f"quality gate failed on the accepted frame ({checks})"
+        return "accepted", result.reading.reason
     if decision.action == AgentAction.HUMAN_REVIEW:
         return "pending", decision.reason or "escalated for human review"
     return "abstained", "no confident reading after the action budget"
@@ -202,6 +229,7 @@ def run_frame(
             continue
         if (
             result.reading.stage_ft is not None
+            and quality_ok(result.quality, settings)
             and decision.action in (AgentAction.FETCH_PREV, AgentAction.FETCH_NEXT)
             and nav is not None
         ):
@@ -263,7 +291,7 @@ def run_frame(
     else:
         decision = Decision(AgentAction.HUMAN_REVIEW, "action budget exhausted")
 
-    status, reason = _status_for(result, decision)
+    status, reason = _status_for(result, decision, settings)
     reading = Reading(
         site_id=ctx.site.site_id,
         time=current_ref.time,

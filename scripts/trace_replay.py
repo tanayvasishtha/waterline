@@ -74,6 +74,8 @@ def main() -> None:
                 "file": ref.filename,
                 "status": reading.status,
                 "stage_ft": reading.stage_ft,
+                "reading_time": reading.time.isoformat(),
+                "reading_file": reading.frame_file,
                 "last_step": (
                     {"tool": trace.steps[-1].tool, "decision": trace.steps[-1].decision}
                     if trace.steps
