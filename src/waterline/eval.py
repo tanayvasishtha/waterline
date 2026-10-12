@@ -53,6 +53,7 @@ class FrameRow(TypedDict):
     agent_gage_ft: float | None
     agent_status: str | None
     agent_steps: int | None
+    agent_frame_file: str | None
 
 
 TEST_WINDOWS_PATH = Path("results/test_windows.json")
@@ -147,12 +148,14 @@ def run_window(
             agent_stage = agent_reading.stage_ft
             agent_sigma = agent_reading.sigma_ft
             agent_gage = gage.nearest(truth, agent_reading.time, max_gap=timedelta(minutes=10))
+            agent_frame = agent_reading.frame_file
         else:
             result = read_frame(ctx, image, ref.time, seed=i)
             agent_status = None
             agent_stage = None
             agent_sigma = None
             agent_gage = None
+            agent_frame = None
         rows.append(
             {
                 "file": ref.filename,
@@ -177,6 +180,7 @@ def run_window(
                 "agent_gage_ft": None if agent_gage is None else agent_gage.value_ft,
                 "agent_status": agent_status,
                 "agent_steps": None if nav is None else len(trace.steps),
+                "agent_frame_file": agent_frame,
             }
         )
     return rows
@@ -205,16 +209,29 @@ def _agent_summary(rows: list[FrameRow]) -> dict[str, object] | None:
     ar = [r for r in rows if r["agent_status"] is not None]
     if not ar:
         return None
+    accepted_rows = [r for r in ar if r["agent_status"] == "accepted"]
+    seen: set[str] = set()
+    kept: list[FrameRow] = []
+    for r in accepted_rows:
+        src = r.get("agent_frame_file") or r["file"]
+        if src in seen:
+            continue
+        seen.add(src)
+        kept.append(r)
     read = [
         (r["agent_stage_ft"], r["agent_gage_ft"], r["sigma_ft"])
-        for r in ar
-        if r["agent_status"] == "accepted"
-        and r["agent_stage_ft"] is not None
-        and r["agent_gage_ft"] is not None
+        for r in kept
+        if r["agent_stage_ft"] is not None and r["agent_gage_ft"] is not None
     ]
     errors = np.array([a - g for a, g, _ in read if a is not None and g is not None])
     return {
-        "accepted": sum(1 for r in ar if r["agent_status"] == "accepted"),
+        "accepted": len(kept),
+        "deduped": len(accepted_rows) - len(kept),
+        "substituted": sum(
+            1
+            for r in accepted_rows
+            if r.get("agent_frame_file") is not None and r["agent_frame_file"] != r["file"]
+        ),
         "below_range": sum(1 for r in ar if r["agent_status"] == "below_range"),
         "abstained": sum(1 for r in ar if r["agent_status"] == "abstained"),
         "pending": sum(1 for r in ar if r["agent_status"] == "pending"),
@@ -293,6 +310,32 @@ def _run(
     exclude: frozenset[str] = frozenset(),
     out_prefix: str = "",
 ) -> dict[str, object]:
+    report, _rows = _run_collect(
+        site_id,
+        start,
+        end,
+        every_n,
+        label=label,
+        agent=agent,
+        final=final,
+        exclude=exclude,
+        out_prefix=out_prefix,
+    )
+    return report
+
+
+def _run_collect(
+    site_id: str,
+    start: str,
+    end: str,
+    every_n: int,
+    *,
+    label: str,
+    agent: bool,
+    final: bool = False,
+    exclude: frozenset[str] = frozenset(),
+    out_prefix: str = "",
+) -> tuple[dict[str, object], list[FrameRow]]:
     settings = Settings()
     site = sites.load_site(site_id)
     ctx = make_perception(site, settings)
@@ -320,7 +363,7 @@ def _run(
         "summary": summary,
     }
     print(json.dumps(report, indent=2))
-    return report
+    return report, rows
 
 
 def run_calibrate(
@@ -351,28 +394,69 @@ def run_eval(
     )
 
 
+def _final_label(start: str, end: str) -> str:
+    """The CSV/summary stamp fragment _run writes for a test-window entry."""
+    s = datetime.fromisoformat(start.replace("Z", "+00:00"))
+    e = datetime.fromisoformat(end.replace("Z", "+00:00"))
+    return f"{s.date()}_{e.date()}"
+
+
+def _write_final_summary(site_id: str, window_rows: list[tuple[str, list[FrameRow]]]) -> Path:
+    """Pooled per-site summary over the final agent rows.
+
+    Every block runs through summarize(), so baseline metrics and the agent
+    block (with source-frame dedup) live side by side. Blocks split by
+    calendar year when the site's windows span more than one year, else by
+    window: a thin window reads badly alone, and hancock's pair share 2026.
+    """
+    all_rows = [r for _, rows in window_rows for r in rows]
+    by_year = len({r["time"][:4] for r in all_rows}) > 1
+    blocks: dict[str, list[FrameRow]] = {}
+    for label, rows in window_rows:
+        for r in rows:
+            key = r["time"][:4] if by_year else label
+            blocks.setdefault(key, []).append(r)
+    out: dict[str, object] = {
+        "site": site_id,
+        "n_windows": len(window_rows),
+        "all": summarize(all_rows),
+        "blocks": {k: summarize(blocks[k]) for k in sorted(blocks)},
+    }
+    path = Path("results") / f"final_summary_{site_id}.json"
+    path.write_text(json.dumps(out, indent=2))
+    return path
+
+
 def run_final() -> list[dict[str, object]]:
     """The one-shot test run: every frozen window, baseline and agent."""
     data = json.loads(TEST_WINDOWS_PATH.read_text())
     exclude = frozenset(str(f) for f in data.get("exclude_files", []))
     reports = []
+    agent_rows: dict[str, list[tuple[str, list[FrameRow]]]] = {}
     for site_id, windows in data.items():
         if not isinstance(windows, list):
             continue
         for w in windows:
+            if not isinstance(w, dict):
+                continue
             for agent in (False, True):
-                reports.append(
-                    _run(
-                        site_id,
-                        str(w["start"]),
-                        str(w["end"]),
-                        int(w["every"]),
-                        label="eval",
-                        agent=agent,
-                        final=True,
-                        exclude=exclude,
-                    )
+                report, rows = _run_collect(
+                    site_id,
+                    str(w["start"]),
+                    str(w["end"]),
+                    int(w["every"]),
+                    label="eval",
+                    agent=agent,
+                    final=True,
+                    exclude=exclude,
+                    out_prefix="final_",
                 )
+                reports.append(report)
+                if agent:
+                    label = _final_label(str(w["start"]), str(w["end"]))
+                    agent_rows.setdefault(site_id, []).append((label, rows))
+    for site_id, window_rows in agent_rows.items():
+        _write_final_summary(site_id, window_rows)
     return reports
 
 

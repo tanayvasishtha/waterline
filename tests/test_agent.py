@@ -341,6 +341,7 @@ def _agent_row(**kw: object) -> FrameRow:
         "agent_gage_ft": 10.0,
         "agent_status": "accepted",
         "agent_steps": 1,
+        "agent_frame_file": "f.jpg",
     }
     base.update(kw)
     return cast(FrameRow, base)

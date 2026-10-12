@@ -10,7 +10,7 @@ import json
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Literal
+from typing import Any, Literal
 
 import numpy as np
 
@@ -156,6 +156,10 @@ def run_faults(
             "type_match": (matched / detected) if detected else None,
             "median_delay_h": float(np.median(delays)) if delays else None,
             "pre_onset_flags": pre_onset,
+            "n_detected": detected,
+            "n_detected_any": detected_any,
+            "n_type_matched": matched,
+            "delays_h": delays,
         }
     by_type = {k: sum(1 for _, f in flags if f.event_type == k) for k in FAULT_TYPES}
     span_days = (rows[-1].time - rows[0].time).total_seconds() / 86400
@@ -188,3 +192,102 @@ def run_faults_file(
     out.write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
     return out
+
+
+def _parse_ts(value: str) -> datetime:
+    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+
+def _pool(
+    site_id: str,
+    per_window: list[dict[str, Any]],
+    skipped: list[str],
+) -> dict[str, object]:
+    """Pool per-window fault reports into the site's final_faults report."""
+    n_trials = sum(int(w["report"]["trials_per_type"]) for w in per_window)
+    pooled: dict[str, object] = {}
+    for kind in FAULT_TYPES:
+        det = sum(int(w["report"]["faults"][kind]["n_detected"]) for w in per_window)
+        det_any = sum(int(w["report"]["faults"][kind]["n_detected_any"]) for w in per_window)
+        matched = sum(int(w["report"]["faults"][kind]["n_type_matched"]) for w in per_window)
+        delays = [d for w in per_window for d in w["report"]["faults"][kind]["delays_h"]]
+        pre = sum(int(w["report"]["faults"][kind]["pre_onset_flags"]) for w in per_window)
+        pooled[kind] = {
+            "recall": det / n_trials if n_trials else None,
+            "recall_any": det_any / n_trials if n_trials else None,
+            "type_match": matched / det if det else None,
+            "median_delay_h": float(np.median(delays)) if delays else None,
+            "pre_onset_flags": pre,
+            "n_detected": det,
+            "n_detected_any": det_any,
+            "n_type_matched": matched,
+            "trials": n_trials,
+        }
+    clean_flags = sum(int(w["report"]["clean"]["flags"]) for w in per_window)
+    clean_by_type = {
+        k: sum(int(w["report"]["clean"]["by_type"][k]) for w in per_window) for k in FAULT_TYPES
+    }
+    span_days = sum(float(w["span_days"]) for w in per_window)
+    return {
+        "injected": True,
+        "site": site_id,
+        "seed": SEED,
+        "trials_per_type": TRIALS_PER_TYPE,
+        "detection_window_rows": DETECTION_WINDOW_ROWS,
+        "n_windows": len(per_window),
+        "skipped": skipped,
+        "clean": {
+            "flags": clean_flags,
+            "by_type": clean_by_type,
+            "false_flags_per_site_week": clean_flags / max(span_days / 7, 1e-9),
+        },
+        "faults": pooled,
+        "windows": per_window,
+    }
+
+
+def run_final_faults(results: Path = Path("results")) -> dict[str, Path]:
+    """Pooled injected-fault scoring over each site's final agent windows.
+
+    Every frozen test window's final_eval_agent CSV is replayed; windows with
+    fewer than 8 gage-bearing rows are skipped and reported. Per-window
+    reports land in final_faults_{site}_{start}_{end}.json and the pooled
+    site report in final_faults_{site}.json.
+    """
+    data = json.loads((results / "test_windows.json").read_text())
+    outs: dict[str, Path] = {}
+    for site_id, windows in data.items():
+        if not isinstance(windows, list):
+            continue
+        per_window: list[dict[str, Any]] = []
+        skipped: list[str] = []
+        for w in windows:
+            if not isinstance(w, dict):
+                continue
+            start, end = str(w["start"]), str(w["end"])
+            s, e = _parse_ts(start), _parse_ts(end)
+            label = f"{s.date()}_{e.date()}"
+            csv_path = results / f"final_eval_agent_{site_id}_{label}.csv"
+            if not csv_path.exists():
+                skipped.append(f"{label}: no final_eval_agent CSV")
+                continue
+            rows = load_rows(csv_path)
+            if len(rows) < 8:
+                skipped.append(f"{label}: only {len(rows)} gage rows")
+                continue
+            rep = run_faults(site_id, rows)
+            per = results / f"final_faults_{site_id}_{label}.json"
+            per.write_text(json.dumps(rep, indent=2))
+            per_window.append(
+                {
+                    "window": [start, end],
+                    "span_days": (e - s).total_seconds() / 86400,
+                    "report": rep,
+                }
+            )
+        pooled = _pool(site_id, per_window, skipped)
+        out = results / f"final_faults_{site_id}.json"
+        out.write_text(json.dumps(pooled, indent=2))
+        print(json.dumps(pooled, indent=2))
+        outs[site_id] = out
+    return outs

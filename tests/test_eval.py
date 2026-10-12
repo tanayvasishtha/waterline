@@ -14,8 +14,8 @@ from waterline.models import FrameRef
 
 def _row(stage: float | None, gage: float | None, **kw: object) -> FrameRow:
     row: FrameRow = {
-        "file": "f.jpg",
-        "time": "2026-08-01T12:00:00+00:00",
+        "file": str(kw.get("file", "f.jpg")),
+        "time": str(kw.get("time", "2026-08-01T12:00:00+00:00")),
         "gage_ft": gage,
         "stage_ft": stage,
         "sigma_ft": 0.3 if stage is not None else None,
@@ -31,9 +31,12 @@ def _row(stage: float | None, gage: float | None, **kw: object) -> FrameRow:
         "plate_visibility": 40.0,
         "is_night": bool(kw.get("is_night", False)),
         "gate_pass": bool(kw.get("gate_pass", True)),
-        "agent_stage_ft": None,
-        "agent_status": None,
-        "agent_steps": None,
+        "agent_stage_ft": kw.get("agent_stage_ft"),
+        "agent_sigma_ft": kw.get("agent_sigma_ft"),
+        "agent_gage_ft": kw.get("agent_gage_ft"),
+        "agent_status": kw.get("agent_status"),
+        "agent_steps": kw.get("agent_steps"),
+        "agent_frame_file": kw.get("agent_frame_file"),
     }
     return row
 
@@ -59,6 +62,47 @@ def test_summarize_counts_and_metrics() -> None:
     assert s["below_plate"] == 1
     assert s["coverage"] == 0.5
     assert abs(s["mae_ft"] - 0.15) < 1e-9
+
+
+def test_agent_summary_dedups_shared_source_frames() -> None:
+    rows = [
+        _row(
+            10.0,
+            9.8,
+            file="a.jpg",
+            agent_status="accepted",
+            agent_stage_ft=10.1,
+            agent_gage_ft=9.9,
+            agent_frame_file="a.jpg",
+        ),
+        _row(
+            None,
+            9.7,
+            file="b.jpg",
+            is_night=True,
+            gate_pass=False,
+            agent_status="accepted",
+            agent_stage_ft=10.0,
+            agent_gage_ft=9.6,
+            agent_frame_file="c.jpg",
+        ),
+        _row(
+            10.0,
+            9.6,
+            file="c.jpg",
+            agent_status="accepted",
+            agent_stage_ft=10.0,
+            agent_gage_ft=9.6,
+            agent_frame_file="c.jpg",
+        ),
+    ]
+    s = summarize(rows)["all"]["agent"]
+    # b.jpg's accepted read comes from c.jpg, so b and c share one source
+    assert s["accepted"] == 2
+    assert s["deduped"] == 1
+    assert s["substituted"] == 1
+    assert s["read"] == 2
+    assert abs(s["mae_ft"] - (0.2 + 0.4) / 2) < 1e-9
 
 
 def test_cli_help_lists_commands() -> None:
