@@ -177,3 +177,19 @@ show, together with all earlier results. The hancock test windows stay between 1
 12 ft, so the fresh results say nothing about flood-stage accuracy. Flood-stage numbers
 come only from the July event, which is now calibration data, and are labelled
 in-sample.
+
+## Amendment 6 (2026-10-13): freeze before the final run
+
+The agent and the calibrations are frozen at the commit tagged freeze-final. Agent v3d
+(repair self-consistency, camera-history plausibility, neighbour confirmation only for
+frames that are self-inconsistent or implausible, and an accept gate that requires the
+source frame of a reading to pass the quality gate) was developed on the calibration
+windows only, through versions v3a to v3d, and each version's calibration-window
+results are committed. Site calibrations are the affine fits in results/calibfit_*.json.
+When a neighbour frame's reading replaces a frame's reading, it is scored once, against
+the gage at the neighbour's time, even if that neighbour is also in the frame list. The
+primary results are the --final run over results/test_windows.json: baseline and agent,
+with injected-fault scoring on the agent series, pooled per site as described in
+results/final_summary_*.json and results/final_faults_*.json. They are reported
+whatever they show. Any change after this point needs a new amendment and a full repeat
+of the final run, and both runs are reported.
