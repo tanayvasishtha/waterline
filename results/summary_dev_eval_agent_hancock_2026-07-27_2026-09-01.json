@@ -11,6 +11,8 @@
     "within_2sigma": 0.9852941176470589,
     "agent": {
       "accepted": 212,
+      "deduped": 0,
+      "substituted": 10,
       "below_range": 66,
       "abstained": 24,
       "pending": 56,
@@ -33,6 +35,8 @@
     "within_2sigma": 0.9852941176470589,
     "agent": {
       "accepted": 202,
+      "deduped": 0,
+      "substituted": 0,
       "below_range": 66,
       "abstained": 0,
       "pending": 3,
@@ -55,6 +59,8 @@
     "within_2sigma": 0.0,
     "agent": {
       "accepted": 10,
+      "deduped": 0,
+      "substituted": 10,
       "below_range": 0,
       "abstained": 24,
       "pending": 53,
