@@ -5,35 +5,35 @@
   "n_frames": 540,
   "detection_window_rows": 24,
   "clean": {
-    "flags": 0,
+    "flags": 3,
     "by_type": {
-      "drift": 0,
+      "drift": 2,
       "stuck": 0,
-      "step": 0,
+      "step": 1,
       "spike": 0
     },
-    "false_flags_per_site_week": 0.0
+    "false_flags_per_site_week": 0.7048091258486727
   },
   "faults": {
     "drift": {
-      "recall": 0.0,
-      "recall_any": 0.45,
-      "type_match": null,
-      "median_delay_h": null,
+      "recall": 0.15,
+      "recall_any": 0.65,
+      "type_match": 1.0,
+      "median_delay_h": 10.948888888888888,
       "pre_onset_flags": 0
     },
     "stuck": {
-      "recall": 0.2,
+      "recall": 0.3,
       "recall_any": 0.8,
       "type_match": 0.0,
-      "median_delay_h": 2.8338888888888887,
+      "median_delay_h": 4.243194444444445,
       "pre_onset_flags": 0
     },
     "step": {
-      "recall": 0.1,
-      "recall_any": 0.75,
-      "type_match": 0.0,
-      "median_delay_h": 4.396111111111111,
+      "recall": 0.3,
+      "recall_any": 0.85,
+      "type_match": 0.6666666666666666,
+      "median_delay_h": 1.7793055555555555,
       "pre_onset_flags": 0
     },
     "spike": {

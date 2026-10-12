@@ -1,0 +1,3283 @@
+[
+ {
+  "time": "2026-07-27T00:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T00-00-12Z.jpg",
+  "status": "pending",
+  "stage_ft": 10.12006,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "no neighbour could confirm"
+  },
+  "reason": "escalated for human review"
+ },
+ {
+  "time": "2026-07-27T11:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T11-00-04Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-27T13:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T13-00-03Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-27T15:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T15-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-27T17:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T17-00-04Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-27T19:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T19-00-06Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-27T21:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T21-00-04Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-27T23:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-27T23-00-03Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-28T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-28T10-00-03Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-28T12:00:14+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-28T12-00-14Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-28T14:00:09+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-28T14-00-09Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-28T16:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-28T16-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-28T18:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-28T18-00-03Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-28T20:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-28T20-00-07Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-28T22:00:11+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-28T22-00-11Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-29T00:00:23+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T00-00-23Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-29T11:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T11-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 18.194066666666664,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-29T13:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T13-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 16.93541666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-29T15:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T15-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 18.166096666666665,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-29T17:00:09+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T17-00-09Z.jpg",
+  "status": "accepted",
+  "stage_ft": 18.18474333333333,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 18:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-07-29T19:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T19-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 17.45752333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-29T21:00:15+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T21-00-15Z.jpg",
+  "status": "accepted",
+  "stage_ft": 15.844586666666665,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-29T23:00:21+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-29T23-00-21Z.jpg",
+  "status": "accepted",
+  "stage_ft": 14.62323,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-30T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-30T10-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.339013333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-30T12:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-30T12-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.311043333333332,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-30T14:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-30T14-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.18984,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-30T16:00:15+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-30T16-00-15Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.236456666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-30T18:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-30T18-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.236456666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-30T20:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-30T20-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.108333333333334,
+  "last_step": {
+   "tool": "alt_reference",
+   "decision": "uncertain; re-register on the other reference"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-07-30T22:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-30T22-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.080363333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-31T00:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-31T00-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.18292,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-31T11:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-31T11-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.04307,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-31T13:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-31T13-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.0151,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-07-31T15:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-31T15-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.0151,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-31T17:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-31T17-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.024423333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-07-31T19:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-31T19-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.409083333333333,
+  "last_step": {
+   "tool": "alt_reference",
+   "decision": "uncertain; re-register on the other reference"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-07-31T21:00:11+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-31T21-00-11Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-07-31T23:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-07-31T23-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.409083333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-01T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-01T10-00-03Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-01T12:00:11+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-01T12-00-11Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.176,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-01T14:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-01T14-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.222616666666667,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-01T16:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-01T16-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.213293333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-01T18:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-01T18-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-01T20:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-01T20-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.148029999999999,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-01T22:00:11+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-01T22-00-11Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.222616666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-02T00:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-02T00-00-02Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-02T11:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-02T11-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-02T13:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-02T13-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-02T15:00:21+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-02T15-00-21Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-02T17:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-02T17-00-13Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-02T19:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-02T19-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-02T21:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-02T21-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-02T23:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-02T23-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.12006,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-03T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-03T10-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.157353333333335,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-03T12:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-03T12-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.157353333333335,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-03T14:00:16+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-03T14-00-16Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.194646666666667,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-03T16:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-03T16-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.101413333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-03T18:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-03T18-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.437053333333335,
+  "last_step": {
+   "tool": "alt_reference",
+   "decision": "uncertain; re-register on the other reference"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-03T20:00:31+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-03T20-00-31Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.93119,
+  "last_step": {
+   "tool": "alt_reference",
+   "decision": "uncertain; re-register on the other reference"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-03T22:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-03T22-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.278556666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-04T00:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-04T00-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.381113333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-04T11:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-04T11-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.942916666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-04T13:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-04T13-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.31585,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-04T15:00:05+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-04T15-00-05Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.222616666666667,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-04T17:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-04T17-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.250586666666665,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-04T19:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-04T19-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-04T21:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-04T21-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-04T23:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-04T23-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.073443333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-05T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-05T10-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.12006,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-05T12:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-05T12-00-03Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-05T14:00:05+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-05T14-00-05Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-05T16:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-05T16-00-02Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-05T18:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-05T18-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-05T20:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-05T20-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-05T22:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-05T22-00-06Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-06T00:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-06T00-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-06T12:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-06T12-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-06T14:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-06T14-00-13Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-06T16:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-06T16-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.989533333333334,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-06T18:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-06T18-00-04Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-06T20:00:16+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-06T20-00-16Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-06T22:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-06T22-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.017503333333334,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-07T00:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T00-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-07T02:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T02-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 03:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-07T04:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T04-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.31585,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-07T06:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T06-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-07T08:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T08-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-07T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T10-00-03Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-07T12:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T12-00-04Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-07T14:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T14-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.082766666666668,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-07T16:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T16-00-07Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-07T18:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T18-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-07T20:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T20-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-07T22:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-07T22-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-08T00:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T00-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.23194,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T04:00:09+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T04-00-09Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.499913333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T08:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T08-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.418406666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T10:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T10-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T12:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T12-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.325173333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T14:00:25+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T14-00-25Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.278556666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T16:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T16-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.222616666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T18:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T18-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.148029999999999,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T20:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T20-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.09209,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-08T22:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-08T22-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.157353333333335,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T00:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T00-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.026826666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T02:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T02-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.325173333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 03:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T04:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T04-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T06:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T06-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.31585,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T08:00:05+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T08-00-05Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.31585,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T10-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.28788,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T12:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T12-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.259910000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T14:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T14-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.28788,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T16:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T16-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.31585,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T18:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T18-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.09209,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T20:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T20-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.101413333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-09T22:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-09T22-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.03615,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T00:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T00-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.045473333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T02:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T02-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.353143333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 03:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T04:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T04-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.360063333333333,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 06:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T07:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T07-00-03Z.jpg",
+  "status": "abstained",
+  "stage_ft": 10.23194,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "night frame cannot register; pull the next frame"
+  },
+  "reason": "no confident reading after the action budget"
+ },
+ {
+  "time": "2026-08-10T09:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T09-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.67946,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T11:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T11-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.017503333333334,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T13:00:06+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T13-00-06Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.045473333333334,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T15:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T15-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.045473333333334,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T17:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T17-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.017503333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-10T19:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T19-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-10T21:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T21-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-10T23:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-10T23-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.045473333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T02:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T02-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.222616666666667,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T05:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T05-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.297203333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T08:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T08-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.325173333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T11:00:09+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T11-00-09Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T13:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T13-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T15:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T15-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T17:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T17-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.914946666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T19:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T19-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T21:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T21-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.989533333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-11T23:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-11T23-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T01:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T01-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.005776666666668,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 02:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T03:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T03-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T05:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T05-00-08Z.jpg",
+  "status": "abstained",
+  "stage_ft": null,
+  "last_step": {
+   "tool": "enhance_clahe",
+   "decision": "no boundary found; try local contrast"
+  },
+  "reason": "no confident reading after the action budget"
+ },
+ {
+  "time": "2026-08-12T07:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T07-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "night frame cannot register; pull the next frame"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T11:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T11-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T13:00:11+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T13-00-11Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T15:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T15-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T17:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T17-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.914946666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T19:00:09+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T19-00-09Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-12T21:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T21-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-12T23:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-12T23-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-13T04:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T04-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-13T08:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T08-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-13T10:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T10-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-13T12:00:43+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T12-00-43Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-13T14:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T14-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.989533333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-13T16:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T16-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.989533333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-13T18:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T18-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-13T20:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T20-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-13T22:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-13T22-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.026826666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T00:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T00-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.12006,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T03:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T03-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.241263333333332,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 06:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T07:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T07-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.241263333333332,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 08:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T09:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T09-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.325173333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T11:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T11-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.989533333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T13:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T13-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T15:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T15-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T17:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T17-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-14T19:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T19-00-10Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-14T21:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T21-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-14T23:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-14T23-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-15T01:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T01-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.353143333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 02:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-15T03:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T03-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.23194,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-15T05:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T05-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-15T08:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T08-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.353143333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-15T10:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T10-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-15T12:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T12-00-07Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-15T14:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T14-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-15T16:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T16-00-07Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-15T18:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T18-00-07Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-15T20:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T20-00-12Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-15T22:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-15T22-00-04Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-16T00:00:17+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T00-00-17Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-16T04:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T04-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T06:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T06-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T08:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T08-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.259910000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T10:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T10-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.821713333333333,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T12:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T12-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.868329999999998,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T14:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T14-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.877653333333335,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T16:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T16-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T18:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T18-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.868329999999998,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T20:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T20-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-16T23:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-16T23-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.92427,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T01:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T01-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 02:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T03:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T03-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.269233333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T05:00:15+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T05-00-15Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.259910000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 06:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T07:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T07-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.278556666666667,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 08:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T09:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T09-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.278556666666667,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T11:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T11-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.914946666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T13:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T13-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.886976666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T15:00:19+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T15-00-19Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.92427,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T17:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T17-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.877653333333335,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T19:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T19-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.961563333333332,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T21:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T21-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.8963,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-17T23:00:11+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-17T23-00-11Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.914946666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-18T02:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T02-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-18T05:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T05-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 06:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-18T08:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T08-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-18T11:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T11-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.914946666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-18T13:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T13-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.8963,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-18T15:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T15-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.859006666666666,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-18T17:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T17-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.868329999999998,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-18T19:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T19-00-13Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-18T21:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T21-00-13Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-18T23:00:23+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-18T23-00-23Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-19T01:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T01-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.334496666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 02:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T04:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T04-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T06:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T06-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T08:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T08-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.34382,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T10-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.868329999999998,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T12:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T12-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T14:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T14-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T16:00:22+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T16-00-22Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T18:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T18-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.92427,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T20:00:21+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T20-00-21Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-19T22:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-19T22-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T00:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T00-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.942916666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T04:00:21+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T04-00-21Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.005776666666668,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T06:00:05+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T06-00-05Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.353143333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T08:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T08-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.353143333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T10:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T10-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T12:00:15+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T12-00-15Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.886976666666667,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 13:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T14:00:21+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T14-00-21Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T16:00:22+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T16-00-22Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T18:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T18-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.8963,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T20:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T20-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-20T22:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-20T22-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T00:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T00-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T04:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T04-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.23886,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T06:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T06-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.93119,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T08:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T08-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.381113333333333,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T10:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T10-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.886976666666667,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T12:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T12-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.905623333333335,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T14:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T14-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T16:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T16-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T18:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T18-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T20:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T20-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.054796666666666,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-21T22:00:29+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-21T22-00-29Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.933593333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T00:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T00-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.877653333333335,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T02:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T02-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.381113333333333,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 03:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T04:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T04-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.005776666666668,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T09:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T09-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.93119,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T11:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T11-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T13:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T13-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.8963,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 14:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T15:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T15-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.914946666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T17:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T17-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T19:00:22+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T19-00-22Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.017503333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T21:00:22+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T21-00-22Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.989533333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-22T23:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-22T23-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T01:00:11+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T01-00-11Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.266829999999999,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 02:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T03:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T03-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.145626666666667,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T06:00:22+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T06-00-22Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.15495,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T08:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T08-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.416003333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T10-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.998856666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T12:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T12-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T14:00:21+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T14-00-21Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.970886666666665,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T16:00:21+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T16-00-21Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.06412,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T18:00:22+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T18-00-22Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T20:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T20-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-23T22:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-23T22-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T00:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T00-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.95224,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T02:00:11+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T02-00-11Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.248183333333333,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 03:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T04:00:21+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T04-00-21Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.40668,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T06:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T06-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.23886,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T08:00:15+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T08-00-15Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.416003333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T11:00:26+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T11-00-26Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.961563333333332,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T13:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T13-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.92427,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 14:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T15:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T15-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T17:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T17-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.961563333333332,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T19:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T19-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T21:00:20+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T21-00-20Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-24T23:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-24T23-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.989533333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T01:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T01-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.40668,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 02:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T03:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T03-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.23886,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T06:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T06-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.490590000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T09:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T09-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.490590000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T11:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T11-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.877653333333335,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: no gain"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T13:00:26+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T13-00-26Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.017503333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T15:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T15-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T17:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T17-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T19:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T19-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.12006,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T21:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T21-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.222616666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-25T23:00:22+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-25T23-00-22Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.236456666666667,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 00:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T01:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T01-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.490590000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 02:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T03:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T03-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.490590000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T05:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T05-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.490590000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 06:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T08:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T08-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.416003333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T10:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T10-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T12:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T12-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T14:00:30+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T14-00-30Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T16:00:05+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T16-00-05Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.017503333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T18:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T18-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.157353333333335,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T20:00:39+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T20-00-39Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.09209,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-26T22:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-26T22-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.09209,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T00:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T00-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T02:00:09+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T02-00-09Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.490590000000001,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 03:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T04:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T04-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.376306666666666,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T06:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T06-00-07Z.jpg",
+  "status": "pending",
+  "stage_ft": 12.58142,
+  "last_step": {
+   "tool": "fetch_prev",
+   "decision": "no neighbour could confirm"
+  },
+  "reason": "escalated for human review"
+ },
+ {
+  "time": "2026-08-27T10:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T10-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.026826666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T12:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T12-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.138706666666666,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T14:00:09+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T14-00-09Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.129383333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T16:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T16-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T18:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T18-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.12006,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T20:00:41+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T20-00-41Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-27T22:00:31+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-27T22-00-31Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.129383333333333,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T00:00:18+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T00-00-18Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.905623333333335,
+  "last_step": {
+   "tool": "mask_glare",
+   "decision": "repair rejected: lost the reading"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T02:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T02-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.590743333333332,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 03:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T04:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T04-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.506833333333333,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T07:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T07-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.292396666666665,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 08:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T09:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T09-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 11.220213333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 10:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T11:00:15+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T11-00-15Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.12006,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T13:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T13-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.138706666666666,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T15:00:17+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T15-00-17Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.082766666666668,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T17:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T17-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.148029999999999,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-28T19:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T19-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-28T21:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T21-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-28T23:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-28T23-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.017503333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-29T01:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T01-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.348336666666667,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 02:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-29T03:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T03-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.506833333333333,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-29T05:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T05-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.35766,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 06:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-29T07:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T07-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 12.58142,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 08:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-29T10:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T10-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.92427,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-29T12:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T12-00-07Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-29T14:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T14-00-04Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-29T16:00:07+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T16-00-07Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.914946666666667,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-29T18:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T18-00-04Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-29T20:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T20-00-08Z.jpg",
+  "status": "below_range",
+  "stage_ft": null,
+  "last_step": null,
+  "reason": "below_plate"
+ },
+ {
+  "time": "2026-08-29T22:00:17+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-29T22-00-17Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.259910000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T00:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T00-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T04:00:09+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T04-00-09Z.jpg",
+  "status": "accepted",
+  "stage_ft": 13.39255,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 05:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T06:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T06-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 13.737513333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 07:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T08:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T08-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 13.67225,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 09:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T10:00:10+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T10-00-10Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.989533333333334,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T12:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T12-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T14:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T14-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T16:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T16-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.905623333333335,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T18:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T18-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.00818,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T20:00:12+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T20-00-12Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.09209,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-30T22:00:03+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-30T22-00-03Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T00:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T00-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.03615,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T03:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T03-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 13.67225,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 04:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T05:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T05-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 13.737513333333334,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 06:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T07:00:02+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T07-00-02Z.jpg",
+  "status": "accepted",
+  "stage_ft": 13.746836666666667,
+  "last_step": {
+   "tool": "fetch_next",
+   "decision": "confirmed by neighbour at 08:00"
+  },
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T10:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T10-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T12:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T12-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.980210000000001,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T14:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T14-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.157353333333335,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T16:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T16-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.12006,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T18:00:04+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T18-00-04Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.06412,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T20:00:08+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T20-00-08Z.jpg",
+  "status": "accepted",
+  "stage_ft": 10.12006,
+  "last_step": null,
+  "reason": null
+ },
+ {
+  "time": "2026-08-31T22:00:13+00:00",
+  "file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-08-31T22-00-13Z.jpg",
+  "status": "accepted",
+  "stage_ft": 9.961563333333332,
+  "last_step": null,
+  "reason": null
+ }
+]
