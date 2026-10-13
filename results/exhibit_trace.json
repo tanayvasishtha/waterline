@@ -50,9 +50,9 @@
   "scanned": 471,
   "traces_with_tool_steps": 252,
   "traces_by_tool": {
-    "enhance_gamma": 44,
     "fetch_next": 125,
     "enhance_clahe": 37,
+    "enhance_gamma": 44,
     "alt_reference": 37,
     "mask_glare": 122,
     "fetch_prev": 1

@@ -22,10 +22,16 @@ import csv
 import json
 import shutil
 import sys
+from contextlib import suppress
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+import cv2
+
+from waterline import eval as ev
+from waterline import sites
+from waterline.pipeline import read_frame
 from waterline.settings import Settings
 
 RESULTS = Path("results")
@@ -84,6 +90,52 @@ def _threshold_for(decision: str, tool: str) -> str:
     return "" if tool in ("accept", "abstain", "human_review") else "policy default"
 
 
+def _fmt_obs(summary: str) -> str:
+    """Format 'stage=.. sigma=.. disagree=.. reason=..' for the table."""
+    out = summary
+    for key, nd in (("stage", 2), ("sigma", 3)):
+        head = key + "="
+        if head in out:
+            pre, rest = out.split(head, 1)
+            val, _, tail = rest.partition(" ")
+            with suppress(ValueError):
+                val = f"{float(val):.{nd}f}"
+            out = pre + head + val + (" " + tail if tail else "")
+    return out
+
+
+def _parse_time(filename: str) -> datetime:
+    stamp = filename.rsplit("___", 1)[1].rsplit(".", 1)[0]
+    return datetime.strptime(stamp, "%Y-%m-%dT%H-%M-%SZ")
+
+
+def _initial_obs(site: str, frame_name: str | None) -> str:
+    """Recompute the first perceive result on the exhibit's original frame.
+
+    The trace only stores post-tool observations, so the observation that
+    drove step 1 comes from rerunning the frozen read on the same pixels.
+    """
+    if not frame_name:
+        return "(initial frame not known)"
+    cand = _find_cached(frame_name)
+    if cand is None:
+        return "(initial frame not in the local cache)"
+    image = cv2.imread(str(cand))
+    if image is None:
+        return "(initial frame unreadable)"
+    ctx = ev.make_perception(sites.load_site(site), Settings())
+    res = read_frame(ctx, image, _parse_time(frame_name), seed=0)
+    r = res.reading
+    stage = f"{r.stage_ft:.2f}" if r.stage_ft is not None else "None"
+    sigma = f"{r.sigma_ft:.3f}" if r.sigma_ft is not None else "None"
+    return f"stage={stage} sigma={sigma} disagree={r.methods_disagree} reason={r.reason}"
+
+
+def _esc(v: str) -> str:
+    """Escape pipes for the markdown table."""
+    return v.replace("|", "\\|")
+
+
 def _neg_time(t: dict[str, Any]) -> float:
     """Earlier frame_time sorts larger."""
     return -datetime.fromisoformat(str(t["frame_time"]).replace("Z", "+00:00")).timestamp()
@@ -122,11 +174,13 @@ def _write_exhibit(best: dict[str, Any], row: dict[str, str] | None) -> None:
         "| step | tool | what OpenCV reported | gating threshold | why this tool |",
         "|---|---|---|---|---|",
     ]
+    obs_prev = _initial_obs(str(best["site_id"]), (row or {}).get("file"))
     for s in best["steps"]:
-        obs = str(s["result_summary"]).replace("|", "\\|")
-        dec = str(s["decision"]).replace("|", "\\|")
+        obs = _fmt_obs(obs_prev)
+        dec = str(s["decision"])
         thr = _threshold_for(str(s["decision"]), str(s["tool"]))
-        lines.append(f"| {s['step']} | {s['tool']} | {obs} | {thr} | {dec} |")
+        lines.append(f"| {s['step']} | {s['tool']} | {_esc(obs)} | {thr} | {_esc(dec)} |")
+        obs_prev = str(s["result_summary"])
     stage = best.get("final_stage_ft")
     gage = (row or {}).get("agent_gage_ft") or (row or {}).get("gage_ft")
     final = f"**{best['final_status']}**"
@@ -134,7 +188,9 @@ def _write_exhibit(best: dict[str, Any], row: dict[str, str] | None) -> None:
         final += f" at {stage:.2f} ft"
     if gage:
         final += f" (gage {float(gage):.2f} ft)"
-    lines += ["", f"Final: {final}. Reason: {best.get('reason') or 'none'}.", ""]
+    if best.get("reason"):
+        final += f". Reason: {best['reason']}"
+    lines += ["", f"Final: {final}.", ""]
     for label, name in (("before", (row or {}).get("file")), ("after", best["frame_file"])):
         img = _copy_frame(label, name)
         if img:
