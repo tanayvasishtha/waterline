@@ -17,3 +17,8 @@ results/tmp/
 .DS_Store
 *.pem
 tests/fixtures/cache/
+video/clips/
+video/wav/
+video/rec/
+video/build/
+video/*.mp4

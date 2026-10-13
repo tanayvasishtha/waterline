@@ -1,0 +1,20 @@
+[
+  {
+    "clip": "clips/shot01_hancock_all.mp4",
+    "duration": 6,
+    "caption": "Held-out test windows on the USGS Hancock staff camera",
+    "vo": "Waterline reads staff gauges that USGS river cameras already see, and checks every reading against the official sensor."
+  },
+  {
+    "clip": "clips/shot03_trace_detail.mp4",
+    "duration": 7,
+    "caption": "Each tool call is chosen by the policy from the last vision result",
+    "vo": "When a frame fails registration or reads wide, the agent decides what to try next from what OpenCV reported."
+  },
+  {
+    "clip": "clips/still_agent_loop.mp4",
+    "duration": 7,
+    "caption": "Perceive, policy, tools, terminal states",
+    "vo": "The deterministic policy loops over the vision output: enhance, re-register, fetch a neighbour, then accept, abstain, or send it to a person."
+  }
+]
