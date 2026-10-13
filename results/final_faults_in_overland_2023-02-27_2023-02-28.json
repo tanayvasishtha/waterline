@@ -1,0 +1,92 @@
+{
+  "injected": true,
+  "seed": 20261026,
+  "trials_per_type": 20,
+  "n_frames": 66,
+  "detection_window_rows": 24,
+  "clean": {
+    "flags": 0,
+    "by_type": {
+      "drift": 0,
+      "stuck": 0,
+      "step": 0,
+      "spike": 0
+    },
+    "false_flags_per_site_week": 0.0
+  },
+  "faults": {
+    "drift": {
+      "recall": 0.0,
+      "recall_any": 0.0,
+      "type_match": null,
+      "median_delay_h": null,
+      "pre_onset_flags": 0,
+      "n_detected": 0,
+      "n_detected_any": 0,
+      "n_type_matched": 0,
+      "delays_h": []
+    },
+    "stuck": {
+      "recall": 0.0,
+      "recall_any": 0.0,
+      "type_match": null,
+      "median_delay_h": null,
+      "pre_onset_flags": 0,
+      "n_detected": 0,
+      "n_detected_any": 0,
+      "n_type_matched": 0,
+      "delays_h": []
+    },
+    "step": {
+      "recall": 0.35,
+      "recall_any": 0.35,
+      "type_match": 1.0,
+      "median_delay_h": 0.0,
+      "pre_onset_flags": 0,
+      "n_detected": 7,
+      "n_detected_any": 7,
+      "n_type_matched": 7,
+      "delays_h": [
+        0.6669444444444445,
+        0.0,
+        0.25722222222222224,
+        0.6669444444444445,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "spike": {
+      "recall": 1.0,
+      "recall_any": 1.0,
+      "type_match": 0.9,
+      "median_delay_h": 0.33361111111111114,
+      "pre_onset_flags": 0,
+      "n_detected": 20,
+      "n_detected_any": 20,
+      "n_type_matched": 18,
+      "delays_h": [
+        0.5044444444444445,
+        0.5044444444444445,
+        0.3475,
+        0.3338888888888889,
+        0.4266666666666667,
+        0.3302777777777778,
+        0.33361111111111114,
+        0.0,
+        0.30833333333333335,
+        0.3047222222222222,
+        0.33361111111111114,
+        0.3352777777777778,
+        0.4266666666666667,
+        0.2536111111111111,
+        0.30083333333333334,
+        0.23416666666666666,
+        0.4266666666666667,
+        0.3475,
+        0.24472222222222223,
+        0.0
+      ]
+    }
+  }
+}

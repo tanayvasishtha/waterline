@@ -1,0 +1,84 @@
+{
+  "injected": true,
+  "seed": 20261026,
+  "trials_per_type": 20,
+  "n_frames": 69,
+  "detection_window_rows": 24,
+  "clean": {
+    "flags": 0,
+    "by_type": {
+      "drift": 0,
+      "stuck": 0,
+      "step": 0,
+      "spike": 0
+    },
+    "false_flags_per_site_week": 0.0
+  },
+  "faults": {
+    "drift": {
+      "recall": 0.0,
+      "recall_any": 0.0,
+      "type_match": null,
+      "median_delay_h": null,
+      "pre_onset_flags": 0,
+      "n_detected": 0,
+      "n_detected_any": 0,
+      "n_type_matched": 0,
+      "delays_h": []
+    },
+    "stuck": {
+      "recall": 0.0,
+      "recall_any": 0.0,
+      "type_match": null,
+      "median_delay_h": null,
+      "pre_onset_flags": 0,
+      "n_detected": 0,
+      "n_detected_any": 0,
+      "n_type_matched": 0,
+      "delays_h": []
+    },
+    "step": {
+      "recall": 0.0,
+      "recall_any": 0.0,
+      "type_match": null,
+      "median_delay_h": null,
+      "pre_onset_flags": 0,
+      "n_detected": 0,
+      "n_detected_any": 0,
+      "n_type_matched": 0,
+      "delays_h": []
+    },
+    "spike": {
+      "recall": 1.0,
+      "recall_any": 1.0,
+      "type_match": 1.0,
+      "median_delay_h": 0.34194444444444444,
+      "pre_onset_flags": 0,
+      "n_detected": 20,
+      "n_detected_any": 20,
+      "n_type_matched": 20,
+      "delays_h": [
+        0.31777777777777777,
+        0.31777777777777777,
+        0.5986111111111111,
+        0.505,
+        0.34194444444444444,
+        0.3425,
+        0.40055555555555555,
+        0.2663888888888889,
+        0.99,
+        0.3277777777777778,
+        0.38666666666666666,
+        0.31583333333333335,
+        0.34194444444444444,
+        0.3486111111111111,
+        0.3375,
+        0.24166666666666667,
+        0.34194444444444444,
+        0.5986111111111111,
+        0.36277777777777775,
+        0.2663888888888889
+      ]
+    }
+  }
+}

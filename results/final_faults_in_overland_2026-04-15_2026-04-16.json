@@ -1,0 +1,104 @@
+{
+  "injected": true,
+  "seed": 20261026,
+  "trials_per_type": 20,
+  "n_frames": 33,
+  "detection_window_rows": 24,
+  "clean": {
+    "flags": 2,
+    "by_type": {
+      "drift": 1,
+      "stuck": 0,
+      "step": 1,
+      "spike": 0
+    },
+    "false_flags_per_site_week": 17.456560641921143
+  },
+  "faults": {
+    "drift": {
+      "recall": 0.0,
+      "recall_any": 0.0,
+      "type_match": null,
+      "median_delay_h": null,
+      "pre_onset_flags": 0,
+      "n_detected": 0,
+      "n_detected_any": 0,
+      "n_type_matched": 0,
+      "delays_h": []
+    },
+    "stuck": {
+      "recall": 0.35,
+      "recall_any": 0.35,
+      "type_match": 0.14285714285714285,
+      "median_delay_h": 1.3377777777777777,
+      "pre_onset_flags": 0,
+      "n_detected": 7,
+      "n_detected_any": 7,
+      "n_type_matched": 1,
+      "delays_h": [
+        1.3377777777777777,
+        1.3377777777777777,
+        1.6713888888888888,
+        1.3388888888888888,
+        1.0055555555555555,
+        1.3388888888888888,
+        1.3377777777777777
+      ]
+    },
+    "step": {
+      "recall": 0.55,
+      "recall_any": 0.55,
+      "type_match": 1.0,
+      "median_delay_h": 0.0,
+      "pre_onset_flags": 0,
+      "n_detected": 11,
+      "n_detected_any": 11,
+      "n_type_matched": 11,
+      "delays_h": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.33416666666666667,
+        0.33416666666666667,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "spike": {
+      "recall": 1.0,
+      "recall_any": 1.0,
+      "type_match": 0.55,
+      "median_delay_h": 0.30583333333333335,
+      "pre_onset_flags": 0,
+      "n_detected": 20,
+      "n_detected_any": 20,
+      "n_type_matched": 11,
+      "delays_h": [
+        0.9416666666666667,
+        0.30583333333333335,
+        0.4113888888888889,
+        0.0,
+        0.3333333333333333,
+        0.0,
+        0.0,
+        0.0,
+        0.30583333333333335,
+        0.5888888888888889,
+        0.0,
+        0.0,
+        0.3333333333333333,
+        0.9416666666666667,
+        0.3377777777777778,
+        0.0,
+        0.0,
+        0.5830555555555555,
+        0.5830555555555555,
+        0.0
+      ]
+    }
+  }
+}

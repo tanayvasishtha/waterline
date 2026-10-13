@@ -1,0 +1,105 @@
+{
+  "injected": true,
+  "seed": 20261026,
+  "trials_per_type": 20,
+  "n_frames": 42,
+  "detection_window_rows": 24,
+  "clean": {
+    "flags": 0,
+    "by_type": {
+      "drift": 0,
+      "stuck": 0,
+      "step": 0,
+      "spike": 0
+    },
+    "false_flags_per_site_week": 0.0
+  },
+  "faults": {
+    "drift": {
+      "recall": 0.0,
+      "recall_any": 0.0,
+      "type_match": null,
+      "median_delay_h": null,
+      "pre_onset_flags": 0,
+      "n_detected": 0,
+      "n_detected_any": 0,
+      "n_type_matched": 0,
+      "delays_h": []
+    },
+    "stuck": {
+      "recall": 0.1,
+      "recall_any": 0.1,
+      "type_match": 0.0,
+      "median_delay_h": 2.6294444444444443,
+      "pre_onset_flags": 0,
+      "n_detected": 2,
+      "n_detected_any": 2,
+      "n_type_matched": 0,
+      "delays_h": [
+        3.172222222222222,
+        2.0866666666666664
+      ]
+    },
+    "step": {
+      "recall": 0.85,
+      "recall_any": 0.85,
+      "type_match": 1.0,
+      "median_delay_h": 0.0,
+      "pre_onset_flags": 0,
+      "n_detected": 17,
+      "n_detected_any": 17,
+      "n_type_matched": 17,
+      "delays_h": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.33805555555555555,
+        0.0
+      ]
+    },
+    "spike": {
+      "recall": 1.0,
+      "recall_any": 1.0,
+      "type_match": 0.6,
+      "median_delay_h": 0.33333333333333337,
+      "pre_onset_flags": 0,
+      "n_detected": 20,
+      "n_detected_any": 20,
+      "n_type_matched": 12,
+      "delays_h": [
+        0.33416666666666667,
+        0.33416666666666667,
+        0.0,
+        0.0,
+        0.4222222222222222,
+        0.0,
+        0.0,
+        0.33805555555555555,
+        0.4127777777777778,
+        0.33805555555555555,
+        0.0,
+        0.33805555555555555,
+        0.4222222222222222,
+        0.3308333333333333,
+        0.0,
+        0.3325,
+        0.4222222222222222,
+        0.0,
+        0.0,
+        0.33805555555555555
+      ]
+    }
+  }
+}

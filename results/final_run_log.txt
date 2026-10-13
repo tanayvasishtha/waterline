@@ -1,0 +1,153 @@
+SKIP hancock 2026-04-14_2026-05-28 baseline: artifacts exist
+SKIP hancock 2026-04-14_2026-05-28 agent: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 baseline: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 agent: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 baseline: artifacts exist
+LEG in_overland 2023-02-09_2023-02-10 agent attempt=1 avail_before_mb=2109
+DONE in_overland 2023-02-09_2023-02-10 agent attempt=1 wall_s=800 peak_rss_mb=5 ok=True
+LEG in_overland 2023-02-22_2023-02-23 baseline attempt=1 avail_before_mb=2085
+DONE in_overland 2023-02-22_2023-02-23 baseline attempt=1 wall_s=152 peak_rss_mb=5 ok=True
+LEG in_overland 2023-02-22_2023-02-23 agent attempt=1 avail_before_mb=4374
+SKIP hancock 2026-04-14_2026-05-28 baseline: artifacts exist
+SKIP hancock 2026-04-14_2026-05-28 agent: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 baseline: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 agent: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 baseline: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 agent: artifacts exist
+SKIP in_overland 2023-02-22_2023-02-23 baseline: artifacts exist
+LEG in_overland 2023-02-22_2023-02-23 agent attempt=1 avail_before_mb=2200
+DONE in_overland 2023-02-22_2023-02-23 agent attempt=1 wall_s=575 peak_rss_mb=5 ok=True
+LEG in_overland 2023-02-27_2023-02-28 baseline attempt=1 avail_before_mb=2216
+DONE in_overland 2023-02-27_2023-02-28 baseline attempt=1 wall_s=162 peak_rss_mb=5 ok=True
+LEG in_overland 2023-02-27_2023-02-28 agent attempt=1 avail_before_mb=3195
+SKIP hancock 2026-04-14_2026-05-28 baseline: artifacts exist
+SKIP hancock 2026-04-14_2026-05-28 agent: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 baseline: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 agent: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 baseline: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 agent: artifacts exist
+SKIP in_overland 2023-02-22_2023-02-23 baseline: artifacts exist
+SKIP in_overland 2023-02-22_2023-02-23 agent: artifacts exist
+SKIP in_overland 2023-02-27_2023-02-28 baseline: artifacts exist
+LEG in_overland 2023-02-27_2023-02-28 agent attempt=1 avail_before_mb=2553
+DONE in_overland 2023-02-27_2023-02-28 agent attempt=1 wall_s=657 peak_rss_mb=5 ok=True
+LEG in_overland 2023-03-03_2023-03-04 baseline attempt=1 avail_before_mb=4183
+DONE in_overland 2023-03-03_2023-03-04 baseline attempt=1 wall_s=136 peak_rss_mb=5 ok=True
+LEG in_overland 2023-03-03_2023-03-04 agent attempt=1 avail_before_mb=3639
+SKIP hancock 2026-04-14_2026-05-28 baseline: artifacts exist
+SKIP hancock 2026-04-14_2026-05-28 agent: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 baseline: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 agent: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 baseline: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 agent: artifacts exist
+SKIP in_overland 2023-02-22_2023-02-23 baseline: artifacts exist
+SKIP in_overland 2023-02-22_2023-02-23 agent: artifacts exist
+SKIP in_overland 2023-02-27_2023-02-28 baseline: artifacts exist
+SKIP in_overland 2023-02-27_2023-02-28 agent: artifacts exist
+SKIP in_overland 2023-03-03_2023-03-04 baseline: artifacts exist
+LEG in_overland 2023-03-03_2023-03-04 agent attempt=1 avail_before_mb=2741
+DONE in_overland 2023-03-03_2023-03-04 agent attempt=1 wall_s=1095 peak_rss_mb=1057 ok=True
+LEG in_overland 2023-03-23_2023-03-24 baseline attempt=1 avail_before_mb=3008
+DONE in_overland 2023-03-23_2023-03-24 baseline attempt=1 wall_s=122 peak_rss_mb=1030 ok=True
+LEG in_overland 2023-03-23_2023-03-24 agent attempt=1 avail_before_mb=2619
+DONE in_overland 2023-03-23_2023-03-24 agent attempt=1 wall_s=865 peak_rss_mb=1064 ok=True
+LEG in_overland 2023-03-25_2023-03-26 baseline attempt=1 avail_before_mb=2656
+DONE in_overland 2023-03-25_2023-03-26 baseline attempt=1 wall_s=120 peak_rss_mb=1028 ok=True
+LEG in_overland 2023-03-25_2023-03-26 agent attempt=1 avail_before_mb=3192
+DONE in_overland 2023-03-25_2023-03-26 agent attempt=1 wall_s=931 peak_rss_mb=1057 ok=True
+LEG in_overland 2024-01-24_2024-01-25 baseline attempt=1 avail_before_mb=3605
+DONE in_overland 2024-01-24_2024-01-25 baseline attempt=1 wall_s=296 peak_rss_mb=1028 ok=True
+LEG in_overland 2024-01-24_2024-01-25 agent attempt=1 avail_before_mb=3032
+DONE in_overland 2024-01-24_2024-01-25 agent attempt=1 wall_s=1311 peak_rss_mb=1055 ok=True
+LEG in_overland 2024-01-26_2024-01-26 baseline attempt=1 avail_before_mb=5039
+DONE in_overland 2024-01-26_2024-01-26 baseline attempt=1 wall_s=429 peak_rss_mb=1030 ok=True
+LEG in_overland 2024-01-26_2024-01-26 agent attempt=1 avail_before_mb=4100
+DONE in_overland 2024-01-26_2024-01-26 agent attempt=1 wall_s=559 peak_rss_mb=1071 ok=True
+LEG in_overland 2024-03-14_2024-03-15 baseline attempt=1 avail_before_mb=4056
+DONE in_overland 2024-03-14_2024-03-15 baseline attempt=1 wall_s=41 peak_rss_mb=1049 ok=True
+LEG in_overland 2024-03-14_2024-03-15 agent attempt=1 avail_before_mb=3867
+DONE in_overland 2024-03-14_2024-03-15 agent attempt=1 wall_s=229 peak_rss_mb=1064 ok=True
+LEG in_overland 2024-04-01_2024-04-03 baseline attempt=1 avail_before_mb=3989
+DONE in_overland 2024-04-01_2024-04-03 baseline attempt=1 wall_s=123 peak_rss_mb=1035 ok=False
+  |     return _get(client, url, None).content
+  |            ^^^^^^^^^^^^^^^^^^^^^^^
+  |   File "C:\Users\Dell\Desktop\AI THON\waterline-verify\src\waterline\usgs\http.py", line 63, in _get
+  |     raise UsgsError(f"USGS request failed: {url} ({_describe(error)})") from error
+  | waterline.usgs.http.UsgsError: USGS request failed: https://usgs-nims-images.s3.amazonaws.com/overlay/IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF/IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2024-04-02T15-20-26Z.jpg (HTTP 404)
+STOP in_overland 2024-04-01_2024-04-03 baseline: failed attempt=1
+SKIP hancock 2026-04-14_2026-05-28 baseline: artifacts exist
+SKIP hancock 2026-04-14_2026-05-28 agent: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 baseline: artifacts exist
+SKIP hancock 2026-09-01_2026-09-16 agent: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 baseline: artifacts exist
+SKIP in_overland 2023-02-09_2023-02-10 agent: artifacts exist
+SKIP in_overland 2023-02-22_2023-02-23 baseline: artifacts exist
+SKIP in_overland 2023-02-22_2023-02-23 agent: artifacts exist
+SKIP in_overland 2023-02-27_2023-02-28 baseline: artifacts exist
+SKIP in_overland 2023-02-27_2023-02-28 agent: artifacts exist
+SKIP in_overland 2023-03-03_2023-03-04 baseline: artifacts exist
+SKIP in_overland 2023-03-03_2023-03-04 agent: artifacts exist
+SKIP in_overland 2023-03-23_2023-03-24 baseline: artifacts exist
+SKIP in_overland 2023-03-23_2023-03-24 agent: artifacts exist
+SKIP in_overland 2023-03-25_2023-03-26 baseline: artifacts exist
+SKIP in_overland 2023-03-25_2023-03-26 agent: artifacts exist
+SKIP in_overland 2024-01-24_2024-01-25 baseline: artifacts exist
+SKIP in_overland 2024-01-24_2024-01-25 agent: artifacts exist
+SKIP in_overland 2024-01-26_2024-01-26 baseline: artifacts exist
+SKIP in_overland 2024-01-26_2024-01-26 agent: artifacts exist
+SKIP in_overland 2024-03-14_2024-03-15 baseline: artifacts exist
+SKIP in_overland 2024-03-14_2024-03-15 agent: artifacts exist
+LEG in_overland 2024-04-01_2024-04-03 baseline attempt=1 avail_before_mb=3384
+DONE in_overland 2024-04-01_2024-04-03 baseline attempt=1 wall_s=124 peak_rss_mb=1032 ok=True
+LEG in_overland 2024-04-01_2024-04-03 agent attempt=1 avail_before_mb=3517
+DONE in_overland 2024-04-01_2024-04-03 agent attempt=1 wall_s=676 peak_rss_mb=1063 ok=True
+LEG in_overland 2024-04-11_2024-04-12 baseline attempt=1 avail_before_mb=3034
+DONE in_overland 2024-04-11_2024-04-12 baseline attempt=1 wall_s=134 peak_rss_mb=1035 ok=True
+LEG in_overland 2024-04-11_2024-04-12 agent attempt=1 avail_before_mb=3007
+DONE in_overland 2024-04-11_2024-04-12 agent attempt=1 wall_s=2565 peak_rss_mb=1082 ok=True
+LEG in_overland 2024-04-28_2024-04-29 baseline attempt=1 avail_before_mb=2860
+DONE in_overland 2024-04-28_2024-04-29 baseline attempt=1 wall_s=42 peak_rss_mb=1061 ok=True
+LEG in_overland 2024-04-28_2024-04-29 agent attempt=1 avail_before_mb=3479
+DONE in_overland 2024-04-28_2024-04-29 agent attempt=1 wall_s=260 peak_rss_mb=1104 ok=True
+LEG in_overland 2024-12-31_2025-01-01 baseline attempt=1 avail_before_mb=3446
+DONE in_overland 2024-12-31_2025-01-01 baseline attempt=1 wall_s=42 peak_rss_mb=1031 ok=True
+LEG in_overland 2024-12-31_2025-01-01 agent attempt=1 avail_before_mb=3034
+DONE in_overland 2024-12-31_2025-01-01 agent attempt=1 wall_s=210 peak_rss_mb=1056 ok=True
+LEG in_overland 2025-04-02_2025-04-03 baseline attempt=1 avail_before_mb=3346
+DONE in_overland 2025-04-02_2025-04-03 baseline attempt=1 wall_s=121 peak_rss_mb=1032 ok=True
+LEG in_overland 2025-04-02_2025-04-03 agent attempt=1 avail_before_mb=3281
+DONE in_overland 2025-04-02_2025-04-03 agent attempt=1 wall_s=1297 peak_rss_mb=1060 ok=True
+LEG in_overland 2025-04-05_2025-04-06 baseline attempt=1 avail_before_mb=3265
+DONE in_overland 2025-04-05_2025-04-06 baseline attempt=1 wall_s=200 peak_rss_mb=1030 ok=True
+LEG in_overland 2025-04-05_2025-04-06 agent attempt=1 avail_before_mb=2723
+DONE in_overland 2025-04-05_2025-04-06 agent attempt=1 wall_s=765 peak_rss_mb=1057 ok=True
+LEG in_overland 2025-06-18_2025-06-20 baseline attempt=1 avail_before_mb=3133
+DONE in_overland 2025-06-18_2025-06-20 baseline attempt=1 wall_s=48 peak_rss_mb=1053 ok=True
+LEG in_overland 2025-06-18_2025-06-20 agent attempt=1 avail_before_mb=3066
+DONE in_overland 2025-06-18_2025-06-20 agent attempt=1 wall_s=165 peak_rss_mb=1061 ok=True
+LEG in_overland 2025-07-30_2025-07-31 baseline attempt=1 avail_before_mb=3532
+DONE in_overland 2025-07-30_2025-07-31 baseline attempt=1 wall_s=23 peak_rss_mb=1031 ok=True
+LEG in_overland 2025-07-30_2025-07-31 agent attempt=1 avail_before_mb=3435
+DONE in_overland 2025-07-30_2025-07-31 agent attempt=1 wall_s=97 peak_rss_mb=1059 ok=True
+LEG in_overland 2026-03-31_2026-04-02 baseline attempt=1 avail_before_mb=3372
+DONE in_overland 2026-03-31_2026-04-02 baseline attempt=1 wall_s=51 peak_rss_mb=1033 ok=True
+LEG in_overland 2026-03-31_2026-04-02 agent attempt=1 avail_before_mb=3157
+DONE in_overland 2026-03-31_2026-04-02 agent attempt=1 wall_s=293 peak_rss_mb=1064 ok=True
+LEG in_overland 2026-04-04_2026-04-05 baseline attempt=1 avail_before_mb=3019
+DONE in_overland 2026-04-04_2026-04-05 baseline attempt=1 wall_s=95 peak_rss_mb=1031 ok=True
+LEG in_overland 2026-04-04_2026-04-05 agent attempt=1 avail_before_mb=3389
+DONE in_overland 2026-04-04_2026-04-05 agent attempt=1 wall_s=1051 peak_rss_mb=1064 ok=True
+LEG in_overland 2026-04-15_2026-04-16 baseline attempt=1 avail_before_mb=3037
+DONE in_overland 2026-04-15_2026-04-16 baseline attempt=1 wall_s=541 peak_rss_mb=1037 ok=True
+LEG in_overland 2026-04-15_2026-04-16 agent attempt=1 avail_before_mb=2719
+DONE in_overland 2026-04-15_2026-04-16 agent attempt=1 wall_s=601 peak_rss_mb=1059 ok=True
+LEG in_overland 2026-04-18_2026-04-19 baseline attempt=1 avail_before_mb=3340
+DONE in_overland 2026-04-18_2026-04-19 baseline attempt=1 wall_s=42 peak_rss_mb=1032 ok=True
+LEG in_overland 2026-04-18_2026-04-19 agent attempt=1 avail_before_mb=3079
+DONE in_overland 2026-04-18_2026-04-19 agent attempt=1 wall_s=148 peak_rss_mb=1060 ok=True
+POOLED hancock -> results\final_summary_hancock.json
+POOLED in_overland -> results\final_summary_in_overland.json
+FAULTS hancock -> results\final_faults_hancock.json
+FAULTS in_overland -> results\final_faults_in_overland.json
+FAULTS exclude_files -> results\final_faults_exclude_files.json
+RESUME COMPLETE

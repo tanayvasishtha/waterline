@@ -1,0 +1,102 @@
+{
+  "injected": true,
+  "seed": 20261026,
+  "trials_per_type": 20,
+  "n_frames": 170,
+  "detection_window_rows": 24,
+  "clean": {
+    "flags": 0,
+    "by_type": {
+      "drift": 0,
+      "stuck": 0,
+      "step": 0,
+      "spike": 0
+    },
+    "false_flags_per_site_week": 0.0
+  },
+  "faults": {
+    "drift": {
+      "recall": 0.25,
+      "recall_any": 0.45,
+      "type_match": 1.0,
+      "median_delay_h": 8.065,
+      "pre_onset_flags": 0,
+      "n_detected": 5,
+      "n_detected_any": 9,
+      "n_type_matched": 5,
+      "delays_h": [
+        8.065,
+        8.333333333333334,
+        5.569166666666667,
+        7.583333333333333,
+        8.333333333333334
+      ]
+    },
+    "stuck": {
+      "recall": 0.1,
+      "recall_any": 0.4,
+      "type_match": 0.0,
+      "median_delay_h": 6.484861111111112,
+      "pre_onset_flags": 0,
+      "n_detected": 2,
+      "n_detected_any": 8,
+      "n_type_matched": 0,
+      "delays_h": [
+        7.7283333333333335,
+        5.241388888888889
+      ]
+    },
+    "step": {
+      "recall": 0.4,
+      "recall_any": 0.75,
+      "type_match": 0.25,
+      "median_delay_h": 5.6525,
+      "pre_onset_flags": 0,
+      "n_detected": 8,
+      "n_detected_any": 15,
+      "n_type_matched": 2,
+      "delays_h": [
+        0.0,
+        7.246666666666667,
+        7.996666666666667,
+        4.904722222222222,
+        0.0,
+        6.400277777777778,
+        2.2466666666666666,
+        6.913333333333333
+      ]
+    },
+    "spike": {
+      "recall": 1.0,
+      "recall_any": 1.0,
+      "type_match": 1.0,
+      "median_delay_h": 0.3322222222222222,
+      "pre_onset_flags": 0,
+      "n_detected": 20,
+      "n_detected_any": 20,
+      "n_type_matched": 20,
+      "delays_h": [
+        0.3386111111111111,
+        0.3386111111111111,
+        0.3333333333333333,
+        0.34194444444444444,
+        0.2683333333333333,
+        0.4230555555555556,
+        0.2313888888888889,
+        0.25,
+        0.3333333333333333,
+        0.33,
+        0.31416666666666665,
+        0.25,
+        0.2683333333333333,
+        0.3333333333333333,
+        0.3327777777777778,
+        0.3302777777777778,
+        0.33166666666666667,
+        0.3313888888888889,
+        0.33305555555555555,
+        0.33361111111111114
+      ]
+    }
+  }
+}

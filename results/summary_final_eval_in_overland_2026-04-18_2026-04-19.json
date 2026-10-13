@@ -1,0 +1,35 @@
+{
+  "all": {
+    "frames": 43,
+    "gate_pass": 36,
+    "read": 18,
+    "below_plate": 18,
+    "coverage": 0.4186046511627907,
+    "mae_ft": 0.041822222222222365,
+    "med_ae_ft": 0.03293333333333348,
+    "p90_ae_ft": 0.08293333333333347,
+    "within_2sigma": 0.9444444444444444
+  },
+  "day": {
+    "frames": 41,
+    "gate_pass": 36,
+    "read": 18,
+    "below_plate": 18,
+    "coverage": 0.43902439024390244,
+    "mae_ft": 0.041822222222222365,
+    "med_ae_ft": 0.03293333333333348,
+    "p90_ae_ft": 0.08293333333333347,
+    "within_2sigma": 0.9444444444444444
+  },
+  "night": {
+    "frames": 2,
+    "gate_pass": 0,
+    "read": 0,
+    "below_plate": 0,
+    "coverage": 0.0,
+    "mae_ft": null,
+    "med_ae_ft": null,
+    "p90_ae_ft": null,
+    "within_2sigma": 0.0
+  }
+}

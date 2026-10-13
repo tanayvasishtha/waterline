@@ -1,0 +1,108 @@
+{
+  "injected": true,
+  "seed": 20261026,
+  "trials_per_type": 20,
+  "n_frames": 30,
+  "detection_window_rows": 24,
+  "clean": {
+    "flags": 1,
+    "by_type": {
+      "drift": 1,
+      "stuck": 0,
+      "step": 0,
+      "spike": 0
+    },
+    "false_flags_per_site_week": 10.338461538461537
+  },
+  "faults": {
+    "drift": {
+      "recall": 0.1,
+      "recall_any": 0.1,
+      "type_match": 1.0,
+      "median_delay_h": 4.088888888888889,
+      "pre_onset_flags": 0,
+      "n_detected": 2,
+      "n_detected_any": 2,
+      "n_type_matched": 2,
+      "delays_h": [
+        4.088888888888889,
+        4.088888888888889
+      ]
+    },
+    "stuck": {
+      "recall": 0.1,
+      "recall_any": 0.1,
+      "type_match": 0.0,
+      "median_delay_h": 1.3769444444444443,
+      "pre_onset_flags": 0,
+      "n_detected": 2,
+      "n_detected_any": 2,
+      "n_type_matched": 0,
+      "delays_h": [
+        2.0813888888888887,
+        0.6725
+      ]
+    },
+    "step": {
+      "recall": 0.85,
+      "recall_any": 0.85,
+      "type_match": 1.0,
+      "median_delay_h": 0.0,
+      "pre_onset_flags": 0,
+      "n_detected": 17,
+      "n_detected_any": 17,
+      "n_type_matched": 17,
+      "delays_h": [
+        0.0,
+        0.32861111111111113,
+        0.0,
+        0.6647222222222222,
+        0.6647222222222222,
+        0.0,
+        0.32861111111111113,
+        0.33694444444444444,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.6647222222222222,
+        0.0,
+        0.0
+      ]
+    },
+    "spike": {
+      "recall": 1.0,
+      "recall_any": 1.0,
+      "type_match": 0.3,
+      "median_delay_h": 0.0,
+      "pre_onset_flags": 0,
+      "n_detected": 20,
+      "n_detected_any": 20,
+      "n_type_matched": 6,
+      "delays_h": [
+        0.7469444444444444,
+        1.0255555555555556,
+        0.0,
+        0.33694444444444444,
+        0.0,
+        0.33694444444444444,
+        0.0,
+        0.0,
+        1.0255555555555556,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.7469444444444444,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  }
+}
