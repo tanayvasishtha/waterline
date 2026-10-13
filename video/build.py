@@ -71,6 +71,16 @@ def _escape_drawtext(text: str) -> str:
     return text.replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\'").replace("%", "\\%")
 
 
+def _wrap_caption(text: str) -> list[str]:
+    """Long captions become two lines; short ones stay one."""
+    if len(text) <= 64:
+        return [text]
+    mid = len(text) // 2
+    cuts = [i for i, c in enumerate(text) if c == " "]
+    cut = min(cuts, key=lambda i: abs(i - mid)) if cuts else mid
+    return [text[:cut].strip(), text[cut:].strip()]
+
+
 def _segment(idx: int, seg: dict, work: Path) -> Path:
     clip = VIDEO / str(seg["clip"])
     vo_text = str(seg.get("vo") or "").strip()
@@ -83,24 +93,33 @@ def _segment(idx: int, seg: dict, work: Path) -> Path:
     cap = float(seg["duration"]) if seg.get("duration") else clip_dur
     dur = max(min(clip_dur, cap), vo_dur + VO_PAD)
 
-    vchain = (
-        f"[0:v]scale=1920:1080:force_original_aspect_ratio=decrease,"
-        f"pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=0xf6f4ee,fps={FPS}"
+    vclip = min(clip_dur, cap)
+    hold = dur - vclip  # voiceover overrun: clone the last frame, never loop
+    vchain = f"[0:v]trim=0:{vclip:.3f},setpts=PTS-STARTPTS"
+    if hold > 0.05:
+        vchain += f",tpad=stop_mode=clone:stop_duration={hold:.3f}"
+    vchain += (
+        ",scale=1920:1080:force_original_aspect_ratio=decrease,"
+        "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=0xf6f4ee,"
+        f"fps={FPS}"
     )
-    if caption:
-        cap = _escape_drawtext(caption)
+    cap_lines = _wrap_caption(caption) if caption else []
+    for i, line in enumerate(cap_lines):
+        n = len(cap_lines)
+        y = "h-150" if n == 2 and i == 0 else ("h-95" if n == 2 else "h-110")
+        cap_txt = _escape_drawtext(line)
         vchain += (
-            f",drawtext=fontfile={FONT}:text='{cap}':fontsize=34:"
+            f",drawtext=fontfile={FONT}:text='{cap_txt}':fontsize=34:"
             "fontcolor=0x15171a:box=1:boxcolor=0xf6f4ee@0.92:boxborderw=16:"
-            "x=(w-text_w)/2:y=h-110"
+            f"x=(w-text_w)/2:y={y}"
         )
     filters = [vchain + ",format=yuv420p[v]"]
     if wav:
         filters.append(f"[1:a]aresample=48000,apad=whole_dur={dur:.3f}[a]")
-        inputs = ["-stream_loop", "-1", "-i", str(clip), "-i", str(wav)]
+        inputs = ["-i", str(clip), "-i", str(wav)]
     else:
         filters.append(f"anullsrc=r=48000:cl=stereo:d={dur:.3f}[a]")
-        inputs = ["-stream_loop", "-1", "-i", str(clip)]
+        inputs = ["-i", str(clip)]
 
     out = work / f"seg{idx:02d}.mp4"
     _sh(

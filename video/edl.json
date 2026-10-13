@@ -1,20 +1,92 @@
 [
   {
     "clip": "clips/shot01_hancock_all.mp4",
-    "duration": 6,
-    "caption": "Held-out test windows on the USGS Hancock staff camera",
-    "vo": "Waterline reads staff gauges that USGS river cameras already see, and checks every reading against the official sensor."
+    "duration": 12,
+    "caption": "USGS staff camera, East Branch Delaware River at Hancock, NY",
+    "vo": "USGS river cameras point at staff gauges, and nobody reads them. The stage sensors next to those gauges can drift, stick or spike, and a bad sensor can go unnoticed for days."
+  },
+  {
+    "clip": "clips/still_architecture.mp4",
+    "duration": 8,
+    "caption": "Camera reading vs USGS sensor",
+    "vo": "Waterline reads the gauge in each camera frame with OpenCV 5 and compares it with the sensor. When the two disagree for long enough, it opens a flag for a technician."
+  },
+  {
+    "clip": "clips/still_exhibit_before.mp4",
+    "duration": 8,
+    "caption": "SIFT registration, plate rectification, quality gate, waterline changepoint",
+    "vo": "Each frame is registered to a reference image with SIFT. The plate is rectified to a strip, a quality gate checks blur, glare, darkness and tick visibility, and a changepoint detector finds the waterline row."
+  },
+  {
+    "clip": "clips/still_agent_loop.mp4",
+    "duration": 8,
+    "caption": "The next tool is chosen from the last OpenCV result",
+    "vo": "Single reads fail at night, under glare, and when the scene shifts. So an agent picks the next step from what OpenCV reported. It can lift contrast, mask glare, register against another reference, or fetch a neighbouring frame. Then it accepts the reading, marks the water below the plate, abstains, or sends the frame to a person."
   },
   {
     "clip": "clips/shot03_trace_detail.mp4",
     "duration": 7,
-    "caption": "Each tool call is chosen by the policy from the last vision result",
-    "vo": "When a frame fails registration or reads wide, the agent decides what to try next from what OpenCV reported."
+    "caption": "Real trace from the held-out test, in_overland, 2026-04-04 20:45 UTC",
+    "vo": "This is a real trace from the held-out test. Registration failed, so the agent lifted contrast. It failed again, so the agent fetched the next frame. A glare repair lost the reading, so the agent threw that repair away. It accepted 0.52 feet. The gage said 0.50."
   },
   {
-    "clip": "clips/still_agent_loop.mp4",
+    "clip": "clips/still_exhibit_after.mp4",
+    "duration": 6,
+    "caption": "252 of 471 test traces used a tool; replay: 0 mismatches",
+    "vo": "Across 471 test traces, 252 used at least one tool. Every trace replays from the frozen code with zero mismatches."
+  },
+  {
+    "clip": "clips/shot02_window_switch.mp4",
     "duration": 7,
-    "caption": "Perceive, policy, tools, terminal states",
-    "vo": "The deterministic policy loops over the vision output: enhance, re-register, fetch a neighbour, then accept, abstain, or send it to a person."
+    "caption": "Test windows picked from gage data only, frozen at tag freeze-final",
+    "vo": "We picked the test windows from gage data alone, froze the code with a git tag and a protocol hash, and ran the test once."
+  },
+  {
+    "clip": "clips/shot01_hancock_all.mp4",
+    "duration": 12,
+    "caption": "Mean abs error: Hancock 0.307 ft baseline, 0.290 ft agent",
+    "vo": "At Hancock, the agent's mean error was 0.29 feet, against 0.31 for the single-pass pipeline. At the Indiana site both were 0.03 feet. The gain is small, and we report it as small. The agent also sent 29 of 295 Hancock frames to a person instead of guessing."
+  },
+  {
+    "clip": "clips/shot05_fault_table.mp4",
+    "duration": 8,
+    "caption": "Injected faults, 20 per type per window, seed 20261026",
+    "vo": "To test fault detection, we injected drift, stuck, step and spike faults into the real gage record, with a fixed seed. At Hancock, every step and spike was caught, and 95 percent of drifts. At the Indiana site camera reads are sparse, so drift and stuck recall stay low."
+  },
+  {
+    "clip": "clips/shot04_flags_toggle.mp4",
+    "duration": 7,
+    "caption": "8 flags on the clean Hancock record, all with the camera reading low",
+    "vo": "On the clean record, the detector opened 8 flags at Hancock. In all eight the camera reads low, so we label them as false alarms or camera error."
+  },
+  {
+    "clip": "clips/shot06_gallery.mp4",
+    "duration": 7,
+    "caption": "Failure gallery, picked by fixed rules",
+    "vo": "The failure gallery is picked by fixed rules: failed registration, night frames, water below the plate, rejected repairs, and the largest agent errors."
+  },
+  {
+    "clip": "clips/still_gal_registration.mp4",
+    "duration": 6,
+    "caption": "Older frames register less often against 2026 references",
+    "vo": "Registration fails more often on older frames, because our reference images are from 2026."
+  },
+  {
+    "clip": "clips/shot07_mobile_390.mp4",
+    "duration": 5,
+    "caption": "Same dashboard at phone width",
+    "vo": "The dashboard also works on a phone, for review in the field."
+  },
+  {
+    "clip": "clips/still_architecture.mp4",
+    "duration": 8,
+    "caption": "EventBridge, Lambda container, DynamoDB, Bedrock",
+    "vo": "On AWS, EventBridge schedules a Lambda container that runs the OpenCV pipeline and the agent. Readings, traces and flags go to DynamoDB. Bedrock is an optional chooser, and the test used the deterministic policy."
+  },
+  {
+    "clip": "clips/shot01_hancock_all.mp4",
+    "duration": 6,
+    "caption": "github.com/tanayvasishtha/waterline",
+    "vo": "The code, the data and the evaluation scripts are public. Every number in this video comes from a script in the repo."
   }
 ]
