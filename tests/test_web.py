@@ -162,6 +162,183 @@ def test_unknown_site_and_endpoint_404(data_dir: Path) -> None:
     assert status == 404
 
 
+AGENT_COLUMNS = [
+    *COLUMNS,
+    "agent_stage_ft",
+    "agent_sigma_ft",
+    "agent_gage_ft",
+    "agent_status",
+    "agent_steps",
+    "agent_frame_file",
+]
+
+
+def write_agent_csv(path: Path, rows: list[dict[str, str]]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=AGENT_COLUMNS)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def agent_row(time: str, **kw: str) -> dict[str, str]:
+    base = {c: "" for c in AGENT_COLUMNS}
+    base.update(row(time))
+    base.update(kw)
+    return base
+
+
+def _final_summary_doc(blocks: dict[str, dict]) -> dict:
+    stats = {
+        "frames": 2,
+        "gate_pass": 2,
+        "read": 1,
+        "below_plate": 0,
+        "coverage": 0.5,
+        "mae_ft": 0.1,
+        "med_ae_ft": 0.1,
+        "p90_ae_ft": 0.1,
+        "within_2sigma": 1.0,
+        "agent": {
+            "accepted": 1,
+            "deduped": 0,
+            "substituted": 0,
+            "below_range": 0,
+            "abstained": 0,
+            "pending": 1,
+            "read": 1,
+            "mae_ft": 0.08,
+            "avg_steps": 0.5,
+        },
+    }
+    return {
+        "site": "hancock",
+        "all": {"all": {**stats, "mae_ft": 0.2}},
+        "blocks": {k: {"all": dict(v)} for k, v in blocks.items()},
+    }
+
+
+def test_final_readings_join_and_substitute_time(data_dir: Path) -> None:
+    label = "2026-09-01_2026-09-16"
+    write_csv(
+        data_dir / "results" / f"final_eval_hancock_{label}.csv",
+        [
+            row("2026-09-01T02:00:03+00:00", file="Cam___2026-09-01T02-00-03Z.jpg"),
+            row(
+                "2026-09-01T04:00:09+00:00", file="Cam___2026-09-01T04-00-09Z.jpg", stage_ft="10.1"
+            ),
+        ],
+    )
+    write_agent_csv(
+        data_dir / "results" / f"final_eval_agent_hancock_{label}.csv",
+        [
+            agent_row(
+                "2026-09-01T02:00:03+00:00",
+                file="Cam___2026-09-01T02-00-03Z.jpg",
+                agent_status="accepted",
+                agent_stage_ft="10.2",
+                agent_gage_ft="10.0",
+                agent_frame_file="Cam___2026-09-01T04-00-09Z.jpg",
+            ),
+            agent_row(
+                "2026-09-01T04:00:09+00:00",
+                file="Cam___2026-09-01T04-00-09Z.jpg",
+                agent_status="pending",
+            ),
+        ],
+    )
+    (data_dir / "results" / "final_summary_hancock.json").write_text(
+        json.dumps(_final_summary_doc({label: {}}))
+    )
+    rows = web._final_readings("hancock", "all")
+    assert len(rows) == 2
+    first = rows[0]
+    assert first["agent_status"] == "accepted"
+    assert first["agent_stage_ft"] == 10.2
+    # substituted read plots at the source frame's time, not the frame's own
+    assert first["agent_time"] == "2026-09-01T04:00:09Z"
+    assert rows[1]["agent_status"] == "pending"
+    assert rows[1]["agent_time"] == "2026-09-01T04:00:09+00:00"
+
+
+def test_final_readings_agent_csv_not_in_baseline(data_dir: Path) -> None:
+    write_csv(
+        data_dir / "results" / "final_eval_hancock_2026-09-01_2026-09-16.csv",
+        [row("2026-09-01T04:00:09+00:00", stage_ft="10.1")],
+    )
+    write_agent_csv(
+        data_dir / "results" / "final_eval_agent_hancock_2026-09-01_2026-09-16.csv",
+        [agent_row("2026-09-01T02:00:03+00:00", agent_status="accepted", agent_stage_ft="10.2")],
+    )
+    rows = web._final_readings("hancock", "all")
+    assert len(rows) == 1
+    assert rows[0]["time"] == "2026-09-01T04:00:09+00:00"
+
+
+def test_final_summary_block_selection(data_dir: Path) -> None:
+    blocks = {
+        "2026-04-14_2026-05-28": {"mae_ft": 0.35},
+        "2026-09-01_2026-09-16": {"mae_ft": 0.25},
+    }
+    (data_dir / "results" / "final_summary_hancock.json").write_text(
+        json.dumps(_final_summary_doc(blocks))
+    )
+    assert web._final_windows("hancock") == list(blocks)
+    s = web._final_summary("hancock", "2026-09-01_2026-09-16")
+    assert s is not None and s["baseline"]["mae_ft"] == 0.25
+    s = web._final_summary("hancock", "all")
+    assert s is not None and s["baseline"]["mae_ft"] == 0.2
+    assert web._final_summary("hancock", "1999-01-01_1999-01-02") is None
+    # a site with no final files still answers 'all' with an empty block
+    s = web._final_summary("oh_wetland", "all")
+    assert s is not None and s["frames"] == 0 and s["baseline"]["mae_ft"] is None
+
+
+def test_final_faults_endpoint(data_dir: Path) -> None:
+    doc = {
+        "injected": True,
+        "site": "hancock",
+        "skipped": [],
+        "clean": {"flags": 8, "false_flags_per_site_week": 0.95},
+        "faults": {
+            "drift": {
+                "recall": 0.95,
+                "median_delay_h": 27.0,
+                "type_match": 1.0,
+                "n_detected": 38,
+                "trials": 40,
+            }
+        },
+    }
+    (data_dir / "results" / "final_faults_hancock.json").write_text(json.dumps(doc))
+    status, _, body = web.api("/api/final_faults", {"site": ["hancock"]})
+    assert status == 200
+    got = json.loads(body)
+    assert got["injected"] is True
+    assert got["faults"]["drift"]["recall"] == 0.95
+    status, _, body = web.api("/api/final_faults", {"site": ["oh_wetland"]})
+    assert status == 200
+    assert json.loads(body)["available"] is False
+
+
+def test_final_unknown_window_404(data_dir: Path) -> None:
+    write_csv(
+        data_dir / "results" / "final_eval_hancock_2026-09-01_2026-09-16.csv",
+        [row("2026-09-01T04:00:09+00:00", stage_ft="10.1")],
+    )
+    (data_dir / "results" / "final_summary_hancock.json").write_text(
+        json.dumps(_final_summary_doc({"2026-09-01_2026-09-16": {}}))
+    )
+    for ep in ("/api/final_summary", "/api/final_readings"):
+        status, _, body = web.api(ep, {"site": ["hancock"], "window": ["bogus"]})
+        assert status == 404, ep
+        assert json.loads(body)["error"] == "unknown window"
+    status, _, _ = web.api(
+        "/api/final_readings", {"site": ["hancock"], "window": ["2026-09-01_2026-09-16"]}
+    )
+    assert status == 200
+
+
 def test_flags_site_filter(data_dir: Path) -> None:
     for site, stamp in (("hancock", "20260801T0000Z"), ("in_overland", "20260802T0000Z")):
         d = data_dir / "data" / "events" / site / stamp

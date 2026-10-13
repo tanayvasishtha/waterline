@@ -116,6 +116,169 @@ def _summary(site: str) -> dict[str, Any]:
     return out
 
 
+def _final_csvs(site: str, agent: bool) -> list[tuple[str, Path]]:
+    """(window_label, path) pairs for the site's final eval CSVs, sorted.
+
+    The agent set is kept strictly separate: baseline paths must not start with
+    final_eval_agent_ and agent paths must.
+    """
+    out = []
+    prefix = f"final_eval{'_agent' if agent else ''}_{site}_"
+    for path in sorted(RESULTS.glob("final_eval_*.csv")):
+        if path.stem.startswith("final_eval_agent_") != agent:
+            continue
+        if path.stem.startswith(prefix):
+            out.append((path.stem[len(prefix) :], path))
+    return out
+
+
+def _final_windows(site: str) -> list[str]:
+    """Selectable blocks: per-window labels for hancock, years for in_overland."""
+    path = RESULTS / f"final_summary_{site}.json"
+    if path.exists():
+        blocks = json.loads(path.read_text()).get("blocks", {})
+        if blocks:
+            return list(blocks)
+    return [label for label, _ in _final_csvs(site, False)]
+
+
+def _frame_file_time(name: str | None) -> str | None:
+    """Frame filename -> ISO time: ...___2026-09-01T04-00-09Z.jpg -> ...T04:00:09Z."""
+    if not name:
+        return None
+    try:
+        stamp = name.rsplit("___", 1)[1].rsplit(".", 1)[0]
+        day, clock = stamp.split("T")
+        return f"{day}T{clock.replace('-', ':')}"
+    except (IndexError, ValueError):
+        return None
+
+
+def _agent_rows(site: str, label: str) -> dict[str, dict[str, Any]]:
+    """Agent fields per frame file for one window's agent CSV."""
+    out: dict[str, dict[str, Any]] = {}
+    for alabel, path in _final_csvs(site, True):
+        if alabel != label:
+            continue
+        with path.open() as fh:
+            for r in csv.DictReader(fh):
+                stage = r.get("agent_stage_ft")
+                gage = r.get("agent_gage_ft")
+                out[r["file"]] = {
+                    "agent_status": r.get("agent_status") or None,
+                    "agent_stage_ft": float(stage) if stage else None,
+                    "agent_gage_ft": float(gage) if gage else None,
+                    "agent_frame_file": r.get("agent_frame_file") or None,
+                }
+    return out
+
+
+def _final_readings(site: str, window: str) -> list[dict[str, Any]] | None:
+    """Baseline rows joined with agent fields, filtered to one summary block.
+
+    Returns None when the window key names no block of the site's summary.
+    """
+    blocks = set(_final_windows(site))
+    if not blocks:
+        return [] if window == "all" else None
+    if window != "all" and window not in blocks:
+        return None
+    rows = []
+    for label, path in _final_csvs(site, False):
+        block = label if label in blocks else None
+        agents = _agent_rows(site, label)
+        with path.open() as fh:
+            for r in csv.DictReader(fh):
+                row_block = block or r["time"][:4]
+                if window not in ("all", row_block):
+                    continue
+                a = agents.get(r["file"], {})
+                afile = a.get("agent_frame_file")
+                rows.append(
+                    {
+                        "time": r["time"],
+                        "gage_ft": float(r["gage_ft"]) if r.get("gage_ft") else None,
+                        "stage_ft": float(r["stage_ft"]) if r.get("stage_ft") else None,
+                        "status": _status(r),
+                        "file": r["file"],
+                        "is_night": r.get("is_night") == "True",
+                        "agent_status": a.get("agent_status"),
+                        "agent_stage_ft": a.get("agent_stage_ft"),
+                        "agent_gage_ft": a.get("agent_gage_ft"),
+                        "agent_time": (
+                            _frame_file_time(afile) if afile and afile != r["file"] else r["time"]
+                        ),
+                    }
+                )
+    rows.sort(key=lambda r: str(r["time"]))
+    return rows
+
+
+def _final_summary(site: str, window: str) -> dict[str, Any] | None:
+    """The summary block matching the selected window, or the pooled 'all'."""
+    path = RESULTS / f"final_summary_{site}.json"
+    if not path.exists():
+        return (
+            {
+                "site": site,
+                "window": window,
+                "frames": 0,
+                "coverage": None,
+                "within_2sigma": None,
+                "baseline": {"mae_ft": None, "read": 0, "below_plate": 0, "gate_pass": 0},
+                "agent": {
+                    "mae_ft": None,
+                    "accepted": 0,
+                    "pending": 0,
+                    "abstained": 0,
+                    "below_range": 0,
+                    "substituted": 0,
+                    "read": 0,
+                },
+            }
+            if window == "all"
+            else None
+        )
+    data = json.loads(path.read_text())
+    blocks = data.get("blocks", {})
+    sel = data.get("all") if window == "all" else blocks.get(window)
+    if not isinstance(sel, dict):
+        return None
+    stats = sel.get("all", sel)
+    agent = stats.get("agent", {})
+    return {
+        "site": site,
+        "window": window,
+        "frames": stats.get("frames", 0),
+        "coverage": stats.get("coverage"),
+        "within_2sigma": stats.get("within_2sigma"),
+        "baseline": {
+            "mae_ft": stats.get("mae_ft"),
+            "read": stats.get("read", 0),
+            "below_plate": stats.get("below_plate", 0),
+            "gate_pass": stats.get("gate_pass", 0),
+        },
+        "agent": {
+            "mae_ft": agent.get("mae_ft"),
+            "accepted": agent.get("accepted", 0),
+            "pending": agent.get("pending", 0),
+            "abstained": agent.get("abstained", 0),
+            "below_range": agent.get("below_range", 0),
+            "substituted": agent.get("substituted", 0),
+            "read": agent.get("read", 0),
+        },
+    }
+
+
+def _final_faults(site: str) -> dict[str, Any]:
+    """The pooled injected-fault report, or an empty-state marker."""
+    path = RESULTS / f"final_faults_{site}.json"
+    if not path.exists():
+        return {"site": site, "available": False}
+    doc: dict[str, Any] = json.loads(path.read_text())
+    return doc
+
+
 def _flags(site: str | None) -> list[dict[str, Any]]:
     out = []
     events = DATA / "events"
@@ -137,6 +300,18 @@ def _traces(site: str | None) -> list[dict[str, Any]]:
     return out
 
 
+def _final_api(path: str, site: str, query: dict[str, list[str]]) -> Any:
+    """Dispatch the final-results endpoints; None means the window is unknown."""
+    window = (query.get("window") or ["all"])[0]
+    if path == "/api/final_windows":
+        return ["all", *_final_windows(site)]
+    if path == "/api/final_summary":
+        return _final_summary(site, window)
+    if path == "/api/final_readings":
+        return _final_readings(site, window)
+    return _final_faults(site)
+
+
 def api(path: str, query: dict[str, list[str]]) -> tuple[int, str, bytes]:
     """Route an API request to a JSON response."""
     site = (query.get("site") or [""])[0] or None
@@ -147,13 +322,26 @@ def api(path: str, query: dict[str, list[str]]) -> tuple[int, str, bytes]:
         body = _flags(site)
     elif path == "/api/traces":
         body = _traces(site)
-    elif path in ("/api/site", "/api/summary", "/api/readings"):
+    elif path in (
+        "/api/site",
+        "/api/summary",
+        "/api/readings",
+        "/api/final_windows",
+        "/api/final_summary",
+        "/api/final_readings",
+        "/api/final_faults",
+    ):
         if site is None or site not in site_lib.list_sites():
             return 404, "application/json", b'{"error":"unknown site"}'
         if path == "/api/site":
             cfg = site_lib.load_site(site)
             return 200, "application/json", cfg.model_dump_json().encode()
-        body = _summary(site) if path == "/api/summary" else _readings(site)
+        if path.startswith("/api/final_"):
+            body = _final_api(path, site, query)
+            if body is None:
+                return 404, "application/json", b'{"error":"unknown window"}'
+        else:
+            body = _summary(site) if path == "/api/summary" else _readings(site)
     else:
         return 404, "application/json", b'{"error":"unknown endpoint"}'
     return 200, "application/json", json.dumps(body).encode()
