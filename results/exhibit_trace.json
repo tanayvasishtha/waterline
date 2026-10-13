@@ -1,0 +1,60 @@
+{
+  "trace_id": "in_overland-20260404T2045Z",
+  "site_id": "in_overland",
+  "frame_time": "2026-04-04T20:45:24Z",
+  "final_status": "accepted",
+  "final_stage_ft": 0.5229333333333335,
+  "steps": [
+    {
+      "step": 1,
+      "tool": "enhance_gamma",
+      "args": {},
+      "result_summary": "stage=None sigma=None disagree=False reason=registration failed",
+      "decision": "registration failed; try one contrast lift",
+      "latency_ms": 1298.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 2,
+      "tool": "fetch_next",
+      "args": {},
+      "result_summary": "stage=0.5229333333333335 sigma=0.05414182049543587 disagree=False reason=None",
+      "decision": "still cannot register; pull the next frame",
+      "latency_ms": 2788.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 3,
+      "tool": "mask_glare",
+      "args": {},
+      "result_summary": "stage=0.5229333333333335 sigma=0.05414182049543587 disagree=False reason=None",
+      "decision": "repair rejected: lost the reading",
+      "latency_ms": 5363.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    }
+  ],
+  "tools_used": [
+    "enhance_gamma",
+    "fetch_next",
+    "mask_glare"
+  ],
+  "scanned": 471,
+  "traces_with_tool_steps": 252,
+  "traces_by_tool": {
+    "enhance_gamma": 44,
+    "fetch_next": 125,
+    "enhance_clahe": 37,
+    "alt_reference": 37,
+    "mask_glare": 122,
+    "fetch_prev": 1
+  }
+}

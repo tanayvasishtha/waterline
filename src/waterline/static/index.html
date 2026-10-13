@@ -76,6 +76,14 @@ ul.traces .st{float:right;font-weight:600}
 ul.traces .st.accepted{color:var(--river)} ul.traces .st.abstained{color:var(--warn)}
 ul.traces .st.below_range{color:var(--ink2)} ul.traces .st.pending{color:var(--gauge-red)}
 #traceDetail{font:400 11.5px/1.6 "IBM Plex Mono",monospace;padding:10px 14px;white-space:pre-wrap;color:var(--ink);overflow-wrap:anywhere}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:14px;padding:14px}
+.gal figure{border:1px solid var(--line);background:var(--enamel)}
+.gal img{display:block;width:100%}
+.gal figcaption{padding:7px 10px}
+.gal .cat{font:600 10.5px "IBM Plex Mono",monospace;color:var(--gauge-red);letter-spacing:.05em}
+.gal .cap{font:400 10.5px "IBM Plex Mono",monospace;color:var(--ink2);margin-top:2px;overflow-wrap:anywhere}
+.gal .empty{padding:4px 10px 14px;color:var(--ink2);font-size:12.5px}
 .ftable{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table.faults{width:100%;border-collapse:collapse;font:400 12px "IBM Plex Mono",monospace}
 table.faults th{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.06em;color:var(--ink2);
@@ -108,6 +116,7 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
   .stats{grid-template-columns:1fr 1fr}
   canvas#chart{height:240px}
   ul.traces{max-height:240px}
+  .gal{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -143,7 +152,8 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
         <div class="cap" id="latestCap"></div>
       </div>
       <div class="panel" style="margin-top:22px">
-        <h2>Flags on the real record (no fault injected)</h2>
+        <h2>Flags on the real record (no fault injected)
+          <label class="r"><input type="checkbox" id="flagAll"> show all</label></h2>
         <ul class="flags" id="flags"></ul>
         <div class="note" style="padding:6px 14px 10px" id="flagNote">The USGS gage is assumed
           correct here, so each of these is a false alarm or a camera error.</div>
@@ -160,13 +170,17 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
     <div class="ftable"><table class="faults" id="faultTable"></table></div>
     <div class="note" style="padding:6px 14px 10px" id="faultNote"></div>
   </div>
+  <div class="panel" style="margin-top:22px">
+    <h2>Where it fails <span class="r">cases picked by rule from the final run</span></h2>
+    <div class="gal" id="gallery"></div>
+  </div>
   <footer>waterline | opencv 5 + aws | usgs nims imagery + ogc telemetry | all readings machine-generated, flags need a human</footer>
 </main>
 <script>
 const $=s=>document.querySelector(s);
 function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;
   if(text!=null)n.textContent=text;return n;}
-let SITE=null,WIN='all',ROWS=[],TRACES=[];
+let SITE=null,WIN='all',ROWS=[],TRACES=[],FLAGS=[];
 const SEG_MIN=210,SEG_GAP=26,GAP_6H=216e5;
 function railLabels(){
   const t=document.getElementById('ticks');
@@ -198,6 +212,7 @@ async function loadSites(){
   }
   $('#winSel').onchange=e=>{WIN=e.target.value;loadAll();};
   $('#traceAll').onchange=()=>renderTraces(TRACES);
+  $('#flagAll').onchange=()=>renderFlags(FLAGS);
   loadWindows();
 }
 async function loadWindows(){
@@ -411,12 +426,14 @@ function renderLatest(rows){
 }
 function renderFlags(flags){
   const fl=$('#flags');fl.innerHTML='';
+  const all=$('#flagAll').checked;
+  $('#flagAll').parentElement.style.display=flags.length>3?'':'none';
   $('#flagNote').style.display=flags.length?'':'none';
   if(!flags.length){
     fl.appendChild(el('li','none','none; camera and gage agree on the test record'));
     return;
   }
-  for(const f of flags){
+  for(const f of (all?flags:flags.slice(0,3))){
     const li=el('li');
     li.appendChild(el('div','t',f.event_type+', '+f.severity));
     li.appendChild(el('div','d',f.draft_text));
@@ -445,7 +462,7 @@ function renderTraces(traces){
   show.forEach(t=>{
     const li=el('li');
     li.appendChild(document.createTextNode(
-      String(t.frame_time).slice(5,16).replace('T',' ')+', '+t.steps.length+' steps'));
+      String(t.frame_time).slice(5,16).replace('T',' ')+', '+t.steps.length+(t.steps.length===1?' step':' steps')));
     li.appendChild(el('span','st '+t.final_status,t.final_status));
     li.onclick=()=>{
       $('#traceDetail').textContent=t.steps.map(s=>'step '+s.step+'  '+String(s.tool).padEnd(14)+' '+s.decision
@@ -456,19 +473,42 @@ function renderTraces(traces){
     tl.appendChild(li);
   });
 }
+function renderGallery(entries){
+  const box=$('#gallery');box.innerHTML='';
+  if(!entries.length){
+    box.appendChild(el('div','empty','no gallery cases for this site'));
+    return;
+  }
+  const f2=v=>v==null?'-':(+v).toFixed(2);
+  for(const e of entries){
+    const fig=el('figure');
+    const img=el('img');img.loading='lazy';img.alt=e.category+' '+e.time;
+    img.src='/media/'+e.image;
+    fig.appendChild(img);
+    const cap=el('figcaption');
+    cap.appendChild(el('div','cat',e.category.replace(/_/g,' ')));
+    cap.appendChild(el('div','cap',String(e.time).slice(0,16).replace('T',' ')
+      +' | gage '+f2(e.gage_ft)+' ft | baseline '+f2(e.baseline_ft)
+      +' | agent '+f2(e.agent_ft)+' | '+e.status
+      +(e.reason?' | '+e.reason:'')));
+    fig.appendChild(cap);
+    box.appendChild(fig);
+  }
+}
 async function loadAll(){
   const q='?site='+SITE+'&window='+encodeURIComponent(WIN);
-  const [sum,rows,flags,traces,faults]=await Promise.all([
+  const [sum,rows,flags,traces,faults,gallery]=await Promise.all([
     j('/api/final_summary'+q),j('/api/final_readings'+q),
     j('/api/final_flags?site='+SITE),j('/api/final_traces'+q),
-    j('/api/final_faults?site='+SITE)]);
-  ROWS=rows;TRACES=traces;
+    j('/api/final_faults?site='+SITE),j('/api/final_gallery?site='+SITE)]);
+  ROWS=rows;TRACES=traces;FLAGS=flags;
   renderStats(sum);
   drawChart(rows);
   renderLatest(rows);
   renderFlags(flags);
   renderTraces(traces);
   renderFaults(faults);
+  renderGallery(gallery);
 }
 let rT;addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(()=>{railLabels();drawChart(ROWS);},150);});
 loadSites();

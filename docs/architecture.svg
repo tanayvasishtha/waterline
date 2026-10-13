@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 420" width="980" height="420" font-family="'IBM Plex Mono',monospace">
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#15171a"/>
+    </marker>
+  </defs>
+  <rect width="980" height="420" fill="#f6f4ee"/>
+
+  <text x="40" y="36" font-size="15" font-weight="700" fill="#15171a">WATERLINE | AWS data path</text>
+  <text x="40" y="54" font-size="11" fill="#5c6167">public USGS sources in, flags and readings out</text>
+
+  <!-- inputs -->
+  <rect x="40" y="90" width="190" height="60" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="54" y="114" font-size="12" font-weight="600" fill="#15171a">USGS NIMS</text>
+  <text x="54" y="132" font-size="10.5" fill="#5c6167">S3 camera frames, 5–60 min</text>
+  <rect x="40" y="175" width="190" height="60" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="54" y="199" font-size="12" font-weight="600" fill="#15171a">USGS NWIS / OGC</text>
+  <text x="54" y="217" font-size="10.5" fill="#5c6167">gage height telemetry, 15 min</text>
+
+  <!-- schedule -->
+  <path d="M232,122 L282,145" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M232,203 L282,160" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="288" y="128" width="150" height="60" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="302" y="152" font-size="12" font-weight="600" fill="#15171a">EventBridge</text>
+  <text x="302" y="170" font-size="10.5" fill="#5c6167">15 min schedule</text>
+
+  <!-- lambda -->
+  <path d="M440,158 L492,158" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="498" y="78" width="230" height="160" fill="#fdfcf8" stroke="#0e7c86" stroke-width="2.5"/>
+  <text x="514" y="104" font-size="12" font-weight="600" fill="#0e7c86">LAMBDA CONTAINER</text>
+  <text x="514" y="126" font-size="10.5" fill="#15171a">OpenCV 5 pipeline</text>
+  <text x="514" y="143" font-size="10.5" fill="#5c6167">register, rectify, gate, detect</text>
+  <text x="514" y="168" font-size="10.5" fill="#15171a">agent loop + FlagEngine</text>
+  <text x="514" y="185" font-size="10.5" fill="#5c6167">repair, substitute, escalate</text>
+  <text x="514" y="208" font-size="10" fill="#5c6167">one container image, x86+arm</text>
+
+  <!-- stores -->
+  <path d="M730,120 L772,105" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="778" y="78" width="160" height="60" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="792" y="102" font-size="12" font-weight="600" fill="#15171a">DynamoDB</text>
+  <text x="792" y="120" font-size="10.5" fill="#5c6167">readings, traces, flags</text>
+
+  <path d="M730,200 L772,205" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="778" y="178" width="160" height="60" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="792" y="202" font-size="12" font-weight="600" fill="#15171a">Bedrock</text>
+  <text x="792" y="220" font-size="10.5" fill="#5c6167">flag draft text only</text>
+  <text x="620" y="268" font-size="10" fill="#5c6167">drafts stored on the flag record</text>
+  <path d="M858,180 C858,160 760,140 736,136" stroke="#5c6167" stroke-width="1.2" stroke-dasharray="4 3" fill="none" marker-end="url(#ah)"/>
+
+  <!-- outputs -->
+  <path d="M858,140 L858,268" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="778" y="274" width="160" height="60" fill="#fdfcf8" stroke="#c8341e" stroke-width="2"/>
+  <text x="792" y="298" font-size="12" font-weight="600" fill="#c8341e">REVIEW QUEUE</text>
+  <text x="792" y="316" font-size="10.5" fill="#5c6167">a person signs off</text>
+
+  <path d="M778,304 C700,304 660,304 640,304" stroke="#15171a" stroke-width="1.5" fill="none" marker-end="url(#ah)"/>
+  <rect x="420" y="274" width="210" height="60" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="434" y="298" font-size="12" font-weight="600" fill="#15171a">DASHBOARD</text>
+  <text x="434" y="316" font-size="10.5" fill="#5c6167">gage vs camera, traces, faults</text>
+  <path d="M800,274 C760,340 660,340 632,334" stroke="#5c6167" stroke-width="1.2" fill="none" marker-end="url(#ah)"/>
+
+  <text x="40" y="392" font-size="10" fill="#5c6167">every published number comes from a script in this repo</text>
+</svg>

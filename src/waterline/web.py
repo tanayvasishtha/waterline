@@ -6,6 +6,7 @@ evidence images that the poll/eval pipelines already wrote to the data dir.
 
 import csv
 import json
+from collections.abc import Callable
 from functools import cache
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -28,7 +29,7 @@ DEMO_SITES = ("hancock", "in_overland", "oh_wetland")
 def _media_index() -> dict[str, Path]:
     """Lazy filename -> path index over evidence frames, built on first request."""
     index: dict[str, Path] = {}
-    for base in (DATA / "evidence", DATA / "cache"):
+    for base in (DATA / "evidence", DATA / "cache", RESULTS / "gallery"):
         if base.exists():
             for path in base.rglob("*.jpg"):
                 index.setdefault(path.name, path)
@@ -298,6 +299,15 @@ def _in_block(stamp: str, block: str) -> bool:
     return bool(day) and start <= day <= end
 
 
+def _final_gallery(site: str) -> list[dict[str, Any]]:
+    """Rule-picked failure gallery entries for the site."""
+    path = RESULTS / "gallery" / "index.json"
+    if not path.exists():
+        return []
+    entries: list[dict[str, Any]] = json.loads(path.read_text())
+    return [e for e in entries if e.get("site") == site]
+
+
 def _final_traces(site: str, window: str) -> list[dict[str, Any]] | None:
     """Saved replay traces for the selected block; None on an unknown window."""
     blocks = set(_final_windows(site))
@@ -341,17 +351,16 @@ def _traces(site: str | None) -> list[dict[str, Any]]:
 def _final_api(path: str, site: str, query: dict[str, list[str]]) -> Any:
     """Dispatch the final-results endpoints; None means the window is unknown."""
     window = (query.get("window") or ["all"])[0]
-    if path == "/api/final_windows":
-        return ["all", *_final_windows(site)]
-    if path == "/api/final_summary":
-        return _final_summary(site, window)
-    if path == "/api/final_readings":
-        return _final_readings(site, window)
-    if path == "/api/final_flags":
-        return _final_flags(site)
-    if path == "/api/final_traces":
-        return _final_traces(site, window)
-    return _final_faults(site)
+    handlers: dict[str, Callable[[], Any]] = {
+        "/api/final_windows": lambda: ["all", *_final_windows(site)],
+        "/api/final_summary": lambda: _final_summary(site, window),
+        "/api/final_readings": lambda: _final_readings(site, window),
+        "/api/final_flags": lambda: _final_flags(site),
+        "/api/final_traces": lambda: _final_traces(site, window),
+        "/api/final_gallery": lambda: _final_gallery(site),
+    }
+    handler = handlers.get(path)
+    return handler() if handler is not None else _final_faults(site)
 
 
 def api(path: str, query: dict[str, list[str]]) -> tuple[int, str, bytes]:
@@ -373,6 +382,7 @@ def api(path: str, query: dict[str, list[str]]) -> tuple[int, str, bytes]:
         "/api/final_readings",
         "/api/final_flags",
         "/api/final_traces",
+        "/api/final_gallery",
         "/api/final_faults",
     ):
         if site is None or site not in site_lib.list_sites():

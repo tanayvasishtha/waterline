@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560" font-family="'IBM Plex Mono',monospace">
+  <defs>
+    <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#15171a"/>
+    </marker>
+    <marker id="ahT" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#0e7c86"/>
+    </marker>
+  </defs>
+  <rect width="980" height="560" fill="#f6f4ee"/>
+
+  <text x="40" y="36" font-size="15" font-weight="700" fill="#15171a">AGENT LOOP | deterministic policy over OpenCV output</text>
+  <text x="40" y="54" font-size="11" fill="#5c6167">each tool call is chosen from the last vision result; nothing is scripted</text>
+
+  <!-- perceive chain -->
+  <text x="40" y="92" font-size="10.5" font-weight="600" fill="#5c6167">PERCEIVE</text>
+  <rect x="40" y="104" width="120" height="52" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="54" y="126" font-size="11.5" font-weight="600" fill="#15171a">frame in</text>
+  <text x="54" y="142" font-size="9.5" fill="#5c6167">NIMS still</text>
+  <path d="M162,130 L186,130" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="190" y="104" width="120" height="52" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="204" y="126" font-size="11.5" font-weight="600" fill="#15171a">register</text>
+  <text x="204" y="142" font-size="9.5" fill="#5c6167">SIFT vs reference</text>
+  <path d="M312,130 L336,130" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="340" y="104" width="120" height="52" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="354" y="126" font-size="11.5" font-weight="600" fill="#15171a">rectify</text>
+  <text x="354" y="142" font-size="9.5" fill="#5c6167">plate quad to strip</text>
+  <path d="M462,130 L486,130" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="490" y="104" width="140" height="52" fill="#fdfcf8" stroke="#0e7c86" stroke-width="2"/>
+  <text x="504" y="126" font-size="11.5" font-weight="600" fill="#0e7c86">quality gate</text>
+  <text x="504" y="142" font-size="9.5" fill="#5c6167">blur, glare, night, ticks</text>
+  <path d="M632,130 L656,130" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="660" y="104" width="140" height="52" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="674" y="126" font-size="11.5" font-weight="600" fill="#15171a">detect waterline</text>
+  <text x="674" y="142" font-size="9.5" fill="#5c6167">changepoint + ticks</text>
+
+  <!-- perceive -> policy -->
+  <path d="M730,158 L730,206 L480,206 L480,236" stroke="#15171a" stroke-width="1.5" fill="none" marker-end="url(#ah)"/>
+
+  <!-- policy table -->
+  <rect x="330" y="242" width="300" height="92" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="346" y="266" font-size="12" font-weight="600" fill="#15171a">POLICY TABLE</text>
+  <text x="346" y="284" font-size="10" fill="#5c6167">observation + thresholds -> next tool</text>
+  <text x="346" y="300" font-size="10" fill="#5c6167">or terminal state; deterministic</text>
+  <text x="346" y="316" font-size="10" fill="#5c6167">step budget 6</text>
+
+  <!-- tools -->
+  <rect x="700" y="200" width="240" height="180" fill="#fdfcf8" stroke="#0e7c86" stroke-width="2"/>
+  <text x="716" y="224" font-size="12" font-weight="600" fill="#0e7c86">TOOLS</text>
+  <text x="716" y="248" font-size="10.5" fill="#15171a">enhance (CLAHE, gamma)</text>
+  <text x="716" y="268" font-size="10.5" fill="#15171a">mask glare, inpaint</text>
+  <text x="716" y="288" font-size="10.5" fill="#15171a">alt reference re-register</text>
+  <text x="716" y="308" font-size="10.5" fill="#15171a">fetch neighbour frame</text>
+  <text x="716" y="328" font-size="10.5" fill="#15171a">daylight substitute</text>
+  <text x="716" y="356" font-size="9.5" fill="#5c6167">repairs rejected if they lose</text>
+  <text x="716" y="368" font-size="9.5" fill="#5c6167">the reading or gain nothing</text>
+  <path d="M632,288 L694,288" stroke="#0e7c86" stroke-width="1.5" marker-end="url(#ahT)"/>
+  <!-- tools loop back to perceive -->
+  <path d="M820,200 L820,76 L250,76 L250,100" stroke="#0e7c86" stroke-width="1.5" fill="none" marker-end="url(#ahT)"/>
+  <text x="560" y="70" font-size="10" fill="#0e7c86">re-read after each tool call</text>
+
+  <!-- terminal states -->
+  <path d="M400,334 L400,392 L120,392 L120,414" stroke="#15171a" stroke-width="1.5" fill="none" marker-end="url(#ah)"/>
+  <path d="M480,334 L480,414" stroke="#15171a" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M560,334 L560,392 L840,392 L840,414" stroke="#15171a" stroke-width="1.5" fill="none" marker-end="url(#ah)"/>
+  <path d="M330,308 C240,330 210,368 300,392 L300,414" stroke="#15171a" stroke-width="1.5" fill="none" marker-end="url(#ah)"/>
+  <path d="M610,320 C660,340 680,368 660,392 L660,414" stroke="#15171a" stroke-width="1.5" fill="none" marker-end="url(#ah)"/>
+
+  <text x="40" y="406" font-size="10.5" font-weight="600" fill="#5c6167">TERMINAL</text>
+  <rect x="40" y="420" width="150" height="52" fill="#fdfcf8" stroke="#0e7c86" stroke-width="2.5"/>
+  <text x="54" y="442" font-size="11.5" font-weight="600" fill="#0e7c86">ACCEPT</text>
+  <text x="54" y="458" font-size="9.5" fill="#5c6167">reads to the record</text>
+  <rect x="230" y="420" width="150" height="52" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="244" y="442" font-size="11.5" font-weight="600" fill="#15171a">BELOW RANGE</text>
+  <text x="244" y="458" font-size="9.5" fill="#5c6167">water under the plate</text>
+  <rect x="420" y="420" width="150" height="52" fill="#fdfcf8" stroke="#15171a" stroke-width="1.5"/>
+  <text x="434" y="442" font-size="11.5" font-weight="600" fill="#15171a">ABSTAIN</text>
+  <text x="434" y="458" font-size="9.5" fill="#5c6167">no confident read</text>
+  <rect x="610" y="420" width="150" height="52" fill="#fdfcf8" stroke="#c8341e" stroke-width="1.5"/>
+  <text x="624" y="442" font-size="11.5" font-weight="600" fill="#c8341e">PENDING</text>
+  <text x="624" y="458" font-size="9.5" fill="#5c6167">queued for a person</text>
+  <rect x="790" y="420" width="150" height="52" fill="#fdfcf8" stroke="#c8341e" stroke-width="1.5"/>
+  <text x="804" y="442" font-size="11.5" font-weight="600" fill="#c8341e">HUMAN REVIEW</text>
+  <text x="804" y="458" font-size="9.5" fill="#5c6167">flag + draft to queue</text>
+
+  <!-- gate invariant -->
+  <rect x="40" y="496" width="620" height="44" fill="#fdfcf8" stroke="#c8341e" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="54" y="516" font-size="10.5" font-weight="600" fill="#c8341e">GATE INVARIANT</text>
+  <text x="54" y="532" font-size="10" fill="#15171a">a numeric read may be accepted only if the frame it came from passed the quality gate</text>
+  <path d="M115,472 L115,494" stroke="#c8341e" stroke-width="1.5" marker-end="url(#ah)"/>
+
+  <text x="700" y="540" font-size="9" fill="#5c6167">final run: 471 logged traces,</text>
+  <text x="700" y="552" font-size="9" fill="#5c6167">deterministic replay, 0 mismatches</text>
+</svg>
