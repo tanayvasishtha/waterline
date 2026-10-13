@@ -1,0 +1,28 @@
+{
+  "trace_id": "in_overland-20260401T1250Z",
+  "site_id": "in_overland",
+  "frame_time": "2026-04-01T12:50:22Z",
+  "frame_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-04-01T12-50-22Z.jpg",
+  "started_at": "2026-10-13T20:40:29.039267Z",
+  "finished_at": "2026-10-13T20:40:34.859130Z",
+  "steps": [
+    {
+      "step": 1,
+      "tool": "mask_glare",
+      "args": {},
+      "result_summary": "stage=0.9671866666666668 sigma=0.05414182049543587 disagree=False reason=None",
+      "decision": "repair rejected: lost the reading",
+      "latency_ms": 5818.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    }
+  ],
+  "final_status": "accepted",
+  "final_stage_ft": 0.9671866666666668,
+  "final_sigma_ft": 0.05414182049543587,
+  "reason": null,
+  "policy": "deterministic",
+  "llm_calls": 0
+}

@@ -1,0 +1,15 @@
+{
+  "trace_id": "in_overland-20260415T2030Z",
+  "site_id": "in_overland",
+  "frame_time": "2026-04-15T20:30:15Z",
+  "frame_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-04-15T20-30-15Z.jpg",
+  "started_at": "2026-10-13T20:48:36.043492Z",
+  "finished_at": "2026-10-13T20:48:36.043492Z",
+  "steps": [],
+  "final_status": "below_range",
+  "final_stage_ft": null,
+  "final_sigma_ft": null,
+  "reason": "below_plate",
+  "policy": "deterministic",
+  "llm_calls": 0
+}

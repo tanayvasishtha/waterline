@@ -1,0 +1,15 @@
+{
+  "trace_id": "hancock-20260519T1600Z",
+  "site_id": "hancock",
+  "frame_time": "2026-05-19T16:00:17Z",
+  "frame_file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-05-19T16-00-17Z.jpg",
+  "started_at": "2026-10-13T05:34:40.624582Z",
+  "finished_at": "2026-10-13T05:34:40.624582Z",
+  "steps": [],
+  "final_status": "accepted",
+  "final_stage_ft": 10.306526666666667,
+  "final_sigma_ft": 0.4075856609971357,
+  "reason": null,
+  "policy": "deterministic",
+  "llm_calls": 0
+}

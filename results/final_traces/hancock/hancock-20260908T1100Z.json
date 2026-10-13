@@ -1,0 +1,40 @@
+{
+  "trace_id": "hancock-20260908T1100Z",
+  "site_id": "hancock",
+  "frame_time": "2026-09-08T11:00:03Z",
+  "frame_file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-09-08T11-00-03Z.jpg",
+  "started_at": "2026-10-13T20:33:24.993197Z",
+  "finished_at": "2026-10-13T20:33:33.918931Z",
+  "steps": [
+    {
+      "step": 1,
+      "tool": "fetch_next",
+      "args": {},
+      "result_summary": "stage=10.082766666666668 sigma=0.4110895048734992 disagree=True reason=None",
+      "decision": "night frame has no readable ticks; fetch a day frame",
+      "latency_ms": 2890.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 2,
+      "tool": "mask_glare",
+      "args": {},
+      "result_summary": "stage=10.12006 sigma=0.4087205567727118 disagree=False reason=None dR=0.04",
+      "decision": "glare covers the plate; try inpainting",
+      "latency_ms": 6034.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    }
+  ],
+  "final_status": "accepted",
+  "final_stage_ft": 10.12006,
+  "final_sigma_ft": 0.4087205567727118,
+  "reason": null,
+  "policy": "deterministic",
+  "llm_calls": 0
+}

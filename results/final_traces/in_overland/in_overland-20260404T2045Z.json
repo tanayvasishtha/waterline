@@ -1,0 +1,52 @@
+{
+  "trace_id": "in_overland-20260404T2045Z",
+  "site_id": "in_overland",
+  "frame_time": "2026-04-04T20:45:24Z",
+  "frame_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-04-04T20-45-24Z.jpg",
+  "started_at": "2026-10-13T20:46:05.058583Z",
+  "finished_at": "2026-10-13T20:46:14.508458Z",
+  "steps": [
+    {
+      "step": 1,
+      "tool": "enhance_gamma",
+      "args": {},
+      "result_summary": "stage=None sigma=None disagree=False reason=registration failed",
+      "decision": "registration failed; try one contrast lift",
+      "latency_ms": 1298.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 2,
+      "tool": "fetch_next",
+      "args": {},
+      "result_summary": "stage=0.5229333333333335 sigma=0.05414182049543587 disagree=False reason=None",
+      "decision": "still cannot register; pull the next frame",
+      "latency_ms": 2788.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 3,
+      "tool": "mask_glare",
+      "args": {},
+      "result_summary": "stage=0.5229333333333335 sigma=0.05414182049543587 disagree=False reason=None",
+      "decision": "repair rejected: lost the reading",
+      "latency_ms": 5363.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    }
+  ],
+  "final_status": "accepted",
+  "final_stage_ft": 0.5229333333333335,
+  "final_sigma_ft": 0.05414182049543587,
+  "reason": null,
+  "policy": "deterministic",
+  "llm_calls": 0
+}

@@ -1,0 +1,64 @@
+{
+  "trace_id": "in_overland-20260418T1515Z",
+  "site_id": "in_overland",
+  "frame_time": "2026-04-18T15:15:05Z",
+  "frame_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-04-18T15-15-05Z.jpg",
+  "started_at": "2026-10-13T20:52:25.803640Z",
+  "finished_at": "2026-10-13T20:52:36.745093Z",
+  "steps": [
+    {
+      "step": 1,
+      "tool": "mask_glare",
+      "args": {},
+      "result_summary": "stage=0.5229333333333335 sigma=0.05414182049543587 disagree=False reason=None dR=0.49",
+      "decision": "repair rejected: changed the reading by 0.49 ft",
+      "latency_ms": 4659.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 2,
+      "tool": "alt_reference",
+      "args": {},
+      "result_summary": "stage=0.5229333333333335 sigma=0.05414182049543587 disagree=False reason=None",
+      "decision": "repair rejected: lost the reading",
+      "latency_ms": 1078.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 3,
+      "tool": "fetch_prev",
+      "args": {},
+      "result_summary": "nb=None cur=0.5229333333333335",
+      "decision": "neighbour unreadable; try the other side",
+      "latency_ms": 2528.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 4,
+      "tool": "fetch_next",
+      "args": {},
+      "result_summary": "nb=None cur=0.5229333333333335",
+      "decision": "no neighbour could confirm",
+      "latency_ms": 2672.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    }
+  ],
+  "final_status": "pending",
+  "final_stage_ft": 0.5229333333333335,
+  "final_sigma_ft": 0.05414182049543587,
+  "reason": "no neighbour could confirm",
+  "policy": "deterministic",
+  "llm_calls": 0
+}

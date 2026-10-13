@@ -1,0 +1,90 @@
+[
+  {
+    "id": "flag-in_overland-20261013T053224Z-9",
+    "site_id": "in_overland",
+    "opened_at": "2024-03-14T21:15:08Z",
+    "latest_seen": "2024-03-14T21:15:08Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.2070666666666665,
+    "gage_ft": 0.73,
+    "camera_stage_ft": 0.5229333333333335,
+    "camera_sigma_ft": 0.05414182049543587,
+    "persistence_frames": 7,
+    "evidence_frames": [
+      "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2024-03-14T21-15-08Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 0.73 ft. Camera: 0.52 ft. Residual: -0.21 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "in_overland-20240314T2115Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2024-03-14_2024-03-15"
+  },
+  {
+    "id": "flag-in_overland-20261013T053224Z-10",
+    "site_id": "in_overland",
+    "opened_at": "2026-04-04T20:00:05Z",
+    "latest_seen": "2026-04-04T20:00:05Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": 0.14293333333333347,
+    "gage_ft": 0.38,
+    "camera_stage_ft": 0.5229333333333335,
+    "camera_sigma_ft": 0.05414182049543587,
+    "persistence_frames": 2,
+    "evidence_frames": [
+      "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-04-04T20-00-05Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 0.38 ft. Camera: 0.52 ft. Residual: +0.14 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "in_overland-20260404T2000Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-04-04_2026-04-05"
+  },
+  {
+    "id": "flag-in_overland-20261013T053224Z-11",
+    "site_id": "in_overland",
+    "opened_at": "2026-04-15T21:30:05Z",
+    "latest_seen": "2026-04-15T21:30:05Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.26552999999999993,
+    "gage_ft": 1.19,
+    "camera_stage_ft": 0.92447,
+    "camera_sigma_ft": 0.05414182049543587,
+    "persistence_frames": 3,
+    "evidence_frames": [
+      "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-04-15T21-30-05Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 1.19 ft. Camera: 0.92 ft. Residual: -0.27 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "in_overland-20260415T2130Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-04-15_2026-04-16"
+  },
+  {
+    "id": "flag-in_overland-20261013T053224Z-12",
+    "site_id": "in_overland",
+    "opened_at": "2026-04-15T21:50:22Z",
+    "latest_seen": "2026-04-15T21:50:22Z",
+    "event_type": "step",
+    "severity": "watch",
+    "residual_ft": 0.009313333333333285,
+    "gage_ft": 1.18,
+    "camera_stage_ft": 1.1893133333333332,
+    "camera_sigma_ft": 0.05414182049543587,
+    "persistence_frames": 1,
+    "evidence_frames": [
+      "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-04-15T21-50-22Z.jpg"
+    ],
+    "draft_text": "The gage moved differently from what the camera saw between accepted reads: the disagreement in the two changes exceeded 3 combined sigmas. Gage: 1.18 ft. Camera: 1.19 ft. Residual: +0.01 ft.",
+    "trace_id": "in_overland-20260415T2150Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-04-15_2026-04-16"
+  }
+]

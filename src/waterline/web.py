@@ -197,6 +197,7 @@ def _final_readings(site: str, window: str) -> list[dict[str, Any]] | None:
                 rows.append(
                     {
                         "time": r["time"],
+                        "seg": label,
                         "gage_ft": float(r["gage_ft"]) if r.get("gage_ft") else None,
                         "stage_ft": float(r["stage_ft"]) if r.get("stage_ft") else None,
                         "status": _status(r),
@@ -279,6 +280,43 @@ def _final_faults(site: str) -> dict[str, Any]:
     return doc
 
 
+def _final_flags(site: str) -> list[dict[str, Any]]:
+    """Detector flags on the clean final record, newest first."""
+    path = RESULTS / f"final_flags_{site}.json"
+    if not path.exists():
+        return []
+    flags: list[dict[str, Any]] = json.loads(path.read_text())
+    return sorted(flags, key=lambda f: str(f["opened_at"]), reverse=True)
+
+
+def _in_block(stamp: str, block: str) -> bool:
+    """Does a trace's frame timestamp fall inside this summary block key?"""
+    if len(block) == 4 and block.isdigit():
+        return stamp[:4] == block
+    start, _, end = block.partition("_")
+    day = stamp[:10]
+    return bool(day) and start <= day <= end
+
+
+def _final_traces(site: str, window: str) -> list[dict[str, Any]] | None:
+    """Saved replay traces for the selected block; None on an unknown window."""
+    blocks = set(_final_windows(site))
+    if not blocks:
+        return [] if window == "all" else None
+    if window != "all" and window not in blocks:
+        return None
+    tdir = RESULTS / "final_traces" / site
+    if not tdir.exists():
+        return []
+    out = []
+    for path in sorted(tdir.glob("*.json")):
+        d = json.loads(path.read_text())
+        stamp = str(d.get("frame_time") or "")
+        if window == "all" or _in_block(stamp, window):
+            out.append(d)
+    return out
+
+
 def _flags(site: str | None) -> list[dict[str, Any]]:
     out = []
     events = DATA / "events"
@@ -309,6 +347,10 @@ def _final_api(path: str, site: str, query: dict[str, list[str]]) -> Any:
         return _final_summary(site, window)
     if path == "/api/final_readings":
         return _final_readings(site, window)
+    if path == "/api/final_flags":
+        return _final_flags(site)
+    if path == "/api/final_traces":
+        return _final_traces(site, window)
     return _final_faults(site)
 
 
@@ -329,6 +371,8 @@ def api(path: str, query: dict[str, list[str]]) -> tuple[int, str, bytes]:
         "/api/final_windows",
         "/api/final_summary",
         "/api/final_readings",
+        "/api/final_flags",
+        "/api/final_traces",
         "/api/final_faults",
     ):
         if site is None or site not in site_lib.list_sites():

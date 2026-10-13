@@ -1,0 +1,28 @@
+{
+  "trace_id": "hancock-20260517T1000Z",
+  "site_id": "hancock",
+  "frame_time": "2026-05-17T10:00:05Z",
+  "frame_file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-05-17T10-00-05Z.jpg",
+  "started_at": "2026-10-13T05:34:25.805321Z",
+  "finished_at": "2026-10-13T05:34:27.497688Z",
+  "steps": [
+    {
+      "step": 1,
+      "tool": "mask_glare",
+      "args": {},
+      "result_summary": "stage=10.00818 sigma=0.4380795428941232 disagree=False reason=None",
+      "decision": "repair rejected: lost the reading",
+      "latency_ms": 1691.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    }
+  ],
+  "final_status": "accepted",
+  "final_stage_ft": 10.00818,
+  "final_sigma_ft": 0.4380795428941232,
+  "reason": null,
+  "policy": "deterministic",
+  "llm_calls": 0
+}

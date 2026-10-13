@@ -1,0 +1,52 @@
+{
+  "trace_id": "in_overland-20260418T1031Z",
+  "site_id": "in_overland",
+  "frame_time": "2026-04-18T10:31:55Z",
+  "frame_file": "IN_Overland_Flow_East_of_Bull_Rapids_Road_near_Harlan_STAFF___2026-04-18T10-31-55Z.jpg",
+  "started_at": "2026-10-13T20:51:07.037539Z",
+  "finished_at": "2026-10-13T20:51:11.884149Z",
+  "steps": [
+    {
+      "step": 1,
+      "tool": "enhance_gamma",
+      "args": {},
+      "result_summary": "stage=None sigma=None disagree=False reason=registration failed",
+      "decision": "registration failed; try one contrast lift",
+      "latency_ms": 1243.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 2,
+      "tool": "fetch_next",
+      "args": {},
+      "result_summary": "stage=None sigma=None disagree=False reason=registration failed",
+      "decision": "still cannot register; pull the next frame",
+      "latency_ms": 2425.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 3,
+      "tool": "enhance_clahe",
+      "args": {},
+      "result_summary": "stage=None sigma=None disagree=False reason=registration failed",
+      "decision": "no boundary found; try local contrast",
+      "latency_ms": 1177.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    }
+  ],
+  "final_status": "abstained",
+  "final_stage_ft": null,
+  "final_sigma_ft": null,
+  "reason": "no confident reading after the action budget",
+  "policy": "deterministic",
+  "llm_calls": 0
+}

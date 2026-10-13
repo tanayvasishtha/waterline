@@ -1,0 +1,178 @@
+[
+  {
+    "id": "flag-hancock-20261013T053224Z-1",
+    "site_id": "hancock",
+    "opened_at": "2026-04-30T21:00:06Z",
+    "latest_seen": "2026-04-30T21:00:06Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.5614433333333331,
+    "gage_ft": 10.84,
+    "camera_stage_ft": 10.278556666666667,
+    "camera_sigma_ft": 0.4055749257159176,
+    "persistence_frames": 33,
+    "evidence_frames": [
+      "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-04-30T21-00-06Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 10.84 ft. Camera: 10.28 ft. Residual: -0.56 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "hancock-20260430T2100Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-04-14_2026-05-28"
+  },
+  {
+    "id": "flag-hancock-20261013T053224Z-2",
+    "site_id": "hancock",
+    "opened_at": "2026-05-10T16:00:05Z",
+    "latest_seen": "2026-05-10T16:00:05Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.6888866666666669,
+    "gage_ft": 11.07,
+    "camera_stage_ft": 10.381113333333333,
+    "camera_sigma_ft": 0.44874679282888785,
+    "persistence_frames": 26,
+    "evidence_frames": [
+      "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-05-10T16-00-05Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 11.07 ft. Camera: 10.38 ft. Residual: -0.69 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "hancock-20260510T1600Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-04-14_2026-05-28"
+  },
+  {
+    "id": "flag-hancock-20261013T053224Z-3",
+    "site_id": "hancock",
+    "opened_at": "2026-05-13T22:00:05Z",
+    "latest_seen": "2026-05-13T22:00:05Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.33061666666666767,
+    "gage_ft": 10.46,
+    "camera_stage_ft": 10.129383333333333,
+    "camera_sigma_ft": 0.40672932404533274,
+    "persistence_frames": 9,
+    "evidence_frames": [
+      "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-05-13T22-00-05Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 10.46 ft. Camera: 10.13 ft. Residual: -0.33 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "hancock-20260513T2200Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-04-14_2026-05-28"
+  },
+  {
+    "id": "flag-hancock-20261013T053224Z-4",
+    "site_id": "hancock",
+    "opened_at": "2026-05-15T14:00:06Z",
+    "latest_seen": "2026-05-15T14:00:06Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.7958799999999986,
+    "gage_ft": 10.86,
+    "camera_stage_ft": 10.06412,
+    "camera_sigma_ft": 0.410806417898393,
+    "persistence_frames": 4,
+    "evidence_frames": [
+      "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-05-15T14-00-06Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 10.86 ft. Camera: 10.06 ft. Residual: -0.80 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "hancock-20260515T1400Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-04-14_2026-05-28"
+  },
+  {
+    "id": "flag-hancock-20261013T053224Z-5",
+    "site_id": "hancock",
+    "opened_at": "2026-05-17T15:00:06Z",
+    "latest_seen": "2026-05-17T15:00:06Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.47618000000000116,
+    "gage_ft": 10.82,
+    "camera_stage_ft": 10.34382,
+    "camera_sigma_ft": 0.4063628735706341,
+    "persistence_frames": 6,
+    "evidence_frames": [
+      "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-05-17T15-00-06Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 10.82 ft. Camera: 10.34 ft. Residual: -0.48 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "hancock-20260517T1500Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-04-14_2026-05-28"
+  },
+  {
+    "id": "flag-hancock-20261013T053224Z-6",
+    "site_id": "hancock",
+    "opened_at": "2026-09-04T18:00:22Z",
+    "latest_seen": "2026-09-04T18:00:22Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.8616666666666664,
+    "gage_ft": 11.97,
+    "camera_stage_ft": 11.108333333333334,
+    "camera_sigma_ft": 0.41137920566278463,
+    "persistence_frames": 22,
+    "evidence_frames": [
+      "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-09-04T18-00-22Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 11.97 ft. Camera: 11.11 ft. Residual: -0.86 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "hancock-20260904T1800Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-09-01_2026-09-16"
+  },
+  {
+    "id": "flag-hancock-20261013T053224Z-7",
+    "site_id": "hancock",
+    "opened_at": "2026-09-05T16:00:21Z",
+    "latest_seen": "2026-09-05T16:00:21Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.6582099999999986,
+    "gage_ft": 11.03,
+    "camera_stage_ft": 10.37179,
+    "camera_sigma_ft": 0.4059481544673499,
+    "persistence_frames": 7,
+    "evidence_frames": [
+      "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-09-05T16-00-21Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 11.03 ft. Camera: 10.37 ft. Residual: -0.66 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "hancock-20260905T1600Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-09-01_2026-09-16"
+  },
+  {
+    "id": "flag-hancock-20261013T053224Z-8",
+    "site_id": "hancock",
+    "opened_at": "2026-09-06T11:00:03Z",
+    "latest_seen": "2026-09-06T11:00:03Z",
+    "event_type": "drift",
+    "severity": "watch",
+    "residual_ft": -0.46467666666666574,
+    "gage_ft": 10.65,
+    "camera_stage_ft": 10.185323333333335,
+    "camera_sigma_ft": 0.42177449272295575,
+    "persistence_frames": 5,
+    "evidence_frames": [
+      "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-09-06T11-00-03Z.jpg"
+    ],
+    "draft_text": "The camera-minus-gage residual accumulated beyond 5 sigmas to one side across recent accepted reads. Gage: 10.65 ft. Camera: 10.19 ft. Residual: -0.46 ft. Suspect sensor drift or a shifted staff plate.",
+    "trace_id": "hancock-20260906T1100Z",
+    "status": "open",
+    "reviewer": null,
+    "note": null,
+    "window": "2026-09-01_2026-09-16"
+  }
+]

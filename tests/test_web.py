@@ -350,3 +350,93 @@ def test_flags_site_filter(data_dir: Path) -> None:
     mine = web._flags("hancock")
     assert len(mine) == 1
     assert mine[0]["site_id"] == "hancock"
+
+
+def test_final_flags_endpoint(data_dir: Path) -> None:
+    flag = {
+        "id": "hancock-drift-20260902T0100Z",
+        "site_id": "hancock",
+        "opened_at": "2026-09-02T01:00:00+00:00",
+        "latest_seen": "2026-09-05T01:00:00+00:00",
+        "event_type": "drift",
+        "severity": "watch",
+        "residual_ft": 0.31,
+        "gage_ft": 10.0,
+        "camera_stage_ft": 10.31,
+        "camera_sigma_ft": 0.1,
+        "persistence_frames": 4,
+        "evidence_frames": ["Cam___2026-09-02T01-00-00Z.jpg"],
+        "draft_text": "camera reads above the gage",
+        "trace_id": None,
+        "status": "open",
+        "window": "2026-09-01_2026-09-16",
+    }
+    (data_dir / "results" / "final_flags_hancock.json").write_text(json.dumps([flag]))
+    status, _, body = web.api("/api/final_flags", {"site": ["hancock"]})
+    assert status == 200
+    got = json.loads(body)
+    assert len(got) == 1
+    assert got[0]["event_type"] == "drift"
+    assert got[0]["residual_ft"] == 0.31
+    # empty state: a site with no flags file answers []
+    status, _, body = web.api("/api/final_flags", {"site": ["oh_wetland"]})
+    assert status == 200
+    assert json.loads(body) == []
+
+
+def _trace(tdir: Path, name: str, stamp: str) -> None:
+    tdir.mkdir(parents=True, exist_ok=True)
+    (tdir / name).write_text(
+        json.dumps(
+            {
+                "trace_id": name[:-5],
+                "site_id": "hancock",
+                "frame_time": stamp,
+                "frame_file": "f.jpg",
+                "steps": [],
+                "final_status": "accepted",
+                "final_stage_ft": 10.0,
+            }
+        )
+    )
+
+
+def test_final_traces_window_filter(data_dir: Path) -> None:
+    (data_dir / "results" / "final_summary_hancock.json").write_text(
+        json.dumps(_final_summary_doc({"2026-09-01_2026-09-16": {}}))
+    )
+    tdir = data_dir / "results" / "final_traces" / "hancock"
+    _trace(tdir, "hancock-20260905T1200Z.json", "2026-09-05T12:00:00+00:00")
+    _trace(tdir, "hancock-20260420T1200Z.json", "2026-04-20T12:00:00+00:00")
+    all_t = web._final_traces("hancock", "all")
+    assert all_t is not None and len(all_t) == 2
+    win = web._final_traces("hancock", "2026-09-01_2026-09-16")
+    assert win is not None and len(win) == 1
+    assert str(win[0]["frame_time"]).startswith("2026-09-05")
+    assert web._final_traces("hancock", "bogus") is None
+
+
+def test_final_traces_year_block(data_dir: Path) -> None:
+    (data_dir / "results" / "final_summary_in_overland.json").write_text(
+        json.dumps(_final_summary_doc({"2026": {}}))
+    )
+    tdir = data_dir / "results" / "final_traces" / "in_overland"
+    _trace(tdir, "in_overland-20260404T1200Z.json", "2026-04-04T12:00:00+00:00")
+    _trace(tdir, "in_overland-20250730T1200Z.json", "2025-07-30T12:00:00+00:00")
+    win = web._final_traces("in_overland", "2026")
+    assert win is not None and len(win) == 1
+    assert str(win[0]["frame_time"]).startswith("2026-04-04")
+
+
+def test_final_traces_empty_states(data_dir: Path) -> None:
+    # no summary and no trace dir: 'all' is an empty list, a named window 404s
+    assert web._final_traces("oh_wetland", "all") == []
+    assert web._final_traces("oh_wetland", "2026") is None
+    # summary exists but no saved traces yet: empty list
+    (data_dir / "results" / "final_summary_hancock.json").write_text(
+        json.dumps(_final_summary_doc({"2026-09-01_2026-09-16": {}}))
+    )
+    assert web._final_traces("hancock", "all") == []
+    status, _, body = web.api("/api/final_traces", {"site": ["hancock"], "window": ["all"]})
+    assert status == 200
+    assert json.loads(body) == []

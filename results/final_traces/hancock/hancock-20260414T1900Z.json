@@ -1,0 +1,40 @@
+{
+  "trace_id": "hancock-20260414T1900Z",
+  "site_id": "hancock",
+  "frame_time": "2026-04-14T19:00:14Z",
+  "frame_file": "NY_East_Branch_Delaware_River_at_Hancock_Staff___2026-04-14T19-00-14Z.jpg",
+  "started_at": "2026-10-13T05:33:04.639095Z",
+  "finished_at": "2026-10-13T05:33:06.461403Z",
+  "steps": [
+    {
+      "step": 1,
+      "tool": "enhance_gamma",
+      "args": {},
+      "result_summary": "stage=None sigma=None disagree=False reason=registration failed",
+      "decision": "registration failed; try one contrast lift",
+      "latency_ms": 193.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    },
+    {
+      "step": 2,
+      "tool": "fetch_next",
+      "args": {},
+      "result_summary": "stage=None sigma=None disagree=False reason=below_plate",
+      "decision": "still cannot register; pull the next frame",
+      "latency_ms": 1629.0,
+      "tokens_in": 0,
+      "tokens_out": 0,
+      "cost_usd": 0.0,
+      "fallback": false
+    }
+  ],
+  "final_status": "below_range",
+  "final_stage_ft": null,
+  "final_sigma_ft": null,
+  "reason": "below_plate",
+  "policy": "deterministic",
+  "llm_calls": 0
+}

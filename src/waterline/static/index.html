@@ -47,7 +47,9 @@ button:focus-visible,a:focus-visible,li:focus-visible{outline:2px solid var(--ga
 .panel h2{font:600 11px/1 "IBM Plex Mono",monospace;letter-spacing:.08em;color:var(--ink2);
   padding:10px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
 .panel h2 .r{font-weight:400}
-canvas#chart{display:block;width:100%;height:340px}
+.panel h2 .r input{vertical-align:-1px}
+.chartwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+canvas#chart{display:block;height:340px}
 .legend{display:flex;gap:16px;flex-wrap:wrap;padding:8px 14px;font:500 11px "IBM Plex Mono",monospace;color:var(--ink2)}
 .legend i{display:inline-block;width:10px;height:10px;margin-right:5px;vertical-align:-1px}
 .latest img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top}
@@ -62,8 +64,8 @@ canvas#chart{display:block;width:100%;height:340px}
 ul.flags{list-style:none}
 ul.flags li{border-bottom:1px solid var(--line);padding:11px 14px}
 ul.flags .t{font:600 12px "IBM Plex Mono",monospace;color:var(--gauge-red)}
-ul.flags .d{font-size:12.5px;color:var(--ink);margin-top:3px}
-ul.flags .m{font:400 10.5px "IBM Plex Mono",monospace;color:var(--ink2);margin-top:4px}
+ul.flags .d{font-size:12.5px;color:var(--ink);margin-top:3px;overflow-wrap:anywhere}
+ul.flags .m{font:400 10.5px "IBM Plex Mono",monospace;color:var(--ink2);margin-top:4px;overflow-wrap:anywhere}
 ul.flags li.none{color:var(--ink2);font-size:12.5px}
 ul.traces{list-style:none;max-height:280px;overflow:auto}
 ul.traces li{border-bottom:1px solid var(--line);padding:8px 14px;font:400 11.5px "IBM Plex Mono",monospace;cursor:pointer}
@@ -73,7 +75,7 @@ ul.traces li.none:hover{background:transparent}
 ul.traces .st{float:right;font-weight:600}
 ul.traces .st.accepted{color:var(--river)} ul.traces .st.abstained{color:var(--warn)}
 ul.traces .st.below_range{color:var(--ink2)} ul.traces .st.pending{color:var(--gauge-red)}
-#traceDetail{font:400 11.5px/1.6 "IBM Plex Mono",monospace;padding:10px 14px;white-space:pre-wrap;color:var(--ink)}
+#traceDetail{font:400 11.5px/1.6 "IBM Plex Mono",monospace;padding:10px 14px;white-space:pre-wrap;color:var(--ink);overflow-wrap:anywhere}
 .ftable{overflow-x:auto;-webkit-overflow-scrolling:touch}
 table.faults{width:100%;border-collapse:collapse;font:400 12px "IBM Plex Mono",monospace}
 table.faults th{font:600 10px "IBM Plex Mono",monospace;letter-spacing:.06em;color:var(--ink2);
@@ -123,7 +125,7 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
   <div class="grid">
     <div class="panel">
       <h2>Camera vs gage <span class="r" id="win"></span></h2>
-      <canvas id="chart"></canvas>
+      <div class="chartwrap"><canvas id="chart"></canvas></div>
       <div class="legend">
         <span><i style="background:var(--gage)"></i>usgs gage</span>
         <span><i style="background:transparent;border:1.6px solid var(--river);border-radius:50%"></i>baseline read</span>
@@ -141,13 +143,15 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
         <div class="cap" id="latestCap"></div>
       </div>
       <div class="panel" style="margin-top:22px">
-        <h2>Flags <span class="r">human review queue</span></h2>
-        <ul class="flags" id="flags"><li class="none">none open, camera and sensor agree</li></ul>
+        <h2>Flags on the real record (no fault injected)</h2>
+        <ul class="flags" id="flags"></ul>
+        <div class="note" style="padding:6px 14px 10px" id="flagNote">The USGS gage is assumed
+          correct here, so each of these is a false alarm or a camera error.</div>
       </div>
     </div>
   </div>
   <div class="grid lower">
-    <div class="panel"><h2>Agent traces <span class="r">click to inspect</span></h2>
+    <div class="panel"><h2>Agent traces <label class="r"><input type="checkbox" id="traceAll"> all</label></h2>
       <ul class="traces" id="traces"></ul></div>
     <div class="panel"><h2>Trace detail</h2><div id="traceDetail">select a trace</div></div>
   </div>
@@ -162,7 +166,8 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
 const $=s=>document.querySelector(s);
 function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;
   if(text!=null)n.textContent=text;return n;}
-let SITE=null,WIN='all',ROWS=[];
+let SITE=null,WIN='all',ROWS=[],TRACES=[];
+const SEG_MIN=210,SEG_GAP=26,GAP_6H=216e5;
 function railLabels(){
   const t=document.getElementById('ticks');
   t.querySelectorAll('.ft').forEach(n=>n.remove());
@@ -192,6 +197,7 @@ async function loadSites(){
     box.appendChild(b);
   }
   $('#winSel').onchange=e=>{WIN=e.target.value;loadAll();};
+  $('#traceAll').onchange=()=>renderTraces(TRACES);
   loadWindows();
 }
 async function loadWindows(){
@@ -206,12 +212,38 @@ async function loadWindows(){
 }
 function drawChart(rows){
   const c=$('#chart'),dpr=devicePixelRatio||1;
-  const W=c.clientWidth,H=c.clientHeight;c.width=W*dpr;c.height=H*dpr;
-  const x=c.getContext('2d');x.scale(dpr,dpr);
-  x.font='10px "IBM Plex Mono",monospace';
+  const H=c.clientHeight,x=c.getContext('2d');
+  const pad={l:44,r:12,t:14,b:34};
+  const wrap=c.parentElement,avail=wrap.clientWidth;
+  const segs=[];
+  for(const r of rows){
+    const key=r.seg||'all';
+    const last=segs[segs.length-1];
+    if(last&&last.key===key)last.rows.push(r);
+    else segs.push({key,rows:[r]});
+  }
   const g=rows.filter(r=>r.gage_ft!=null);
-  if(!g.length){x.fillStyle='#5c6167';x.fillText('no held-out readings',20,30);return;}
-  const pad={l:44,r:12,t:14,b:26};
+  if(!g.length){
+    c.style.width='100%';const W0=avail||c.clientWidth;
+    c.width=W0*dpr;c.height=H*dpr;x.scale(dpr,dpr);
+    x.font='10px "IBM Plex Mono",monospace';
+    x.fillStyle='#5c6167';x.fillText('no held-out readings',20,30);return;
+  }
+  for(const s of segs){
+    const ts=[];
+    for(const r of s.rows){
+      ts.push(Date.parse(r.time));
+      if(r.agent_time)ts.push(Date.parse(r.agent_time));
+    }
+    s.t0=Math.min(...ts);s.t1=Math.max(...ts);
+  }
+  // Equal-width segments: stretch to fill the panel, floor at SEG_MIN, scroll
+  // inside the wrap when the floor overflows it. The page itself never scrolls.
+  const segW=Math.max(SEG_MIN,(avail-pad.l-pad.r-(segs.length-1)*SEG_GAP)/segs.length);
+  const W=Math.max(avail,pad.l+segs.length*segW+(segs.length-1)*SEG_GAP+pad.r);
+  c.style.width=W+'px';
+  c.width=W*dpr;c.height=H*dpr;x.scale(dpr,dpr);
+  x.font='10px "IBM Plex Mono",monospace';
   const vs=[...g.map(r=>r.gage_ft),...g.map(r=>r.stage_ft).filter(v=>v!=null),
     ...rows.map(r=>r.agent_stage_ft).filter(v=>v!=null)];
   const span=Math.max(...vs)-Math.min(...vs)||1;
@@ -220,10 +252,8 @@ function drawChart(rows){
   const dec=Math.max(0,-Math.floor(Math.log10(step)));
   const lo=Math.floor((Math.min(...vs)-0.05)/step)*step;
   const hi=Math.ceil((Math.max(...vs)+0.05)/step)*step;
-  const times=[...g.map(r=>Date.parse(r.time)),
-    ...rows.map(r=>r.agent_time?Date.parse(r.agent_time):NaN).filter(v=>!isNaN(v))];
-  const t0=Math.min(...times),t1=Math.max(...times);
-  const X=t=>pad.l+(Date.parse(t)-t0)/(t1-t0||1)*(W-pad.l-pad.r);
+  const sx0=i=>pad.l+i*(segW+SEG_GAP);
+  const X=(i,t)=>sx0(i)+(Date.parse(t)-segs[i].t0)/((segs[i].t1-segs[i].t0)||1)*segW;
   const Y=v=>pad.t+(hi-v)/(hi-lo)*(H-pad.t-pad.b);
   x.strokeStyle='#d9d5c9';x.fillStyle='#5c6167';
   for(let v=lo;v<=hi+step/2;v+=step){
@@ -231,51 +261,90 @@ function drawChart(rows){
     x.beginPath();x.moveTo(pad.l,yy);x.lineTo(W-pad.r,yy);x.stroke();
     x.fillText(v.toFixed(dec),6,yy+3);
   }
-  const dayMs=864e5;
-  const xt=[];
-  if(t1-t0>=2*dayMs){
-    for(let t=Math.ceil(t0/dayMs)*dayMs;t<=t1;t+=dayMs)
-      xt.push({t,lab:new Date(t).toISOString().slice(5,10)});
-  }else{
-    const hrs=[1,2,3,6,12].find(h=>(t1-t0)/36e5/h<=6)||24;
-    for(let t=Math.ceil(t0/(hrs*36e5))*hrs*36e5;t<=t1;t+=hrs*36e5)
-      xt.push({t,lab:new Date(t).toISOString().slice(11,16)});
-  }
-  for(const k of xt){
-    const tx=X(new Date(k.t).toISOString());
-    x.strokeStyle='#d9d5c9';x.beginPath();x.moveTo(tx,H-pad.b);x.lineTo(tx,H-pad.b+4);x.stroke();
-    x.fillStyle='#5c6167';
-    x.fillText(k.lab,Math.min(Math.max(tx-14,pad.l-10),W-pad.r-30),H-8);
-  }
-  for(const r of g)if(r.is_night){x.fillStyle='rgba(22,24,27,.06)';x.fillRect(X(r.time)-3,pad.t,6,H-pad.t-pad.b);}
-  x.strokeStyle='#1d4ed8';x.lineWidth=1.6;x.beginPath();
-  g.forEach((r,i)=>i?x.lineTo(X(r.time),Y(r.gage_ft)):x.moveTo(X(r.time),Y(r.gage_ft)));
-  x.stroke();
-  for(const r of g){
-    if(r.stage_ft==null){
-      if(r.status==='below_range'){
-        x.fillStyle='#5c6167';x.beginPath();x.arc(X(r.time),H-pad.b-2,2.5,0,7);x.fill();
+  // Per-segment date ticks plus a break marker at each seam.
+  segs.forEach((s,i)=>{
+    const x0=sx0(i),x1=x0+segW;
+    const day=s.t1-s.t0>=1728e5;
+    const fmt=t=>day
+      ?new Date(t).toISOString().slice(5,10)
+      :new Date(t).toISOString().slice(5,16).replace('T',' ');
+    x.strokeStyle='#d9d5c9';
+    for(const tx of[x0,x1]){
+      x.beginPath();x.moveTo(tx,H-pad.b);x.lineTo(tx,H-pad.b+4);x.stroke();
+    }
+    x.fillStyle='#5c6167';x.textAlign='left';
+    x.fillText(fmt(s.t0),x0,H-8);
+    x.textAlign='right';x.fillText(fmt(s.t1),x1,H-8);x.textAlign='left';
+    if(i<segs.length-1){
+      const mid=x0+segW+SEG_GAP/2;
+      x.strokeStyle='#b9b4a6';x.setLineDash([3,3]);
+      x.beginPath();x.moveTo(mid,pad.t);x.lineTo(mid,H-pad.b+2);x.stroke();
+      x.setLineDash([]);
+      x.lineWidth=1.2;x.beginPath();
+      x.moveTo(mid-4,H-pad.b-10);x.lineTo(mid+4,H-pad.b-4);
+      x.moveTo(mid-4,H-pad.b-2);x.lineTo(mid+4,H-pad.b+4);x.stroke();
+    }
+  });
+  // Night as contiguous bands, one fill per run.
+  x.fillStyle='rgba(22,24,27,.06)';
+  segs.forEach((s,i)=>{
+    let run=null;
+    const flush=b=>{
+      const xA=X(i,s.rows[run].time)-3;
+      const xB=b<s.rows.length?X(i,s.rows[b].time):X(i,s.rows[s.rows.length-1].time)+3;
+      x.fillRect(xA,pad.t,Math.max(xB-xA,4),H-pad.t-pad.b);
+    };
+    s.rows.forEach((r,j)=>{
+      if(r.is_night){if(run==null)run=j;}
+      else if(run!=null){flush(j);run=null;}
+    });
+    if(run!=null)flush(s.rows.length);
+  });
+  // Gage line per segment, broken at any gap over 6 h.
+  x.strokeStyle='#1d4ed8';x.lineWidth=1.6;
+  segs.forEach((s,i)=>{
+    const gr=s.rows.filter(r=>r.gage_ft!=null);
+    let pen=false,pt=0;
+    x.beginPath();
+    for(const r of gr){
+      const t=Date.parse(r.time);
+      if(!pen||t-pt>GAP_6H)x.moveTo(X(i,r.time),Y(r.gage_ft));
+      else x.lineTo(X(i,r.time),Y(r.gage_ft));
+      pen=true;pt=t;
+    }
+    x.stroke();
+  });
+  segs.forEach((s,i)=>{
+    for(const r of s.rows){
+      if(r.gage_ft==null)continue;
+      if(r.stage_ft==null){
+        if(r.status==='below_range'){
+          x.fillStyle='#5c6167';x.beginPath();
+          x.arc(X(i,r.time),H-pad.b-2,2.5,0,7);x.fill();
+        }
+        continue;
       }
-      continue;
+      const err=Math.abs(r.stage_ft-r.gage_ft);
+      x.strokeStyle=err>0.5?'#c8341e':'#0e7c86';x.lineWidth=1.6;
+      x.beginPath();x.arc(X(i,r.time),Y(r.stage_ft),3.4,0,7);x.stroke();
     }
-    const err=Math.abs(r.stage_ft-r.gage_ft);
-    const col=err>0.5?'#c8341e':'#0e7c86';
-    x.strokeStyle=col;x.lineWidth=1.6;
-    x.beginPath();x.arc(X(r.time),Y(r.stage_ft),3.4,0,7);x.stroke();
-  }
-  for(const r of rows){
-    if(r.agent_status==='accepted'&&r.agent_stage_ft!=null&&r.agent_time){
-      const ref=r.agent_gage_ft!=null?r.agent_gage_ft:r.gage_ft;
-      const err=ref!=null?Math.abs(r.agent_stage_ft-ref):0;
-      x.fillStyle=err>0.5?'#c8341e':'#0e7c86';
-      x.beginPath();x.arc(X(r.agent_time),Y(r.agent_stage_ft),3.4,0,7);x.fill();
-    }else if(r.agent_status==='pending'){
-      x.strokeStyle='#c8341e';x.lineWidth=1.4;
-      x.beginPath();x.moveTo(X(r.time),H-pad.b-7);x.lineTo(X(r.time),H-pad.b-1);x.stroke();
-    }else if(r.agent_status==='below_range'){
-      x.fillStyle='#5c6167';x.beginPath();x.arc(X(r.time),H-pad.b-2,2,0,7);x.fill();
+  });
+  segs.forEach((s,i)=>{
+    for(const r of s.rows){
+      if(r.agent_status==='accepted'&&r.agent_stage_ft!=null&&r.agent_time){
+        const ref=r.agent_gage_ft!=null?r.agent_gage_ft:r.gage_ft;
+        const err=ref!=null?Math.abs(r.agent_stage_ft-ref):0;
+        x.fillStyle=err>0.5?'#c8341e':'#0e7c86';
+        x.beginPath();x.arc(X(i,r.agent_time),Y(r.agent_stage_ft),3.4,0,7);x.fill();
+      }else if(r.agent_status==='pending'){
+        x.strokeStyle='#c8341e';x.lineWidth=1.4;
+        x.beginPath();x.moveTo(X(i,r.time),H-pad.b-7);x.lineTo(X(i,r.time),H-pad.b-1);x.stroke();
+      }else if(r.agent_status==='below_range'){
+        x.fillStyle='#5c6167';x.beginPath();
+        x.arc(X(i,r.time),H-pad.b-2,2,0,7);x.fill();
+      }
     }
-  }
+  });
 }
 function renderStats(sum){
   const box=$('#stats');box.innerHTML='';
@@ -331,8 +400,10 @@ function renderLatest(rows){
   if(last){
     img.style.display='';
     img.src='/media/'+last.file.split(/[\\/]/).pop();
-    cap.textContent=String(last.time).replace('T',' ').slice(0,19)+', gage '+last.gage_ft
-      +' ft, camera '+(last.stage_ft??last.status);
+    const cam=last.agent_stage_ft!=null?last.agent_stage_ft:last.stage_ft;
+    cap.textContent=String(last.time).replace('T',' ').slice(0,19)
+      +', gage '+(last.gage_ft!=null?(+last.gage_ft).toFixed(2):'-')
+      +' ft, camera '+(cam!=null?(+cam).toFixed(2):last.status)+' ft';
   }else{
     img.removeAttribute('src');img.style.display='none';
     cap.textContent='no frame cached';
@@ -340,23 +411,41 @@ function renderLatest(rows){
 }
 function renderFlags(flags){
   const fl=$('#flags');fl.innerHTML='';
-  if(!flags.length){fl.appendChild(el('li','none','none open, camera and sensor agree'));return;}
+  $('#flagNote').style.display=flags.length?'':'none';
+  if(!flags.length){
+    fl.appendChild(el('li','none','none; camera and gage agree on the test record'));
+    return;
+  }
   for(const f of flags){
     const li=el('li');
     li.appendChild(el('div','t',f.event_type+', '+f.severity));
     li.appendChild(el('div','d',f.draft_text));
+    const ev=(f.evidence_frames&&f.evidence_frames.length)
+      ?f.evidence_frames[f.evidence_frames.length-1].split(/[\\/]/).pop():'';
     li.appendChild(el('div','m','opened '+String(f.opened_at).slice(0,16).replace('T',' ')
-      +', residual '+(+f.residual_ft).toFixed(2)+' ft, '+f.evidence_frames.length+' evidence frames'));
+      +' | gage '+(+f.gage_ft).toFixed(2)+' ft, camera '+(+f.camera_stage_ft).toFixed(2)
+      +' ft, residual '+(+f.residual_ft).toFixed(2)+' ft | '+ev));
     fl.appendChild(li);
   }
 }
 function renderTraces(traces){
   const tl=$('#traces');tl.innerHTML='';
   $('#traceDetail').textContent='select a trace';
-  if(!traces.length){tl.appendChild(el('li','none','no agent traces for this site'));return;}
-  traces.slice().reverse().forEach(t=>{
+  const all=$('#traceAll').checked;
+  const sorted=traces.slice().sort((a,b)=>
+    ((b.steps.length>=1)-(a.steps.length>=1))
+    ||String(b.frame_time).localeCompare(String(a.frame_time)));
+  const show=all?sorted:sorted.filter(t=>t.steps.length>=1);
+  if(!show.length){
+    tl.appendChild(el('li','none',
+      traces.length?'all traces finished in one step, tick "all" to list them'
+        :'no saved traces for this window'));
+    return;
+  }
+  show.forEach(t=>{
     const li=el('li');
-    li.appendChild(document.createTextNode(String(t.frame_time).slice(5,16).replace('T',' ')+', '+t.steps.length+' steps'));
+    li.appendChild(document.createTextNode(
+      String(t.frame_time).slice(5,16).replace('T',' ')+', '+t.steps.length+' steps'));
     li.appendChild(el('span','st '+t.final_status,t.final_status));
     li.onclick=()=>{
       $('#traceDetail').textContent=t.steps.map(s=>'step '+s.step+'  '+String(s.tool).padEnd(14)+' '+s.decision).join('\n')
@@ -369,9 +458,9 @@ async function loadAll(){
   const q='?site='+SITE+'&window='+encodeURIComponent(WIN);
   const [sum,rows,flags,traces,faults]=await Promise.all([
     j('/api/final_summary'+q),j('/api/final_readings'+q),
-    j('/api/flags?site='+SITE),j('/api/traces?site='+SITE),
+    j('/api/final_flags?site='+SITE),j('/api/final_traces'+q),
     j('/api/final_faults?site='+SITE)]);
-  ROWS=rows;
+  ROWS=rows;TRACES=traces;
   renderStats(sum);
   drawChart(rows);
   renderLatest(rows);
