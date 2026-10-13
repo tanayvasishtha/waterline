@@ -448,7 +448,9 @@ function renderTraces(traces){
       String(t.frame_time).slice(5,16).replace('T',' ')+', '+t.steps.length+' steps'));
     li.appendChild(el('span','st '+t.final_status,t.final_status));
     li.onclick=()=>{
-      $('#traceDetail').textContent=t.steps.map(s=>'step '+s.step+'  '+String(s.tool).padEnd(14)+' '+s.decision).join('\n')
+      $('#traceDetail').textContent=t.steps.map(s=>'step '+s.step+'  '+String(s.tool).padEnd(14)+' '+s.decision
+        +'\n    saw: '+s.result_summary
+        +(s.args&&Object.keys(s.args).length?'\n    args: '+JSON.stringify(s.args):'')).join('\n')
         +'\n\nfinal: '+t.final_status+' '+(t.final_stage_ft??'')+' ft  ('+(t.reason??'ok')+')';
     };
     tl.appendChild(li);
