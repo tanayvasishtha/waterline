@@ -95,7 +95,7 @@ drift (`src/waterline/agent/fault.py`, thresholds in `settings.py`).
 - **Step**: the gage moves and the camera disagrees, by more than 3 combined
   sigmas.
 - **Drift**: a z-scored CUSUM over camera-minus-gage residuals (residual divided
-  by each reading's sigma), textbook k = 0.5, h = 5 (ARL0 about 465 frames).
+  by each reading's sigma), textbook k = 0.5, h = 5.
 
 Flags carry persistence (consecutive frames seen), evidence frames, and a draft
 review note. The injected-fault scorer replays the real record with a seeded
