@@ -27,5 +27,17 @@ const shots = [
     console.log(`${name} scrollWidth=${sw} viewport=${w} overflow=${sw > w}`);
     await page.close();
   }
+  // ?window= deep link must select the requested window and filter the
+  // trace list (io windows are year aggregates: 2026 = 2026-03/2026-04 rows)
+  const dp = await browser.newPage({ viewport: { width: 1440, height: 1200 } });
+  await dp.goto('http://localhost:8711/?site=in_overland&window=2026&trace=in_overland-20260404T2045Z', { waitUntil: 'networkidle' });
+  await dp.waitForTimeout(800);
+  const sel = await dp.evaluate(() => document.querySelector('#winSel').value);
+  const rows = await dp.evaluate(() => [...document.querySelectorAll('#traces li:not(.none)')].map(x => x.textContent.slice(0, 10)));
+  const bad = rows.filter(r => !/^(03-|04-)/.test(r));
+  const detail = await dp.evaluate(() => document.querySelectorAll('#traceDetail .tstep').length);
+  console.log(`deep-link: winSel=${sel} rows=${rows.length} out-of-window=${bad.length} steps=${detail}`);
+  if (sel !== '2026' || bad.length || detail < 3) console.log('DEEP-LINK CHECK FAILED');
+  await dp.close();
   await browser.close();
 })();

@@ -79,10 +79,12 @@ async function scrollToH2(page, text) {
 (async () => {
   fs.mkdirSync(CLIPS, { recursive: true });
   fs.mkdirSync(TMP, { recursive: true });
+  const ONLY = process.env.ONLY || '';
+  const want = (n) => !ONLY || n.includes(ONLY);
   const browser = await chromium.launch();
 
   // shot01: hancock "all"  -  slow chart pan, then slow page scroll (~26 s)
-  await clip(browser, 'shot01_hancock_all', async (page) => {
+  if (want('shot01')) await clip(browser, 'shot01_hancock_all', async (page) => {
     await page.goto(BASE + '/?site=hancock&window=all', { waitUntil: 'networkidle' });
     // playwright video records at ~0.45x wall time; schedule ~60 s of action
     await sleep(2000);
@@ -98,7 +100,7 @@ async function scrollToH2(page, text) {
   });
 
   // shot02: window switch to September (~11 s)
-  await clip(browser, 'shot02_window_switch', async (page) => {
+  if (want('shot02')) await clip(browser, 'shot02_window_switch', async (page) => {
     await page.goto(BASE + '/?site=hancock&window=all', { waitUntil: 'networkidle' });
     await sleep(1500);
     await page.selectOption('#winSel', '2026-09-01_2026-09-16');
@@ -110,12 +112,13 @@ async function scrollToH2(page, text) {
   });
 
   // shot03: the exhibit trace, deep-linked, steps highlighted ~3 s apart (~26 s)
-  await clip(browser, 'shot03_trace_detail', async (page) => {
+  if (want('shot03')) await clip(browser, 'shot03_trace_detail', async (page) => {
+    // io windows are year aggregates; the exhibit episode lives in "2026"
     await page.goto(
-      BASE + '/?site=in_overland&window=2026-04-04_2026-04-05&trace=in_overland-20260404T2045Z',
+      BASE + '/?site=in_overland&window=2026&trace=in_overland-20260404T2045Z',
       { waitUntil: 'networkidle' });
     await sleep(2500);
-    await scrollToEl(page, '#traces', 'start');
+    await scrollToH2(page, 'Agent traces');
     await sleep(2500);
     const n = await page.evaluate(() =>
       document.querySelectorAll('#traceDetail .tstep').length);
@@ -140,7 +143,7 @@ async function scrollToH2(page, text) {
   });
 
   // shot04: flags panel, open the toggle (~13 s)
-  await clip(browser, 'shot04_flags_toggle', async (page) => {
+  if (want('shot04')) await clip(browser, 'shot04_flags_toggle', async (page) => {
     await page.goto(BASE + '/?site=hancock&window=all', { waitUntil: 'networkidle' });
     await sleep(2000);
     await scrollToEl(page, '#flags', 'center');
@@ -153,7 +156,7 @@ async function scrollToH2(page, text) {
   });
 
   // shot05: fault table, slow hold with a highlight walking the rows (~24 s)
-  await clip(browser, 'shot05_fault_table', async (page) => {
+  if (want('shot05')) await clip(browser, 'shot05_fault_table', async (page) => {
     await page.goto(BASE + '/?site=hancock&window=all', { waitUntil: 'networkidle' });
     await sleep(1500);
     await scrollToH2(page, 'Fault test');
@@ -174,7 +177,7 @@ async function scrollToH2(page, text) {
   });
 
   // shot06: failure gallery, slow pan over the cards (~13 s)
-  await clip(browser, 'shot06_gallery', async (page) => {
+  if (want('shot06')) await clip(browser, 'shot06_gallery', async (page) => {
     await page.goto(BASE + '/?site=in_overland&window=all', { waitUntil: 'networkidle' });
     await sleep(2000);
     await scrollToH2(page, 'Where it fails');
@@ -186,7 +189,7 @@ async function scrollToH2(page, text) {
   });
 
   // shot07: mobile 390px (~7 s)
-  await clip(browser, 'shot07_mobile_390', async (page) => {
+  if (want('shot07')) await clip(browser, 'shot07_mobile_390', async (page) => {
     await page.goto(BASE + '/?site=hancock&window=all', { waitUntil: 'networkidle' });
     await sleep(2500);
     await smoothScroll(page, 900, 5000);

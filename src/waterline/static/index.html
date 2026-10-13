@@ -184,7 +184,7 @@ footer{margin-top:26px;font:400 11px "IBM Plex Mono",monospace;color:var(--ink2)
 const $=s=>document.querySelector(s);
 function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;
   if(text!=null)n.textContent=text;return n;}
-let SITE=null,WIN='all',ROWS=[],TRACES=[],FLAGS=[],TRACE_SEL='';
+let SITE=null,WIN='all',WIN_REQ='all',ROWS=[],TRACES=[],FLAGS=[],TRACE_SEL='';
 const SEG_MIN=210,SEG_GAP=26,GAP_6H=216e5;
 function railLabels(){
   const t=document.getElementById('ticks');
@@ -204,6 +204,7 @@ async function loadSites(){
   const qp=new URLSearchParams(location.search);
   const q=qp.get('site');
   TRACE_SEL=qp.get('trace')||'';
+  WIN_REQ=qp.get('window')||'all';
   SITE=list.includes(q)?q:list[0];
   if(q!==SITE)history.replaceState(null,'','?site='+encodeURIComponent(SITE));
   const box=$('#sites');box.innerHTML='';
@@ -212,7 +213,7 @@ async function loadSites(){
     b.onclick=()=>{if(s===SITE)return;SITE=s;
       history.replaceState(null,'','?site='+encodeURIComponent(s));
       box.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
-      loadWindows();};
+      WIN_REQ='all';loadWindows();};
     box.appendChild(b);
   }
   $('#winSel').onchange=e=>{WIN=e.target.value;loadAll();};
@@ -222,12 +223,13 @@ async function loadSites(){
 }
 async function loadWindows(){
   const list=await j('/api/final_windows?site='+SITE);
-  WIN='all';
+  WIN=list.includes(WIN_REQ)?WIN_REQ:'all';
   const sel=$('#winSel');sel.innerHTML='';
   for(const k of list){
     const o=el('option','',k==='all'?'all windows':k.replace('_',' to '));
     o.value=k;sel.appendChild(o);
   }
+  sel.value=WIN;
   loadAll();
 }
 function drawChart(rows){
@@ -472,10 +474,13 @@ function showTrace(t,li){
   document.querySelectorAll('#traces li.sel').forEach(x=>x.classList.remove('sel'));
   if(li)li.classList.add('sel');
   const d=$('#traceDetail');d.innerHTML='';
-  t.steps.forEach(s=>{
+  t.steps.forEach((s,i)=>{
+    const prev=i>0?t.steps[i-1].result_summary:null;
+    const saw=prev?fmtSummary(prev):String(s.decision).split(';')[0];
+    const got=s.result_summary?fmtSummary(s.result_summary):'no result';
     const row=el('div','tstep');
     row.textContent='step '+s.step+'  '+String(s.tool).padEnd(14)+' '+s.decision
-      +(s.result_summary?'\n    saw: '+fmtSummary(s.result_summary):'')
+      +'\n    saw: '+saw+'  ->  got: '+got
       +(s.args&&Object.keys(s.args).length?'\n    args: '+JSON.stringify(s.args):'');
     d.appendChild(row);
   });
