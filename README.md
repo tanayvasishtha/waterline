@@ -61,7 +61,7 @@ Honest limitations, all visible in the committed files:
 
 - in_overland fault recall is weak where the fault needs camera reads: drift 13%, stuck 20%. The site is near-dry most of the time, so few windows carry enough accepted reads for the detector to work on.
 - Hancock has 8 drift flags on the clean record, all with negative residuals (camera reads 0.33 to 0.86 ft low). That is a camera-side calibration bias, a false alarm, or both; the flags are listed in `results/final_flags_hancock.json`.
-- The agent ties the baseline at in_overland (0.032 vs 0.032 ft MAE). Its value at hancock is larger (0.290 vs 0.307) and mostly comes from substitutions and abstentions, not from beating the single-pass read.
+- The agent ties the baseline at in_overland (0.032 vs 0.032 ft MAE). At hancock the agent gains 0.017 ft MAE (0.290 vs 0.307), a small margin.
 - 29 of 295 Hancock frames were sent to a person; they are the hard cases, not hidden ones.
 - in_overland's affine calibration was fit on the same wet stretch that appears in its test windows (no disjoint wet period exists; see `eval/PROTOCOL.md` Amendment 2). Its accuracy numbers are partially in-sample; hancock's split is fully disjoint and is the headline claim.
 - Registration decays with frame age at in_overland: pooled coverage by year is 10.7% (2023), 9.4% (2024), 22.1% (2025), 42.6% (2026), consistent with references being newer than the old frames (`results/final_summary_in_overland.json`, year blocks).
@@ -70,7 +70,7 @@ Honest limitations, all visible in the committed files:
 
 ![architecture](docs/architecture.svg)
 
-NIMS S3 imagery and NWIS gage telemetry feed an EventBridge schedule, which invokes a Lambda container running the OpenCV 5 pipeline and the agent. Readings, traces and flags go to DynamoDB; Bedrock drafts the flag text for the review queue; the dashboard serves it all. Bedrock is an optional chooser for the agent: when it is absent the deterministic policy runs, and the final evaluation used the deterministic policy only (every committed trace says `policy: deterministic`). The deployed AWS run is pending; the committed evaluation ran locally against the public USGS APIs.
+NIMS S3 imagery and NWIS gage telemetry feed an EventBridge schedule, which invokes a Lambda container running the OpenCV 5 pipeline and the agent. Readings, traces and flags go to DynamoDB, and the dashboard serves them. Bedrock is an optional chooser for the agent: when it is absent the deterministic policy runs, and the final evaluation used the deterministic policy only (every committed trace says `policy: deterministic`). The deployed AWS run is pending; the committed evaluation ran locally against the public USGS APIs.
 
 ## Reproduce
 
