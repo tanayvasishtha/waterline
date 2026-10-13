@@ -13,11 +13,11 @@ const ROOT = path.join(__dirname, '..');
 
 // [source, clip name, seconds]
 const STILLS = [
-  ['docs/agent_loop.svg', 'still_agent_loop', 8],
-  ['docs/architecture.svg', 'still_architecture', 8],
-  ['results/exhibit_before.jpg', 'still_exhibit_before', 6],
-  ['results/exhibit_after.jpg', 'still_exhibit_after', 6],
-  ['results/gallery/registration_failed_1.jpg', 'still_gal_registration', 6],
+  ['docs/agent_loop.svg', 'still_agent_loop', 26],
+  ['docs/architecture.svg', 'still_architecture', 18],
+  ['results/exhibit_before.jpg', 'still_exhibit_before', 16],
+  ['results/exhibit_after.jpg', 'still_exhibit_after', 12],
+  ['results/gallery/registration_failed_1.jpg', 'still_gal_registration', 9],
   ['results/gallery/night_abstain_1.jpg', 'still_gal_night', 6],
   ['results/gallery/substitution_1.jpg', 'still_gal_substitution', 6],
   ['results/gallery/largest_agent_error_1.jpg', 'still_gal_largest_error', 6],

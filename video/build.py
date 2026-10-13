@@ -89,11 +89,12 @@ def _segment(idx: int, seg: dict, work: Path) -> Path:
     clip_dur = _dur(clip)
     wav = _tts(vo_text, WAV / f"seg{idx:02d}.wav") if vo_text else None
     vo_dur = _dur(wav) if wav else 0.0
-    # EDL duration caps the clip; voiceover may extend past it
-    cap = float(seg["duration"]) if seg.get("duration") else clip_dur
-    dur = max(min(clip_dur, cap), vo_dur + VO_PAD)
+    # segment lasts the requested duration or long enough for the voiceover;
+    # footage plays through that whole span, holding the last frame only if
+    # the clip is shorter than the segment
+    dur = max(float(seg.get("duration") or 0), vo_dur + VO_PAD)
 
-    vclip = min(clip_dur, cap)
+    vclip = min(clip_dur, dur)
     hold = dur - vclip  # voiceover overrun: clone the last frame, never loop
     vchain = f"[0:v]trim=0:{vclip:.3f},setpts=PTS-STARTPTS"
     if hold > 0.05:
