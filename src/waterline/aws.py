@@ -5,6 +5,7 @@ waterline.poller with AWS-backed stores, keeping one code path for reads.
 """
 
 import json
+import os
 from typing import TypeVar
 
 import boto3
@@ -52,9 +53,18 @@ def put_evidence(bucket: str, key: str, body: bytes, region: str = "us-east-1") 
 
 
 def handler(event: dict[str, object], context: object) -> dict[str, object]:
-    """EventBridge entry: poll every site in the event's site list (or all)."""
-    settings = Settings()
+    """EventBridge entry: poll every site in the event's site list (or all).
+
+    Env: WATERLINE_DATA_DIR must be under /tmp (the only writable path),
+    WATERLINE_DDB_TABLE names the item table, WATERLINE_BEDROCK_MODEL_ID is
+    optional (empty keeps the deterministic policy), and
+    WATERLINE_USGS_API_KEY is optional (anonymous USGS access is fine).
+    """
+    settings = Settings.from_env()
     raw_sites = event.get("sites")
     site_ids = list(raw_sites) if isinstance(raw_sites, list) else ["hancock", "in_overland"]
-    results = [vars(poll_site(s, settings.data_dir)) for s in site_ids]
+    table = os.environ.get("WATERLINE_DDB_TABLE", "waterline")
+    region = os.environ.get("AWS_REGION", "us-east-1")
+    store = DynamoStore(table, region)
+    results = [vars(poll_site(s, settings.data_dir, persist=store.append)) for s in site_ids]
     return {"polled": len(results), "results": results}

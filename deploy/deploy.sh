@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Waterline AWS deploy. Runs in AWS CloudShell (docker + aws cli preinstalled).
-# Usage: bash deploy/deploy.sh
+# Usage: bash deploy/deploy.sh [bedrock-model-id] [usgs-api-key]
+#   arg 1: Bedrock model id for the optional LLM chooser; empty = deterministic
+#   arg 2: USGS api.data.gov key; empty = anonymous access (fine)
+# Idempotent: rerunning updates code and config on the existing resources.
 set -euo pipefail
 
 REGION="${AWS_REGION:-us-east-1}"
@@ -8,6 +11,11 @@ ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
 ECR="$ACCOUNT.dkr.ecr.$REGION.amazonaws.com/waterline"
 TABLE=waterline
 BUCKET="waterline-evidence-$ACCOUNT"
+FUNC=waterline-poller
+BEDROCK_MODEL="${1:-}"
+USGS_KEY="${2:-}"
+
+ENV_VARS="Variables={WATERLINE_MODE=live,WATERLINE_DATA_DIR=/tmp/waterline,WATERLINE_DDB_TABLE=$TABLE,WATERLINE_EVIDENCE_BUCKET=$BUCKET,WATERLINE_BEDROCK_MODEL_ID=$BEDROCK_MODEL,WATERLINE_USGS_API_KEY=$USGS_KEY}"
 
 echo "== ECR repo =="
 aws ecr describe-repositories --repository-names waterline --region "$REGION" 2>/dev/null \
@@ -25,11 +33,12 @@ aws dynamodb describe-table --table-name "$TABLE" --region "$REGION" 2>/dev/null
        --attribute-definitions AttributeName=pk,AttributeType=S AttributeName=sk,AttributeType=S \
        --key-schema AttributeName=pk,KeyType=HASH AttributeName=sk,KeyType=RANGE \
        --billing-mode PAY_PER_REQUEST >/dev/null
+aws dynamodb wait table-exists --table-name "$TABLE" --region "$REGION"
 
 echo "== Evidence bucket =="
 aws s3api create-bucket --bucket "$BUCKET" --region "$REGION" 2>/dev/null || true
 
-echo "== Lambda function =="
+echo "== Lambda role =="
 ROLE=waterline-lambda-role
 aws iam get-role --role-name "$ROLE" >/dev/null 2>&1 || {
   aws iam create-role --role-name "$ROLE" --assume-role-policy-document '{
@@ -45,19 +54,43 @@ aws iam get-role --role-name "$ROLE" >/dev/null 2>&1 || {
   sleep 10
 }
 ROLE_ARN=$(aws iam get-role --role-name "$ROLE" --query Role.Arn --output text)
-aws lambda get-function --function-name waterline-poller --region "$REGION" >/dev/null 2>&1 \
-  && aws lambda update-function-code --function-name waterline-poller --image-uri "$ECR:latest" --region "$REGION" >/dev/null \
-  || aws lambda create-function --function-name waterline-poller --region "$REGION" \
-       --package-type Image --code ImageUri="$ECR:latest" --role "$ROLE_ARN" \
-       --timeout 300 --memory-size 1024 >/dev/null
+
+echo "== Lambda function (3008 MB for SIFT, /tmp scratch) =="
+if aws lambda get-function --function-name "$FUNC" --region "$REGION" >/dev/null 2>&1; then
+  aws lambda update-function-code --function-name "$FUNC" --image-uri "$ECR:latest" --region "$REGION" >/dev/null
+  aws lambda wait function-updated-v2 --function-name "$FUNC" --region "$REGION"
+  aws lambda update-function-configuration --function-name "$FUNC" --region "$REGION" \
+    --timeout 300 --memory-size 3008 --ephemeral-storage Size=1024 \
+    --environment "$ENV_VARS" >/dev/null
+  aws lambda wait function-updated-v2 --function-name "$FUNC" --region "$REGION"
+else
+  aws lambda create-function --function-name "$FUNC" --region "$REGION" \
+    --package-type Image --code ImageUri="$ECR:latest" --role "$ROLE_ARN" \
+    --timeout 300 --memory-size 3008 --ephemeral-storage Size=1024 \
+    --environment "$ENV_VARS" >/dev/null
+  aws lambda wait function-active-v2 --function-name "$FUNC" --region "$REGION"
+fi
 
 echo "== EventBridge schedule (every 15 min) =="
 RULE=waterline-poll
 aws events put-rule --name "$RULE" --schedule-expression "rate(15 minutes)" --region "$REGION" >/dev/null
 aws events put-targets --rule "$RULE" --region "$REGION" --targets \
-  "Id"="1","Arn"="arn:aws:lambda:$REGION:$ACCOUNT:function:waterline-poller","Input"="{\"sites\":[\"hancock\",\"in_overland\"]}" >/dev/null
-aws lambda add-permission --function-name waterline-poller --region "$REGION" \
+  "Id"="1","Arn"="arn:aws:lambda:$REGION:$ACCOUNT:function:$FUNC","Input"="{\"sites\":[\"hancock\",\"in_overland\"]}" >/dev/null
+aws lambda add-permission --function-name "$FUNC" --region "$REGION" \
   --statement-id waterline-schedule --action lambda:InvokeFunction \
   --principal events.amazonaws.com --source-arn "arn:aws:events:$REGION:$ACCOUNT:rule/$RULE" 2>/dev/null || true
 
-echo "Done. Test with: aws lambda invoke --function-name waterline-poller out.json --region $REGION"
+echo "== Test invoke =="
+aws lambda invoke --function-name "$FUNC" --region "$REGION" \
+  --cli-binary-format raw-in-base64-out \
+  --payload '{"sites":["hancock"]}' /tmp/waterline-invoke.json >/dev/null
+cat /tmp/waterline-invoke.json
+echo
+
+echo "== DynamoDB item count =="
+aws dynamodb scan --table-name "$TABLE" --select COUNT --region "$REGION" \
+  --query 'Count' --output text
+
+echo "== Log tail =="
+aws logs tail "/aws/lambda/$FUNC" --since 10m --region "$REGION" || true
+echo "Done. The schedule polls every 15 minutes; the dashboard reads $TABLE."

@@ -5,16 +5,20 @@ Everything the local replay does, plus a gage call and a store write. The same
 code runs on a laptop cron, a Lambda schedule, or in replay over a fixture dir.
 """
 
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from pathlib import Path
 
 import numpy as np
+from pydantic import BaseModel
 
 from waterline import sites
 from waterline.agent.flag import FlagEngine
 from waterline.agent.history import CameraHistory
-from waterline.agent.loop import run_frame
+from waterline.agent.llm import BedrockChooser
+from waterline.agent.loop import Chooser, run_frame
+from waterline.agent.policy import decide
 from waterline.agent.tools import FrameNavigator
 from waterline.eval import make_perception
 from waterline.models import FrameRef, SiteConfig
@@ -59,9 +63,14 @@ def poll_site(
     out: Path,
     last_file: str | None = None,
     engine: FlagEngine | None = None,
+    persist: Callable[[BaseModel, str], None] | None = None,
 ) -> PollResult:
-    """One poll tick for one site. Persists reading + trace; emits a Flag if due."""
-    settings = Settings()
+    """One poll tick for one site. Persists reading + trace; emits a Flag if due.
+
+    persist(item, kind) additionally hands each artifact to a caller-chosen
+    store (DynamoDB in Lambda). Env config comes from WATERLINE_* vars.
+    """
+    settings = Settings.from_env()
     site = sites.load_site(site_id)
     ctx: Perception = make_perception(site, settings)
     engine = engine or FlagEngine(site_id)
@@ -78,13 +87,20 @@ def poll_site(
     gage_ft = _gage_at(site, ref.time)
     nav = FrameNavigator(camera, settings.data_dir / "cache")
     history = _HISTORIES.setdefault(site_id, CameraHistory())
-    reading, trace = run_frame(ctx, np.asarray(image), ref, nav, history=history)
+    # empty model id keeps the deterministic policy (llm.py falls back)
+    chooser: Chooser = BedrockChooser(settings) if settings.bedrock_model_id else decide
+    reading, trace = run_frame(ctx, np.asarray(image), ref, nav, chooser=chooser, history=history)
     history.update(reading)
     flag = engine.feed(reading, gage_ft, trace, settings, out / "events")
 
     readings = JsonlStore(out / "readings.jsonl")
     readings.append(reading)
     write_json(out / "traces" / f"{trace.trace_id}.json", trace)
+    if persist is not None:
+        persist(reading, "reading")
+        persist(trace, "trace")
+        if flag is not None:
+            persist(flag, "flag")
 
     return PollResult(
         site_id=site_id,

@@ -12,6 +12,17 @@ from pydantic import BaseModel, ConfigDict, Field
 
 ENV_PREFIX = "WATERLINE_"
 
+# WATERLINE_* vars consumed outside Settings (web clients, the Lambda wiring).
+# They bypass validation so from_env can still reject real typos.
+OPERATIONAL_ENV = frozenset(
+    {
+        "WATERLINE_USGS_API_KEY",
+        "WATERLINE_DDB_TABLE",
+        "WATERLINE_EVIDENCE_BUCKET",
+        "WATERLINE_SITES_DIR",
+    }
+)
+
 
 class Settings(BaseModel):
     model_config = ConfigDict(frozen=True, extra="forbid")
@@ -77,6 +88,6 @@ class Settings(BaseModel):
         overrides = {
             key[len(ENV_PREFIX) :].lower(): value
             for key, value in env.items()
-            if key.startswith(ENV_PREFIX)
+            if key.startswith(ENV_PREFIX) and key not in OPERATIONAL_ENV
         }
         return cls.model_validate(overrides)
